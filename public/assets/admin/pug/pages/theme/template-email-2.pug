@@ -7,10 +7,10 @@ html(lang='en')
     meta(name='description', content='viho admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.')
     meta(name='keywords', content='admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app')
     meta(name='author', content='pixelstrap')
-    link(rel='icon', href='../assets/images/favicon.png', type='image/x-icon')
-    link(rel='shortcut icon', href='../assets/images/favicon.png', type='image/x-icon')
+    link(rel='icon', href='../{{ asset('assets/user/images/favicon.png') }}', type='image/x-icon')
+    link(rel='shortcut icon', href='../{{ asset('assets/user/images/favicon.png') }}', type='image/x-icon')
     title viho - Premium Admin Template
-    link(rel='stylesheet', type='text/css', href='../assets/css/fontawesome.css')
+    link(rel='stylesheet', type='text/css', href='../{{ asset('assets/user/css/fontawesome.css') }}')
     link(href='https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900', rel='stylesheet')
     link(href='https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i', rel='stylesheet')
     link(href='https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i', rel='stylesheet')
@@ -125,7 +125,7 @@ html(lang='en')
               tbody
                 tr.header
                   td(align='left', valign='top')
-                    img.main-logo(src='../assets/images/logo/logo.png')
+                    img.main-logo(src='../{{ asset('assets/user/images/logo/logo.png') }}')
                   td.menu(align='right')
                     ul
                       li
@@ -140,7 +140,7 @@ html(lang='en')
               tbody
                 tr
                   th(align='center', width='40%')
-                    img(src='../assets/images/email-template/slider.jpg', alt='', style='margin-bottom: -5px;')
+                    img(src='../{{ asset('assets/user/images/email-template/slider.jpg') }}', alt='', style='margin-bottom: -5px;')
                   th(width='60%', style='background-color: #11bfff;padding: 30px;')
                     table(align='center', border='0', cellpadding='0', cellspacing='0', width='100%')
                       tbody
@@ -170,7 +170,7 @@ html(lang='en')
                   td
                     .product-box.hover
                       .product.border-theme.br-0
-                        img(src='../assets/images/email-template/7.jpg', alt='product', style='width: 100%;')
+                        img(src='../{{ asset('assets/user/images/email-template/7.jpg') }}', alt='product', style='width: 100%;')
                       .product-info
                         a(href='javascript:void(0)', tabindex='0')
                           h6 When an unknown.
@@ -178,7 +178,7 @@ html(lang='en')
                   td
                     .product-box.hover
                       .product.border-theme.br-0
-                        img(src='../assets/images/email-template/8.jpg', alt='product', style='width: 100%;')
+                        img(src='../{{ asset('assets/user/images/email-template/8.jpg') }}', alt='product', style='width: 100%;')
                       .product-info
                         .rating
                           i.fa.fa-star
@@ -194,12 +194,12 @@ html(lang='en')
                 tr.add-with-banner(align='center')
                   td
                     a(href='javascript:void(0)')
-                      img(src='../assets/images/email-template/banner.jpg', alt='product', style='width: 100%;')
+                      img(src='../{{ asset('assets/user/images/email-template/banner.jpg') }}', alt='product', style='width: 100%;')
             table(border='0', cellpadding='0', cellspacing='0', align='center', style='margin-top:30px;')
               tbody
                 tr
                   td
-                    img(src='../assets/images/email-template/banner-2.jpg', alt='', style='width: 100%;')
+                    img(src='../{{ asset('assets/user/images/email-template/banner-2.jpg') }}', alt='', style='width: 100%;')
             table(align='center', border='0', cellpadding='0', cellspacing='0', width='100%', style='margin-top: 30px;')
               tbody
                 tr
@@ -208,7 +208,7 @@ html(lang='en')
                       tbody
                         tr
                           td(align='center', style='width: 40%;')
-                            img(src='../assets/images/email-template/10.jpg', alt='', style='width: 225px;margin-bottom: -4px;')
+                            img(src='../{{ asset('assets/user/images/email-template/10.jpg') }}', alt='', style='width: 225px;margin-bottom: -4px;')
                           td(align='center', style='background-color: #fafafa;width: 60%;')
                             h3(style='margin: 0;') Product One
                             div(style='color:#E01931; font-weight:600; font-size:16px; line-height:27px; letter-spacing:1px;margin: 4px;')
@@ -231,12 +231,12 @@ html(lang='en')
                             div(style='padding: 15px 0px;text-transform: uppercase;font-size: 11px;letter-spacing: 1px;')
                               a(href='javascript:void(0)', style='color: #ffffff;text-decoration: none;background: #000;padding: 8px 12px;') SHOP NOW
                           td(align='center', style='width: 40%;')
-                            img(src='../assets/images/email-template/11.jpg', alt='', style='width: 225px;margin-bottom: -4px;')
+                            img(src='../{{ asset('assets/user/images/email-template/11.jpg') }}', alt='', style='width: 225px;margin-bottom: -4px;')
                     table.display-width-inner(align='center', border='0', cellpadding='0', cellspacing='0', width='100%', style='max-width:450px;')
                       tbody
                         tr
                           td(align='center', style='width: 40%;')
-                            img(src='../assets/images/email-template/12.jpg', alt='', style='width: 225px;margin-bottom: -4px;')
+                            img(src='../{{ asset('assets/user/images/email-template/12.jpg') }}', alt='', style='width: 225px;margin-bottom: -4px;')
                           td(align='center', style='background-color: #fafafa;width: 60%;')
                             h3(style='margin: 0;') Product One
                             div(style='color:#E01931; font-weight:600; font-size:16px; line-height:27px; letter-spacing:1px;margin: 4px;')

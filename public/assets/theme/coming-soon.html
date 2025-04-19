@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Wolmart eCommmerce Marketplace HTML Template</title>
+
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Wolmart eCommmerce Marketplace HTML Template">
+    <meta name="author" content="D-THEMES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/user/images/icons/favicon.png') }}">
+
+    <!-- WebFont.js') }} -->
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700,800'] }
+        };
+        ( function ( d ) {
+            var wf = d.createElement( 'script' ), s = d.scripts[0];
+            wf.src = '{{ asset('assets/user/js/webfont.js') }}';
+            wf.async = true;
+            s.parentNode.insertBefore( wf, s );
+        } )( document );
+    </script>
+
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
+            crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/fonts/wolmart.ttf?png09e" as="font" type="font/ttf" crossorigin="anonymous">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/fontawesome-free/css/all.min.css') }}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.min.css') }}">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <main class="main">
+            <div class="page-content">
+                <div class="banner coming-soon-bg"
+                    style="background-image: url({{ asset('assets/user/images/pages/coming/coming-soon.jpg') }}); background-color: #333;">
+                    <div class="coming-content-wrapper d-flex align-items-center justify-content-end pl-sm-4 pr-sm-4">
+                        <div class="coming-content">
+                            <a href="demo1.html" class="logo">
+                                <img src="{{ asset('assets/user/images/pages/coming/logo.png') }}" alt="Logo" width="168" height="53">
+                            </a>
+                            <h2 class="coming-title ls-25">Coming <span>Soon...</span></h2>
+                            <p>We are currently working on an awesome new site. Stay tuned for more information.
+                                Subscribe to our newsletter to stay updated on our progress.</p>
+                            <div class="countdown countdown-coming" data-until="+10d" data-format="DHMS"
+                                data-relative="true">10:00:00</div>
+
+                            <div class="social-icons social-icons-colored">
+                                <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
+                                <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
+                                <a href="#" class="social-icon social-instagram w-icon-instagram"></a>
+                                <a href="#" class="social-icon social-youtube w-icon-youtube"></a>
+                                <a href="#" class="social-icon social-pinterest w-icon-pinterest"></a>
+                            </div>
+                            <p class="copyright mb-0">Copyright © 2021 Wolmart Store. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Plugin JS File -->
+    <script src="{{ asset('assets/user/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/jquery.plugin/jquery.plugin.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/jquery.countdown/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('assets/user/js/main.min.js') }}"></script>
+</body>
+
+</html>

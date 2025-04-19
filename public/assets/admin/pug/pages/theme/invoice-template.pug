@@ -44,7 +44,7 @@ html(lang='en')
                                         .media
                                           .media-left
                                             a(href="index.html")
-                                              img.media-object.img-60(src='../assets/images/logo/logo-1.png', alt='')
+                                              img.media-object.img-60(src='../{{ asset('assets/user/images/logo/logo-1.png') }}', alt='')
                                           .media-body.m-l-20
                                             h4.media-heading.f-w-600 Viho
                                             p
@@ -69,7 +69,7 @@ html(lang='en')
                                     .col-xl-4
                                       .media
                                         .media-left
-                                          img.media-object.rounded-circle.img-60(src='../assets/images/user/1.jpg', alt='')
+                                          img.media-object.rounded-circle.img-60(src='../{{ asset('assets/user/images/user/1.jpg') }}', alt='')
                                         .media-body.m-l-20
                                           h4.media-heading.f-w-600 Johan Deo
                                           p
@@ -160,7 +160,7 @@ html(lang='en')
                                             |   Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices.
                                       .col-md-4
                                         form.text-end.invo-pal
-                                          input(type='image', src='../assets/images/other-images/paypal.png', name='submit', alt='PayPal - The safer, easier way to pay online!')
+                                          input(type='image', src='../{{ asset('assets/user/images/other-images/paypal.png') }}', name='submit', alt='PayPal - The safer, easier way to pay online!')
                                   // End InvoiceBot
                                 .col-sm-12.text-center.mt-3
                                   button.btn.btn.btn-primary.me-2(type='button', onclick='myFunction()') Print

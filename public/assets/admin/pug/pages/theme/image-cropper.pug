@@ -40,7 +40,7 @@ html(lang='en')
                                 .row
                                   .col-xl-9.col-md-12
                                     .img-container
-                                      img#image(src='../assets/images/other-images/img-cropper.jpg', alt='Picture')
+                                      img#image(src='../{{ asset('assets/user/images/other-images/img-cropper.jpg') }}', alt='Picture')
                                   .col-xl-3.col-md-12
                                     // <h3>Preview:</h3>
                                     .docs-preview.clearfix
@@ -140,7 +140,7 @@ html(lang='en')
                                         span.docs-tooltip(data-bs-toggle='tooltip', data-animation='false', title='$().cropper("reset")')
                                           span.fa.fa-refresh
                                       label.btn.btn-outline-primary.btn-upload(for='inputImage', title='Upload image file')
-                                        input#inputImage.sr-only(type='file', name='file', accept='.jpg,.jpeg,.png,.gif,.bmp,.tiff')
+                                        input#inputImage.sr-only(type='file', name='file', accept='.jpg') }},.jpeg,.png') }},.gif,.bmp,.tiff')
                                         span.docs-tooltip(data-bs-toggle='tooltip', data-animation='false', title='Import image with Blob URLs')
                                           span.fa.fa-upload
                                       button.btn.btn-outline-primary(type='button', data-method='destroy', title='Destroy')
@@ -168,7 +168,7 @@ html(lang='en')
                                           .modal-body
                                           .modal-footer
                                             button.btn.btn-primary(type='button', data-dismiss='modal') Close
-                                            a#download.btn.btn-outline-primary(href='javascript:void(0);', download='cropped.jpg') Download
+                                            a#download.btn.btn-outline-primary(href='javascript:void(0);', download='cropped.jpg') }}') Download
                                     // /.modal
                                     button.btn.btn-primary(type='button', data-method='getData', data-option='', data-bs-target='#putData')
                                       span.docs-tooltip(data-bs-toggle='tooltip', data-animation='false', title='$().cropper("getData")')
@@ -338,28 +338,28 @@ html(lang='en')
                                     h5 Disabled Zoom
                                   .card-body
                                     .img-container
-                                      img.crop-zoomable.img-fluid(src='../assets/images/other-images/img-cropper.jpg', alt='')
+                                      img.crop-zoomable.img-fluid(src='../{{ asset('assets/user/images/other-images/img-cropper.jpg') }}', alt='')
                               .col-md-6
                                 .card
                                   .card-header.pb-0
                                     h5 Autocrop Disable
                                   .card-body
                                     .img-container
-                                      img.crop-auto.img-fluid(src='../assets/images/other-images/img-cropper.jpg', alt='')
+                                      img.crop-auto.img-fluid(src='../{{ asset('assets/user/images/other-images/img-cropper.jpg') }}', alt='')
                               .col-md-6
                                 .card
                                   .card-header.pb-0
                                     h5 Disabled Image Drag
                                   .card-body
                                     .img-container
-                                      img.crop-drag.img-fluid(src='../assets/images/other-images/img-cropper.jpg', alt='')
+                                      img.crop-drag.img-fluid(src='../{{ asset('assets/user/images/other-images/img-cropper.jpg') }}', alt='')
                               .col-md-6
                                 .card
                                   .card-header.pb-0
                                     h5 Minimum Zone Size
                                   .card-body
                                     .img-container
-                                      img.crop-min.img-fluid(src='../assets/images/other-images/img-cropper.jpg', alt='')
+                                      img.crop-min.img-fluid(src='../{{ asset('assets/user/images/other-images/img-cropper.jpg') }}', alt='')
                     // Container-fluid Ends
                 include ../../components/footer
         include ../../components/footer-files

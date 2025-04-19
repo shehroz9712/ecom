@@ -41,13 +41,13 @@ html(lang='en')
                                       .card
                                         .animate-widget
                                           div
-                                            img.img-fluid(src='../assets/images/banner/3.jpg', alt='')
+                                            img.img-fluid(src='../{{ asset('assets/user/images/banner/3.jpg') }}', alt='')
                                           .text-center.p-25
                                             p.text-muted.mb-0
                                               | Denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings
                                     form.theme-form.text-center
                                       .form-group
-                                        select.form-control.input.input--dropdown.js-animations
+                                        select.form-control.input.input--dropdown.js') }}-animations
                                           optgroup(label='Attention Seekers')
                                             option(value='bounce') bounce
                                             option(value='flash') flash
@@ -138,7 +138,7 @@ html(lang='en')
                                             option(value='jackInTheBox') jackInTheBox
                                             option(value='rollIn') rollIn
                                             option(value='rollOut') rollOut
-                                      button.js-triggeraNimation.btn.btn-primary Animate it
+                                      button.js') }}-triggeraNimation.btn.btn-primary Animate it
                           .col-sm-12
                             .card
                               .card-header.pb-0

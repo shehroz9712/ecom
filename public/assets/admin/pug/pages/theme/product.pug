@@ -158,7 +158,7 @@ html(lang='en')
                                                   .product-box
                                                     .media
                                                       .product-img.me-3
-                                                        img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='', data-original-title='', title='')
+                                                        img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='', data-original-title='', title='')
                                                       .media-body
                                                         .product-details
                                                           div                                                   
@@ -178,7 +178,7 @@ html(lang='en')
                                                   .product-box
                                                     .media
                                                       .product-img.me-3
-                                                        img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='', data-original-title='', title='')
+                                                        img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='', data-original-title='', title='')
                                                       .media-body
                                                         .product-details
                                                           div                                                   
@@ -198,7 +198,7 @@ html(lang='en')
                                                   .product-box
                                                     .media
                                                       .product-img.me-3
-                                                        img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='', data-original-title='', title='')
+                                                        img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='', data-original-title='', title='')
                                                       .media-body
                                                         .product-details
                                                           div                                                   
@@ -219,7 +219,7 @@ html(lang='en')
                                                   .product-box
                                                     .media
                                                       .product-img.me-3
-                                                        img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='', data-original-title='', title='')
+                                                        img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='', data-original-title='', title='')
                                                       .media-body
                                                         .product-details
                                                           div                                                   
@@ -239,7 +239,7 @@ html(lang='en')
                                                   .product-box
                                                     .media
                                                       .product-img.me-3
-                                                        img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='', data-original-title='', title='')
+                                                        img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='', data-original-title='', title='')
                                                       .media-body
                                                         .product-details
                                                           div                                                   
@@ -259,7 +259,7 @@ html(lang='en')
                                                   .product-box
                                                     .media
                                                       .product-img.me-3
-                                                        img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='', data-original-title='', title='')
+                                                        img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='', data-original-title='', title='')
                                                       .media-body
                                                         .product-details
                                                           div                                                   
@@ -277,7 +277,7 @@ html(lang='en')
                                                             p.mb-0.f-w-700 Fancy Shirt
                                                             .f-w-500 $100.00
                                             .product-filter.text-center
-                                              img.img-fluid.banner-product(src='../assets/images/ecommerce/banner.jpg', alt='', data-original-title='', title='')
+                                              img.img-fluid.banner-product(src='../{{ asset('assets/user/images/ecommerce/banner.jpg') }}', alt='', data-original-title='', title='')
                                   .product-search
                                     form
                                       .form-group.m-0
@@ -289,11 +289,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter16')
@@ -304,7 +304,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Man's Jacket                                       
@@ -328,7 +328,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart                                                     
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart                                                     
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -343,11 +343,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-danger Sale
-                                      img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter1')
@@ -359,7 +359,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 fido dido
@@ -383,7 +383,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -397,11 +397,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter2')
@@ -413,7 +413,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Wonder Woman
@@ -437,7 +437,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -452,11 +452,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-success.ribbon-right 50%
-                                      img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter3')
@@ -468,7 +468,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Roadster
@@ -492,7 +492,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')  
                                     .product-details
@@ -507,11 +507,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-success.ribbon-right 50%
-                                      img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter4')
@@ -523,7 +523,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Roadster
@@ -547,7 +547,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')  
                                     .product-details
@@ -561,11 +561,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter5')
@@ -577,7 +577,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Man's Jacket                                       
@@ -601,7 +601,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -616,11 +616,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-danger Sale
-                                      img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter6')
@@ -632,7 +632,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 fido dido
@@ -656,7 +656,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -670,11 +670,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter7')
@@ -686,7 +686,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Wonder Woman
@@ -710,7 +710,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -724,11 +724,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter8')
@@ -740,7 +740,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Wonder Woman
@@ -764,7 +764,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -779,11 +779,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-success.ribbon-right 50%
-                                      img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter9')
@@ -795,7 +795,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Roadster
@@ -819,7 +819,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')  
                                     .product-details
@@ -833,11 +833,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter10')
@@ -849,7 +849,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Man's Jacket                                       
@@ -873,7 +873,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -888,11 +888,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-danger Sale
-                                      img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter11')
@@ -904,7 +904,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 fido dido
@@ -928,7 +928,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -943,11 +943,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-danger Sale
-                                      img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter12')
@@ -959,7 +959,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 fido dido
@@ -983,7 +983,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -997,11 +997,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter13')
@@ -1013,7 +1013,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Wonder Woman
@@ -1037,7 +1037,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details
@@ -1052,11 +1052,11 @@ html(lang='en')
                                   .product-box
                                     .product-img
                                       .ribbon.ribbon-success.ribbon-right 50%
-                                      img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter14')
@@ -1068,7 +1068,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Roadster
@@ -1092,7 +1092,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')  
                                     .product-details
@@ -1106,11 +1106,11 @@ html(lang='en')
                                 .card
                                   .product-box
                                     .product-img
-                                      img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                       .product-hover
                                         ul
                                           li
-                                            a(href="cart.html")
+                                            a(href="{{route('user.cart')}}")
                                               i.icon-shopping-cart
                                           li
                                             a(data-bs-toggle='modal', data-bs-target='#exampleModalCenter15')
@@ -1122,7 +1122,7 @@ html(lang='en')
                                           .modal-header
                                             .product-box.row
                                               .product-img.col-lg-6
-                                                img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                                img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                               .product-details.col-lg-6.text-start
                                                 a(href="product-page.html")
                                                   h4 Man's Jacket                                       
@@ -1146,7 +1146,7 @@ html(lang='en')
                                                     .input-group
                                                       input.touchspin.text-center(type='text', value='5')
                                                   .addcart-btn
-                                                    a.btn.btn-primary.me-3(href="cart.html") Add to Cart
+                                                    a.btn.btn-primary.me-3(href="{{route('user.cart')}}") Add to Cart
                                                     a.btn.btn-primary(href="product-page.html") View Details
                                             button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
                                     .product-details

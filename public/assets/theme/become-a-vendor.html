@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Wolmart eCommmerce Marketplace HTML Template</title>
+
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Wolmart eCommmerce Marketplace HTML Template">
+    <meta name="author" content="D-THEMES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/user/images/icons/favicon.png') }}">
+
+    <!-- WebFont.js') }} --> 
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700,800'] }
+        };
+        ( function ( d ) {
+            var wf = d.createElement( 'script' ), s = d.scripts[0];
+            wf.src = '{{ asset('assets/user/js/webfont.js') }}';
+            wf.async = true;
+            s.parentNode.insertBefore( wf, s );
+        } )( document );
+    </script>
+
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
+            crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/fonts/wolmart.ttf?png09e" as="font" type="font/ttf" crossorigin="anonymous">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/animate/animate.min.css') }}">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/owl-carousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/magnific-popup/magnific-popup.min.css') }}">
+
+    <!-- Default CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.min.css') }}">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Start of Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <p class="welcome-msg">Welcome to Wolmart Store message or remove it!</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="dropdown">
+                            <a href="#currency">USD</a>
+                            <div class="dropdown-box">
+                                <a href="#USD">USD</a>
+                                <a href="#EUR">EUR</a>
+                            </div>
+                        </div>
+                        <!-- End of DropDown Menu -->
+
+                        <div class="dropdown">
+                            <a href="#language"><img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14"
+                                    height="8" class="dropdown-image" /> ENG</a>
+                            <div class="dropdown-box">
+                                <a href="#ENG">
+                                    <img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14" height="8"
+                                        class="dropdown-image" />
+                                    ENG
+                                </a>
+                                <a href="#FRA">
+                                    <img src="{{ asset('assets/user/images/flags/fra.png') }}" alt="FRA Flag" width="14" height="8"
+                                        class="dropdown-image" />
+                                    FRA
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End of Dropdown Menu -->
+                        <span class="divider d-lg-show"></span>
+                        <a href="blog.html" class="d-lg-show">Blog</a>
+                        <a href="contact-us.html" class="d-lg-show">Contact Us</a>
+                        <a href="my-account.html" class="d-lg-show">My Account</a>
+                        <a href="{{ asset('assets/user/ajax/login.html" class="d-lg-show login sign-in"><i
+                                class="w-icon-account"></i>Sign In</a>
+                        <span class="delimiter d-lg-show">/</span>
+                        <a href="{{ asset('assets/user/ajax/login.html" class="ml-0 d-lg-show login register">Register</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Header Top -->
+
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left mr-md-4">
+                        <a href="#" class="mobile-menu-toggle  w-icon-hamburger">
+                        </a>
+                        <a href="demo1.html" class="logo ml-lg-0">
+                            <img src="{{ asset('assets/user/images/logo.png') }}" alt="logo" width="144" height="45" />
+                        </a>
+                        <form method="get" action="#" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+                            <div class="select-box">
+                                <select id="category" name="category">
+                                    <option value="">All Categories</option>
+                                    <option value="4">Fashion</option>
+                                    <option value="5">Furniture</option>
+                                    <option value="6">Shoes</option>
+                                    <option value="7">Sports</option>
+                                    <option value="8">Games</option>
+                                    <option value="9">Computers</option>
+                                    <option value="10">Electronics</option>
+                                    <option value="11">Kitchen</option>
+                                    <option value="12">Clothing</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" name="search" id="search"
+                                placeholder="Search in..." required />
+                            <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-right ml-4">
+                        <div class="header-call d-xs-show d-lg-flex align-items-center">
+                            <a href="tel:#" class="w-icon-call"></a>
+                            <div class="call-info d-lg-show">
+                                <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
+                                    <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4>
+                                <a href="tel:#" class="phone-number font-weight-bolder ls-50">0(800)123-456</a>
+                            </div>
+                        </div>
+                        <a class="wishlist label-down link d-xs-show" href="wishlist.html">
+                            <i class="w-icon-heart"></i>
+                            <span class="wishlist-label d-lg-show">Wishlist</span>
+                        </a>
+                        <a class="compare label-down link d-xs-show" href="compare.html">
+                            <i class="w-icon-compare"></i>
+                            <span class="compare-label d-lg-show">Compare</span>
+                        </a>
+                        <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
+                            <div class="cart-overlay"></div>
+                            <a href="#" class="cart-toggle label-down link">
+                                <i class="w-icon-cart">
+                                    <span class="cart-count">2</span>
+                                </i>
+                                <span class="cart-label">Cart</span>
+                            </a>
+                            <div class="dropdown-box">
+                                <div class="cart-header">
+                                    <span>Shopping Cart</span>
+                                    <a href="#" class="btn-close">Close<i class="w-icon-long-arrow-right"></i></a>
+                                </div>
+
+                                <div class="products">
+                                    <div class="product product-cart">
+                                        <div class="product-detail">
+                                            <a href="product-default.html" class="product-name">Beige knitted
+                                                elas<br>tic
+                                                runner shoes</a>
+                                            <div class="price-box">
+                                                <span class="product-quantity">1</span>
+                                                <span class="product-price">$25.68</span>
+                                            </div>
+                                        </div>
+                                        <figure class="product-media">
+                                            <a href="product-default.html">
+                                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product" height="84"
+                                                    width="94" />
+                                            </a>
+                                        </figure>
+                                        <button class="btn btn-link btn-close">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="product product-cart">
+                                        <div class="product-detail">
+                                            <a href="product-default.html" class="product-name">Blue utility
+                                                pina<br>fore
+                                                denim dress</a>
+                                            <div class="price-box">
+                                                <span class="product-quantity">1</span>
+                                                <span class="product-price">$32.99</span>
+                                            </div>
+                                        </div>
+                                        <figure class="product-media">
+                                            <a href="product-default.html">
+                                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product" width="84"
+                                                    height="94" />
+                                            </a>
+                                        </figure>
+                                        <button class="btn btn-link btn-close">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="cart-total">
+                                    <label>Subtotal:</label>
+                                    <span class="price">$58.67</span>
+                                </div>
+
+                                <div class="cart-action">
+                                    <a href="{{route('user.cart')}}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                                    <a href="checkout.html" class="btn btn-primary  btn-rounded">Checkout</a>
+                                </div>
+                            </div>
+                            <!-- End of Dropdown Box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Header Middle -->
+
+            <div class="header-bottom sticky-content fix-top sticky-header">
+                <div class="container">
+                    <div class="inner-wrap">
+                        <div class="header-left">
+                            <div class="dropdown category-dropdown has-border" data-visible="true">
+                                <a href="#" class="category-toggle" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="true" data-display="static"
+                                    title="Browse Categories">
+                                    <i class="w-icon-category"></i>
+                                    <span>Browse Categories</span>
+                                </a>
+
+                                <div class="dropdown-box">
+                                    <ul class="menu vertical-menu category-menu">
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-tshirt2"></i>Fashion
+                                            </a>
+                                            <ul class="megamenu">
+                                                <li>
+                                                    <h4 class="menu-title">Women</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">New Arrivals</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Best Sellers</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Trending</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Clothing</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Shoes</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Bags</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Accessories</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Jewlery &
+                                                                Watches</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Sale</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="menu-title">Men</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">New Arrivals</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Best Sellers</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Trending</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Clothing</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Shoes</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Bags</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Accessories</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Jewlery &
+                                                                Watches</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="banner-fixed menu-banner menu-banner2">
+                                                        <figure>
+                                                            <img src="{{ asset('assets/user/images/menu/banner-2.jpg') }}" alt="Menu Banner"
+                                                                width="235" height="347" />
+                                                        </figure>
+                                                        <div class="banner-content">
+                                                            <div class="banner-price-info mb-1 ls-normal">Get up to
+                                                                <strong
+                                                                    class="text-primary text-uppercase">20%Off</strong>
+                                                            </div>
+                                                            <h3 class="banner-title ls-normal">Hot Sales</h3>
+                                                            <a href="shop-banner-sidebar.html"
+                                                                class="btn btn-dark btn-sm btn-link btn-slide-right btn-icon-right">
+                                                                Shop Now<i class="w-icon-long-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-home"></i>Home & Garden
+                                            </a>
+                                            <ul class="megamenu">
+                                                <li>
+                                                    <h4 class="menu-title">Bedroom</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Beds, Frames &
+                                                                Bases</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Dressers</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Nightstands</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Kid's Beds &
+                                                                Headboards</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Armoires</a></li>
+                                                    </ul>
+
+                                                    <h4 class="menu-title mt-1">Living Room</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Coffee Tables</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Chairs</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Tables</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Futons & Sofa
+                                                                Beds</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Cabinets &
+                                                                Chests</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="menu-title">Office</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Office Chairs</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Desks</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Bookcases</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">File Cabinets</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Breakroom
+                                                                Tables</a></li>
+                                                    </ul>
+
+                                                    <h4 class="menu-title mt-1">Kitchen & Dining</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Dining Sets</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Kitchen Storage
+                                                                Cabinets</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Bashers Racks</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Dining Chairs</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Dining Room
+                                                                Tables</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Bar Stools</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="menu-banner banner-fixed menu-banner3">
+                                                        <figure>
+                                                            <img src="{{ asset('assets/user/images/menu/banner-3.jpg') }}" alt="Menu Banner"
+                                                                width="235" height="461" />
+                                                        </figure>
+                                                        <div class="banner-content">
+                                                            <h4
+                                                                class="banner-subtitle font-weight-normal text-white mb-1">
+                                                                Restroom</h4>
+                                                            <h3
+                                                                class="banner-title font-weight-bolder text-white ls-normal">
+                                                                Furniture Sale</h3>
+                                                            <div
+                                                                class="banner-price-info text-white font-weight-normal ls-25">
+                                                                Up to <span
+                                                                    class="text-secondary text-uppercase font-weight-bold">25%
+                                                                    Off</span></div>
+                                                            <a href="shop-banner-sidebar.html"
+                                                                class="btn btn-white btn-link btn-sm btn-slide-right btn-icon-right">
+                                                                Shop Now<i class="w-icon-long-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-electronics"></i>Electronics
+                                            </a>
+                                            <ul class="megamenu">
+                                                <li>
+                                                    <h4 class="menu-title">Laptops &amp; Computers</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Desktop
+                                                                Computers</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Monitors</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Laptops</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Hard Drives &amp;
+                                                                Storage</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Computer
+                                                                Accessories</a></li>
+                                                    </ul>
+
+                                                    <h4 class="menu-title mt-1">TV &amp; Video</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">TVs</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Home Audio
+                                                                Speakers</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Projectors</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Media Streaming
+                                                                Devices</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <h4 class="menu-title">Digital Cameras</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Digital SLR
+                                                                Cameras</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Sports & Action
+                                                                Cameras</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Camera Lenses</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Photo Printer</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Digital Memory
+                                                                Cards</a></li>
+                                                    </ul>
+
+                                                    <h4 class="menu-title mt-1">Cell Phones</h4>
+                                                    <hr class="divider">
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth-banner.html">Carrier Phones</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Unlocked Phones</a>
+                                                        </li>
+                                                        <li><a href="shop-fullwidth-banner.html">Phone & Cellphone
+                                                                Cases</a></li>
+                                                        <li><a href="shop-fullwidth-banner.html">Cellphone
+                                                                Chargers</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="menu-banner banner-fixed menu-banner4">
+                                                        <figure>
+                                                            <img src="{{ asset('assets/user/images/menu/banner-4.jpg') }}" alt="Menu Banner"
+                                                                width="235" height="433" />
+                                                        </figure>
+                                                        <div class="banner-content">
+                                                            <h4 class="banner-subtitle font-weight-normal">Deals Of The
+                                                                Week</h4>
+                                                            <h3 class="banner-title text-white">Save On Smart EarPhone
+                                                            </h3>
+                                                            <div
+                                                                class="banner-price-info text-secondary font-weight-bolder text-uppercase text-secondary">
+                                                                20% Off</div>
+                                                            <a href="shop-banner-sidebar.html"
+                                                                class="btn btn-white btn-outline btn-sm btn-rounded">Shop
+                                                                Now</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-furniture"></i>Furniture
+                                            </a>
+                                            <ul class="megamenu type2">
+                                                <li class="row">
+                                                    <div class="col-md-3 col-lg-3 col-6">
+                                                        <h4 class="menu-title">Furniture</h4>
+                                                        <hr class="divider" />
+                                                        <ul>
+                                                            <li><a href="shop-fullwidth-banner.html">Sofas & Couches</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Armchairs</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Bed Frames</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Beside Tables</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Dressing Tables</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-3 col-6">
+                                                        <h4 class="menu-title">Lighting</h4>
+                                                        <hr class="divider" />
+                                                        <ul>
+                                                            <li><a href="shop-fullwidth-banner.html">Light Bulbs</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Lamps</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Celling Lights</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Wall Lights</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Bathroom
+                                                                    Lighting</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-3 col-6">
+                                                        <h4 class="menu-title">Home Accessories</h4>
+                                                        <hr class="divider" />
+                                                        <ul>
+                                                            <li><a href="shop-fullwidth-banner.html">Decorative
+                                                                    Accessories</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Candals &
+                                                                    Holders</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Home Fragrance</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Mirrors</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Clocks</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-3 col-6">
+                                                        <h4 class="menu-title">Garden & Outdoors</h4>
+                                                        <hr class="divider" />
+                                                        <ul>
+                                                            <li><a href="shop-fullwidth-banner.html">Garden
+                                                                    Furniture</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Lawn Mowers</a>
+                                                            </li>
+                                                            <li><a href="shop-fullwidth-banner.html">Pressure
+                                                                    Washers</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">All Garden
+                                                                    Tools</a></li>
+                                                            <li><a href="shop-fullwidth-banner.html">Outdoor Dining</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="row">
+                                                    <div class="col-6">
+                                                        <div class="banner banner-fixed menu-banner5 br-xs">
+                                                            <figure>
+                                                                <img src="{{ asset('assets/user/images/menu/banner-5.jpg') }}" alt="Banner"
+                                                                    width="410" height="123"
+                                                                    style="background-color: #D2D2D2;" />
+                                                            </figure>
+                                                            <div class="banner-content text-right y-50">
+                                                                <h4
+                                                                    class="banner-subtitle font-weight-normal text-default text-capitalize">
+                                                                    New Arrivals</h4>
+                                                                <h3
+                                                                    class="banner-title font-weight-bolder text-capitalize ls-normal">
+                                                                    Amazing Sofa</h3>
+                                                                <div
+                                                                    class="banner-price-info font-weight-normal ls-normal">
+                                                                    Starting at <strong>$125.00</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="banner banner-fixed menu-banner5 br-xs">
+                                                            <figure>
+                                                                <img src="{{ asset('assets/user/images/menu/banner-6.jpg') }}" alt="Banner"
+                                                                    width="410" height="123"
+                                                                    style="background-color: #9F9888;" />
+                                                            </figure>
+                                                            <div class="banner-content y-50">
+                                                                <h4
+                                                                    class="banner-subtitle font-weight-normal text-white text-capitalize">
+                                                                    Best Seller</h4>
+                                                                <h3
+                                                                    class="banner-title font-weight-bolder text-capitalize text-white ls-normal">
+                                                                    Chair &amp; Lamp</h3>
+                                                                <div
+                                                                    class="banner-price-info font-weight-normal ls-normal text-white">
+                                                                    From <strong>$165.00</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-heartbeat"></i>Healthy & Beauty
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-gift"></i>Gift Ideas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-gamepad"></i>Toy & Games
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-ice-cream"></i>Cooking
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-ios"></i>Smart Phones
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-camera"></i>Cameras & Photo
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-fullwidth-banner.html">
+                                                <i class="w-icon-ruby"></i>Accessories
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop-banner-sidebar.html"
+                                                class="font-weight-bold text-primary text-uppercase ls-25">
+                                                View All Categories<i class="w-icon-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <nav class="main-nav">
+                                <ul class="menu active-underline">
+                                    <li class="active">
+                                        <a href="demo1.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-banner-sidebar.html">Shop</a>
+
+                                        <!-- Start of Megamenu -->
+                                        <ul class="megamenu">
+                                            <li>
+                                                <h4 class="menu-title">Shop Pages</h4>
+                                                <ul>
+                                                    <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
+                                                    <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
+                                                    <li><a href="shop-fullwidth-banner.html">Full Width Banner</a></li>
+                                                    <li><a href="shop-horizontal-filter.html">Horizontal Filter<span
+                                                                class="tip tip-hot">Hot</span></a></li>
+                                                    <li><a href="shop-off-canvas.html">Off Canvas Sidebar<span
+                                                                class="tip tip-new">New</span></a></li>
+                                                    <li><a href="shop-infinite-scroll.html">Infinite Ajax Scroll</a>
+                                                    </li>
+                                                    <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
+                                                    <li><a href="shop-both-sidebar.html">Both Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="menu-title">Shop Layouts</h4>
+                                                <ul>
+                                                    <li><a href="shop-grid-3cols.html">3 Columns Mode</a></li>
+                                                    <li><a href="shop-grid-4cols.html">4 Columns Mode</a></li>
+                                                    <li><a href="shop-grid-5cols.html">5 Columns Mode</a></li>
+                                                    <li><a href="shop-grid-6cols.html">6 Columns Mode</a></li>
+                                                    <li><a href="shop-grid-7cols.html">7 Columns Mode</a></li>
+                                                    <li><a href="shop-grid-8cols.html">8 Columns Mode</a></li>
+                                                    <li><a href="shop-list.html">List Mode</a></li>
+                                                    <li><a href="shop-list-sidebar.html">List Mode With Sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="menu-title">Product Pages</h4>
+                                                <ul>
+                                                    <li><a href="product-variable.html">Variable Product</a></li>
+                                                    <li><a href="product-featured.html">Featured &amp; Sale</a></li>
+                                                    <li><a href="product-accordion.html">Data In Accordion</a></li>
+                                                    <li><a href="product-section.html">Data In Sections</a></li>
+                                                    <li><a href="product-swatch.html">Image Swatch</a></li>
+                                                    <li><a href="product-extended.html">Extended Info</a>
+                                                    </li>
+                                                    <li><a href="product-without-sidebar.html">Without Sidebar</a></li>
+                                                    <li><a href="product-video.html">360<sup>o</sup> &amp; Video<span
+                                                                class="tip tip-new">New</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="menu-title">Product Layouts</h4>
+                                                <ul>
+                                                    <li><a href="product-default.html">Default<span
+                                                                class="tip tip-hot">Hot</span></a></li>
+                                                    <li><a href="product-vertical.html">Vertical Thumbs</a></li>
+                                                    <li><a href="product-grid.html">Grid Images</a></li>
+                                                    <li><a href="product-masonry.html">Masonry</a></li>
+                                                    <li><a href="product-gallery.html">Gallery</a></li>
+                                                    <li><a href="product-sticky-info.html">Sticky Info</a></li>
+                                                    <li><a href="product-sticky-thumb.html">Sticky Thumbs</a></li>
+                                                    <li><a href="product-sticky-both.html">Sticky Both</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <!-- End of Megamenu -->
+                                    </li>
+                                    <li>
+                                        <a href="vendor-dokan-store.html">Vendor</a>
+                                        <ul>
+                                            <li>
+                                                <a href="vendor-dokan-store-list.html">Store Listing</a>
+                                                <ul>
+                                                    <li><a href="vendor-dokan-store-list.html">Store listing 1</a></li>
+                                                    <li><a href="vendor-wcfm-store-list.html">Store listing 2</a></li>
+                                                    <li><a href="vendor-wcmp-store-list.html">Store listing 3</a></li>
+                                                    <li><a href="vendor-wc-store-list.html">Store listing 4</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="vendor-dokan-store.html">Vendor Store</a>
+                                                <ul>
+                                                    <li><a href="vendor-dokan-store.html">Vendor Store 1</a></li>
+                                                    <li><a href="vendor-wcfm-store-product-grid.html">Vendor Store 2</a>
+                                                    </li>
+                                                    <li><a href="vendor-wcmp-store-product-grid.html">Vendor Store 3</a>
+                                                    </li>
+                                                    <li><a href="vendor-wc-store-product-grid.html">Vendor Store 4</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html">Blog</a>
+                                        <ul>
+                                            <li><a href="blog.html">Classic</a></li>
+                                            <li><a href="blog-listing.html">Listing</a></li>
+                                            <li>
+                                                <a href="blog-grid-3cols.html">Grid</a>
+                                                <ul>
+                                                    <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
+                                                    <li><a href="blog-grid-3cols.html">Grid 3 columns</a></li>
+                                                    <li><a href="blog-grid-4cols.html">Grid 4 columns</a></li>
+                                                    <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="blog-masonry-3cols.html">Masonry</a>
+                                                <ul>
+                                                    <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
+                                                    <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
+                                                    <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
+                                                    <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="blog-mask-grid.html">Mask</a>
+                                                <ul>
+                                                    <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
+                                                    <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="post-single.html">Single Post</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('user.about')}}">Pages</a>
+                                        <ul>
+
+                                            <li><a href="{{route('user.about')}}">About Us</a></li>
+                                            <li><a href="become-a-vendor.html">Become A Vendor</a></li>
+                                            <li><a href="contact-us.html">Contact Us</a></li>
+                                            <li><a href="faq.html">FAQs</a></li>
+                                            <li><a href="error-404.html">Error 404</a></li>
+                                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="{{route('user.cart')}}">Cart</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="my-account.html">My Account</a></li>
+                                            <li><a href="compare.html">Compare</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="elements.html">Elements</a>
+                                        <ul>
+                                            <li><a href="element-accordions.html">Accordions</a></li>
+                                            <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
+                                            <li><a href="element-blog-posts.html">Blog Posts</a></li>
+                                            <li><a href="element-buttons.html">Buttons</a></li>
+                                            <li><a href="element-cta.html">Call to Action</a></li>
+                                            <li><a href="element-icons.html">Icons</a></li>
+                                            <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
+                                            <li><a href="element-instagrams.html">Instagrams</a></li>
+                                            <li><a href="element-categories.html">Product Category</a></li>
+                                            <li><a href="element-products.html">Products</a></li>
+                                            <li><a href="element-tabs.html">Tabs</a></li>
+                                            <li><a href="element-testimonials.html">Testimonials</a></li>
+                                            <li><a href="element-titles.html">Titles</a></li>
+                                            <li><a href="element-typography.html">Typography</a></li>
+
+                                            <li><a href="element-vendors.html">Vendors</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-right">
+                            <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Track Order</a>
+                            <a href="#"><i class="w-icon-sale"></i>Daily Deals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End of Header -->
+
+
+        <main class="main">
+            <!-- Start of Page Header -->
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title mb-0">Become A Vendor</h1>
+                </div>
+            </div>
+            <!-- End of Page Header -->
+
+            <!-- Start of Breadcrumb -->
+            <nav class="breadcrumb-nav mb-10 pb-1 pb-lg-10">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="demo1.html">Home</a></li>
+                        <li>Become a Vendor</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End of Breadcrumb -->
+
+            <div class="page-content become-a-vendor">
+                <div class="container create-store pb-1 pb-lg-10 mb-10">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <figure class="br-sm">
+                                <img src="{{ asset('assets/user/images/pages/become/1.jpg') }}" alt="Banner"
+                                    width="610" height="435" style="background-color: #D9D8DD;" />
+                            </figure>
+                        </div>
+                        <div class="col-md-6 order-md-first">
+                            <h4 class="text-primary font-weight-bold ls-25">Create a Store</h4>
+                            <h2 class="title text-left">Build your online store on Wolmart</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod 
+                                tempor incididunt ut labore et dolore magna aliqua. Venenatis tellus in 
+                                metus vulputate eu scelerisque felis.
+                            </p>
+                            <a href="#" class="btn btn-dark btn-outline btn-rounded ls-25">Learn More</a>
+                        </div>
+                    </div>
+                    <!-- End of Row -->
+                </div>
+                <!-- End of Create Store -->
+
+                <div class="bg-grey how-trade pt-10 pb-5 pb-lg-10">
+                    <div class="container mt-2 mt-lg-10 mb-0 mb-lg-10">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <figure class="br-sm">
+                                    <img src="{{ asset('assets/user/images/pages/become/2.jpg') }}" alt="Banner"
+                                        width="610" height="520" style="background-color: #C9C8CD;" />
+                                </figure>
+                            </div>
+                            <div class="col-lg-6 pl-lg-8">
+                                <h4 class="text-primary font-weight-bold ls-25">How to Trade</h4>
+                                <h2 class="title text-left">Easy 4 steps to manage your products selling</h2>
+                                <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod metus vul
+                                    tempor incididunt ut labore et dolore magna aliqua. Venen ate.</p>
+                                <div class="row cols-sm-2 mb-1">
+                                    <div class="stage-item mb-6 stage-register d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_4" x="0px" y="0px" width="70px" height="70px" viewBox="0 0 70 70" xml:space="preserve">
+                                            <g>
+                                                <path d="M52.93,12.024H9.712v2.519H52.93V12.024z"></path>
+                                                <path d="M60.396,12.024h-3.545v2.519h3.545V12.024L60.396,12.024z"></path>
+                                                <path d="M60.451,8.337H9.549C7.591,8.337,6,9.921,6,11.868v36.039c0,2.048,1.705,3.533,4.053,3.533h18.944v3.346   h-3.866l-5.005,4.916v1.961h29.745v-1.961l-5.004-4.916h-3.863V51.44h19.949c1.408,0,3.047-1.542,3.047-3.533V11.868   C64,9.921,62.408,8.337,60.451,8.337z M31.363,54.786V51.44h7.275v3.346H31.363z M23.897,59.308l2.206-2.166h17.795l2.205,2.166   H23.897z M8.367,45.138h31.084v-2.355H8.367V11.868c0-0.648,0.531-1.178,1.184-1.178h50.901c0.652,0,1.184,0.529,1.184,1.178   v30.914h-2.367v2.355h2.367v2.77c0,0.672-0.543,1.157-0.68,1.18H10.053c-1.042,0-1.688-0.451-1.688-1.18L8.367,45.138L8.367,45.138   z"></path>
+                                                <path d="M54.199,46.572h2.822v-2.521h-2.822V46.572z"></path>
+                                                <path d="M48.633,46.572h2.9v-2.521h-2.9V46.572z"></path>
+                                                <path d="M43.303,46.572h2.9v-2.521h-2.9V46.572z"></path>
+                                                <path d="M48.947,19.48c-2.846,0-5.16,2.324-5.16,5.178c0,2.856,2.314,5.179,5.16,5.179   c2.844,0,5.156-2.322,5.156-5.179C54.105,21.805,51.791,19.48,48.947,19.48z M48.947,28.009c-1.84,0-3.338-1.502-3.338-3.351   c0-1.847,1.498-3.348,3.338-3.348c1.838,0,3.336,1.501,3.336,3.348C52.283,26.507,50.785,28.009,48.947,28.009z"></path>
+                                                <path d="M52.502,30.325l-6.861-0.045l-0.281,0.063c-4.881,1.931-5.074,2.276-5.074,2.941v6.433h17.326v-6.433   C57.609,32.622,57.414,32.275,52.502,30.325z M52.045,32.11c1.6,0.639,3.104,1.296,3.742,1.633v4.145H42.105v-4.145   c0.643-0.336,2.152-0.992,3.76-1.633H52.045z"></path>
+                                                <path d="M30.32,21.914c0,0.693-0.563,1.261-1.253,1.261h-15.71c-0.69,0-1.254-0.566-1.254-1.261l0,0   c0-0.691,0.564-1.259,1.254-1.259h15.71C29.757,20.655,30.32,21.223,30.32,21.914L30.32,21.914z"></path>
+                                                <path d="M30.32,28.929c0,0.692-0.563,1.26-1.253,1.26h-15.71c-0.69,0-1.254-0.567-1.254-1.26l0,0   c0-0.692,0.564-1.258,1.254-1.258h15.71C29.757,27.671,30.32,28.236,30.32,28.929L30.32,28.929z"></path>
+                                                <path d="M19.978,34.999c0,0.692-0.565,1.26-1.255,1.26h-5.366c-0.69,0-1.254-0.566-1.254-1.26l0,0   c0-0.692,0.564-1.259,1.254-1.259h5.366C19.413,33.74,19.978,34.307,19.978,34.999L19.978,34.999z"></path>
+                                            </g>
+                                        </svg>
+                                        <p class="mb-0 font-weight-bold">Register and List Your Products</p>
+                                    </div>
+                                    <div class="stage-item mb-6 stage-selling d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_3" x="0px" y="0px" width="70px" height="70px" viewBox="0 0 70 70" xml:space="preserve">
+                                            <g>
+                                                <rect x="27.456" y="23.221" width="16.526" height="1.854"></rect>
+                                                <rect x="27.456" y="31.354" width="16.526" height="1.854"></rect>
+                                                <rect x="27.456" y="39.598" width="16.526" height="1.854"></rect>
+                                                <polygon points="20.892,25.005 18.584,23.058 17.824,23.95 21.042,26.667 25.252,21.568 25.316,21.491    24.408,20.748  "></polygon>
+                                                <polygon points="20.892,33.138 18.584,31.19 17.824,32.083 21.042,34.799 25.252,29.701 25.316,29.624    24.408,28.88  "></polygon>
+                                                <polygon points="20.892,40.793 18.584,38.846 17.824,39.738 21.042,42.457 25.252,37.355 25.316,37.279    24.408,36.535  "></polygon>
+                                                <polygon points="20.892,49.141 18.584,47.191 17.824,48.086 21.042,50.802 25.252,45.704 25.316,45.627    24.408,44.884  "></polygon>
+                                                <path d="M52.087,43.391l-0.071-0.021V16.403c0-2.588-2.117-4.693-4.718-4.693h-5.157V9.783h-6.423l-0.015-0.082   c-0.396-2.152-2.25-3.715-4.409-3.715s-4.014,1.563-4.409,3.715L26.87,9.783h-5.423v1.927H15.29c-2.602,0-4.718,2.105-4.718,4.693   v39.351c0,2.588,2.117,4.693,4.718,4.693h23.882l0.03,0.046c2.127,3.313,5.746,5.293,9.68,5.293   c6.333,0,11.486-5.127,11.486-11.431C60.367,49.309,56.962,44.798,52.087,43.391z M28.328,11.294v-0.755   c0-1.677,1.331-3.042,2.966-3.042c1.635,0,2.966,1.364,2.966,3.042v0.756h6.36v4.545H22.968v-4.546H28.328z M38.582,49.316   l-0.068,0.144c-0.742,1.556-1.119,3.202-1.119,4.896c0,1.164,0.176,2.315,0.523,3.424l0.041,0.132H15.29   c-1.194,0-2.166-0.97-2.166-2.155V16.403c0-1.188,0.972-2.155,2.166-2.155h6.157v3.104h20.694v-3.104h5.157   c1.193,0,2.165,0.967,2.165,2.155v26.554l-0.104-0.003c-0.064-0.003-0.129-0.007-0.197-0.013c-0.094-0.006-0.188-0.012-0.281-0.012   c-3.596,0-6.918,1.639-9.115,4.491l-0.029,0.039H27.457v1.854h11.125V49.316z M48.88,63.555c-5.098,0-9.245-4.127-9.245-9.197   c0-5.069,4.147-9.196,9.245-9.196c5.097,0,9.243,4.127,9.243,9.196C58.123,59.428,53.977,63.555,48.88,63.555z"></path>
+                                                <polygon points="47.646,56.266 44.559,53.249 43.497,54.314 47.749,58.475 48.305,57.832 53.958,51.007    52.791,50.052  "></polygon>
+                                            </g>
+                                        </svg>
+                                        <p class="mb-0 font-weight-bold">Start Selling Your Products</p>
+                                    </div>
+                                    <div class="stage-item mb-5 stage-deliver d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" width="70px" height="70px" viewBox="0 0 70 70" xml:space="preserve">
+                                            <g id="Layer_5">
+                                                <path d="M64.918,27.935c0-2.454-1.994-4.45-4.444-4.45h-8.843c-2.451,0-4.445,1.996-4.445,4.45v8.845   c0,0.738,0.188,1.47,0.535,2.115l0.063,0.109h-1.767c-0.11,0-0.216-0.012-0.31-0.031l-0.058-0.016v-8.214h-1.375l-0.006-0.068   c-0.043-0.45-0.063-0.869-0.063-1.282c0-3.12-2.359-5.877-4.339-7.642l-0.067-0.061l0.072-0.055   c1.821-1.372,2.783-3.536,2.783-6.258c0-4.625-3.761-8.386-8.383-8.386c-2.469,0-4.977,1.066-6.706,2.851   c-1.511,1.561-2.308,3.546-2.244,5.591l0.009,1.09l1.827,0.005l0.007,0.067c0.329,3.367,2.116,5.811,4.779,6.537L32,23.148   l0.006,1.382c0.002,0.481,0.008,1.286-0.004,1.442l-0.004,0.086c0,0.026-0.002,0.055-0.002,0.076l0.006,0.006l-0.01,0.04   c-0.145,0.657-1.443,1.392-2.967,1.392h-5.367l-0.021-0.038c-0.463-0.8-1.485-1.753-3.744-1.753h-2.86v1.791h-0.185   c-0.797,0-1.442,0.648-1.442,1.444v3.683c0,0.624,0.397,1.176,0.992,1.373l0.063,0.021l-0.015,0.065   c-0.063,0.307-0.12,0.657-0.172,1.042c-0.212,1.544-0.329,3.586-0.329,5.75c0,3.607-1.087,5.455-1.52,5.584l-0.109,0.011   c-0.113-0.006-0.215-0.008-0.322-0.008c-4.609,0-8.396,3.462-8.81,8.053l-0.108,1.209H6.5l0.006,0.07   c0.25,4.003,3.59,7.139,7.603,7.139c3.785,0,6.946-2.711,7.519-6.444l0.01-0.063h17.977l0.01,0.063   c0.571,3.733,3.732,6.444,7.52,6.444c3.791,0,6.955-2.711,7.525-6.444l0.01-0.063h1.332V46.151h0.215   c1.164,0,2.109-0.946,2.109-2.111v-0.166c0-1.165-0.945-2.112-2.109-2.112H56.01v-0.53h4.469c2.451,0,4.445-1.996,4.445-4.451   v-8.844L64.918,27.935L64.918,27.935z M32.67,42.358c-0.045,0.972-0.013,2.33,0.022,3.769l0.005,0.175   c0.005,0.176,0.01,0.604,0.016,1.096v0.229h-1.535v-7.509c0-1.551,1.131-2.813,2.521-2.813h9.237l-0.003,0.078   c-0.032,0.854-0.267,1.179-0.438,1.349c-0.021,0.021-0.25,0.242-1.348,0.242c-0.739,0-1.628-0.103-2.411-0.189   c-0.864-0.098-1.521-0.165-2.097-0.167C33.301,38.631,32.819,39.085,32.67,42.358z M32.748,49.923c0,0.191-0.002,0.354-0.006,0.484   l-0.002,0.072h-0.072c-0.941,0.017-2.545,0.022-3.723,0.026l-1.166,0.009v-0.669h4.967L32.748,49.923z M41.984,29.395   c0,1.601,0.288,3.217,0.543,4.642l0.008,0.043c0.053,0.293,0.109,0.604,0.161,0.917l0.015,0.087h-8.56l-0.017-0.052   c-0.09-0.28-0.25-0.901-0.313-1.922l-0.003-0.057l0.053-0.019c2.414-0.855,3.855-2.481,3.855-4.349   c0-1.682-1.414-3.165-3.438-3.604l-0.061-0.013l-0.001-0.06l-0.009-1.646l0.072-0.002c1.217-0.046,2.33-0.235,3.313-0.562   l0.039-0.013l0.03,0.026C38.688,23.637,41.984,26.552,41.984,29.395z M27.619,14.309l0.018-0.089   c0.252-1.294,0.969-2.252,1.522-2.829c1.319-1.362,3.229-2.175,5.112-2.175c3.398,0,6.163,2.765,6.163,6.164   c0,3.518-1.813,5.386-5.542,5.711l-0.082,0.007l0.008-6.792L27.619,14.309z M29.398,16.615l-0.012-0.084h3.203v4.474l-0.097-0.028   C30.811,20.486,29.683,18.897,29.398,16.615z M27.77,30.503c0.16,0.001,0.324,0.002,0.49,0.002c2.67-0.019,4.961-1.285,5.705-3.15   l0.023-0.063l0.063,0.019c0.869,0.252,1.451,0.805,1.451,1.375c0,1.286-2.226,2.727-5.203,2.73   c-0.225-0.016-0.444-0.045-0.734-0.086c-0.378-0.055-0.949-0.138-1.748-0.181l-0.064-0.003l-0.006-0.064   c-0.014-0.153-0.029-0.319-0.054-0.493l-0.013-0.085L27.77,30.503z M24.145,30.267c0.372,0.057,0.779,0.103,1.21,0.138l0.055,0.004   l0.013,0.054c0.041,0.174,0.071,0.368,0.095,0.574l0.009,0.083l-1.35,0.004l-0.015-0.058c-0.042-0.177-0.077-0.418-0.104-0.718   l-0.009-0.095L24.145,30.267z M13.328,54.278V56.5h6.053l-0.021,0.092c-0.558,2.47-2.719,4.195-5.255,4.195   c-2.977,0-5.396-2.423-5.396-5.399c0-0.059,0.015-0.142,0.026-0.229l0.019-0.126c0.014-0.089,0.023-0.171,0.03-0.242l0.106-1.209   H7.612l0.026-0.097c0.82-2.825,3.373-4.726,6.354-4.726c3.213,0,5.952,2.284,6.52,5.431l0.017,0.09h-7.2V54.278L13.328,54.278z    M21.574,50.825c-1.056-1.754-2.691-3.092-4.605-3.771l-0.084-0.029l0.043-0.076c0.787-1.428,1.238-3.61,1.238-5.994   c0-4.424,0.443-6.398,0.532-6.75l0.015-0.057h0.537v-6.141h0.643c1.236,0,1.79,0.41,1.894,0.793l0.005,0.02   c0,0.908,0.016,1.946,0.221,2.772l0.012,0.049l-0.041,0.03c-0.475,0.348-0.736,0.833-0.736,1.365v15.512   c0,0.79,0.16,1.556,0.465,2.209L21.574,50.825z M23.379,52.567c-0.025,0.197-0.025,0.371-0.025,0.484v1.227H22.77l-0.01-0.064   c-0.131-0.993-0.428-1.949-0.881-2.843l0.129-0.075c0.352,0.538,0.811,0.95,1.328,1.193l0.049,0.021L23.379,52.567z M25.559,50.522   h-1.098c-0.406,0-0.998-0.771-0.998-1.978V33.387l0.059-0.014c0.098-0.022,0.209-0.034,0.332-0.034h2.816   c1.25,0,1.996,0.105,2.596,0.19c0.341,0.049,0.609,0.084,0.963,0.106c0.438,0,0.886-0.026,1.324-0.076l0.076-0.008l0.008,0.076   c0.062,0.669,0.158,1.259,0.291,1.753l0.017,0.063l-0.06,0.026c-1.752,0.771-2.928,2.64-2.928,4.649v7.509h-1.144   c-1.244,0-2.257,0.911-2.257,2.03L25.559,50.522L25.559,50.522z M52.532,54.278v1.107c0,2.979-2.421,5.399-5.396,5.399   c-2.536,0-4.697-1.728-5.256-4.195l-0.021-0.092h6.052v-2.222h-7.668l0.017-0.088c0.565-3.256,3.389-5.619,6.709-5.619   c3.322,0,6.144,2.363,6.709,5.619l0.016,0.088h-1.161V54.278z M53.781,41.762h-7.488c-1.164,0-2.11,0.947-2.11,2.112v0.166   c0,1.165,0.946,2.111,2.11,2.111h7.488v3.297l-0.131-0.146c-1.693-1.875-4.13-2.951-6.682-2.951c-4.521,0-8.373,3.381-8.959,7.862   l-0.008,0.065H25.571v-1.225c0-0.057,0-0.124,0.004-0.172l0.005-0.051l0.049-0.016c0.11-0.033,0.266-0.056,0.457-0.062   c0.111-0.004,0.315-0.008,0.594-0.012c0.404-0.005,0.949-0.009,1.547-0.011l0.73-0.004c1.205-0.004,2.146-0.013,2.858-0.019h0.021   l4.474,0.03V42.288c0-0.538,0.196-0.922,0.321-1.037l0.021-0.021h8.938l0.166-0.01c0.093,0.006,0.174,0.01,0.261,0.01h7.767   L53.781,41.762L53.781,41.762z M62.698,36.78c0,1.228-0.999,2.226-2.228,2.226h-8.84c-1.229,0-2.229-0.998-2.229-2.226v-2.063   h13.295L62.698,36.78L62.698,36.78z M62.698,32.498H49.403v-1.993h13.295V32.498z M62.698,28.283H49.403v-0.349   c0-1.228,0.999-2.228,2.228-2.228h8.842c1.229,0,2.228,1,2.228,2.228L62.698,28.283L62.698,28.283z"></path>
+                                            </g>
+                                        </svg>
+                                        <p class="mb-0 font-weight-bold">Deliver your Products Everywhere</p>
+                                    </div>
+                                    <div class="stage-item mb-5 stage-get d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_2" x="0px" y="0px" width="70px" height="70px" viewBox="0 0 70 70" xml:space="preserve">
+                                            <g>
+                                                <path d="M11.3,54.3H41V37.4H11.3V54.3z M32.6,40h5.9v11.8h-5.9V40z M22.9,40H30v11.8h-7.1V40z M13.8,40h6.5v11.8   h-6.5V40z"></path>
+                                                <path d="M68.4,23.6c-0.2-0.4-0.4-0.9-0.7-1.4L63,11.8l-0.1-0.2c-1.2-1.7-2.7-2.1-3.7-2.1l-48.3,0   c-1.6,0-3.4,1.6-3.9,2.7l-4.6,10c-0.2,0.5-0.4,0.9-0.6,1.3c-0.9,2-1.7,3.6-1.7,5.2l0,0.2c0.5,3.8,3.3,6.4,7.1,6.9V58   c0,1.4,1.1,2.5,2.6,2.5h52.3c1.4,0,2.6-1.1,2.6-2.5V35.4c2.9-0.5,5-2.9,5.5-6.3l0-0.2C70,27,69.4,25.8,68.4,23.6z M36.9,12l10.3,0   l3.3,15.8c-0.2,2.9-3,5.2-6.4,5.2c-4,0-7.3-2.5-7.3-5.5L36.9,12z M34.3,12v15.5l0,0c0,3-3.3,5.5-7.4,5.5c-3.6,0-6.5-2.3-6.8-5.1   L23.4,12L34.3,12z M8.4,33.4c-3.1,0-5.4-1.8-5.8-4.8c0-1.1,0.7-2.4,1.4-4.1c0.2-0.4,0.4-0.9,0.6-1.3l4.6-10.1   c0.2-0.4,1.2-1.2,1.5-1.2l10,0l-3.2,15.5h-0.1c0,0.2,0,0.4,0,0.6l0,0.1h0C16.9,31.2,13,33.4,8.4,33.4z M56.8,57.9H46.7V40h10.1   V57.9z M61.9,58h-2.6V37.4H44.2V58H9.7V35.9c3.9-0.3,7.3-2,9-4.5c1.6,2.4,4.7,4.1,8.2,4.1c3.7,0,7-1.7,8.7-4.1   c1.7,2.4,4.9,4.1,8.6,4.1c3.4,0,6.4-1.7,7.9-4.2c1.9,2.3,5.6,3.9,9.9,4.2V58z M63.2,33c-5.5,0-10.1-2.5-10.1-5.5h-0.1L49.8,12   l9.3,0c0.4,0,1,0.1,1.5,0.9l4.7,10.3c0.2,0.5,0.5,1,0.7,1.4c0.9,1.9,1.3,2.9,1.4,4.2C67.1,31.5,65.5,33,63.2,33z"></path>
+                                            </g>
+                                        </svg>
+                                        <p class="mb-0 font-weight-bold">Get Payments and Increase your Income</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Row -->
+                    </div>
+                    <!-- End of Container -->
+                </div>
+                <!-- End of How Trade -->
+
+                <div class="container few-fees mt-10 mb-2 mb-lg-10 pt-2 pt-lg-9">
+                    <h4 class="text-center text-primary text-capitalize font-weight-bold ls-25">Only Few Fees</h4>
+                    <h2 class="title title-center mb-3">All is secured and Transparent</h2>
+                    <p class="text-center mb-2 mb-lg-10">Nunc id cursus metus aliquam. Libero id faucibus nisl tincidunt eget.</p>
+                    <div class="row">
+                        <div class="col-sm-6 listing-fee">
+                            <div class="counter text-center">
+                                <span>$</span>
+                                <span class="count-to" data-to="0">0</span>
+                                <h4>Listing Fee</h4>
+                                <p>Diam maecenas ultricies mi eget mauris
+                                    Nibh tellus molestie nunc non</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 final-fee">
+                            <div class="counter text-center">
+                                <span class="count-to" data-to="5">0</span>
+                                <span>%</span>
+                                <h4>Final Value Fee</h4>
+                                <p>Diam maecenas ultricies mi eget mauris
+                                    Nibh tellus molestie nunc non</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Container -->
+
+                <div class="bg-grey pt-2 pt-lg-10 wolmart-sellers pb-10">
+                    <div class="container mt-0 mt-lg-10 mb-2 mb-lg-9">
+                        <div class="row">
+                            <div class="col-lg-4 mb-4 mb-lg-0">
+                                <h4 class="text-primary font-weight-bold ls-25">What they say</h4>
+                                <h2 class="title text-left ls-25">Success stories from Wolmart sellers</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                    hendrerit. Pellentesque aliquet nibh nec urna dolor sit
+                                    In nisi dapibus id, mattis</p>
+                                <a href="vendor-dokan-store.html" class="btn btn-dark btn-link btn-underline btn-icon-right">
+                                    Visit Vendors<i class="w-icon-long-arrow-right"></i></a>
+                            </div>
+                            <!-- End of Col -->
+                            <div class="col-lg-8">
+                                <div class="owl-carousel owl-theme row cols-sm-2" data-owl-options="{
+                                    'nav': false,
+                                    'dots': true,
+                                    'margin': 20,
+                                    'autoplay': false,
+                                    'autoplayTimeout': 4000,
+                                    'loop': true,
+                                    'responsive': {
+                                        '0': {
+                                            'items': 1
+                                        },
+                                        '576': {
+                                            'items': 2
+                                        }
+                                    }
+                                }">
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial testimonial-centered testimonial-boxed bg-white br-sm">
+                                            <div class="testimonial-info">
+                                                <figure class="testimonial-author-thumbnail">
+                                                    <img src="{{ asset('assets/user/images/agents/1-100x100.png') }}" alt="Testimonial" width="100"
+                                                        height="100" />
+                                                </figure>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full">
+                                                        <span class="ratings" style="width: 100%;"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <blockquote>
+                                                Lorem ipsum dolor sit amet, consectetuerd
+                                                do Pellentesque aliquet nib Nullamer
+                                                mnequtesq nibhue aliquet urnaIn mattis...
+                                            </blockquote>
+                                            <cite class="ls-25">
+                                                Victoria Ventura<span>Investor</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial testimonial-centered testimonial-boxed bg-white br-sm">
+                                            <div class="testimonial-info">
+                                                <figure class="testimonial-author-thumbnail">
+                                                    <img src="{{ asset('assets/user/images/agents/2-100x100.png') }}" alt="Testimonial" width="100"
+                                                        height="100" />
+                                                </figure>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full">
+                                                        <span class="ratings" style="width: 100%;"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <blockquote>
+                                                Lorem ipsum dolor sit amet, consectetuerd
+                                                do Pellentesque aliquet nib Nullamer
+                                                mnequtesq nibhue aliquet urnaIn mattis...
+                                            </blockquote>
+                                            <cite class="ls-25">
+                                                Henry Harry<span>Investor</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial testimonial-centered testimonial-boxed bg-white br-sm">
+                                            <div class=" testimonial-info">
+                                                <figure class="testimonial-author-thumbnail">
+                                                    <img src="{{ asset('assets/user/images/agents/3-100x100.png') }}" alt="Testimonial" width="100"
+                                                        height="100" />
+                                                </figure>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full">
+                                                        <span class="ratings" style="width: 100%;"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <blockquote>
+                                                Lorem ipsum dolor sit amet, consectetuerd
+                                                do Pellentesque aliquet nib Nullamer
+                                                mnequtesq nibhue aliquet urnaIn mattis...
+                                            </blockquote>
+                                            <cite class="ls-25">
+                                                Anna Miranda<span>Investor</span>
+                                            </cite>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Col -->
+                        </div>
+                    </div>
+                    <!-- End of Container -->
+                </div>
+                <!-- End of Wolamrt Sellers -->
+
+                <div class="container questions mt-2 mt-lg-10 mb-5 mb-lg-9">
+                    <h4 class="text-center text-primary font-weight-bold text-capitalize ls-25">Frequently Asked Questions</h4>
+                    <h2 class="title title-center">Find an answer to your Question</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold ls-25">How can I add new products?</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu
+                                scelerisquefelis. Vel pretium lectus quam id leo in vitae turpis massa. </p>
+                            <h4 class="font-weight-bold ls-25">How can I know stock?</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Venenatis tellus.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="font-weight-bold ls-25">How do I get paid?</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulputate eu
+                                scelerisquefelis. </p>
+                            <h4 class="font-weight-bold ls-25">Do I need a credit or debit card to create a shop?</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Container -->
+
+                <div class="banner parallax" data-parallax-options="{'speed': 10, 'parallaxHeight': '200%', 'offset': -99}"
+                    data-image-src="{{ asset('assets/user/images/pages/become/3.jpg') }}" style="background-color: #929294;">
+                    <div class="container">
+                        <div class="banner-content text-center">
+                            <h2 class="title title-center text-white font-weight-bold">Let’s talk about how we can make
+                                    brands work for you</h2>
+                            <a href="#" class="btn btn-white btn-outline btn-rounded ls-25">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Page Content -->
+        </main>
+        <!-- End of Main -->
+
+        <!-- Start of Footer -->
+        <footer class="footer">
+            <div class="footer-newsletter bg-primary pt-6 pb-6">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="icon-box icon-box-side text-white">
+                                <div class="icon-box-icon d-inline-flex">
+                                    <i class="w-icon-envelop3"></i>
+                                </div>
+                                <div class="icon-box-content">
+                                    <h4 class="icon-box-title text-white text-uppercase mb-0">Subscribe To  Our Newsletter</h4>
+                                    <p class="text-white">Get all the latest information on Events, Sales and Offers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
+                            <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-rounded">
+                                <input type="email" class="form-control mr-2 bg-white" name="email" id="email"
+                                    placeholder="Your E-mail Address" />
+                            <button class="btn btn-dark btn-rounded" type="submit">Subscribe<i
+                                    class="w-icon-long-arrow-right"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="widget widget-about">
+                                <a href="demo1.html" class="logo-footer">
+                                    <img src="{{ asset('assets/user/images/logo_footer.png') }}" alt="logo-footer" width="144"
+                                        height="45" />
+                                </a>
+                                <div class="widget-body">
+                                    <p class="widget-about-title">Got Question? Call us 24/7</p>
+                                    <a href="tel:18005707777" class="widget-about-call">1-800-570-7777</a>
+                                    <p class="widget-about-desc">Register now to get updates on pronot get up icons
+                                        & coupons ster now toon.
+                                    </p>
+
+                                    <div class="social-icons social-icons-colored">
+                                        <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
+                                        <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
+                                        <a href="#" class="social-icon social-instagram w-icon-instagram"></a>
+                                        <a href="#" class="social-icon social-youtube w-icon-youtube"></a>
+                                        <a href="#" class="social-icon social-pinterest w-icon-pinterest"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget">
+                                <h3 class="widget-title">Company</h3>
+                                <ul class="widget-body">
+                                    <li><a href="{{route('user.about')}}">About Us</a></li>
+                                    <li><a href="#">Team Member</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                    <li><a href="#">Affilate</a></li>
+                                    <li><a href="#">Order History</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget">
+                                <h4 class="widget-title">My Account</h4>
+                                <ul class="widget-body">
+                                    <li><a href="#">Track My Order</a></li>
+                                    <li><a href="{{route('user.cart')}}">View Cart</a></li>
+                                    <li><a href="login.html">Sign In</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="wishlist.html">My Wishlist</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget">
+                                <h4 class="widget-title">Customer Service</h4>
+                                <ul class="widget-body">
+                                    <li><a href="#">Payment Methods</a></li>
+                                    <li><a href="#">Money-back guarantee!</a></li>
+                                    <li><a href="#">Product Returns</a></li>
+                                    <li><a href="#">Support Center</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Term and Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-middle">
+                    <div class="widget widget-category">
+                        <div class="category-box">
+                            <h6 class="category-name">Consumer Electric:</h6>
+                            <a href="#">TV Television</a>
+                            <a href="#">Air Condition</a>
+                            <a href="#">Refrigerator</a>
+                            <a href="#">Washing Machine</a>
+                            <a href="#">Audio Speaker</a>
+                            <a href="#">Security Camera</a>
+                            <a href="#">View All</a>
+                        </div>
+                        <div class="category-box">
+                            <h6 class="category-name">Clothing & Apparel:</h6>
+                            <a href="#">Men's T-shirt</a>
+                            <a href="#">Dresses</a>
+                            <a href="#">Men's Sneacker</a>
+                            <a href="#">Leather Backpack</a>
+                            <a href="#">Watches</a>
+                            <a href="#">Jeans</a>
+                            <a href="#">Sunglasses</a>
+                            <a href="#">Boots</a>
+                            <a href="#">Rayban</a>
+                            <a href="#">Acccessories</a>
+                        </div>
+                        <div class="category-box">
+                            <h6 class="category-name">Home, Garden & Kitchen:</h6>
+                            <a href="#">Sofa</a>
+                            <a href="#">Chair</a>
+                            <a href="#">Bed Room</a>
+                            <a href="#">Living Room</a>
+                            <a href="#">Cookware</a>
+                            <a href="#">Utensil</a>
+                            <a href="#">Blender</a>
+                            <a href="#">Garden Equipments</a>
+                            <a href="#">Decor</a>
+                            <a href="#">Library</a>
+                        </div>
+                        <div class="category-box">
+                            <h6 class="category-name">Health & Beauty:</h6>
+                            <a href="#">Skin Care</a>
+                            <a href="#">Body Shower</a>
+                            <a href="#">Makeup</a>
+                            <a href="#">Hair Care</a>
+                            <a href="#">Lipstick</a>
+                            <a href="#">Perfume</a>
+                            <a href="#">View all</a>
+                        </div>
+                        <div class="category-box">
+                            <h6 class="category-name">Jewelry & Watches:</h6>
+                            <a href="#">Necklace</a>
+                            <a href="#">Pendant</a>
+                            <a href="#">Diamond Ring</a>
+                            <a href="#">Silver Earing</a>
+                            <a href="#">Leather Watcher</a>
+                            <a href="#">Rolex</a>
+                            <a href="#">Gucci</a>
+                            <a href="#">Australian Opal</a>
+                            <a href="#">Ammolite</a>
+                            <a href="#">Sun Pyrite</a>
+                        </div>
+                        <div class="category-box">
+                            <h6 class="category-name">Computer & Technologies:</h6>
+                            <a href="#">Laptop</a>
+                            <a href="#">iMac</a>
+                            <a href="#">Smartphone</a>
+                            <a href="#">Tablet</a>
+                            <a href="#">Apple</a>
+                            <a href="#">Asus</a>
+                            <a href="#">Drone</a>
+                            <a href="#">Wireless Speaker</a>
+                            <a href="#">Game Controller</a>
+                            <a href="#">View all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-left">
+                        <p class="copyright">Copyright © 2021 Wolmart Store. All Rights Reserved.</p>
+                    </div>
+                    <div class="footer-right">
+                        <span class="payment-label mr-lg-8">We're using safe payment for</span>
+                        <figure class="payment">
+                            <img src="{{ asset('assets/user/images/payment.png') }}" alt="payment" width="159" height="25" />
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Start of Sticky Footer -->
+    <div class="sticky-footer sticky-content fix-bottom">
+        <a href="demo1.html" class="sticky-link active">
+            <i class="w-icon-home"></i>
+            <p>Home</p>
+        </a>
+        <a href="shop-banner-sidebar.html" class="sticky-link">
+            <i class="w-icon-category"></i>
+            <p>Shop</p>
+        </a>
+        <a href="my-account.html" class="sticky-link">
+            <i class="w-icon-account"></i>
+            <p>Account</p>
+        </a>
+        <div class="cart-dropdown dir-up">
+            <a href="{{route('user.cart')}}" class="sticky-link">
+                <i class="w-icon-cart"></i>
+                <p>Cart</p>
+            </a>
+            <div class="dropdown-box">
+                <div class="products">
+                    <div class="product product-cart">
+                        <div class="product-detail">
+                            <h3 class="product-name">
+                                <a href="product-default.html">Beige knitted elas<br>tic
+                                    runner shoes</a>
+                            </h3>
+                            <div class="price-box">
+                                <span class="product-quantity">1</span>
+                                <span class="product-price">$25.68</span>
+                            </div>
+                        </div>
+                        <figure class="product-media">
+                            <a href="#">
+                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product" height="84"
+                                    width="94" />
+                            </a>
+                        </figure>
+                        <button class="btn btn-link btn-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="product product-cart">
+                        <div class="product-detail">
+                            <h3 class="product-name">
+                                <a href="product.html">Blue utility pina<br>fore
+                                    denim dress</a>
+                            </h3>
+                            <div class="price-box">
+                                <span class="product-quantity">1</span>
+                                <span class="product-price">$32.99</span>
+                            </div>
+                        </div>
+                        <figure class="product-media">
+                            <a href="#">
+                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product" width="84"
+                                    height="94" />
+                            </a>
+                        </figure>
+                        <button class="btn btn-link btn-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cart-total">
+                    <label>Subtotal:</label>
+                    <span class="price">$58.67</span>
+                </div>
+
+                <div class="cart-action">
+                    <a href="{{route('user.cart')}}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                    <a href="checkout.html" class="btn btn-primary  btn-rounded">Checkout</a>
+                </div>
+            </div>
+            <!-- End of Dropdown Box -->
+        </div>
+        
+        <div class="header-search hs-toggle dir-up">
+            <a href="#" class="search-toggle sticky-link">
+                <i class="w-icon-search"></i>
+                <p>Search</p>
+            </a>
+            <form action="#" class="input-wrapper">
+                <input type="text" class="form-control" name="search" autocomplete="off"
+                    placeholder="Search" required />
+                <button class="btn btn-search" type="submit">
+                    <i class="w-icon-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- End of Sticky Footer -->
+    
+    <!-- Start of Scroll Top -->
+    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+    <!-- End of Scroll Top -->
+
+    <!-- Start of Mobile Menu -->
+    <div class="mobile-menu-wrapper">
+        <div class="mobile-menu-overlay"></div>
+        <!-- End of .mobile-menu-overlay -->
+
+        <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
+        <!-- End of .mobile-menu-close -->
+
+        <div class="mobile-menu-container scrollable">
+            <form action="#" method="get" class="input-wrapper">
+                <input type="text" class="form-control" name="search" autocomplete="off"
+                    placeholder="Search" required />
+                <button class="btn btn-search" type="submit">
+                    <i class="w-icon-search"></i>
+                </button>
+            </form>
+            <!-- End of Search Form -->
+            <div class="tab">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a href="#main-menu" class="nav-link active">Main Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#categories" class="nav-link">Categories</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="main-menu">
+                    <ul class="mobile-menu">
+                        <li><a href="demo1.html">Home</a></li>
+                        <li>
+                            <a href="shop-banner-sidebar.html">Shop</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Shop Pages</a>
+                                    <ul>
+                                        <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
+                                        <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Full Width Banner</a></li>
+                                        <li><a href="shop-horizontal-filter.html">Horizontal Filter<span class="tip tip-hot">Hot</span></a></li>
+                                        <li><a href="shop-off-canvas.html">Off Canvas Sidebar<span class="tip tip-new">New</span></a></li>
+                                        <li><a href="shop-infinite-scroll.html">Infinite Ajax Scroll</a></li>
+                                        <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
+                                        <li><a href="shop-both-sidebar.html">Both Sidebar</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Shop Layouts</a>
+                                    <ul>
+                                        <li><a href="shop-grid-3cols.html">3 Columns Mode</a></li>
+                                        <li><a href="shop-grid-4cols.html">4 Columns Mode</a></li>
+                                        <li><a href="shop-grid-5cols.html">5 Columns Mode</a></li>
+                                        <li><a href="shop-grid-6cols.html">6 Columns Mode</a></li>
+                                        <li><a href="shop-grid-7cols.html">7 Columns Mode</a></li>
+                                        <li><a href="shop-grid-8cols.html">8 Columns Mode</a></li>
+                                        <li><a href="shop-list.html">List Mode</a></li>
+                                        <li><a href="shop-list-sidebar.html">List Mode With Sidebar</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Product Pages</a>
+                                    <ul>
+                                        <li><a href="product-variable.html">Variable Product</a></li>
+                                        <li><a href="product-featured.html">Featured &amp; Sale</a></li>
+                                        <li><a href="product-accordion.html">Data In Accordion</a></li>
+                                        <li><a href="product-section.html">Data In Sections</a></li>
+                                        <li><a href="product-swatch.html">Image Swatch</a></li>
+                                        <li><a href="product-extended.html">Extended Info</a>
+                                        </li>
+                                        <li><a href="product-without-sidebar.html">Without Sidebar</a></li>
+                                        <li><a href="product-video.html">360<sup>o</sup> &amp; Video<span class="tip tip-new">New</span></a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Product Layouts</a>
+                                    <ul>
+                                        <li><a href="product-default.html">Default<span class="tip tip-hot">Hot</span></a></li>
+                                        <li><a href="product-vertical.html">Vertical Thumbs</a></li>
+                                        <li><a href="product-grid.html">Grid Images</a></li>
+                                        <li><a href="product-masonry.html">Masonry</a></li>
+                                        <li><a href="product-gallery.html">Gallery</a></li>
+                                        <li><a href="product-sticky-info.html">Sticky Info</a></li>
+                                        <li><a href="product-sticky-thumb.html">Sticky Thumbs</a></li>
+                                        <li><a href="product-sticky-both.html">Sticky Both</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="vendor-dokan-store.html">Vendor</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Store Listing</a>
+                                    <ul>
+                                        <li><a href="vendor-dokan-store-list.html">Store listing 1</a></li>
+                                        <li><a href="vendor-wcfm-store-list.html">Store listing 2</a></li>
+                                        <li><a href="vendor-wcmp-store-list.html">Store listing 3</a></li>
+                                        <li><a href="vendor-wc-store-list.html">Store listing 4</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Vendor Store</a>
+                                    <ul>
+                                        <li><a href="vendor-dokan-store.html">Vendor Store 1</a></li>
+                                        <li><a href="vendor-wcfm-store-product-grid.html">Vendor Store 2</a></li>
+                                        <li><a href="vendor-wcmp-store-product-grid.html">Vendor Store 3</a></li>
+                                        <li><a href="vendor-wc-store-product-grid.html">Vendor Store 4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+                            <ul>
+                                <li><a href="blog.html">Classic</a></li>
+                                <li><a href="blog-listing.html">Listing</a></li>
+                                <li>
+                                    <a href="blog-grid.html">Grid</a>
+                                    <ul>
+                                        <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
+                                        <li><a href="blog-grid-3cols.html">Grid 3 columns</a></li>
+                                        <li><a href="blog-grid-4cols.html">Grid 4 columns</a></li>
+                                        <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Masonry</a>
+                                    <ul>
+                                        <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
+                                        <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
+                                        <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
+                                        <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Mask</a>
+                                    <ul>
+                                        <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
+                                        <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="post-single.html">Single Post</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{route('user.about')}}">Pages</a>
+                            <ul>
+                                
+                                <li><a href="{{route('user.about')}}">About Us</a></li>
+                                <li><a href="become-a-vendor.html">Become A Vendor</a></li>
+                                <li><a href="contact-us.html">Contact Us</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="faq.html">FAQs</a></li>
+                                <li><a href="error-404.html">Error 404</a></li>
+                                <li><a href="coming-soon.html">Coming Soon</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                                <li><a href="{{route('user.cart')}}">Cart</a></li>
+                                <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="elements.html">Elements</a>
+                            <ul>
+                                <li><a href="element-products.html">Products</a></li>
+                                <li><a href="element-titles.html">Titles</a></li>
+                                <li><a href="element-typography.html">Typography</a></li>
+                                <li><a href="element-categories.html">Product Category</a></li>
+                                <li><a href="element-buttons.html">Buttons</a></li>
+                                <li><a href="element-accordions.html">Accordions</a></li>
+                                <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
+                                <li><a href="element-tabs.html">Tabs</a></li>
+                                <li><a href="element-testimonials.html">Testimonials</a></li>
+                                <li><a href="element-blog-posts.html">Blog Posts</a></li>
+                                <li><a href="element-instagrams.html">Instagrams</a></li>
+                                <li><a href="element-cta.html">Call to Action</a></li>
+                                <li><a href="element-vendors.html">Vendors</a></li>
+                                <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
+                                <li><a href="element-icons.html">Icons</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane" id="categories">
+                    <ul class="mobile-menu">
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-tshirt2"></i>Fashion
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">Women</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">New Arrivals</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Best Sellers</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Trending</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Clothing</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Shoes</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Bags</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Accessories</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Jewlery &
+                                                Watches</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Sale</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">New Arrivals</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Best Sellers</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Trending</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Clothing</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Shoes</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Bags</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Accessories</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Jewlery &
+                                                Watches</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-home"></i>Home & Garden
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Beds, Frames &
+                                                Bases</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Dressers</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Nightstands</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Kid's Beds &
+                                                Headboards</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Armoires</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Living Room</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Coffee Tables</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Chairs</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Tables</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Futons & Sofa
+                                                Beds</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Cabinets &
+                                                Chests</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Office</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Office Chairs</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Desks</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Bookcases</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">File Cabinets</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Breakroom
+                                                Tables</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Kitchen & Dining</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Dining Sets</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Kitchen Storage
+                                                Cabinets</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Bashers Racks</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Dining Chairs</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Dining Room
+                                                Tables</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Bar Stools</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-electronics"></i>Electronics
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">Laptops &amp; Computers</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Desktop
+                                                Computers</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Monitors</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Laptops</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Hard Drives &amp;
+                                                Storage</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Computer
+                                                Accessories</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">TV &amp; Video</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">TVs</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Home Audio
+                                                Speakers</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Projectors</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Media Streaming
+                                                Devices</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Digital Cameras</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Digital SLR
+                                                Cameras</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Sports & Action
+                                                Cameras</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Camera Lenses</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Photo Printer</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Digital Memory
+                                                Cards</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Cell Phones</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Carrier Phones</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Unlocked Phones</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Phone & Cellphone
+                                                Cases</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Cellphone
+                                                Chargers</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-furniture"></i>Furniture
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">Furniture</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Sofas & Couches</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Armchairs</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Bed Frames</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Beside Tables</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Dressing Tables</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="#">Lighting</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Light Bulbs</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Lamps</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Celling Lights</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Wall Lights</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Bathroom
+                                                Lighting</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="#">Home Accessories</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Decorative
+                                                Accessories</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Candals &
+                                                Holders</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Home Fragrance</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Mirrors</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Clocks</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="#">Garden & Outdoors</a>
+                                    <ul>
+                                        <li><a href="shop-fullwidth-banner.html">Garden
+                                                Furniture</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Lawn Mowers</a>
+                                        </li>
+                                        <li><a href="shop-fullwidth-banner.html">Pressure
+                                                Washers</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">All Garden
+                                                Tools</a></li>
+                                        <li><a href="shop-fullwidth-banner.html">Outdoor Dining</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-heartbeat"></i>Healthy & Beauty
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-gift"></i>Gift Ideas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-gamepad"></i>Toy & Games
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-ice-cream"></i>Cooking
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-ios"></i>Smart Phones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-camera"></i>Cameras & Photo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-fullwidth-banner.html">
+                                <i class="w-icon-ruby"></i>Accessories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="shop-banner-sidebar.html" class="font-weight-bold text-primary text-uppercase ls-25">
+                                View All Categories<i class="w-icon-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Mobile Menu -->
+
+    <!-- Plugin JS File -->
+    <script src="{{ asset('assets/user/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/jquery.count-to/jquery.count-to.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/parallax/parallax.min.js') }}"></script>
+    <script src="{{ asset('assets/user/js/main.min.js') }}"></script>
+</body>
+<!-- End of Become a vendor -->

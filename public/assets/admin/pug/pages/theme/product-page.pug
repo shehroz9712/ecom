@@ -39,47 +39,47 @@ html(lang='en')
                                 .col-xl-9.product-main
                                   .pro-slide-single
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/01.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/02.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/03.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/04.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/05.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/05.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/06.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/06.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/07.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/07.jpg') }}', alt='')
                                     div
-                                      img.img-fluid(src='../assets/images/ecommerce/08.jpg', alt='')
+                                      img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/08.jpg') }}', alt='')
                                 .col-xl-3.product-thumbnail
                                   .pro-slide-right
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/01.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/01.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/02.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/02.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/03.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/03.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/04.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/04.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/05.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/05.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/06.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/06.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/07.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/07.jpg') }}', alt='')
                                     div
                                       .slide-box
-                                        img(src='../assets/images/ecommerce/08.jpg', alt='')
+                                        img(src='../{{ asset('assets/user/images/ecommerce/08.jpg') }}', alt='')
                         .col-xl-5.box-col-6.proorder-xl-3.xl-100
                           .card
                             .card-body
@@ -105,7 +105,7 @@ html(lang='en')
                                   li.bg-danger
                                   li.bg-info
                                   li.bg-warning
-                                a.btn.btn-secondary.mt-0(href="cart.html")
+                                a.btn.btn-secondary.mt-0(href="{{route('user.cart')}}")
                                     i.fa.fa-shopping-cart.me-2
                                     | Buy Now
                               .pro-group
@@ -160,7 +160,7 @@ html(lang='en')
                                       form.d-inline-block.f-right                             
                               .pro-group.pb-0
                                 .pro-shop
-                                  a.btn.btn-primary.m-r-10(href="cart.html")                                 
+                                  a.btn.btn-primary.m-r-10(href="{{route('user.cart')}}")                                 
                                     i.fa.fa-shopping-basket.me-2
                                     | Add To Cart
                                   

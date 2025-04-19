@@ -43,7 +43,7 @@ html(lang='en')
                                       .email-app-sidebar
                                         .media
                                           .media-size-email
-                                            img.me-3.rounded-circle(src='../assets/images/user/user.png', alt='')
+                                            img.me-3.rounded-circle(src='../{{ asset('assets/user/images/user/user.png') }}', alt='')
                                           .media-body
                                             h6.f-w-600 MARKJENCO
                                             p Markjecno@gmail.com
@@ -135,7 +135,7 @@ html(lang='en')
                                             .row
                                               .col-xl-12
                                                 .media
-                                                  img.me-3.rounded-circle(src='../assets/images/user/user.png', alt='')
+                                                  img.me-3.rounded-circle(src='../{{ asset('assets/user/images/user/user.png') }}', alt='')
                                                   .media-body
                                                       h6.d-block
                                                         | Lorm lpsa                                                             
@@ -160,11 +160,11 @@ html(lang='en')
                                               .attachment
                                                 ul
                                                   li
-                                                    img.img-fluid(src='../assets/images/email/1.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/email/1.jpg') }}', alt='')
                                                   li
-                                                    img.img-fluid(src='../assets/images/email/2.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/email/2.jpg') }}', alt='')
                                                   li
-                                                    img.img-fluid(src='../assets/images/email/3.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/email/3.jpg') }}', alt='')
                                             .emailread-group
                                               textarea.form-control(rows='4' cols='50' placeholder="write about your nots")
                                               .action-wrapper

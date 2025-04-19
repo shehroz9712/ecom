@@ -21,11 +21,11 @@ $color5 : #4d3096;
 $i:1;
 @while $i<=6 {
 	.bg-pattern#{$i}{
-		background-image: url(../images/sidebar-pattern/#{$i}.png);
+		background-image: url(../images/sidebar-pattern/#{$i}.png') }});
 		background-color: #2f3c4e;
 	}
 	.bg-img#{$i}{
-		background-image: url(../images/sidebar-image/#{$i}.jpg);
+		background-image: url(../images/sidebar-image/#{$i}.jpg') }});
 	}
 	$i:$i+1;
 }
@@ -3067,13 +3067,13 @@ body {
 							color: $dark-small-font-color;
 						}
 					}
-					.jsgrid-grid-header {
+					.js') }}grid-grid-header {
 						background-color: $dark-card-background;
 						border: 1px solid $dark-card-border;
 					}
-					.jsgrid-header-row, .jsgrid-filter-row {
-						> .jsgrid-header-cell,
-						> .jsgrid-cell {
+					.js') }}grid-header-row, .js') }}grid-filter-row {
+						> .js') }}grid-header-cell,
+						> .js') }}grid-cell {
 							background: $dark-card-background;
 							border: 1px solid $dark-card-border;
 							input {
@@ -3088,37 +3088,37 @@ body {
 							color: $dark-all-font-color;
 						}
 					}
-					.jsgrid-row {
-						> .jsgrid-cell {
+					.js') }}grid-row {
+						> .js') }}grid-cell {
 							background-color: $dark-card-background;
 						}
 					}
-					.jsgrid-alt-row {
-						> .jsgrid-cell {
+					.js') }}grid-alt-row {
+						> .js') }}grid-cell {
 							background-color: $dark-body-background;
 						}
 					}
-					.jsgrid-cell, .jsgrid-grid-body {
+					.js') }}grid-cell, .js') }}grid-grid-body {
 						border: 1px solid $dark-card-border;
 					}
-					.jsgrid-selected-row {
-						> .jsgrid-cell {
+					.js') }}grid-selected-row {
+						> .js') }}grid-cell {
 							background-color: $dark-datatable-sorting;
 						}
 					}
-					.jsgrid {
-						.jsgrid-pager {
+					.js') }}grid {
+						.js') }}grid-pager {
 							[class*="jsgrid-pager"] {
 								border: 1px solid $dark-card-border;
 							}
-							.jsgrid-pager-page {
+							.js') }}grid-pager-page {
 								a {
 									color: $dark-all-font-color;
 								}
 							}
 						}
 					}
-					.jsgrid-pager-current-page {
+					.js') }}grid-pager-current-page {
 						color: $dark-all-font-color;
 						font-weight: 700;
 					}
@@ -4933,18 +4933,18 @@ body {
 			background-color: rgba(54,64,74,0.9);
 			border: rgba(255,255,255,0.5);
 		}
-		.jstree-default {
-			.jstree-node, .jstree-icon{
+		.js') }}tree-default {
+			.js') }}tree-node, .js') }}tree-icon{
 				color: #455869 !important;
 			}
-			.jstree-anchor{
+			.js') }}tree-anchor{
 				color: $dark-small-font-color;
 			}
-			.jstree-clicked{
+			.js') }}tree-clicked{
 				color: $white;
 				background-color: transparent;
 			}
-			.jstree-hovered{
+			.js') }}tree-hovered{
 				background-color: $dark-body-background;
 				border: 1px solid $dark-card-border;
 			}

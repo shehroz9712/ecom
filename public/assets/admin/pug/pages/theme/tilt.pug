@@ -41,14 +41,14 @@ html(lang='en')
                               .row
                                 .col-md-6.offset-md-3
                                   div
-                                    img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/02.jpg', data-tilt-perspective='300', data-tilt-speed='400', data-tilt-max='5', alt='')
+                                    img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/02.jpg') }}', data-tilt-perspective='300', data-tilt-speed='400', data-tilt-max='5', alt='')
                                   div
                                     h6.sub-title.mt-4.mb-0 The most basic usage:
                                     ul
                                       li
                                         .line
                                           code
-                                            span  &lt;script src="tilt.jquery.js"&gt;&lt;/script&gt;
+                                            span  &lt;script src="tilt.jquery.js') }}"&gt;&lt;/script&gt;
                                       li
                                         .line
                                           | Mark your elements with
@@ -60,7 +60,7 @@ html(lang='en')
                               h5 Parallax hover tilt effect 
                             .card-body
                               .tilt-image
-                                img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/03.jpg', data-tilt-perspective='300', data-tilt-speed='400', data-tilt-max='5', alt='')
+                                img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/03.jpg') }}', data-tilt-perspective='300', data-tilt-speed='400', data-tilt-max='5', alt='')
                               div
                                 h6.sub-title.mt-4 How to Use:
                                 ol.mb-0
@@ -83,7 +83,7 @@ html(lang='en')
                               h5 Glare effect:
                             .card-body
                               .tilt-image
-                                img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/04.jpg', data-tilt-glare='true', data-tilt-maxglare='.5', data-tilt-perspective='200', data-tilt-speed='300', data-tilt-max='10', alt='')
+                                img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/04.jpg') }}', data-tilt-glare='true', data-tilt-maxglare='.5', data-tilt-perspective='200', data-tilt-speed='300', data-tilt-max='10', alt='')
                               div
                                 h6.sub-title.mt-4 How to Use:
                                 .line
@@ -92,7 +92,7 @@ html(lang='en')
                                     code {'maxGlare': .5}
                                   pre.mb-0.pre-mt
                                     code.language-javascript
-                                      | $('.js-tilt').tilt({
+                                      | $('.js') }}-tilt').tilt({
                                       |     &nbsp; glare: true,maxGlare: .5
                                       | })
                         .col-xxl-4.box-col-6.col-sm-6
@@ -101,7 +101,7 @@ html(lang='en')
                               h5 Keep floating:
                             .card-body
                               .tilt-image
-                                img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/05.jpg', data-tilt-reset='false', data-tilt-speed='200', data-tilt-max='5', data-tilt-perspective='150', alt='')
+                                img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/05.jpg') }}', data-tilt-reset='false', data-tilt-speed='200', data-tilt-max='5', data-tilt-perspective='150', alt='')
                               div
                                 h6.sub-title.mt-4 How to Use:
                                 .line
@@ -109,7 +109,7 @@ html(lang='en')
                                     | Setting this option will not reset the tilt element when the user mouse leaves the element.
                                   pre.mb-0
                                     code.language-javascript
-                                      | $('.js-tilt').tilt({
+                                      | $('.js') }}-tilt').tilt({
                                       |     &nbsp;  reset: false
                                       | })
                         .col-xxl-4.box-col-6.col-sm-6
@@ -118,13 +118,13 @@ html(lang='en')
                               h5 Scale on hover
                             .card-body.o-hidden
                               .tilt-image
-                                img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/06.jpg', data-tilt-speed='1000', data-tilt-max='20', data-tilt-scale='1.01', data-tilt-perspective='250', alt='')
+                                img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/06.jpg') }}', data-tilt-speed='1000', data-tilt-max='20', data-tilt-scale='1.01', data-tilt-perspective='250', alt='')
                               div
                                 h6.sub-title.mt-4 How to Use:
                                 span Setting this option will scale tilt element on hover.
                                 pre.mb-0
                                   code.language-javascript
-                                    | $('.js-tilt').tilt({
+                                    | $('.js') }}-tilt').tilt({
                                     |     &nbsp;  scale: 1.2
                                     | })
                         .col-xxl-4.box-col-6.col-sm-6
@@ -133,13 +133,13 @@ html(lang='en')
                               h5 Disable Y axis
                             .card-body
                               .tilt-image
-                                img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/07.jpg', data-tilt-speed='100', data-tilt-max='10', data-tilt-axis='x', data-tilt-perspective='250', alt='')
+                                img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/07.jpg') }}', data-tilt-speed='100', data-tilt-max='10', data-tilt-axis='x', data-tilt-perspective='250', alt='')
                               div
                                 h6.sub-title.mt-4 The most basic usage:
                                 span Setting this option will disable the Y-Axis on the tilt element.
                                 pre.mb-0
                                   code.language-javascript
-                                    | $('.js-tilt').tilt({
+                                    | $('.js') }}-tilt').tilt({
                                     |     &nbsp;  axis: x
                                     | })
                         .col-xxl-4.box-col-6.col-sm-6
@@ -148,13 +148,13 @@ html(lang='en')
                               h5 Disable X axis
                             .card-body
                               .tilt-image
-                                img.img-fluid.img-thumbnail.js-tilt(src='../assets/images/lightgallry/08.jpg', data-tilt-speed='250', data-tilt-max='10', data-tilt-axis='y', data-tilt-perspective='250', alt='')
+                                img.img-fluid.img-thumbnail.js') }}-tilt(src='../{{ asset('assets/user/images/lightgallry/08.jpg') }}', data-tilt-speed='250', data-tilt-max='10', data-tilt-axis='y', data-tilt-perspective='250', alt='')
                               div
                                 h6.sub-title.mt-4 The most basic usage:
                                 span Setting this option will disable the X-Axis on the tilt element.
                                 pre.mb-0
                                   code.language-javascript
-                                    | $('.js-tilt').tilt({
+                                    | $('.js') }}-tilt').tilt({
                                     |     &nbsp;   axis: Y
                                     | })
                     // Container-fluid ends                    

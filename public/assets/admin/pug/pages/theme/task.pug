@@ -44,7 +44,7 @@ html(lang='en')
                                     .email-app-sidebar.left-bookmark
                                       .media
                                         .media-size-email
-                                          img.me-3.rounded-circle(src='../assets/images/user/user.png', alt='')
+                                          img.me-3.rounded-circle(src='../{{ asset('assets/user/images/user/user.png') }}', alt='')
                                         .media-body
                                           h6.f-w-600 MARK JENCO
                                           p Markjecno@gmail.com
@@ -106,10 +106,10 @@ html(lang='en')
                                                               | Mail
                                                       .row
                                                         .form-group.col
-                                                          select.js-example-basic-single
+                                                          select.js') }}-example-basic-single
                                                               option(value='task') My Task
                                                         .form-group.col
-                                                          select.js-example-disabled-results#bm-collection
+                                                          select.js') }}-example-disabled-results#bm-collection
                                                             option(value='general') General
                                                       .form-group.col-md-12.my-0
                                                         textarea.form-control(required='', autocomplete='off')   

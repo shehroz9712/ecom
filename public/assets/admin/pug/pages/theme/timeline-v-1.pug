@@ -70,7 +70,7 @@ html(lang='en')
                                     h4
                                       | Title of section
                                       span.digits  3
-                                    img.img-fluid.p-t-20(src='../assets/images/banner/1.jpg', alt='')
+                                    img.img-fluid.p-t-20(src='../{{ asset('assets/user/images/banner/1.jpg') }}', alt='')
                                     span.cd-date
                                       | Jan 
                                       span.counter.digits 24
@@ -82,7 +82,7 @@ html(lang='en')
                                       | Title of section
                                       span.digits  4
                                     audio.m-t-20(controls='')
-                                      source(src='../assets/audio/horse.ogg', type='audio/ogg')
+                                      source(src='../{{ asset('assets/user/audio/horse.ogg', type='audio/ogg')
                                       |                                                 Your browser does not support the audio element.
                                     span.cd-date
                                       | Feb 
@@ -94,7 +94,7 @@ html(lang='en')
                                     h4
                                       | Title of section
                                       span.digits  5
-                                    img.img-fluid.p-t-20(src='../assets/images/banner/3.jpg', alt='')
+                                    img.img-fluid.p-t-20(src='../{{ asset('assets/user/images/banner/3.jpg') }}', alt='')
                                     span.cd-date
                                       | Feb 
                                       span.counter.digits 18

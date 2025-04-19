@@ -45,7 +45,7 @@ html(lang='en')
                                     .email-app-sidebar.left-bookmark
                                       .media
                                         .media-size-email
-                                          img.me-3.rounded-circle(src='../assets/images/user/user.png', alt='')
+                                          img.me-3.rounded-circle(src='../{{ asset('assets/user/images/user/user.png') }}', alt='')
                                         .media-body
                                           a(href="user-profile.html")
                                             h6.f-w-700 MARK JENCO
@@ -149,7 +149,7 @@ html(lang='en')
                                             #v-pills-tab.nav.flex-column.nav-pills(role='tablist', aria-orientation='vertical')
                                               a#v-pills-user-tab.contact-tab-0.nav-link.active(data-bs-toggle='pill', onclick= 'activeDiv(0)', href='#v-pills-user', role='tab', aria-controls='v-pills-user', aria-selected='true')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_0(src='../assets/images/user/2.png' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_0(src='../{{ asset('assets/user/images/user/2.png') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_0 Bucky 
@@ -157,7 +157,7 @@ html(lang='en')
                                                     p.email_add_0 barnes@gmail.com
                                               a#v-pills-profile-tab.contact-tab-1.nav-link(data-bs-toggle='pill', onclick= 'activeDiv(1)', href='#v-pills-profile', role='tab', aria-controls='v-pills-profile', aria-selected='false') 
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_1(src='../assets/images/user/8.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_1(src='../{{ asset('assets/user/images/user/8.jpg') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_1 Comeren 
@@ -165,7 +165,7 @@ html(lang='en')
                                                     p.email_add_1 comeren@gmail.com
                                               a#v-pills-messages-tab.contact-tab-2.nav-link(data-bs-toggle='pill', onclick= 'activeDiv(2)', href='#v-pills-messages', role='tab', aria-controls='v-pills-messages', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_2(src='../assets/images/user/1.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_2(src='../{{ asset('assets/user/images/user/1.jpg') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_2 Issa 
@@ -173,7 +173,7 @@ html(lang='en')
                                                     p.email_add_2 issabell@gmail.com
                                               a#v-pills-settings-tab.contact-tab-3.nav-link(data-bs-toggle='pill', onclick= 'activeDiv(3)', href='#v-pills-settings', role='tab', aria-controls='v-pills-settings', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_3(src='../assets/images/user/14.png' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_3(src='../{{ asset('assets/user/images/user/14.png') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_3 Andew 
@@ -181,7 +181,7 @@ html(lang='en')
                                                     p.email_add_3 andewjon@gmail.com
                                               a#v-pills-contact1-tab.contact-tab-4.nav-link(data-bs-toggle='pill', onclick= 'activeDiv(4)', href='#v-pills-contact1', role='tab', aria-controls='v-pills-settings', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_4(src='../assets/images/user/5.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_4(src='../{{ asset('assets/user/images/user/5.jpg') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_4 Jason 
@@ -189,7 +189,7 @@ html(lang='en')
                                                     p.email_add_4 jasonb@gmail.com
                                               a#v-pills-contact8-tab.contact-tab-5.nav-link(data-bs-toggle='pill', onclick= 'activeDiv(5)', href='#v-pills-contact2', role='tab', aria-controls='v-pills-settings', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_5(src='../assets/images/avtar/11.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_5(src='../{{ asset('assets/user/images/avtar/11.jpg') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_5 Monty 
@@ -197,7 +197,7 @@ html(lang='en')
                                                     p.email_add_5 monty@gmail.com
                                               a#v-pills-contact3-tab.contact-tab-6.nav-link(data-bs-toggle='pill', onclick= 'activeDiv(6)', href='#v-pills-contact3', role='tab', aria-controls='v-pills-settings', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_6(src='../assets/images/avtar/16.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle.update_img_6(src='../{{ asset('assets/user/images/avtar/16.jpg') }}' alt='')
                                                   .media-body
                                                     h6 
                                                       span.first_name_6 Brock 
@@ -208,7 +208,7 @@ html(lang='en')
                                               #v-pills-user.tab-pane.contact-tab-0.tab-content-child.fade.show.active(role='tabpanel', aria-labelledby='v-pills-user-tab')
                                                 .profile-mail
                                                   .media.align-items-center
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_0(src='../assets/images/user/2.png' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_0(src='../{{ asset('assets/user/images/user/2.png') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,0)') 
                                                     .media-body.mt-0
                                                       h5
@@ -251,7 +251,7 @@ html(lang='en')
                                               #v-pills-profile.tab-pane.contact-tab-1.tab-content-child.fade(role='tabpanel', aria-labelledby='v-pills-profile-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_1(src='../assets/images/user/8.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_1(src='../{{ asset('assets/user/images/user/8.jpg') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,1)')
                                                     .media-body.mt-0
                                                       h5
@@ -294,7 +294,7 @@ html(lang='en')
                                               #v-pills-messages.tab-pane.contact-tab-2.tab-content-child.fade(role='tabpanel', aria-labelledby='v-pills-messages-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_2(src='../assets/images/user/1.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_2(src='../{{ asset('assets/user/images/user/1.jpg') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,2)')
                                                     .media-body.mt-0
                                                       h5 
@@ -337,7 +337,7 @@ html(lang='en')
                                               #v-pills-settings.tab-pane.contact-tab-3.tab-content-child.fade(role='tabpanel', aria-labelledby='v-pills-settings-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_3(src='../assets/images/user/14.png' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_3(src='../{{ asset('assets/user/images/user/14.png') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,3)')
                                                     .media-body.mt-0
                                                       h5 
@@ -380,7 +380,7 @@ html(lang='en')
                                               #v-pills-contact1.tab-pane.contact-tab-4.tab-content-child.fade(role='tabpanel', aria-labelledby='v-pills-contact1-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_4(src='../assets/images/user/5.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_4(src='../{{ asset('assets/user/images/user/5.jpg') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,4)')
                                                     .media-body.mt-0
                                                       h5 
@@ -423,7 +423,7 @@ html(lang='en')
                                               #v-pills-contact8.tab-pane.contact-tab-5.tab-content-child.fade(role='tabpanel', aria-labelledby='v-pills-contact1-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_5(src='../assets/images/avtar/11.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_5(src='../{{ asset('assets/user/images/avtar/11.jpg') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,5)')
                                                     .media-body.mt-0
                                                       h5 
@@ -466,7 +466,7 @@ html(lang='en')
                                               #v-pills-contact9.tab-pane.contact-tab-6.tab-content-child.fade(role='tabpanel', aria-labelledby='v-pills-contact8-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_6(src='../assets/images/avtar/16.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_6(src='../{{ asset('assets/user/images/avtar/16.jpg') }}' alt='')
                                                     input.updateimg(type='file', name='img', onchange='readURL(this,6)')
                                                     .media-body.mt-0
                                                       h5 
@@ -536,7 +536,7 @@ html(lang='en')
                                                       .col-lg-6.col-sm-6
                                                         input.form-control#url_add(type='text', required='')
                                                       .col-lg-4.col-sm-6    
-                                                        select.js-example-basic-single
+                                                        select.js') }}-example-basic-single
                                                           option(value='pw') Personal web address
                                                           option(value='cw') Company web address
                                                           option(value='fb') Fabebook URL
@@ -644,25 +644,25 @@ html(lang='en')
                                             #v-pills-tab1.nav.flex-column.nav-pills(role='tablist', aria-orientation='vertical')
                                               a#v-pills-iduser-tab.nav-link.active(data-bs-toggle='pill', href='#v-pills-iduser', role='tab', aria-controls='v-pills-iduser', aria-selected='true')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../assets/images/user/user.png' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../{{ asset('assets/user/images/user/user.png') }}' alt='')
                                                   .media-body
                                                     h6 Mark jecno
                                                     p markjecno@gmail.com
                                               a#v-pills-iduser1-tab.nav-link(data-bs-toggle='pill', href='#v-pills-iduser1', role='tab', aria-controls='v-pills-iduser1', aria-selected='false') 
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../assets/images/user/3.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../{{ asset('assets/user/images/user/3.jpg') }}' alt='')
                                                   .media-body
                                                     h6 Jason Borne
                                                     p jasonb@gmail.com
                                               a#v-pills-iduser2-tab.nav-link(data-bs-toggle='pill', href='#v-pills-iduser2', role='tab', aria-controls='v-pills-iduser2', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../assets/images/user/4.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../{{ asset('assets/user/images/user/4.jpg') }}' alt='')
                                                   .media-body
                                                     h6 Sarah Loren
                                                     p barnes@gmail.com
                                               a#v-pills-iduser3-tab.nav-link(data-bs-toggle='pill', href='#v-pills-iduser3', role='tab', aria-controls='v-pills-iduser3', aria-selected='false')
                                                 .media
-                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../assets/images/user/10.jpg' alt='')
+                                                  img.img-50.img-fluid.m-r-20.rounded-circle(src='../{{ asset('assets/user/images/user/10.jpg') }}' alt='')
                                                   .media-body
                                                     h6 Andew Jon
                                                     p andrewj@gmail.com
@@ -671,7 +671,7 @@ html(lang='en')
                                               #v-pills-iduser.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='v-pills-iduser-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_5(src='../assets/images/user/user.png' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_5(src='../{{ asset('assets/user/images/user/user.png') }}' alt='')
                                                     .media-body.mt-0
                                                       h5
                                                         span.first_name_5 Mark 
@@ -691,7 +691,7 @@ html(lang='en')
                                               #v-pills-iduser1.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-iduser1-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_6(src='../assets/images/user/3.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_6(src='../{{ asset('assets/user/images/user/3.jpg') }}' alt='')
                                                     .media-body.mt-0
                                                       h5
                                                         span.first_name_6 Jason 
@@ -711,7 +711,7 @@ html(lang='en')
                                               #v-pills-iduser2.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-iduser2-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_7(src='../assets/images/user/4.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_7(src='../{{ asset('assets/user/images/user/4.jpg') }}' alt='')
                                                     .media-body.mt-0
                                                       h5 
                                                         span.first_name_7 Sarah 
@@ -731,7 +731,7 @@ html(lang='en')
                                               #v-pills-iduser3.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-iduser3-tab')
                                                 .profile-mail
                                                   .media
-                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_8(src='../assets/images/user/10.jpg' alt='')
+                                                    img.img-100.img-fluid.m-r-20.rounded-circle.update_img_8(src='../{{ asset('assets/user/images/user/10.jpg') }}' alt='')
                                                     .media-body.mt-0
                                                       h5 
                                                         span.first_name_8 Andew 
@@ -773,7 +773,7 @@ html(lang='en')
                                         .modal-body.list-persons
                                           .profile-mail.pt-0#DivIdToPrint
                                             .media
-                                              img.img-100.img-fluid.m-r-20.rounded-circle#updateimg(src='../assets/images/user/2.png' alt='')
+                                              img.img-100.img-fluid.m-r-20.rounded-circle#updateimg(src='../{{ asset('assets/user/images/user/2.png') }}' alt='')
                                               .media-body.mt-0
                                                 h5
                                                   span#printname Bucky 

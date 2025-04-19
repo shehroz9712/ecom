@@ -2163,7 +2163,7 @@ function Sidebar(name) {
                     imageSrc: $product.find('.product-media img, .product-image:first-child img').attr('src'),
                     imageLink: $product.find('.product-name > a').attr('href'),
                     message: '<p>has been added to cart:</p>',
-                    actionTemplate: '<a href="cart.html" class="btn btn-rounded btn-sm">View Cart</a><a href="checkout.html" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
+                    actionTemplate: '<a href="{{route('user.cart')}}" class="btn btn-rounded btn-sm">View Cart</a><a href="checkout.html" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
                 });
             }, 500);
         });
@@ -3172,7 +3172,7 @@ function ProductSingle($el) {
         } else {
             productName = $this.closest('.product-single').find('.product-title').text();
             var alertHtml = '<div class="alert alert-success alert-cart-product mb-2">\
-                            <a href="cart.html" class="btn btn-success btn-rounded">View Cart</a>\
+                            <a href="{{route('user.cart')}}" class="btn btn-success btn-rounded">View Cart</a>\
                             <p class="mb-0 ls-normal">“'+ productName +'” has been added to your cart.</p>\
                             <a href="#" class="btn btn-link btn-close">\<i class="close-icon"></i>\</a>\
                             </div>'

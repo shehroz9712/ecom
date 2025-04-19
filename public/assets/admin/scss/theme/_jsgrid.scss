@@ -1,26 +1,26 @@
 /**=====================
      31. JS datagrid CSS Start
 ==========================**/
-.jsgrid{
-  .jsgrid-grid-body{
-    .jsgrid-cell{
+.js') }}grid{
+  .js') }}grid-grid-body{
+    .js') }}grid-cell{
       padding: 0.75rem;
     }
   }
-  .jsgrid-pager-container{
+  .js') }}grid-pager-container{
     text-align: right;
   }
-  .jsgrid-pager{
+  .js') }}grid-pager{
     padding: 0;
     margin-top: 20px;
-    .jsgrid-pager-nav-inactive-button{
+    .js') }}grid-pager-nav-inactive-button{
       margin-right: -5px;
       &:first-child{
         border-radius: 5px 0 0 5px;
       }
     }
-    .jsgrid-pager-page{
-      &~.jsgrid-pager-nav-button{
+    .js') }}grid-pager-page{
+      &~.js') }}grid-pager-nav-button{
         margin-left: -5px;
         &:last-child{
           border-radius:0 5px 5px 0;
@@ -33,23 +33,23 @@
       padding: 0.5em 1em;
       border: 1px solid $light-gray;
     }
-    .jsgrid-pager-page{
+    .js') }}grid-pager-page{
       a{
         color: $dark-color;
       }
     }
-    .jsgrid-pager-current-page{
+    .js') }}grid-pager-current-page{
       color: $dark-color;
     }
   }
-  .jsgrid-selected-row{
-    >.jsgrid-cell{
+  .js') }}grid-selected-row{
+    >.js') }}grid-cell{
       background: $light-gray;
       border-color: $auth-bg-color;
     }
   }
-  .jsgrid-header-row{
-    > .jsgrid-header-cell{
+  .js') }}grid-header-row{
+    > .js') }}grid-header-cell{
       padding: 0.75rem;
     }
   }

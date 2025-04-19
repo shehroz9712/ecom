@@ -8,7 +8,7 @@
   min-height: 100vh;
   text-align: center;
   &.maintenance-bg {
-    background-image: url(../images/other-images/maintenance-bg.jpg);
+    background-image: url(../images/other-images/maintenance-bg.jpg') }});
     // background-color: rgba(255, 255, 255, 0.97);
     background-blend-mode: overlay;
   }

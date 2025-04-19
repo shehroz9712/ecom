@@ -44,7 +44,7 @@ html(lang='en')
                                     .email-app-sidebar.left-bookmark
                                       .media
                                         .media-size-email
-                                          img.me-3.rounded-circle(src='../assets/images/user/user.png', alt='')
+                                          img.me-3.rounded-circle(src='../{{ asset('assets/user/images/user/user.png') }}', alt='')
                                         .media-body
                                           h6.f-w-600 MARK JENCO
                                           p Markjecno@gmail.com
@@ -74,11 +74,11 @@ html(lang='en')
                                                       .row
                                                         .form-group.col.mb-0
                                                           label Group
-                                                          select.js-example-basic-single#bm-group
+                                                          select.js') }}-example-basic-single#bm-group
                                                               option(value='bookmark') My Bookmarks
                                                         .form-group.col.mb-0
                                                           label Collection
-                                                          select.js-example-disabled-results#bm-collection
+                                                          select.js') }}-example-disabled-results#bm-collection
                                                             option(value='general') General
                                                             option(value='fs') fs
 
@@ -142,7 +142,7 @@ html(lang='en')
                                               .col-xl-3.col-lg-6.col-md-4.col-sm-6.xl-50.box-col-6
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/01.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/01.jpg') }}', alt='')
                                                     .favourite-icon.favourite_0(onclick='setFavourite(0)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -173,7 +173,7 @@ html(lang='en')
                                               .col-xl-3.col-lg-6.col-md-4.col-sm-6.xl-50.box-col-6
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/02.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/02.jpg') }}', alt='')
                                                     .favourite-icon.favourite_1(onclick='setFavourite(1)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -204,7 +204,7 @@ html(lang='en')
                                               .col-xl-3.col-lg-6.col-md-4.col-sm-6.xl-50.box-col-6
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/03.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/03.jpg') }}', alt='')
                                                     .favourite-icon.favourite_2(onclick='setFavourite(2)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -235,7 +235,7 @@ html(lang='en')
                                               .col-xl-3.col-lg-6.col-md-4.col-sm-6.xl-50.box-col-6
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/04.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/04.jpg') }}', alt='')
                                                     .favourite-icon.favourite_3(onclick='setFavourite(3)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -266,7 +266,7 @@ html(lang='en')
                                               .col-xl-3.col-lg-6.col-md-4.col-sm-6.xl-50.box-col-6
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/05.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/05.jpg') }}', alt='')
                                                     .favourite-icon.favourite_4(onclick='setFavourite(4)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -297,7 +297,7 @@ html(lang='en')
                                               .col-xl-3.col-lg-6.col-md-4.col-sm-6.xl-50.box-col-6
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/06.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/06.jpg') }}', alt='')
                                                     .favourite-icon.favourite_5(onclick='setFavourite(5)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -372,7 +372,7 @@ html(lang='en')
                                               .col-xl-3.col-md-4.xl-50
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/07.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/07.jpg') }}', alt='')
                                                     .favourite-icon.favourite_0(onclick='setFavourite(0)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -403,7 +403,7 @@ html(lang='en')
                                               .col-xl-3.col-md-4.xl-50
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/07.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/07.jpg') }}', alt='')
                                                     .favourite-icon.favourite_1(onclick='setFavourite(1)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -434,7 +434,7 @@ html(lang='en')
                                               .col-xl-3.col-md-4.xl-50
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/01.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/01.jpg') }}', alt='')
                                                     .favourite-icon.favourite_2(onclick='setFavourite(2)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -465,7 +465,7 @@ html(lang='en')
                                               .col-xl-3.col-md-4.xl-50
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/07.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/07.jpg') }}', alt='')
                                                     .favourite-icon.favourite_3(onclick='setFavourite(3)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -496,7 +496,7 @@ html(lang='en')
                                               .col-xl-3.col-md-4.xl-50
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/07.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/07.jpg') }}', alt='')
                                                     .favourite-icon.favourite_4(onclick='setFavourite(4)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -527,7 +527,7 @@ html(lang='en')
                                               .col-xl-3.col-md-4.xl-50
                                                 .card.bookmark-card.o-hidden
                                                   .details-website
-                                                    img.img-fluid(src='../assets/images/lightgallry/07.jpg', alt='')
+                                                    img.img-fluid(src='../{{ asset('assets/user/images/lightgallry/07.jpg') }}', alt='')
                                                     .favourite-icon.favourite_5(onclick='setFavourite(5)')
                                                       a(href='javascript:void(0)')
                                                         i.fa.fa-star
@@ -605,11 +605,11 @@ html(lang='en')
                                                     .row
                                                       .form-group.col.mb-0
                                                         label Group
-                                                        select.js-example-basic-single
+                                                        select.js') }}-example-basic-single
                                                             option(value='AL') My Bookmarks
                                                       .form-group.col.mb-0
                                                         label Collection
-                                                        select.js-example-disabled-results
+                                                        select.js') }}-example-disabled-results
                                                           option(value='general') General
                                                           option(value='fs') fs
                                                   button.btn.btn-secondary(type='button') Save

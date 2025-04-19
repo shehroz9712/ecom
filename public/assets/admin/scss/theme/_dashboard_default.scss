@@ -601,7 +601,7 @@
     }
   }
   .profile-greeting{
-    background-image: url(../images/dashboard/bg.jpg);
+    background-image: url(../images/dashboard/bg.jpg') }});
     background-size: cover !important;
     background-repeat: no-repeat;
     background-position:center center;
@@ -1307,7 +1307,7 @@ span.twitter-typeahead {
   }
   
   .mobile-clock-widget {
-    background:url(../images/other-images/mobile-clock-wallpaper.jpg);
+    background:url(../images/other-images/mobile-clock-wallpaper.jpg') }});
     background-repeat: no-repeat;
     background-size:cover;
     height:350px;   
@@ -1337,7 +1337,7 @@ span.twitter-typeahead {
       height: 175px;
       width: 175px;
       display: block;
-      background: url(../images/other-images/clock-face.png) 5% center no-repeat;
+      background: url(../images/other-images/clock-face.png') }}) 5% center no-repeat;
     }
     .sec {
       @extend %clock-widget;
@@ -1383,7 +1383,7 @@ span.twitter-typeahead {
 
 .calender-widget {
   .cal-img {
-    background: url(../images/other-images/calender-bg.png);
+    background: url(../images/other-images/calender-bg.png') }});
     background-size: cover;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;

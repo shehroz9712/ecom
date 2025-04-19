@@ -52,7 +52,7 @@ html(lang='en')
                                         option Master
                                         option Visa
                                 .col-md-5.text-center
-                                  img.img-fluid(src='../assets/images/ecommerce/card.png', alt='')
+                                  img.img-fluid(src='../{{ asset('assets/user/images/ecommerce/card.png') }}', alt='')
                         // Individual column searching (text inputs) Ends
                         // Debit Card Starts
                         .col-xxl-4.col-lg-6.box-col-6.debit-card
@@ -150,11 +150,11 @@ html(lang='en')
                                 .mb-3.col-12
                                   ul.payment-opt
                                     li
-                                      img(src='../assets/images/ecommerce/mastercard.png', alt='')
+                                      img(src='../{{ asset('assets/user/images/ecommerce/mastercard.png') }}', alt='')
                                     li
-                                      img(src='../assets/images/ecommerce/visa.png', alt='')
+                                      img(src='../{{ asset('assets/user/images/ecommerce/visa.png') }}', alt='')
                                     li
-                                      img(src='../assets/images/ecommerce/paypal.png', alt='')
+                                      img(src='../{{ asset('assets/user/images/ecommerce/paypal.png') }}', alt='')
                                 .col-12
                                   button.btn.btn-primary.btn-block(type='button', title='') Submit
                         // EMI Ends

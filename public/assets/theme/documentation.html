@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Wolmart - Bootstrap Marketplace Template</title>
+
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Wolmart - Bootstrap Marketplace Template">
+    <meta name="author" content="D-THEMES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/user/images/icons/favicon.png') }}">
+
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700,800'] }
+        };
+        ( function ( d ) {
+            var wf = d.createElement( 'script' ), s = d.scripts[0];
+            wf.src = '{{ asset('assets/user/js/webfont.js') }}';
+            wf.async = true;
+            s.parentNode.insertBefore( wf, s );
+        } )( document );
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/line-awesome/css/line-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/animate/animate.min.css') }}">
+
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/magnific-popup/magnific-popup.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/owl-carousel/owl.carousel.min.css') }}">
+
+    <!-- Main CSS File -->
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/doc.min.css') }}">
+</head>
+
+<body class="docs">
+    <div class="page-wrapper">
+        <header class="header header-transparent">
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="#" class="mobile-menu-toggle w-icon-hamburger d-md-none"></a>
+                        <a href="#" class="logo">
+                            <img src="{{ asset('assets/user//landing/images/logo.png') }}" width="145" height="45"
+                                alt="Wolmart Multi-Vendor & Marketplace WordPress Theme Logo">
+                        </a>
+                    </div>
+
+                    <div class="header-right">
+                        <nav class="main-nav mr-0 d-md-block">
+                            <ul class="menu active-underline">
+                                <li class="active"><a href="#" class="text-uppercase">Home</a></li>
+                                <li><a href="https://d-themes.com/support" class="text-uppercase">Support</a></li>
+                            </ul>
+                        </nav>
+                        <a href="https://d-themes.com/buynow/wolmarthtml"
+                            class="btn btn-rounded btn-gradient btn-dark btn-purchase grad-reverse d-none d-md-block mr-0">Buy Wolmart !</a>
+                        <a href="https://d-themes.com/buynow/wolmarthtml" class="d-md-none mr-0"><i class="w-icon-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End of Header -->
+        <main class="main">
+            <div class="page-header" style="background-image: url({{ asset('assets/user/landing/images/documentation-header.jpg') }});">
+                <div class="container">
+                    <h1 class="page-title text-white text-uppercase mb-0 lh-1">Wolmart Docs</h1>
+                    <p class="text-capitalize">How Can We Help You?</p>
+                    <div class="widget widget-search mx-auto">
+                        <div class="input-wrapper input-wrapper-inline btn-absolute">
+                            <input type="text" class="form-control input-search bg-white" name="search" autocomplete="off"
+                                placeholder="Search ..." required="">
+                            <button class="btn btn-search btn-link" type="submit">
+                                <i class="w-icon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content pt-10">
+                <div class="container">
+                    <div class="row gutter-lg main-content-wrap">
+                        <aside class="col-lg-3 sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
+                            <!-- Start of Sidebar Overlay -->
+                            <div class="sidebar-overlay"></div>
+                            <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+                            <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a>
+                            <div class="sidebar-content scrollable">
+                                <div class="sticky-sidebar">
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">Getting Started</h3>
+                                        <ul class="widget-body filter-items search-ul list-arrow">
+                                            <li><a href="#template-welcome" data-title="Getting Started"
+                                                    class="document-link">Welcome</a></li>
+                                            <li><a href="#template-features" data-title="Getting Started"
+                                                    class="document-link">Features</a></li>
+                                            <li><a href="#template-structure" data-title="Getting Started"
+                                                    class="document-link">Files Structure</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">Stylesheets</h3>
+                                        <ul class="widget-body filter-items search-ul list-arrow">
+                                            <li><a href="#template-css-overview" data-title="Stylesheets"
+                                                    class="document-link">Overview</a></li>
+                                            <li><a href="#template-css-mixins" data-title="Stylesheets"
+                                                    class="document-link">Mixins</a></li>
+                                            <li><a href="#template-css-configuration" data-title="Stylesheets"
+                                                    class="document-link">Configuration</a></li>
+                                            <li><a href="#template-css-variables" data-title="Stylesheets"
+                                                    class="document-link">Variables</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">Javascripts</h3>
+                                        <ul class="widget-body filter-items search-ul list-arrow">
+                                            <li><a href="#template-js-overview" data-title="Javascripts"
+                                                    class="document-link">Overview</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title">Components</h3>
+                                        <ul class="widget-body filter-items search-ul list-arrow">
+                                            <li><a href="#-accordion" data-title="Components"
+                                                    class="document-link">Accordion</a></li>
+                                            <li><a href="#template-com-alert" data-title="Components"
+                                                    class="document-link">Alert</a></li>
+                                            <li><a href="#template-com-blog" data-title="Components"
+                                                    class="document-link">Blog</a></li>
+                                            <li><a href="#template-com-button" data-title="Components"
+                                                    class="document-link">Button</a></li>
+                                            <li><a href="#template-com-category" data-title="Components"
+                                                    class="document-link">Category</a></li>
+                                            <li><a href="#template-com-grid" data-title="Components"
+                                                    class="document-link">Grid</a></li>
+                                            <li><a href="#template-com-icon" data-title="Components"
+                                                    class="document-link">Icon</a></li>
+                                            <li><a href="#template-com-icon-box" data-title="Components"
+                                                    class="document-link">Icon Box</a></li>
+                                            <li><a href="#template-com-instagram" data-title="Components"
+                                                    class="document-link">Instagram</a></li>
+                                            <li><a href="#template-com-popup" data-title="Components"
+                                                    class="document-link">Popup</a></li>
+                                            <li><a href="#template-com-product" data-title="Components"
+                                                    class="document-link">Product</a></li>
+                                            <li><a href="#template-com-sidebar" data-title="Components"
+                                                    class="document-link">Sidebar</a></li>
+                                            <li><a href="#template-com-slider" data-title="Components"
+                                                    class="document-link">Slider</a></li>
+                                            <li><a href="#template-com-tab" data-title="Components"
+                                                    class="document-link">Tab</a></li>
+                                            <li><a href="#template-com-testimonial" data-title="Components"
+                                                    class="document-link">Testimonial</a></li>
+                                            <li><a href="#template-com-vendor" data-title="Components"
+                                                    class="document-link">Vendor</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <div class="col-lg-9 main-content">
+                            <h2 class="title title-underline mb-7 mt-2 pb-2" id="document-title">Getting Started</h2>
+
+                            <script type="text/html" id="template-welcome">
+                                <h5>Welcome to Wolmart HTML</h5>
+        
+                                <p>Thank you for choosing  HTML!<br>We are very pleased that you have chosen Wolmart for your website and you will not be disappointed with your choice.</p>
+        
+                                <ul class="list list-circle list-style-none pl-0 mb-4 ml-0">
+                                    <li><i class="fas fa-shopping-cart"></i>Wolmart is specifically designed for <b>Marketplace</b> site.</li>
+                                    <li><i class="fas fa-rocket"></i>Wolmart is the most <b>powerful and fastest responsive</b> theme with tons of marketplace features and trends of designs.</li>
+                                    <li><i class="fas fa-check"></i>Wolmart is based on <b>HTML5</b> and <b>CSS3</b>, and works perfectly fine in <b>all browsers</b>.</li>
+                                    <li><i class="fas fa-layer-group"></i>Wolmart includes <b>12 elegant home pages</b> and 25 featured pages.</li>
+                                </ul>
+        
+                                <p>Please read our documentation before you get started, and if you are unable to find your answer, pls don't hesitate to contact us through the themeforest support page. We will be always with you.</p>
+                                <p>We hope you enjoy using Wolmart HTML!</p>
+                                <p>Best Regards. -Wolmart Team-</p>
+                            </script>
+
+                            <script type="text/html" id="template-features">
+                                <h5>Features</h5>
+    
+                                <div class="row cols-sm-2 cols-md-3 cols-xl-4 pt-4">
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="w-icon-shopify"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">Marketplace</h4>
+                                            <p>Wolmart helps you to build Marketplace site quickly and perfectly.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="w-icon-display"></i>
+                                            <i class="w-icon-mobile"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">Responsive Design</h4>
+                                            <p>Everything in Wolmart is perfectly responsive on any device.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="far fa-edit"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">Fully Customizable</h4>
+                                            <p>Wolmart helps you to implement your idea easily.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">Limitless Components</h4>
+                                            <p>Wolmart provides a huge collection of UI/UX trending components.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="fab fa-sass"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">Configurable Sass</h4>
+                                            <p>To optimize css, Wolmart provides a powerful sass configuration.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="fas fa-rocket"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">High Performance</h4>
+                                            <p>Wolmart provides an optimized way to show layouts and to run javascript.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="w-icon-honour"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">Qualified Code</h4>
+                                            <p>Anyone can easily understand Wolmart and quickly start projects.</p>
+                                        </div>
+                                    </div>
+                                    <div class="icon-box icon-solid text-center mb-8">
+                                        <span class="icon-box-icon">
+                                            <i class="w-icon-orders"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <h4 class="icon-box-title text-normal">All Featured Pages</h4>
+                                            <p>40 homepages, 12 shop pages, 11&nbsp;product pages, 13 blog pages, 13&nbsp;element pages, 8 subpages.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </script>
+
+                            <script type="text/html" id="template-structure">
+                                <h5>Files Structure</h5>
+                                <p>Wolmart has so simple structure of files that everyone can understand easily.<br>This section will explain Wolmart's entire files structure.</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Path</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>documentation</code></td>
+                                            <td>The theme documentation</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>theme</code></td>
+                                            <td>Main theme</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-4"><code>assets</code></td>
+                                            <td>Assets to be used in theme</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>ajax</code></td>
+                                            <td>Ajax content</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>css</code></td>
+                                            <td>css folder</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>fonts</code></td>
+                                            <td>Fonts</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>images</code></td>
+                                            <td>Image files</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>js</code></td>
+                                            <td>The theme javascript files</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>sass</code></td>
+                                            <td>Sass folder</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-10"><code>base</code></td>
+                                            <td>Base stylesheets</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-10"><code>components</code></td>
+                                            <td>Component stylesheets</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-10"><code>config</code></td>
+                                            <td>Default configuration for colors, fonts and media breakpoints</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-10"><code>demos</code></td>
+                                            <td>Stylesheets for individual demos</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-10"><code>mixins</code></td>
+                                            <td>Mixins for media breakpoints and configuration of variables</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-10"><code>pages</code></td>
+                                            <td>Stylesheets for subpages</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>vendor</code></td>
+                                            <td>3rd-party libraries that are included in the theme</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pl-7"><code>video</code></td>
+                                            <td>Video files</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </script>
+
+                            <script type="text/html" id="template-css-overview">
+                                <h5>Overview</h5>
+
+                                <p>Wolmart uses <a href="https://sass-lang.com/" target="_blank">SASS</a> as css processor, the most powerful professional grade CSS extension language.</p>
+
+                                <h6 class="mb-1">Helper Classes</h6>
+                                <p>Wolmart defines useful helper classes for free customization.</p>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:70%">Class</th>
+                                            <th style="width:30%">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>w-100</code><code>h-100</code><code>x-50</code><code>y-50</code><code>p-sticky</code><code>p-relative</code></td>
+                                            <td>Width, height, position helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <code>d-none</code><code>d-block</code><code>d-inline-block</code><code>d-flex</code><code>d-inline-flex</code>
+                                                <code>d-lg-none</code><code>d-lg-block</code><code>d-lg-flex</code><code>d-lg-inline-flex</code>
+                                                <code>d-md-none</code><code>d-md-block</code><code>d-md-flex</code><code>d-md-inline-flex</code>
+                                                <code>d-xl-show</code><code>d-lg-show</code>
+                                                <code>d-xs-none</code><code>d-xs-show</code><code>d-xs-block</code><code>d-xs-inline-block</code>
+                                            </td>
+                                            <td>Display helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>justify-content-center</code><code>justify-content-start</code><code>justify-content-end</code><code>justify-content-between</code><code>align-items-start</code><code>align-items-center</code><code>align-items-end</code><code>flex-column</code><code>flex-wrap</code><code>flex-1</code></td>
+                                            <td>Flex helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>overflow-hidden</code></td>
+                                            <td>Overflow helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>font-primary</code><code>font-secondary</code></td>
+                                            <td>Font family helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>font-weight-bold</code><code>font-weight-bolder</code><code>font-weight-normal</code></td>
+                                            <td>Font weight helper</td>
+                                        </tr>   
+                                        <tr>
+                                            <td>
+                                                <code>font-size-normal</code><code>font-size-sm</code><code>font-size-md</code>
+                                                <code>font-size-lg</code><code>font-size-xl</code>
+                                            </td>
+                                            <td>Font size helper</td>
+                                        </tr>                                     
+                                        <tr>
+                                            <td><code>text-left</code><code>text-center</code><code>text-right</code></td>
+                                            <td>Text align helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>text-uppercase</code><code>text-capitalize</code><code>text-normal</code></td>
+                                            <td>Text transform helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>text-white</code><code>text-light</code><code>text-lighter</code><code>text-default</code><code>text-dark</code><code>text-primary</code><code>text-secondary</code></td>
+                                            <td>Text color helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>text-hover-underline</code></td>
+                                            <td>Text hover effect helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>ls-10</code><code>ls-15</code><code>ls-25</code><code>ls-50</code><code>ls-normal</code></td>
+                                            <td>Letter spacing helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>lh-1</code><code>lh-2</code></td>
+                                            <td>Line height helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>bg-white</code><code>bg-dark</code><code>bg-grey</code><code>bg-primary</code><code>bg-secondary</code><code>bg-primary</code><code>bg-image</code></td>
+                                            <td>Background color & image helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>border-no</code><code>bb-no</code><code>bt-no</code></td>
+                                            <td>Border Helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>br-xs</code><code>br-sm</code><code>br-lg</code><code>br-50</code></td>
+                                            <td>Border Radius Helper</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>order-reverse</code></td>
+                                            <td>Order helper</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </script>
+
+                            <script type="text/html" id="template-css-mixins">
+                                <h5>Mixins</h5>
+                                
+                                <p>Wolmart supports several mixins for responsiveness, compatibility with some browsers and retina display.</p>
+
+                                <table class="table">
+                                    <thead>
+                                        <th>Mixins</th>
+                                        <th>Description</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>mq($mq-breakpoint, $mq-width: 'min-width', $mq-breakpoints: $breakpoints)</code></td>
+                                            <td>Generate media queries for responsiveness.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>only-for-ie</code></td>
+                                            <td>Generate css for only Internet Explorer.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>only-for-edge</code></td>
+                                            <td>Generate css for only Edge.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>only-for-retina($pixel-ratio)</code></td>
+                                            <td>Generate css for retina display.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-css-configuration">
+                                <h5>Configuration</h5>
+
+                                <p>Wolmart uses some predefined colors, fonts, media breakpoints. These are written in <code>sass/config/_variable.scss</code></p>
+
+                                <h6>Predefined colors</h6>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Variable</th><th>Default value</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>$primary-color</code></td><td style="background: #369; color: #fff">#369</td></tr>
+                                        <tr><td><code>$primary-color-light</code></td><td style="background: #d7e8f8; color: #222">#d7e8f8</td></tr>
+                                        <tr><td><code>$secondary-color</code></td><td style="background: #f93; color: #fff">#f93</td></tr>
+                                        <tr><td><code>$secondary-color-light</code></td><td style="background: #ffcc6d; color: #fff">#ffcc6d</td></tr>
+                                        <tr><td><code>$alert-color</code></td><td style="background: #6d1a17; color: #fff">#6d1a17</td></tr>
+                                        <tr><td><code>$success-color</code></td><td style="background: #799b5a; color: #fff">#799b5a</td></tr>
+                                        <tr><td><code>$success-color-light</code></td><td style="background: #c4df9b; color: #fff">#c4df9b</td></tr>
+                                        <tr><td><code>$wraning-color</code></td><td style="background: #ffa800; color: #fff">#ffa800</td></tr>
+                                        <tr><td><code>$dark-color</code></td><td style="background: #333; color: #fff">#333</td></tr>
+                                        <tr><td><code>$white-color</code></td><td style="background: #ffffff; color: #222">#fff</td></tr>
+                                        <tr><td><code>$body-color</code></td><td style="background: #666; color: #fff">#666</td></tr>
+                                        <tr><td><code>$border-color</code></td><td style="background: #eee; color: #222">#eee</td></tr>
+                                        <tr><td><code>$border-color-light</code></td><td style="background: #ccc; color: #222">#ccc</td></tr>
+                                        <tr><td><code>$grey-color</code></td><td style="background: #00baa3; color: #fff">#00baa3</td></tr>
+                                        <tr><td><code>$grey-color-light</code></td><td style="background: #f5f5f5; color: #222">#f5f5f5</td></tr>
+                                        <tr><td><code>$link-color</code></td><td style="background: #1914fe; color: #fff">#1914fe</td></tr>
+                                        <tr><td><code>$light-color</code></td><td style="background: #999; color: #222">#999</td></tr>
+                                    </tbody>
+                                </table>
+
+                                <h6>Predefined font</h6>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Variable</th><th>Default value</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>$alt-font-family</code></td><td>sans-serif</td></tr>
+                                        <tr><td><code>$font-family</code></td><td>'Poppins', $alt-font-family</td></tr>
+                                        <tr><td><code>$second-font-family</code></td><td>Open Sans, $alt-font-family</td></tr>
+                                    </tbody>
+                                </table>
+
+                                <h6>Predefined breakpoints</h6>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Breakpoint</th><th>Min value</th><th>Max value</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>xs</code></td><td>480px</td><td>479px</td></tr>
+                                        <tr><td><code>sm</code></td><td>576px</td><td>575px</td></tr>
+                                        <tr><td><code>md</code></td><td>768px</td><td>767px</td></tr>
+                                        <tr><td><code>lg</code></td><td>992px</td><td>991px</td></tr>
+                                        <tr><td><code>xl</code></td><td>1200px</td><td>1199px</td></tr>
+                                        <tr><td><code>xxl</code></td><td>1600px</td><td>1599px</td></tr>
+                                        <tr><td><code>xlst</code></td><td>1920px</td><td></td></tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="row cols-sm-2">
+                                    <div>
+                                        <p>When you want min-width media query</p>
+<pre>
+@include mq(xs) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+</pre>
+<p>Then the codes are compiled to:</p>
+<pre>
+@media (min-width: 480px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+</pre>
+                                    </div>
+
+                                    <div>
+                                        <p>When you want max-width media query</p>
+<pre>
+    @include mq(xs, max) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+</pre>
+<p>Then the codes are compiled to:</p>
+<pre>
+    @media (max-width: 479px) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+</pre>
+                                    </div>
+                                </div>
+                            </script>
+
+                            <script type="text/html" id="template-css-variables">
+                                <h5>Variables</h5>
+                                <p>Wolmart has the most advanced sass configuration, sass variables can be reset easily to reduce css and selector's depth without modifying source code.</p>
+        
+                                <h6>Example: header's base config</h6>
+                                <p>Default variables for header is in <code>sass/base/_header.scss</code>.</p>
+                                <pre>
+@include set-default(
+    (
+        header: (
+            font-family: $font-family,
+            background: #fff,
+            color: $dark-color,
+            _link-color: false,
+            _link-active-color: $primary-color,
+
+            // Header Top
+            top: (
+                background: #f5f6f8,
+                font-size: 1.1rem,
+                letter-spacing: -.027em,
+                text-transform: capitalize,
+                _links-gap: false,
+                icon: (
+                    margin-right: .6rem,
+                    font-size: 1.5rem
+                )
+            ),
+            // Header Middle
+            middle: (
+                padding-top: 3.2rem,
+                padding-bottom: 3.2rem,
+                color: $dark-color,
+                background: #fff,
+                font-size: 1.2rem,
+                border-bottom: 1px solid $border-color,
+                logo: (
+                    margin-right: 4.1rem,
+                    _mobile-margin-right: 2rem
+                ),
+            ),
+            bottom: (
+                padding-top: false,
+                padding-bottom: false,
+                color: $dark-color,
+                background: #fff,
+                border-bottom: false,
+                font-family: false,
+                font-size: 1.4rem,
+                font-weight: 600,
+                letter-spacing: -.025em,
+                text-transform: false
+            ),
+            // Main Nav
+            main-nav: (
+                margin: false,
+                padding: false,
+                background: false
+            ),
+            search: (
+                _background-color: $primary-color,
+                _border-color: $primary-color,
+                _max-width: 38rem,
+                // Expanded Search
+                expanded: (
+                    width: 55.6rem,
+                    height: false,
+                ),
+                simple: (
+                    width: 35rem,
+                    height: false
+                ),
+                round: (
+                    border-radius: 3rem
+                ),
+                rounded: (
+                    border-radius: .4rem
+                ),
+                btn: (
+                    width: 5.1rem
+                ),
+                toggle: (
+                    width: 30rem
+                )
+            ),
+            logo: (
+                min-width :14.4rem,   
+                margin-right: 2rem        
+            ),
+            // Login
+            compare: (
+                margin: -.4rem 3rem 0 0,
+                color: $dark-color,
+                label: (
+                    _gap: false,
+                    margin-top: .1rem,
+                    font-weight: inherit,
+                    text-transform: false,
+                    color: inherit
+                ),
+                icon: (
+                    font-size: 3.3rem,
+                    color: inherit
+                )
+            ),
+            // Wishlist
+            wishlist: (
+                margin-right: 2.3rem,
+                color: $dark-color,
+                label: (
+                    _gap: false,
+                    margin-top: .3rem,
+                    font-weight: inherit,
+                    text-transform: false,
+                    color: inherit
+                ),
+                icon: (
+                    font-size: 2.7rem,
+                    color: inherit
+                )
+            ),
+            // Minicart
+            cart: (
+                margin-right: false,
+                color: $dark-color,
+                icon: (
+                    font-size: 2.6rem,
+                    color: inherit
+                )
+            ),
+            // Call
+            call: (
+                _color: $primary-color
+            )
+        )
+    )
+);</pre>
+                                <h6>Example: customize header</h6>
+                                <p>Below is used to customize  <a href="#" target="_blank">8th demo</a>'s config <code>sass/demos/demo8/_demo8_config.scss</code>.</p>
+                                <ul>
+                                    <li>If you want to override config, please use <code>set</code> mixin and write variable.</li>
+                                    <li>If you want to remove unnecessary css code, please set <code>false</code> value.</li>
+                                </ul>
+                                <pre>
+/* Demo 8 Variables*/
+@include set (
+    (
+        base: (
+            _container-width: 1420px,
+            title-link: (
+                title: (
+                    margin-bottom: .7rem
+                ),
+                link: (
+                    margin-bottom: .2rem,
+                    font-weight: 600,
+                    letter-spacing: -.025em,
+                    color: $dark-color
+                ),
+                icon: (
+                    position: relative,
+                    top: -0.1rem,
+                    margin-left: .8rem,
+                    font-size: 1.5rem,
+                    font-weight: 600
+                )
+            )
+        ),
+        header: (
+            top: (
+                background: $primary-color,
+                color: #fff,
+                border-bottom: 1px solid,
+                border-color: rgba(238, 238, 238, 0.2)
+            ),
+            middle: (
+                background: $primary-color,
+                color: #fff,
+                border-bottom: 0
+            ),
+            bottom: (
+                border: 1px solid $border-color
+            ),
+            search: (
+                _border-color: #fff,
+                expanded: (
+                    width: 69.6rem
+                )
+            ),
+            cart: (
+                count: (
+                    background: $secondary-color
+                )
+            ),
+            wishlist: (
+                label: (
+                    color: #eee
+                )
+            ),
+            compare: (
+                label: (
+                    color: #eee
+                )
+            ),
+            category: (
+                toggle: (
+                    padding: 1.8rem 1.8rem 1.8rem 2rem
+                )
+            )
+        ),
+        menu: (
+            ancestor: (
+                padding: 1.8rem 0
+            )
+        ),
+        category-menu: (
+            padding: 1rem 0 0.8rem,
+            ancestor: (
+                _split-line: 1px solid #e1e1e1
+            )
+        ),
+        product-single: (
+            ratings: (
+                margin-bottom: 1.8rem,
+                _star-color: $secondary-color,
+                font-size: 1.3rem
+            ),
+            old-price: (
+                margin-right: 1rem,
+                font-size: 1.8rem,
+                color: $light-color
+            )
+        ),
+        post: (
+            body: (
+                padding: 1.5rem 0 2.3rem
+            ),
+            title: (
+                margin-bottom: 1.9rem,
+                font-size: 1.6em,
+                line-height: 1.5
+            ),
+            btn: (
+                font-weight: 400,
+                text-transform: lowercase,
+                _icon-gap: .6rem
+            )
+        ),
+        footer: (
+            background: #f5f5f5,
+            top: (
+                padding: 5.8rem 0 0.7rem,
+                border-top: 1px solid #e5e5e5
+            ),
+            bottom: (
+                padding: 3.1rem 0 3rem,
+                background: #222,
+                color: $light-color
+            ),
+            about: (
+                call: (
+                    margin-bottom: .8rem
+                ),
+                logo: (
+                    margin-bottom: 1.1rem
+                )
+            )
+        )
+    )
+)</pre>
+                            </script>
+
+                            <script type="text/html" id="template-com-accordion">
+                                <h5>Accordion</h5>
+                                <p>Use the below code to display <a href="element-accordions.html" target="_blank">accordion</a>.</p>
+                                <pre>
+&lt;div class="accordion accordion-bg accordion-gutter-md accordion-border"&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="card-header"&gt;
+            &lt;a href="#collapse1-1" class="collapse"&gt;First Header&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div id="collapse1-1" class="expanded"&gt;
+            &lt;div class="card-body"&gt;
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.&lt;br&gt;
+                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse&lt;br&gt; 
+                urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget&lt;br&gt; 
+                felis facilisis fermentum.
+            &lt;/div&gt;
+        &lt;/div&gt;  
+    &lt;/div&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="card-header"&gt;
+            &lt;a href="#collapse1-2" class="expand"&gt;Second Header&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div id="collapse1-2" class="collapsed"&gt;
+            &lt;div class="card-body"&gt;
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.&lt;br&gt;
+                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse&lt;br&gt; 
+                urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget&lt;br&gt; 
+                felis facilisis fermentum.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="card-header"&gt;
+            &lt;a href="#collapse1-3" class="expand"&gt;Third Header&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div id="collapse1-3" class="collapsed"&gt;
+            &lt;div class="card-body"&gt;
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.&lt;br&gt;
+                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse&lt;br&gt; 
+                urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget&lt;br&gt; 
+                felis facilisis fermentum.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;    
+&lt;/div&gt;</pre>
+                                <h6>Useful classes</h6>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>accordion-simple</code></td><td>Simple style.</td></tr>
+                                        <tr><td><code>accordion-boxed</code></td><td>Boxed style.</td></tr>
+                                        <tr><td><code>accordion-bg</code></td><td>Stacked style</td></tr>
+                                        <tr><td><code>accordion-border</code></td><td>Framed style.</td></tr>
+                                        <tr><td><code>accordion-icon</code></td><td>Icon style.</td></tr>
+                                        <tr><td><code>accordion-gutter-md</code></td><td>Medium gutter between cards.</td></tr>
+                                        <tr><td><code>accordion-plus</code></td><td>Use plus and minus as toggle icon.</td></tr>                                    
+                                    </tbody>
+                                </table>
+                            </script>
+
+                            <script type="text/html" id="template-com-alert">
+                                <h5>Alert</h5>
+
+                                <p>Use the below code to display alert.</p>
+                                <pre>
+&lt;div class="alert alert-success alert-simple alert-inline"&gt;
+    &lt;h4 class="alert-title"&gt;News :&lt;/h4&gt;
+    You have done 5 actions.
+&lt;/div></pre>
+                                <h6>Useful classes</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>alert-primary</code></td><td>Primary skin</td></tr>
+                                        <tr><td><code>alert-success</code></td><td>Success skin</td></tr>
+                                        <tr><td><code>alert-warning</code></td><td>Warning skin</td></tr>
+                                        <tr><td><code>alert-error</code></td><td>Error skin</td></tr>
+                                        <tr><td><code>alert-dark</code></td><td>Dark skin</td></tr>
+                                        <tr><td><code>alert-icon</code></td><td>Icon style</td></tr>
+                                        <tr><td><code>alert-button</code></td><td>Buttons style</td></tr>
+                                        <tr><td><code>alert-block</code></td><td>Block style</td></tr>
+                                        <tr><td><code>alert-inline</code></td><td>Inline style</td></tr>
+                                        <tr><td><code>alert-rounded</code></td><td>Border rounded style</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-blog">
+                                <h5>Blog</h5>
+
+                                <p>Wolmart provides a very elegant way to showcase your blog. Using blog is very simple.</p>
+                                <ul>
+                                    <li><a href="blog.html" target="_blank">Classic type</a></li>
+                                    <li><a href="blog-listing.html" target="_blank">List type</a></li>
+                                    <li><a href="blog-mask-grid.html" target="_blank">Mask type</a></li>
+                                    <li><a href="blog-grid-3cols.html" target="_blank">Grid Layout</a></li>
+                                    <li><a href="blog-masonry-3cols.html" target="_blank">Masonry Layout</a></li>
+                                    <li>Blog can be shown as a slider like <a href="demo1.html" target="_blank">the first demo</a>.</li>
+                                </ul>
+
+                                <p>Use below codes to display blog.</p>
+                                <pre>
+&lt;article class="post post-grid post-lg text-center overlay-dark"&gt;
+    &lt;figure class="post-media"&gt;
+        &lt;a href="blog-single.html"&gt;
+            &lt;{{ asset('assets/user/images/blog/2cols/1-580x350.jpg') }}" alt="Blog" width="580" height="350"/&gt;
+        &lt;/a&gt;
+    &lt;/figure&gt;
+    &lt;div class="post-details"&gt;
+        &lt;div class="post-meta"&gt;
+            &lt;a href="#" class="post-author"&gt;by John Doe&lt;/a&gt;
+                | 
+                &lt;a href="#" class="post-date"&gt;Nov 22, 2019&lt;/a&gt;
+                | 
+                &lt;a href="#" class="post-reply"&gt;2 Comments&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;h4 class="post-title"&gt;&lt;a href="post-single.html"&gt;Cras ornare tristique elit&lt;/a&gt;&lt;/h4&gt;
+        &lt;p class="post-content"&gt;Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, uctus metus libero eu augue.&lt;/p&gt;
+        &lt;a href="post-single.html" class="btn btn-link btn-underline btn-reveal-right"&gt;Continue Reading&lt;i class="w-icon-long-arrow-right"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                <h6>Useful classes</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>post-grid</code></td><td>Classic type</td></tr>
+                                        <tr><td><code>post-list</code></td><td>List type</td></tr>
+                                        <tr><td><code>post-mask</code></td><td>Mask type</td></tr>
+                                        <tr><td><code>post-widget</code></td><td>Widget type</td></tr>
+                                    </tbody>
+                                </table>
+                            </script> 
+                            <script type="text/html" id="template-com-button">
+                                <h5>Button</h5>
+
+                                <p>
+                                    To make <a href="element-buttons.html" target="_blank">buttons</a>, please use following:<br>
+                                    <code>&lt;a href="#" class="btn"&gt;Button&lt;/a&gt;</code><br>
+                                    <code>&lt;button class="btn"&gt;Button&lt;/button&gt;</code>
+                                </p>
+
+                                <h6>Button Type</h6>
+                                <ul>
+                                    <li><code>btn-underline</code> - Underline type button.</li>
+                                    <li><code>btn-link</code> - Link type button.</li>
+                                    <li><code>btn-simple</code> - Simple type button.</li>
+                                    <li><code>btn-outline</code> - Outline type button.</li>
+                                </ul>
+
+                                <h6>Button With Icon</h6>
+                                <ul>
+                                    <li><code>btn-icon-left</code>, <code>btn-icon-right</code> - Icon Button</li>
+                                    <li><code>btn-reveal-left</code>, <code>btn-reveal-right</code> -  Reveal Button</li>
+                                    <li><code>btn-slide-left</code>, <code>btn-slide-right</code>, <code>btn-slide-up</code>, <code>btn-slide-down</code> - Slide Button</li>
+                                </ul>
+                                <h6>Button Size</h6>
+                                <ul>
+                                    <li><code>btn-lg</code>, <code>btn-md</code>, <code>btn-sm</code> for any button.</li>
+                                </ul>
+                                <h6>Button Color Skin</h6>
+                                <ul>
+                                    <li><code>btn-primary</code> - Primary color skin button.</li>
+                                    <li><code>btn-secondary</code> - Secondary color skin button.</li>
+                                    <li><code>btn-success</code> - Success color skin button.</li>
+                                    <li><code>btn-dark</code> - Dark color skin button.</li>
+                                    <li><code>btn-white</code> - White color skin button.</li> 
+                                    <li><code>btn-error</code> - White color skin button.</li> 
+                                    <li><code>btn-grey</code> - White color skin button.</li>                                       
+                                </ul>
+                                <h6>Button With Box shadow</h6>
+                                <ul>
+                                    <li><code>btn-shadow</code> - Box Shadow styled button.</li>                                      
+                                </ul>
+                            </script>
+                            <script type="text/html" id="template-com-category">
+                                <h5>Category</h5>
+                                <p>
+                                    Wolmart provides several attractive types to showcase <a href="element-categories.html" target="_blank">product categories</a>.<br>
+                                    Use below codes to display simple product category.
+                                </p>
+                                
+                                <pre>
+&lt;div class="category category-icon"&gt;
+    &lt;a href="#"&gt;
+        &lt;figure class="category-media"&gt;
+            &lt;i class="w-icon-truck"&gt; &lt;/i&gt;
+        &lt;/figure&gt;
+    &lt;/a&gt;
+    &lt;div class="category-content"&gt;
+        &lt;h4 class="category-name"&gt;&lt;a href="#"&gt;Skinny Jeans&lt;/a&gt;&lt;/h4&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                <h6>Useful classes</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>category-default</code></td><td>Default type</td></tr>
+                                        <tr><td><code>category-default1</code></td><td>Default 1 type</td></tr>
+                                        <tr><td><code>category-group-image</code></td><td>Category Group type</td></tr>
+                                        <tr><td><code>category-ellipse</code></td><td>Ellipse type</td></tr>
+                                        <tr><td><code>category-classic</code></td><td>Classic type</td></tr>
+                                        <tr><td><code>category-icon</code></td><td>Icon type</td></tr>
+                                        <tr><td><code>category-banner</code></td><td>Banner type</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-icon-box">
+                                <h6>Icon Box</h6>
+                                <p>
+                                    With Wolmart, important information or notification can be shown with <a href="element-icon-boxes.html" target="_blank">icon box</a> easily.<br>
+                                    Use below code to display simple icon box.
+                                </p>
+                                <pre>
+&lt;div class="icon-box icon-box-side"&gt;
+    &lt;span class="icon-box-icon"&gt;
+        &lt;i class="fas fa-check"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;div class="icon-box-content"&gt;
+        &lt;h4 class="icon-box-title"&gt;Genus Quaimus Restinc&lt;/h4&gt;
+        &lt;p&gt;Sed posuere consectetur est lobortis.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+<h6>Useful classes</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>icon-box</code></td><td>Cneter Align style</td></tr>
+                                        <tr><td><code>icon-box-side</code></td><td>Left align style</td></tr>
+                                        <tr><td><code>icon-border-circle</code></td><td>Circle left align style</td></tr>
+                                        <tr><td><code>icon-colored-circle</code></td><td>Circle icons centered style</td></tr>
+                                        <tr><td><code>icon-border-box</code></td><td>Boxed icons centerd style</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-instagram">
+                                <h5>Instagram</h5>
+                                <p>
+                                    With Wolmart, <a href="element-instagrams.html" target="_blank">instagram</a> images can be easily shown.<br>
+                                    Use below code to display instagram.
+                                </p>
+                                <pre>
+&lt;figure class="instagram"&gt;
+    &lt;a href="#"&gt;
+        &lt;img src="{{ asset('assets/user/images/instagram/instagram-2-220x220.jpg') }}" alt="Instagram" width="220" height="220"&gt;
+    &lt;/a&gt;
+&lt;/figure&gt;</pre>
+                            </script>
+                            <script type="text/html" id="template-com-popup">
+                                <h5>Popup</h5>
+                                <p>To display popup dialog box, following function can be used.<br><code>Wolmart.popup( option, presetName );</code></p>
+                                <ul>
+                                    <li><code>option</code> - Magnific popup options.</li>
+                                    <li><code>preset</code> - Name for preset options( we</li>
+                                </ul>
+                                <p>It depends on <a href="https://dimsemenov.com/plugins/magnific-popup/documentation.html" target="_blank">jquery.magnific-popup</a> plugin.</p>
+                                <h6>Example: login dialog box</h6>
+                                <pre>
+Wolmart.popup({
+    type: 'ajax', // this is unnecessary because it is included in preset options for login.
+    mainClass: 'mfp-newsletter mfp-fadein-popup',
+    items: {
+        src: '{{ asset('assets/user/ajax/newsletter.html'
+    },
+    callbacks: {
+        beforeClose: function() {
+            $( '#hide-newsletter-popup' )[0].checked && Wolmart.setCookie( 'hideNewsletterPopup', true, 7 );
+        }
+    }
+}, 'login');</pre>
+                                <p>For <b>zoom</b> and <b>flip</b> effect, Wolmart provides <code>mfp-zoom-popup</code> and <code>mfp-flip-popup</code> class.</p>
+                            </script>
+
+                            <script type="text/html" id="template-com-product">
+                                <h6>Product</h6>
+                                <p>Wolmart provides several attractive types to showcase products. Please check products styles in <a href="element-products.html" target="_blank">element-products page</a>.</p>
+                                <ul class="list list-type-number mb-4">
+                                    <li>Default style</li>
+                                    <li>Classic style</li>
+                                    <li>Slide content style</li>
+                                    <li>Popup style</li>
+                                    <li>Image gap style</li>
+                                    <li>List style</li>
+                                    <li>Widget style</li>
+                                </ul>
+                                <p>Use below codes to display default product.</p>
+                                    
+                                <pre>
+&lt;div class="product text-center"&gt;
+    &lt;figure class="product-media"&gt;
+        &lt;a href="product-default.html"&gt;
+            &lt;img src="{{ asset('assets/user/images/products/elements/1.jpg') }}"
+                alt="Product" width="295" height="335" /&gt;
+        &lt;/a&gt;
+        &lt;div class="product-label-group"&gt;
+            &lt;label class="product-label label-new"&gt;New&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class="product-action-vertical"&gt;
+            &lt;a href="#" class="btn-product-icon btn-cart" title="Add to cart"&gt;&lt;i
+                class="w-icon-cart"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" class="btn-product-icon btn-wishlist" title="Wishlist"&gt;&lt;i
+                    class="w-icon-heart"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" class="btn-product-icon btn-compare" title="Compare"&gt;&lt;i
+                    class="w-icon-compare"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" class="btn-product-icon btn-quickview" title="Quick View"&gt;&lt;i
+                    class="w-icon-search"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/figure&gt;
+    &lt;div class="product-details"&gt;
+        &lt;h3 class="product-name"&gt;
+            &lt;a href="product-default.html"&gt;Electronics Black Wrist Watch&lt;/a&gt;
+        &lt;/h3&gt;
+        &lt;div class="product-price"&gt;$40.00&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>product</code></td><td>Default style</td></tr>
+                                        <tr><td><code>product-simple</code></td><td>Classic style</td></tr>
+                                        <tr><td><code>product-horizontal</code></td><td>Action horizontal style</td></tr>
+                                        <tr><td><code>product-image-gap</code></td><td>Image gap style</td></tr>
+                                        <tr><td><code>product-slideup-content</code></td><td>Content slide style</td></tr>
+                                        <tr><td><code>product-list</code></td><td>List style</td></tr>
+                                        <tr><td><code>product-widget</code></td><td>Widget style</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-sidebar">
+                                <h5>Sidebar</h5>
+                                <p>Wolmart supports a very simple way to implement sidebar, left and right sidebar is already defined. A new sidebar can be defined.</p>
+                                <h6>Classes for left and right sidebar</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>HTML element</th><th>Left sidebar</th><th>Right sidebar</th><th>New sidebar (custom)</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>aside</code> tag</td><td><code>sidebar</code></td><td><code>right-sidebar</code></td><td><code>new-sidebar</code></td></tr>
+                                        <tr><td><code>body</code> tag if active</td><td><code>sidebar-active</code></td><td><code>right-sidebar-active</code></td><td><code>new-sidebar-active</code></td></tr>
+                                        <tr><td>Toggle button</td><td><code>left-sidebar-toggle</code></td><td><code>right-sidebar-toggle</code></td><td><code>new-sidebar-toggle</code></td></tr>
+                                    </tbody>
+                                </table>
+                                <p>
+                                    If you want to add a sidebar named "new", please add <code>new-sidebar</code> class to <code>aside</code> tag.<br>
+                                    This sidebar opens when <code>new-sidebar-active</code> class is added to <code>body</code> tag.<br>
+                                    <code>new-sidebar-toggle</code> class will be used to toggle buttons for this sidebar.
+                                </p>
+
+                                <h6>Sticky sidebar</h6>
+                                <p class="mb-0">If you want to make sidebar sticky:</p>
+                                <ul class="mt-0">
+                                    <li>Please include <code>vendor/sticky.js') }}</code>.</li>
+                                    <li>Please add <code>sticky-sidebar-wrapper</code> class to sticky area.</li>
+                                    <li>Please add <code>sticky-sidebar</code> class to sidebar content's inner element.</li>
+                                </ul>
+
+                                <pre>
+&lt;aside class="sticky-sidebar-wrapper ..."&gt;
+    ...
+    &lt;div class="sidebar-content"&gt;
+        &lt;div class="sticky-sidebar" data-sticky-options="{'top': 10}"&gt; // Sticky sidebar's offset top limit is 10px.
+            &lt;div class="widget"&gt;
+                ...
+            &lt;/div&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;
+...
+&lt;script src="vendor/sticky/sticky.min.js') }}"&gt;&lt;/script&gt;</pre>
+                            </script>
+                            <script type="text/html" id="template-com-slider">
+                                <h5>Slider</h5>
+                                <p>Wolmart provides a powerful slider component, using <a href="https://github.com/OwlCarousel2/OwlCarousel2" target="_blank">Owl Carousel</a>, the famous touch enabled, fast &amp; responsive jQuery plugin. Before using it, we recommend to read <a href="#template-com-grid" class="document-link">grid spacing</a>, in order to perform <b>first paint</b> earlier, we display non-interactive carousel with css. It becomes interactive after javascript is executed.</p>
+                                <h6>Example: Products slider in 4 columns</h6>
+                                <p>Custom owl carousel options could be given in <code>data-owl-options</code> attribute in html  .</p>
+                                <pre>
+&lt;div class="owl-carousel owl-theme row cols-2 cols-md-3 cols-lg-4" data-owl-options="{
+    'items': 2,
+    'nav': false,
+    'loop': false,     //  Here, we display carousel with <code>row</code><code>cols-2</code><code>cols-md-3</code>
+    'dots': true,      // <code>cols-lg-4</code> classes at first, these classes will be
+    'margin': 20,      //  removed when carousel is initialized by javascript.
+    'responsive': {
+        '768': {
+            'items': 3
+        },
+        '992': {
+            'items': 4,
+            'dots': false,
+            'nav': true
+        }
+    }
+}"&gt;
+    &lt;div class="product shadow-media"&gt; ... &lt;/div&gt;
+    &lt;div class="product shadow-media"&gt; ... &lt;/div&gt;
+    &lt;div class="product shadow-media"&gt; ... &lt;/div&gt;
+    &lt;div class="product shadow-media"&gt; ... &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                <h6>Slider's animations</h6>
+                                <p>To apply animtions to slide banners' elements, you can add:</p>
+                                <ul>
+                                    <li><code>slide-animate</code> class to the elements.</li>
+                                    <li><code>animation-slider</code> class to owl carousel div.</li>
+                                </ul>
+                                <p>If you want to know about animations, please read <a href="#template-com-animation" class="document-link">animations section</a>.</p>
+                            
+                                <h6>Helper classes</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>owl-nav-full</code></td><td>Make nav full.</td></tr>
+                                        <tr><td><code>owl-nav-bg</code></td><td>Make nav big.</td></tr>
+                                        <tr><td><code>owl-nav-fade</code></td><td>Make nav invisible when mouse leaves.</td></tr>
+                                        <tr><td><code>owl-nav-inner</code><code>owl-nav-top</code><code>owl-nav-bottom</code></td><td>Place nav inner, top, bottom.</td></tr>
+                                        <tr><td><code>owl-dot-white</code><code>owl-dot-grey</code></td><td>Make dots white or grey.</td></tr>
+                                        <tr><td><code>owl-dot-inner</code></td><td>Place dots inner.</td></tr>
+                                        <tr><td><code>owl-split</code></td><td>Show a split line between items.</td></tr>
+                                        <tr><td><code>owl-middle</code></td><td>Aligns slider's items vertically in the middle.</td></tr>
+                                        <tr><td><code>owl-full-height</code></td><td>Make slider's height full.</td></tr>
+                                        <tr><td><code>owl-same-height</code></td><td>Make slider items' height same.</td></tr>
+                                        <tr><td><code>owl-shadow-carousel</code></td><td>Allow slider to show items' shadow.</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-testimonial">
+                                <h5>Testimonal</h5>
+                                <p>Wolmart provides various types of testimonials. please check this <a href="element-testimonials.html" target="_blank">testimonial element page</a>.</p>
+                                <p>Use below code to display simple testimonial.</p>
+                                <pre>
+&lt;div class="testimonial"&gt;
+    &lt;div class="testimonial-info"&gt;
+        &lt;figure class="testimonial-author-thumbnail"&gt;
+            &lt;img src="images/agents/1.jpg') }}" alt="user" width="50" height="50"&gt;
+        &lt;/figure&gt;
+        &lt;div class="ratings-container"&gt;
+            &lt;div class="ratings-full"&gt;
+                &lt;span class="ratings" style="width: 100%;"&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;cite&gt;
+            Herman Beck
+            &lt;span&gt;Investor&lt;/span&gt;
+        &lt;/cite&gt;
+    &lt;/div&gt;
+    &lt;blockquote&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus Phsellus anctus, tincidunt tincidunt dui.&lt;/blockquote&gt;
+&lt;/div&gt;</pre>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>testimonial</code></td><td>Default style</td></tr>
+                                        <tr><td><code>testimonial-boxed</code></td><td>Boxed style</td></tr>
+                                        <tr><td><code>testimonial-centered</code></td><td>Centered style</td></tr>
+                                        <tr><td><code>testimonial-shadow</code></td><td>Shadow style</td></tr>
+                                        <tr><td><code>testimonial-blockquote</code></td><td>Blockquote style</td></tr>
+                                        <tr><td><code>testimonial-inversed</code></td><td>Inversed style</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-tab">
+                                <h5>Tab</h5>
+                                <p>
+                                    Wolmart provides various types of <a href="element-tabs.html" target="_blank">tabs</a>.<br>
+                                    Use below code to display a simple tab.
+                                </p>
+                                <pre>
+&lt;div class="tab tab-nav-simple"&gt;
+    &lt;ul class="nav nav-tabs" role="tablist"&gt;
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link active" href="#tab1-1"&gt;First Header&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="#tab1-2"&gt;Second Header&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="#tab1-3"&gt;Third Header&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content"&gt;
+        &lt;div class="tab-pane active" id="tab1-1"&gt;
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.  Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis ferment Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="tab1-2"&gt;
+            Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="tab1-3"&gt;
+            Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>tab-nav-boxed</code></td><td>Boxed style</td></tr>
+                                        <tr><td><code>tab-nav-solid</code></td><td>Solid style</td></tr>
+                                        <tr><td><code>tab-nav-outline</code></td><td>Outline style</td></tr>
+                                        <tr><td><code>tab-nav-underline</code></td><td>Underline style</td></tr>
+                                        <tr><td><code>tab-vertical</code></td><td>Vetical style</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-grid">
+                                <h5>Grid</h5>
+                                <p class="mb-0">
+                                    Wolmart provides the most advanced way to implement responsive grid layout.<br>
+                                    All grid items are wrapped with <code>row</code> class. If you want to know more about breakpoints, please go to <a href="#template-css-configuration" class="document-link">configuration</a> section.</p>
+                                </p>
+                                <ul>
+                                    <li><code>breakpoint</code> can be <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>.</li>
+                                    <li><code>size</code> can be 1 ~ 8 for cols, and 1 ~ 12 for col.</li>
+                                </ul>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Classes</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>gutter-lg</code><code>gutter-md</code><code>gutter-sm</code><code>gutter-xs</code><code>gutter-no</code></td><td>Gutter size between items.</td></tr>
+                                        <tr><td><code>col-[breakpoint]-[1 ~ 8]</code></td><td>Self column's responsive size.</td></tr>
+                                        <tr><td><code>cols-[breakpoint]-[1 ~ 12]</code></td><td>Children's columns' responsive size.</td></tr>
+                                        <tr><td><code>col-xl-5col</code><code>col-xl-5col2</code><code>col-xl-5col3</code><code>col-xl-5col4</code></td><td>Column Size 1/5, 2/5, 3/5, 4/5</td></tr>
+                                        <tr><td><code>order-first</code><code>order-last</code><br>
+                                            <code>order-sm-auto</code><code>order-sm-first</code><code>order-sm-last</code><br>
+                                            <code>order-md-auto</code><code>order-md-first</code><code>order-md-last</code><br>
+                                            <code>order-lg-auto</code><code>order-lg-first</code><code>order-lg-last</code><br>
+                                        </td><td>Order classes</td></tr>
+                                    </tbody>
+                                </table>
+                                <p>Following code means children are shown as 4 columns above 768px(as default), as 3 columns above 576px, and show as 2 columns below than 575px with large gutter size (default is 30px).</p>
+                                <pre>
+&lt;div class="row cols-2 cols-sm-3 cols-md-4 gutter-lg"&gt;
+    &lt;div&gt; ... &lt;/div&gt;
+    &lt;div&gt; ... &lt;/div&gt;
+    &lt;div&gt; ... &lt;/div&gt;
+    &lt;div&gt; ... &lt;/div&gt;
+    &lt;div&gt; ... &lt;/div&gt;
+    ...
+&lt;/div&gt;</pre>
+                                <p>Layouts like Bootstrap will could be shown by using col classes.</p>
+<pre>
+&lt;div class="row gutter-lg"&gt;
+    &lt;div class="col-6 col-sm-4 col-md-3"&gt; ... &lt;/div&gt;
+    &lt;div class="col-6 col-sm-4 col-md-3"&gt; ... &lt;/div&gt;
+    &lt;div class="col-6 col-sm-4 col-md-3"&gt; ... &lt;/div&gt;
+    &lt;div class="col-6 col-sm-4 col-md-3"&gt; ... &lt;/div&gt;
+    &lt;div class="col-6 col-sm-4 col-md-3"&gt; ... &lt;/div&gt;
+    ...
+&lt;/div&gt;</pre>
+                                <h6>Masonry Layout</h6>
+                                <p class="mb-0">If you need masonry layout, please add:</p>
+                                <ul class="mt-0">
+                                    <li><code>grid</code> class to wrapper.</li>
+                                    <li><code>grid-item</code> class to items.</li>
+                                    <li>size unit item with <code>grid-size</code> class.</li>
+                                </ul>
+                            </script>
+                            <script type="text/html" id="template-js-overview">
+                                <h5>Overview</h5>
+                                <p>The below table shows how to initialize Wolmart and its functions.</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Funciton</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td colspan="2" class="bg-primary text-white">Initialize Wolmart</td></tr>
+                                        <tr><td><code>Wolmart.prepare()</code></td><td>Initialize method while document is being loaded.</td></tr>
+                                        <tr><td><code>Wolmart.initLayout();</code></td><td>Initialize method while document is interactive.</td></tr>
+                                        <tr><td><code>Wolmart.init();</code></td><td>Initialize method after document has been loaded.</td></tr>
+                                        <tr><td colspan="2" class="bg-primary text-white">Call functions for layouts (in <code class="text-white font-weight-bolder">initLayout</code> function)</td></tr>
+                                        <tr><td><code>Wolmart.isotopes('.grid:not(.grid-float)');</code></td><td>Show masonry grid by using isotopes.</td></tr>
+                                        <tr><td><code>Wolmart.stickySidebar('.sticky-sidebar');</code></td><td>Initialize sticky sidebar.</td></tr>
+                                        <tr><td colspan="2" class="bg-primary text-white">Call functions (in <code class="text-white font-weight-bolder">init</code> function)</td></tr>
+                                        <tr><td><code>Wolmart.appearAnimate('.appear-animate');</code></td><td>Runs appear animations</td></tr>
+                                        <tr><td><code>Wolmart.slider('.owl-carousel');</code></td><td>Initialize sliders.</td></tr>
+                                        <tr><td><code>Wolmart.setTab('.nav-tabs');</code></td><td>Initialize tabs.</td></tr>
+                                        <tr><td><code>Wolmart.stickyContent('.sticky-header'); </code></td><td>Initialize sticky header.</td></tr>
+                                        <tr><td><code>Wolmart.stickyContent('.sticky-footer'); </code></td><td>Initialize sticky footer.</td></tr>
+                                        <tr><td><code>Wolmart.stickyContent('.sticky-toolbox'); </code></td><td>Initialize sticky toolbox.</td></tr>
+                                        <tr><td><code>Wolmart.stickyContent('.product-sticky-content'); </code></td><td>Initialize product sticky content.</td></tr>
+                                        <tr><td><code>Wolmart.parallax('.parallax');</code></td><td>Initialize parallax.</td></tr>
+                                        <tr><td><code>Wolmart.skrollrParallax();</code></td><td>Initialize Skrollr Parallax.</td></tr>
+                                        <tr><td><code>Wolmart.initFloatingParallax();</code></td><td>Initialize Floating Parallax.</td></tr>
+                                        <tr><td><code>Wolmart.menu.init();</code></td><td>Initialize menu.</td></tr>
+                                        <tr><td><code>Wolmart.initScrollTopButton();</code></td><td>Initialize scroll top button.</td></tr>
+                                        <tr><td><code>Wolmart.shop.init();</code></td><td>Initialize shop functions</td></tr>
+                                        <tr><td><code>Wolmart.alert('.alert');</code></td><td>Initialize alerts.</td></tr>
+                                        <tr><td><code>Wolmart.accordion('.card-header > a');</code></td><td>Initialize accordions.</td></tr>
+                                        <tr><td><code>Wolmart.sidebar('sidebar');</code></td><td>Initialize left sidebar.</td></tr>
+                                        <tr><td><code>Wolmart.sidebar('right-sidebar');</code></td><td>Initialize right sidebar.</td></tr>
+                                        <tr><td><code>Wolmart.productSingle('.product-single');</code></td><td>Initialize all single products.</td></tr>
+                                        <tr><td><code>Wolmart.initQtyInput('.quantity');</code></td><td>Initialize quantity inputs.</td></tr>
+                                        <tr><td><code>Wolmart.initNavFilter('.nav-filters .nav-filter');</code></td><td>Initialize navigation filters for blog, products.</td></tr>
+                                        <tr><td><code>Wolmart.calendar();</code></td><td>Initialize calendar component.</td></tr>
+                                        <tr><td><code>Wolmart.countDown('.product-countdown, .countdown');</code></td><td>Initialize countdown</td></tr>
+                                        <tr><td><code>Wolmart.initPopup();</code></td><td>Initialize popups: login, register, play video, newsletter popup</td></tr>
+                                        <tr><td><code>Wolmart.initNotificationAlert();</code></td><td>Initialize Notification Alert</td></tr>
+                                        <tr><td><code>Wolmart.countTo('.count-to');</code></td><td>Initialize countTo.</td></tr>
+                                        <tr><td><code>Wolmart.initCartOffcanvas('.cart-offcanvas .cart-toggle');</code></td><td>Initialize Cart Offcanvas type.</td></tr>
+                                        <tr><td><code>Wolmart.Minipopup.init();</code></td><td>Initialize Minipopup.</td></tr>
+                                        <tr><td><code>Wolmart.headerToggleSearch('.hs-toggle');</code></td><td>Initialize header search toggle type.</td></tr>
+                                        <tr><td><code>Wolmart.initVendor('.store');</code></td><td>Initialize vendor.</td></tr>
+                                        <tr><td><code>Wolmart.slideContent('.login-toggle');</code></td><td>Initialize login slide.</td></tr>
+                                        <tr><td><code>Wolmart.slideContent('.coupon-toggle');</code></td><td>Initialize coupon slide.</td></tr>
+                                        <tr><td><code>Wolmart.slideContent('.checkbox-toggle');</code></td><td>Initialize checkbox slide.</td></tr>
+                                        <tr><td><code>Wolmart.initLoginVendor('.user-checkbox');</code></td><td>Initialize vendor's login.</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <script type="text/html" id="template-com-vendor">
+                                <h6>Product</h6>
+                                <p>Wolmart provides several attractive types to showcase vendors. Please check vendors styles in 
+                                    <a href="element-vendors.html" target="_blank">element-products page</a>.</p>
+                                <ul class="list list-type-number mb-4">
+                                    <li>Default type</li>
+                                    <li>Info in head type</li>
+                                    <li>With banner type</li>
+                                    <li>Ultimate type</li>
+                                    <li>Brand type</li>
+                                </ul>
+                                <p>Use below codes to display default product.</p>
+                                <pre>
+&lt;div class="vendor-widget vendor-widget-1"&gt;
+    &lt;div class="vendor-products grid-type"&gt;
+        &lt;div class="vendor-product lg-item"&gt;
+            &lt;figure class="product-media"&gt;
+                &lt;a href="product-default.html"&gt;
+                    &lt;img src="{{ asset('assets/user/images/vendor/element/product/1.jpg') }}" alt="Vendor Product" width="300" height="338" /&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+        &lt;/div&gt;
+        &lt;div class="vendor-product sm-item"&gt;
+            &lt;figure class="product-media"&gt;
+                &lt;a href="product-default.html"&gt;
+                    &lt;img src="{{ asset('assets/user/images/vendor/element/product/2.jpg') }}" alt="Vendor Product" width="300" height="338" /&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+        &lt;/div&gt;
+        &lt;div class="vendor-product sm-item"&gt;
+            &lt;figure class="product-media"&gt;
+                &lt;a href="product-default.html"&gt;
+                    &lt;img src="{{ asset('assets/user/images/vendor/element/product/3.jpg') }}" alt="Vendor Product" width="300" height="338" /&gt;
+                &lt;/a&gt;
+            &lt;/figure&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="vendor-details"&gt;
+        &lt;figure class="vendor-logo"&gt;
+            &lt;a href="vendor-dokan-store.html"&gt;
+                &lt;img src="{{ asset('assets/user/images/vendor/brand/1.jpg') }}" alt="Vendor Logo" width="80" height="80" /&gt;
+            &lt;/a&gt;
+        &lt;/figure&gt;
+        &lt;div class="vendor-personal"&gt;
+            &lt;h4 class="vendor-name"&gt;
+                &lt;a href="vendor-dokan-store.html"&gt;OAIO Store&lt;/a&gt;
+            &lt;/h4&gt;
+            &lt;span class="vendor-product-count"&gt;(27 Products)&lt;/span&gt;
+            &lt;div class="ratings-container"&gt;
+                &lt;div class="ratings-full"&gt;
+                    &lt;span class="ratings" style="width: 100%;"&gt;&lt;/span&gt;
+                    &lt;span class="tooltiptext tooltip-top"&gt;&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Class</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>vendor-widget-1</code></td><td>Default type</td></tr>
+                                        <tr><td><code>vendor-widget-2</code></td><td>Info in head type</td></tr>
+                                        <tr><td><code>vendor-widget-banner</code></td><td>With banner type</td></tr>
+                                        <tr><td><code>vendor-widget-3</code></td><td>Brand type</td></tr>
+                                        <tr><td><code>tab-vertical</code></td><td>Vetical style</td></tr>
+                                    </tbody>
+                                </table>
+                            </script>
+                            <div class="document-content mb-10" id="document-view">
+                                <h5>Welcome to Wolmart HTML</h5>
+
+                                <p>Thank you for choosing Wolmart HTML!<br>We are very pleased that you have chosen
+                                    Wolmart for your website and you will not be disappointed with your choice.</p>
+
+                                <ul class="list list-circle mb-4 ml-0">
+                                    <li><i class="fas fa-shopping-cart"></i>Wolmart is specifically designed for
+                                        <b>eCommerce</b> site.</li>
+                                    <li><i class="fas fa-rocket"></i>Wolmart is the most <b>powerful and fastest
+                                            responsive</b> theme with tons of features and trends of designs.</li>
+                                    <li><i class="fas fa-check"></i>Wolmart is based on <b>HTML5</b> and <b>CSS3</b>,
+                                        and
+                                        works perfectly fine in <b>all browsers</b>.</li>
+                                    <li><i class="fas fa-layer-group"></i>Wolmart includes <b>10 elegant home pages</b>
+                                        and <b>88 featured pages</b>.</li>
+                                </ul>
+
+                                <p>Please read our documentation before you get started, and if you are unable to find
+                                    your answer, you are free to contact us through the themeforest support page.</p>
+                                <p>Thank you, we hope you enjoy using Wolmart HTML!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer text-center float-bg lazy-bg" id="section-support"
+            style="background-image: url({{ asset('assets/user/landing/images/footer-bg.jpg') }}); background-size: 110%; 
+                background-color: #222427; background-position: 0 0;">
+            <div class="footer-middle" id="footer-middle">
+                <div class="container">
+                    <h2 class="section-title text-white lh-1 mb-0 ls-10 appear-animate" data-animation-options="{
+                    'name': 'fadeIn', 'delay': '.2s'
+                    }">Build Your Website With Wolmart</h2>
+                    <h3 class="section-subtitle text-white ls-25 font-weight-extrabold appear-animate"
+                        data-animation-options="{
+                    'name': 'fadeIn', 'delay': '.6s'
+                    }">Purchase Now, Only
+                        <span class="text-primary">$19!</span>
+                    </h3>
+                    <p class="section-desc mx-auto mb-10 text-white appear-animate" data-animation-options="{
+                    'name': 'fadeIn', 'delay': '.4s'
+                    }">Wolmart's strict coding standards based high
+                        performance and lifetime updates with fashionable design and new features will keep your site
+                        always fashionable.</p>
+                    <a href="https://d-themes.com/buynow/wolmarthtml"
+                        class="btn btn-rounded btn-gradient btn-dark text-white btn-purchase grad-reverse mb-10 appear-animate"
+                        data-animation-options="{
+                        'name': 'fadeIn', 'delay': '.8s'
+                        }">Buy Wolmart!</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container justify-content-center">
+                    <p class="mb-0">Copyright © 2021 Wolmart Store. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Scroll Top -->
+    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Start of Mobile Menu -->
+    <div class="mobile-menu-wrapper">
+        <div class="mobile-menu-overlay"></div>
+        <!-- End of .mobile-menu-overlay -->
+
+        <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
+        <!-- End of .mobile-menu-close -->
+
+        <div class="mobile-menu-container scrollable">
+            <form action="#" method="get" class="input-wrapper">
+                <input type="text" class="form-control" name="search" autocomplete="off"
+                    placeholder="Search" required />
+                <button class="btn btn-search" type="submit">
+                    <i class="w-icon-search"></i>
+                </button>
+            </form>
+            <!-- End of Search Form -->
+            <ul class="mobile-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End of Mobile Menu -->
+    <!-- Plugins JS File -->
+    <script src="{{ asset('assets/user/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/sticky/sticky.min.js') }}"></script>
+    <script src="{{ asset('assets/user/vendor/parallax/parallax.min.js') }}"></script>
+    <!-- Main JS File -->
+    <script src="{{ asset('assets/user/js/main.min.js') }}"></script>
+    <script src="{{ asset('assets/user/js/doc.js') }}"></script>
+</body>
+
+</html>

@@ -253,11 +253,11 @@ td.highlight {
   background-color: $light-gray !important;
 }
 td.details-control {
-  background: url('../images/details_open.png') no-repeat center center;
+  background: url('../images/details_open.png') }}') no-repeat center center;
   cursor: pointer;
 }
 tr.shown td.details-control {
-  background: url('../images/details_close.png') no-repeat center center;
+  background: url('../images/details_close.png') }}') no-repeat center center;
 }
 .dataTables_scroll{
   &~.dataTables_paginate{
