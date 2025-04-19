@@ -10,9 +10,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "laravel/breeze": "^2.3",
         "laravel/framework": "^11.31",
         "laravel/passport": "^12.4",
         "laravel/tinker": "^2.9",
+        "laravel/ui": "^4.6",
         "orangehill/iseed": "^3.0",
         "spatie/laravel-permission": "^6.15"
     },

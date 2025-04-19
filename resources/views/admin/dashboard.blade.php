@@ -944,7 +944,7 @@
                                             <li> <i class="fa fa-star"></i></li>
                                             <li> <i class="fa fa-star"></i></li>
                                         </ul>
-                                    </div><a class="btn btn-iconsolid" href="cart.html"><i class="icon-bag"></i></a>
+                                    </div><a class="btn btn-iconsolid" href="{{route('user.cart')}}"><i class="icon-bag"></i></a>
                                 </div>
                                 <div class="code-box-copy">
                                     <button class="code-box-copy__btn btn-clipboard"
