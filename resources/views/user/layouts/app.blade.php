@@ -4247,7 +4247,7 @@
                                     <li><a href="{{route('user.login')}}">Sign In</a></li>
                                     <li><a href="#">Help</a></li>
                                     <li><a href="{{route('user.wishlist')}}">My Wishlist</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{route(name: 'user.privacy')}}">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>
