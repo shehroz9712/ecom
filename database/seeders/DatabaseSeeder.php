@@ -17,22 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminUserSeeder::class,);
         $this->call(RolePermissionSeeder::class,);
         $this->call(MediaSeeder::class,);
-        $this->call(PackagesTableSeeder::class,);
         $this->call(CountriesTableSeeder::class,);
-        $this->call(OauthClientsTableSeeder::class);
-        $this->call(OauthPersonalAccessClientsTableSeeder::class);
         $this->call(SettingSeeder::class);
-        $this->call(TechnicalSkillsSeeder::class);
-        $this->call(SoftSkillsSeeder::class);
-        $this->call(EducationSeeder::class);
-        $this->call(ExperienceSeeder::class);
-        $this->call(UserSkillSeeder::class);
-        $this->call(StateSeeder::class);
         $this->call(CitySeeder::class);
-        $this->call(ResumeSeeder::class);
-        $this->call(ResumeHeaderSeeder::class);
-        $this->call(ResumeDetailSeeder::class);
         $this->call(PageSeeder::class);
-        $this->call(PageSectionSeeder::class);
+        $this->call(CategorySeeder::class);
     }
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('user_id');
 
-            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->integer('qty')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->string('media_id')->nullable();

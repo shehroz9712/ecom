@@ -15,16 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100)->nullable();
             $table->string('alt', 100)->nullable();
+            $table->string('url')->nullable();
+            $table->string('for', 100);
             $table->string('folder', 100);
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->unsignedBigInteger('created_by');
-            $table->unsignedBigInteger('updated_by')->nullable();
-
+            $table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

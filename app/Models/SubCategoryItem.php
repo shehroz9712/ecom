@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use App\Enums\Status;
+use App\Traits\HasQueryFilters;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class SubCategoryItem extends Model
+{
+    use HasFactory, SoftDeletes, HasQueryFilters;
+    protected $casts = [
+        'status' => Status::class,
+    ];
+    public function scopeActive($query)
+    {
+        return $query->where('status', Status::Active);
+    }
+
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+    public function editor()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+    public function getCreatorNameAttribute()
+    {
+        return $this->creator?->name ?? 'N/A';
+    }
+
+    public function getEditorNameAttribute()
+    {
+        return $this->editor?->name ?? 'N/A';
+    }
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController  extends Controller
@@ -20,6 +21,7 @@ class HomeController  extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
+        return view('user.index', compact('categories'));
     }
 }

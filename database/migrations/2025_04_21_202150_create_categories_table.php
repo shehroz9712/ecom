@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portfolios', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->nullable();
+            $table->string('icon')->nullable();
+            $table->integer('order')->default(0);
             $table->enum('status', ['active', 'inactive'])->default('active');
-
-            $table->foreignId('media_id')->references('id')->on('media')->onDelete('cascade');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('updated_by')->nullable()->constrained('id')->on('users')->onDelete('cascade');
-
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignId('created_by')->default(1)->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('updated_by')->default(1)->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('portfolios');
+        Schema::dropIfExists('categories');
     }
 };

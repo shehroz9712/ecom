@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coin_plans', function (Blueprint $table) {
+        Schema::create('tests', function (Blueprint $table) {
             $table->id();
-            $table->integer('coins');
-            $table->decimal('price', 8, 2)->nullable();
-            $table->integer('discount')->nullable();
-            $table->integer('duration')->nullable();
-            $table->integer('referrals')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->timestamps();
-            $table->softDeletes();
+$table->timestamps();
+$table->softDeletes();
+$table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
+$table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('coin_plans');
+        Schema::dropIfExists('tests');
     }
 };

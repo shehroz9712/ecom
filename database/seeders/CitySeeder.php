@@ -13,14 +13,6 @@ class CitySeeder extends Seeder
     public function run(): void
     {
 
-        City::insert([
-            [
-                'name'                  => 'Karachi',
-                'state_id'              => 1,
-                'status'                => 'active',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-        ]);
+       
     }
 }

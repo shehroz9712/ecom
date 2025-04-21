@@ -16,10 +16,12 @@ class MediaSeeder extends Seeder
         Media::create([
             'name' => 'default.png',
             'alt' => 'images/default.png',
+            'for' => 'default',
             'folder' => 'image/png',
             'url'  => url('images/default.png'),
             'status'     => 'active',
             'created_by'     => '1',
+            'updated_by'     => '1',
         ]);
     }
 }

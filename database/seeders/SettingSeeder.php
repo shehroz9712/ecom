@@ -4,19 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 class SettingSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run()
     {
         DB::table('settings')->insert([
             [
                 'key' => 'favicon',
-                'value' => 1,
+                'value' => 'logo.png',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,
@@ -26,7 +23,7 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'logo',
-                'value' => 2,
+                'value' => 'logo.png',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,
@@ -35,8 +32,8 @@ class SettingSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'key' => 'contact_email',
-                'value' => 'contact@example.com',
+                'key' => 'dark_logo',
+                'value' => 'dark-logo.png',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,
@@ -45,8 +42,8 @@ class SettingSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'key' => 'contact_number',
-                'value' => '+1 (438) 883-8289',
+                'key' => 'headline',
+                'value' => 'Welcome to Our Platform',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,
@@ -55,8 +52,8 @@ class SettingSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'key' => 'location_address',
-                'value' => '989 Derry Rd E # 403, Mississauga, ON L5T 2J8, Canada',
+                'key' => 'title',
+                'value' => 'My Awesome Website',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,
@@ -65,8 +62,58 @@ class SettingSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'key' => 'facebook_link',
-                'value' => 'https://www.facebook.com/AiProResume',
+                'key' => 'description',
+                'value' => 'This is a modern platform powered by AI',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'keyword',
+                'value' => 'AI, Resume, Builder, Laravel',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'header_script',
+                'value' => '<script>console.log("Header script loaded");</script>',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'body_script',
+                'value' => '<script>console.log("Body script executed");</script>',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'footer_script',
+                'value' => '<script>console.log("Footer script running");</script>',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'copyright',
+                'value' => '© 2025 My Company. All rights reserved.',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,

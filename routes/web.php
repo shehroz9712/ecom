@@ -34,6 +34,7 @@ route::get('/wishlist', [HomeController::class, 'index'])->name('wishlist');
 route::get('/profile', [HomeController::class, 'index'])->name('profile');
 
 route::get('/contact', [HomeController::class, 'index'])->name('contact');
+route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
 
 
 

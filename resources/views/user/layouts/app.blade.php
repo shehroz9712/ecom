@@ -1,52 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-
-    <title>Wolmart eCommmerce Marketplace HTML Template</title>
-
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Wolmart eCommmerce Marketplace HTML Template">
-    <meta name="author" content="D-THEMES">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('assets/user/images/icons/favicon.png') }}">
-
-    <!-- WebFont.js') }} -->
-    <script>
-        WebFontConfig = {
-            google: { families: ['Poppins:400,500,600,700,800'] }
-        };
-        (function (d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = '{{ asset('assets/user/js/webfont.js') }}';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
-
-    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-regular-400.woff2') }}" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-solid-900.woff2') }}" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
-            crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/user/fonts/wolmart.ttf?png09e') }}" as="font" type="font/ttf" crossorigin="anonymous">
-
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/fontawesome-free/css/all.min.css') }}">
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/owl-carousel/owl.carousel.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/animate/animate.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/magnific-popup/magnific-popup.min.css') }}">
-
-    <!-- Default CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/demo1.min.css') }}">
-
-</head>
+@include('user.layouts.partials.head')
 
 <body class="home">
     <div class="page-wrapper">
@@ -55,43 +10,17 @@
             <div class="header-top">
                 <div class="container">
                     <div class="header-left">
-                        <p class="welcome-msg">Welcome to Wolmart Store message or remove it!</p>
+                        <p class="welcome-msg">{{ $settings->headline }}</p>
                     </div>
                     <div class="header-right">
-                        <div class="dropdown">
-                            <a href="#currency">USD</a>
-                            <div class="dropdown-box">
-                                <a href="#USD">USD</a>
-                                <a href="#EUR">EUR</a>
-                            </div>
-                        </div>
-                        <!-- End of DropDown Menu -->
-
-                        <div class="dropdown">
-                            <a href="#language"><img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14"
-                                    height="8" class="dropdown-image" /> ENG</a>
-                            <div class="dropdown-box">
-                                <a href="#ENG">
-                                    <img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14" height="8"
-                                        class="dropdown-image" />
-                                    ENG
-                                </a>
-                                <a href="#FRA">
-                                    <img src="{{ asset('assets/user/images/flags/fra.png') }}" alt="FRA Flag" width="14" height="8"
-                                        class="dropdown-image" />
-                                    FRA
-                                </a>
-                            </div>
-                        </div>
-                        <!-- End of Dropdown Menu -->
-                        <span class="divider d-lg-show"></span>
-                        <a href="{{route('user.blog')}}" class="d-lg-show">Blog</a>
-                        <a href="{{route('user.contact')}}" class="d-lg-show">Contact Us</a>
-                        <a href="{{route('user.profile')}}" class="d-lg-show">My Account</a>
-                        <a href="{{ asset('assets/user/ajax/login.html')}}" class="d-lg-show login sign-in"><i
+                        <a href="{{ route('user.blog') }}" class="d-lg-show">Blog</a>
+                        <a href="{{ route('user.contact') }}" class="d-lg-show">Contact Us</a>
+                        <a href="{{ route('user.profile') }}" class="d-lg-show">My Account</a>
+                        <a href="{{ asset('assets/user/ajax/login.html') }}" class="d-lg-show login sign-in"><i
                                 class="w-icon-account"></i>Sign In</a>
                         <span class="delimiter d-lg-show">/</span>
-                        <a href="{{ asset('assets/user/ajax/login.html')}}" class="ml-0 d-lg-show login register">Register</a>
+                        <a href="{{ asset('assets/user/ajax/login.html') }}"
+                            class="ml-0 d-lg-show login register">Register</a>
                     </div>
                 </div>
             </div>
@@ -102,22 +31,19 @@
                     <div class="header-left mr-md-4">
                         <a href="#" class="mobile-menu-toggle  w-icon-hamburger">
                         </a>
-                        <a href="{{route('user.home')}}" class="logo ml-lg-0">
-                            <img src="{{ asset('assets/user/images/logo.png') }}" alt="logo" width="144" height="45" />
+                        <a href="{{ route('user.home') }}" class="logo ml-lg-0">
+                            <img src="{{ asset('assets/user/images/logo.png') }}" alt="logo" width="144"
+                                height="45" />
                         </a>
-                        <form method="get" action="#" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+                        <form method="get" action="#"
+                            class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
                             <div class="select-box">
                                 <select id="category" name="category">
                                     <option value="">All Categories</option>
-                                    <option value="4">Fashion</option>
-                                    <option value="5">Furniture</option>
-                                    <option value="6">Shoes</option>
-                                    <option value="7">Sports</option>
-                                    <option value="8">Games</option>
-                                    <option value="9">Computers</option>
-                                    <option value="10">Electronics</option>
-                                    <option value="11">Kitchen</option>
-                                    <option value="12">Clothing</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
                             <input type="text" class="form-control" name="search" id="search"
@@ -131,15 +57,16 @@
                             <a href="tel:#" class="w-icon-call"></a>
                             <div class="call-info d-lg-show">
                                 <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                                    <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4>
+                                    <a href="mailto:#" class="text-capitalize">Live Chat</a> or :
+                                </h4>
                                 <a href="tel:#" class="phone-number font-weight-bolder ls-50">0(800)123-456</a>
                             </div>
                         </div>
-                        <a class="wishlist label-down link d-xs-show" href="{{route('user.wishlist')}}">
+                        <a class="wishlist label-down link d-xs-show" href="{{ route('user.wishlist') }}">
                             <i class="w-icon-heart"></i>
                             <span class="wishlist-label d-lg-show">Wishlist</span>
                         </a>
-                        <a class="compare label-down link d-xs-show" href="{{route('user.compare')}}">
+                        <a class="compare label-down link d-xs-show" href="{{ route('user.compare') }}">
                             <i class="w-icon-compare"></i>
                             <span class="compare-label d-lg-show">Compare</span>
                         </a>
@@ -159,28 +86,30 @@
 
                                 <div class="products">
                                     @for ($product = 0; $product < 3; $product++)
-                                    <div class="product product-cart">
-                                        <div class="product-detail">
-                                            <a href="{{ route('user.product.detail', $product) }}" class="product-name">
-                                                Beige knitted elas<br>tic runner shoes
-                                            </a>
-                                            <div class="price-box">
-                                                <span class="product-quantity">1</span>
-                                                <span class="product-price">$25.68</span>
+                                        <div class="product product-cart">
+                                            <div class="product-detail">
+                                                <a href="{{ route('user.product.detail', $product) }}"
+                                                    class="product-name">
+                                                    Beige knitted elas<br>tic runner shoes
+                                                </a>
+                                                <div class="price-box">
+                                                    <span class="product-quantity">1</span>
+                                                    <span class="product-price">$25.68</span>
+                                                </div>
                                             </div>
+                                            <figure class="product-media">
+                                                <a href="{{ route('user.product.detail', $product) }}">
+                                                    <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}"
+                                                        alt="product" height="84" width="94" />
+                                                </a>
+                                            </figure>
+                                            <button class="btn btn-link btn-close">
+                                                <i class="fas fa-times"></i>
+                                            </button>
                                         </div>
-                                        <figure class="product-media">
-                                            <a href="{{ route('user.product.detail', $product) }}">
-                                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product" height="84" width="94" />
-                                            </a>
-                                        </figure>
-                                        <button class="btn btn-link btn-close">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                @endfor
-                                
-                                    
+                                    @endfor
+
+
                                 </div>
 
                                 <div class="cart-total">
@@ -189,8 +118,10 @@
                                 </div>
 
                                 <div class="cart-action">
-                                    <a href="{{route('user.cart')}}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
-                                    <a href="{{route('user.checkout')}}" class="btn btn-primary  btn-rounded">Checkout</a>
+                                    <a href="{{ route('user.cart') }}"
+                                        class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                                    <a href="{{ route('user.checkout') }}"
+                                        class="btn btn-primary  btn-rounded">Checkout</a>
                                 </div>
                             </div>
                             <!-- End of Dropdown Box -->
@@ -205,427 +136,69 @@
                     <div class="inner-wrap">
                         <div class="header-left">
                             <div class="dropdown category-dropdown has-border" data-visible="true">
-                                <a href="#" class="category-toggle text-dark" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="true" data-display="static"
-                                    title="Browse Categories">
+                                <a href="#" class="category-toggle text-dark" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                                    data-display="static" title="Browse Categories">
                                     <i class="w-icon-category"></i>
                                     <span>Browse Categories</span>
                                 </a>
-
                                 <div class="dropdown-box">
-                                    <ul class="menu vertical-menu category-menu">
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-tshirt2"></i>Fashion
-                                            </a>
-                                            <ul class="megamenu">
-                                                <li>
-                                                    <h4 class="menu-title">Women</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">New Arrivals</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Best Sellers</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Trending</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Clothing</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Shoes</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Bags</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Accessories</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Jewlery &
-                                                                Watches</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Sale</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <h4 class="menu-title">Men</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">New Arrivals</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Best Sellers</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Trending</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Clothing</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Shoes</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Bags</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Accessories</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Jewlery &
-                                                                Watches</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="banner-fixed menu-banner menu-banner2">
-                                                        <figure>
-                                                            <img src="{{ asset('assets/user/images/menu/banner-2.jpg') }}" alt="Menu Banner"
-                                                                width="235" height="347" />
-                                                        </figure>
-                                                        <div class="banner-content">
-                                                            <div class="banner-price-info mb-1 ls-normal">Get up to
-                                                                <strong
-                                                                    class="text-primary text-uppercase">20%Off</strong>
-                                                            </div>
-                                                            <h3 class="banner-title ls-normal">Hot Sales</h3>
-                                                            <a href="{{route('user.shop')}}ml"
-                                                                class="btn btn-dark btn-sm btn-link btn-slide-right btn-icon-right">
-                                                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-home"></i>Home & Garden
-                                            </a>
-                                            <ul class="megamenu">
-                                                <li>
-                                                    <h4 class="menu-title">Bedroom</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Beds, Frames &
-                                                                Bases</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Dressers</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Nightstands</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Kid's Beds &
-                                                                Headboards</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Armoires</a></li>
-                                                    </ul>
+                                    <ul class="category-menu menu vertical-menu">
+                                        @foreach ($categories as $category)
+                                            <li>
+                                                <a href="{{ route('user.shop') }}">
+                                                    <i class="{{ $category->icon }}"></i>{{ $category->name }}
+                                                </a>
 
-                                                    <h4 class="menu-title mt-1">Living Room</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Coffee Tables</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Chairs</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Tables</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Futons & Sofa
-                                                                Beds</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Cabinets &
-                                                                Chests</a></li>
+                                                @if ($category->activeSubCategories->count())
+                                                    <ul class="megamenu">
+                                                        @foreach ($category->subCategories as $subCategory)
+                                                            <li>
+                                                                <h4 class="menu-title">{{ $subCategory->name }}</h4>
+                                                                <hr class="divider">
+                                                                <ul>
+                                                                    @foreach ($subCategory->activeItems as $item)
+                                                                        <li>
+                                                                            <a
+                                                                                href="{{ route('user.shop', ['category' => $item->slug]) }}">{{ $item->name }}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
-                                                </li>
-                                                <li>
-                                                    <h4 class="menu-title">Office</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Office Chairs</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Desks</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Bookcases</a></li>
-                                                        <li><a href="{{route('user.shop')}}">File Cabinets</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Breakroom
-                                                                Tables</a></li>
-                                                    </ul>
-
-                                                    <h4 class="menu-title mt-1">Kitchen & Dining</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Dining Sets</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Kitchen Storage
-                                                                Cabinets</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Bashers Racks</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Dining Chairs</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Dining Room
-                                                                Tables</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Bar Stools</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="menu-banner banner-fixed menu-banner3">
-                                                        <figure>
-                                                            <img src="{{ asset('assets/user/images/menu/banner-3.jpg') }}" alt="Menu Banner"
-                                                                width="235" height="461" />
-                                                        </figure>
-                                                        <div class="banner-content">
-                                                            <h4
-                                                                class="banner-subtitle font-weight-normal text-white mb-1">
-                                                                Restroom</h4>
-                                                            <h3
-                                                                class="banner-title font-weight-bolder text-white ls-normal">
-                                                                Furniture Sale</h3>
-                                                            <div
-                                                                class="banner-price-info text-white font-weight-normal ls-25">
-                                                                Up to <span
-                                                                    class="text-secondary text-uppercase font-weight-bold">25%
-                                                                    Off</span></div>
-                                                            <a href="{{route('user.shop')}}ml"
-                                                                class="btn btn-white btn-link btn-sm btn-slide-right btn-icon-right">
-                                                                Shop Now<i class="w-icon-long-arrow-right"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-electronics"></i>Electronics
-                                            </a>
-                                            <ul class="megamenu">
-                                                <li>
-                                                    <h4 class="menu-title">Laptops &amp; Computers</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Desktop
-                                                                Computers</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Monitors</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Laptops</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Hard Drives &amp;
-                                                                Storage</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Computer
-                                                                Accessories</a></li>
-                                                    </ul>
-
-                                                    <h4 class="menu-title mt-1">TV &amp; Video</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">TVs</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Home Audio
-                                                                Speakers</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Projectors</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Media Streaming
-                                                                Devices</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <h4 class="menu-title">Digital Cameras</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Digital SLR
-                                                                Cameras</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Sports & Action
-                                                                Cameras</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Camera Lenses</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Photo Printer</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Digital Memory
-                                                                Cards</a></li>
-                                                    </ul>
-
-                                                    <h4 class="menu-title mt-1">Cell Phones</h4>
-                                                    <hr class="divider">
-                                                    <ul>
-                                                        <li><a href="{{route('user.shop')}}">Carrier Phones</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Unlocked Phones</a>
-                                                        </li>
-                                                        <li><a href="{{route('user.shop')}}">Phone & Cellphone
-                                                                Cases</a></li>
-                                                        <li><a href="{{route('user.shop')}}">Cellphone
-                                                                Chargers</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="menu-banner banner-fixed menu-banner4">
-                                                        <figure>
-                                                            <img src="{{ asset('assets/user/images/menu/banner-4.jpg') }}" alt="Menu Banner"
-                                                                width="235" height="433" />
-                                                        </figure>
-                                                        <div class="banner-content">
-                                                            <h4 class="banner-subtitle font-weight-normal">Deals Of The
-                                                                Week</h4>
-                                                            <h3 class="banner-title text-white">Save On Smart EarPhone
-                                                            </h3>
-                                                            <div
-                                                                class="banner-price-info text-secondary font-weight-bolder text-uppercase text-secondary">
-                                                                20% Off</div>
-                                                            <a href="{{route('user.shop')}}ml"
-                                                                class="btn btn-white btn-outline btn-sm btn-rounded">Shop
-                                                                Now</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-furniture"></i>Furniture
-                                            </a>
-                                            <ul class="megamenu type2">
-                                                <li class="row">
-                                                    <div class="col-md-3 col-lg-3 col-6">
-                                                        <h4 class="menu-title">Furniture</h4>
-                                                        <hr class="divider" />
-                                                        <ul>
-                                                            <li><a href="{{route('user.shop')}}">Sofas & Couches</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Armchairs</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Bed Frames</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Beside Tables</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Dressing Tables</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-3 col-lg-3 col-6">
-                                                        <h4 class="menu-title">Lighting</h4>
-                                                        <hr class="divider" />
-                                                        <ul>
-                                                            <li><a href="{{route('user.shop')}}">Light Bulbs</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Lamps</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Celling Lights</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Wall Lights</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Bathroom
-                                                                    Lighting</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-3 col-lg-3 col-6">
-                                                        <h4 class="menu-title">Home Accessories</h4>
-                                                        <hr class="divider" />
-                                                        <ul>
-                                                            <li><a href="{{route('user.shop')}}">Decorative
-                                                                    Accessories</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Candals &
-                                                                    Holders</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Home Fragrance</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Mirrors</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Clocks</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-3 col-lg-3 col-6">
-                                                        <h4 class="menu-title">Garden & Outdoors</h4>
-                                                        <hr class="divider" />
-                                                        <ul>
-                                                            <li><a href="{{route('user.shop')}}">Garden
-                                                                    Furniture</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Lawn Mowers</a>
-                                                            </li>
-                                                            <li><a href="{{route('user.shop')}}">Pressure
-                                                                    Washers</a></li>
-                                                            <li><a href="{{route('user.shop')}}">All Garden
-                                                                    Tools</a></li>
-                                                            <li><a href="{{route('user.shop')}}">Outdoor Dining</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="row">
-                                                    <div class="col-6">
-                                                        <div class="banner banner-fixed menu-banner5 br-xs">
-                                                            <figure>
-                                                                <img src="{{ asset('assets/user/images/menu/banner-5.jpg') }}" alt="Banner"
-                                                                    width="410" height="123"
-                                                                    style="background-color: #D2D2D2;" />
-                                                            </figure>
-                                                            <div class="banner-content text-right y-50">
-                                                                <h4
-                                                                    class="banner-subtitle font-weight-normal text-default text-capitalize">
-                                                                    New Arrivals</h4>
-                                                                <h3
-                                                                    class="banner-title font-weight-bolder text-capitalize ls-normal">
-                                                                    Amazing Sofa</h3>
-                                                                <div
-                                                                    class="banner-price-info font-weight-normal ls-normal">
-                                                                    Starting at <strong>$125.00</strong></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="banner banner-fixed menu-banner5 br-xs">
-                                                            <figure>
-                                                                <img src="{{ asset('assets/user/images/menu/banner-6.jpg') }}" alt="Banner"
-                                                                    width="410" height="123"
-                                                                    style="background-color: #9F9888;" />
-                                                            </figure>
-                                                            <div class="banner-content y-50">
-                                                                <h4
-                                                                    class="banner-subtitle font-weight-normal text-white text-capitalize">
-                                                                    Best Seller</h4>
-                                                                <h3
-                                                                    class="banner-title font-weight-bolder text-capitalize text-white ls-normal">
-                                                                    Chair &amp; Lamp</h3>
-                                                                <div
-                                                                    class="banner-price-info font-weight-normal ls-normal text-white">
-                                                                    From <strong>$165.00</strong></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-heartbeat"></i>Healthy & Beauty
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-gift"></i>Gift Ideas
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-gamepad"></i>Toy & Games
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-ice-cream"></i>Cooking
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-ios"></i>Smart Phones
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-camera"></i>Cameras & Photo
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}">
-                                                <i class="w-icon-ruby"></i>Accessories
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('user.shop')}}ml"
-                                                class="font-weight-bold text-primary text-uppercase ls-25">
-                                                View All Categories<i class="w-icon-angle-right"></i>
-                                            </a>
-                                        </li>
+                                                @endif
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
+
                             </div>
                             <nav class="main-nav">
                                 <ul class="menu active-underline">
                                     <li class="active">
-                                        <a href="{{route('user.home')}}">Home</a>
+                                        <a href="{{ route('user.home') }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('user.shop')}}ml">Shop</a>
+                                        <a href="{{ route('user.shop') }}ml">Shop</a>
 
                                         <!-- Start of Megamenu -->
-                                      
+
                                         <!-- End of Megamenu -->
                                     </li>
                                     <li>
-                                        <a href="{{route('user.vendor')}}">Vendor</a>
-                                        
+                                        <a href="{{ route('user.vendor') }}">Vendor</a>
+
                                     </li>
                                     <li>
-                                        <a href="{{route('user.blog')}}">Blog</a>
-                                      
+                                        <a href="{{ route('user.blog') }}">Blog</a>
+
                                     </li>
                                     <li>
-                                        <a href="{{route('user.about')}}">Pages</a>
-                                      
+                                        <a href="{{ route('user.about') }}">Pages</a>
+
                                     </li>
-                                    
+
                                 </ul>
                             </nav>
                         </div>
@@ -658,8 +231,8 @@
                         style="background-image: url({{ asset('assets/user/images/demos/demo1/sliders/slide-1.jpg') }}); background-color: #ebeef2;">
                         <div class="container">
                             <figure class="slide-image skrollable slide-animate">
-                                <img src="{{ asset('assets/user/images/demos/demo1/sliders/shoes.png') }}" alt="Banner"
-                                    data-bottom-top="transform: translateY(10vh);"
+                                <img src="{{ asset('assets/user/images/demos/demo1/sliders/shoes.png') }}"
+                                    alt="Banner" data-bottom-top="transform: translateY(10vh);"
                                     data-top-bottom="transform: translateY(-10vh);" width="474" height="397">
                             </figure>
                             <div class="banner-content y-50 text-right">
@@ -679,7 +252,8 @@
                                 }">
                                     RUNNING SHOES
                                 </h3>
-                                <p class="font-weight-normal text-default slide-animate" data-animation-options="{
+                                <p class="font-weight-normal text-default slide-animate"
+                                    data-animation-options="{
                                     'name': 'fadeInRightShorter',
                                     'duration': '1s',
                                     'delay': '.6s'
@@ -687,13 +261,14 @@
                                     Sale up to <span class="font-weight-bolder text-secondary">30% OFF</span>
                                 </p>
 
-                                <a href="{{route('user.shop')}}"
+                                <a href="{{ route('user.shop') }}"
                                     class="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
                                     data-animation-options="{
                                     'name': 'fadeInRightShorter',
                                     'duration': '1s',
                                     'delay': '.8s'
-                                }">SHOP NOW<i class="w-icon-long-arrow-right"></i></a>
+                                }">SHOP
+                                    NOW<i class="w-icon-long-arrow-right"></i></a>
 
                             </div>
                             <!-- End of .banner-content -->
@@ -705,12 +280,13 @@
                     <div class="banner banner-fixed intro-slide intro-slide2"
                         style="background-image: url({{ asset('assets/user/images/demos/demo1/sliders/slide-2.jpg') }}); background-color: #ebeef2;">
                         <div class="container">
-                            <figure class="slide-image skrollable slide-animate" data-animation-options="{
+                            <figure class="slide-image skrollable slide-animate"
+                                data-animation-options="{
                                 'name': 'fadeInUpShorter',
                                 'duration': '1s'
                             }">
-                                <img src="{{ asset('assets/user/images/demos/demo1/sliders/men.png') }}" alt="Banner"
-                                    data-bottom-top="transform: translateX(10vh);"
+                                <img src="{{ asset('assets/user/images/demos/demo1/sliders/men.png') }}"
+                                    alt="Banner" data-bottom-top="transform: translateX(10vh);"
                                     data-top-bottom="transform: translateX(-10vh);" width="480" height="633">
                             </figure>
                             <div class="banner-content d-inline-block y-50">
@@ -730,14 +306,15 @@
                                 }">
                                     Hot & Packback
                                 </h3>
-                                <p class="font-weight-normal text-default slide-animate" data-animation-options="{
+                                <p class="font-weight-normal text-default slide-animate"
+                                    data-animation-options="{
                                     'name': 'fadeInUpShorter',
                                     'duration': '1s',
                                     'delay': '.8s'
                                 }">
                                     Only until the end of this week.
                                 </p>
-                                <a href="{{route('user.shop')}}ml"
+                                <a href="{{ route('user.shop') }}ml"
                                     class="btn btn-dark btn-outline btn-rounded btn-icon-right slide-animate"
                                     data-animation-options="{
                                     'name': 'fadeInUpShorter',
@@ -756,12 +333,13 @@
                     <div class="banner banner-fixed intro-slide intro-slide3"
                         style="background-image: url({{ asset('assets/user/images/demos/demo1/sliders/slide-3.jpg') }}); background-color: #f0f1f2;">
                         <div class="container">
-                            <figure class="slide-image skrollable slide-animate" data-animation-options="{
+                            <figure class="slide-image skrollable slide-animate"
+                                data-animation-options="{
                                 'name': 'fadeInDownShorter',
                                 'duration': '1s'
                             }">
-                                <img src="{{ asset('assets/user/images/demos/demo1/sliders/skate.png') }}" alt="Banner"
-                                    data-bottom-top="transform: translateY(10vh);"
+                                <img src="{{ asset('assets/user/images/demos/demo1/sliders/skate.png') }}"
+                                    alt="Banner" data-bottom-top="transform: translateY(10vh);"
                                     data-top-bottom="transform: translateY(-10vh);" width="310" height="444">
                             </figure>
                             <div class="banner-content text-right y-50">
@@ -786,14 +364,16 @@
                                     'name': 'fadeInLeftShorter',
                                     'duration': '1s',
                                     'delay': '.2s'
-                                }"><span class="text-white mr-4">Roller</span>-skate
+                                }">
+                                    <span class="text-white mr-4">Roller</span>-skate
                                 </h3>
-                                <div class="btn-group slide-animate" data-animation-options="{
+                                <div class="btn-group slide-animate"
+                                    data-animation-options="{
                                     'name': 'fadeInLeftShorter',
                                     'duration': '1s',
                                     'delay': '.8s'
                                 }">
-                                    <a href="{{route('user.shop')}}"
+                                    <a href="{{ route('user.shop') }}"
                                         class="btn btn-dark btn-outline btn-rounded btn-icon-right">SHOP
                                         NOW<i class="w-icon-long-arrow-right"></i></a>
                                 </div>
@@ -875,8 +455,9 @@
                     <div class="col-md-6 mb-4">
                         <div class="banner banner-fixed br-xs">
                             <figure>
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/1-1.jpg') }}" alt="Category Banner"
-                                    width="610" height="160" style="background-color: #ecedec;" />
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/1-1.jpg') }}"
+                                    alt="Category Banner" width="610" height="160"
+                                    style="background-color: #ecedec;" />
                             </figure>
                             <div class="banner-content y-50 mt-0">
                                 <h5 class="banner-subtitle font-weight-normal text-dark">Get up to <span
@@ -894,15 +475,17 @@
                     <div class="col-md-6 mb-4">
                         <div class="banner banner-fixed br-xs">
                             <figure>
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/1-2.jpg') }}" alt="Category Banner"
-                                    width="610" height="160" style="background-color: #636363;" />
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/1-2.jpg') }}"
+                                    alt="Category Banner" width="610" height="160"
+                                    style="background-color: #636363;" />
                             </figure>
                             <div class="banner-content y-50 mt-0">
                                 <h5 class="banner-subtitle font-weight-normal text-capitalize">New Arrivals</h5>
                                 <h3 class="banner-title text-white text-uppercase">Accessories<br><span
                                         class="font-weight-normal text-capitalize">Collection</span></h3>
                                 <div class="banner-price-info text-white font-weight-normal text-capitalize">Only From
-                                    <span class="text-secondary font-weight-bolder">$90.00</span></div>
+                                    <span class="text-secondary font-weight-bolder">$90.00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -973,7 +556,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="product-details scrollable">
-                                            <h2 class="product-title mb-1"><a href="{{route('user.product.detail', '1')}}">Coat Pool
+                                            <h2 class="product-title mb-1"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Coat Pool
                                                     Comfort Jacket</a></h2>
 
                                             <hr class="product-divider">
@@ -1014,8 +598,8 @@
                                             <div class="product-form pt-4">
                                                 <div class="product-qty-form mb-2 mr-2">
                                                     <div class="input-group">
-                                                        <input class="quantity form-control" type="number" min="1"
-                                                            max="10000000">
+                                                        <input class="quantity form-control" type="number"
+                                                            min="1" max="10000000">
                                                         <button class="quantity-plus w-icon-plus"></button>
                                                         <button class="quantity-minus w-icon-minus"></button>
                                                     </div>
@@ -1106,7 +690,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="product-details scrollable">
-                                            <h2 class="product-title mb-1"><a href="{{route('user.product.detail', '1')}}">Beyond OTP
+                                            <h2 class="product-title mb-1"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Beyond OTP
                                                     Shirt</a></h2>
 
                                             <hr class="product-divider">
@@ -1146,8 +731,8 @@
                                             <div class="product-form pt-4">
                                                 <div class="product-qty-form mb-2 mr-2">
                                                     <div class="input-group">
-                                                        <input class="quantity form-control" type="number" min="1"
-                                                            max="10000000">
+                                                        <input class="quantity form-control" type="number"
+                                                            min="1" max="10000000">
                                                         <button class="quantity-plus w-icon-plus"></button>
                                                         <button class="quantity-minus w-icon-minus"></button>
                                                     </div>
@@ -1216,14 +801,15 @@
                                     <div class="product-widget-wrap">
                                         <div class="product product-widget bb-no">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-1.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-1.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Kitchen Cooker</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Kitchen
+                                                        Cooker</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1238,14 +824,15 @@
                                         </div>
                                         <div class="product product-widget bb-no">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-2.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-2.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Professional Pixel Camera</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Professional
+                                                        Pixel Camera</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1261,14 +848,15 @@
                                         </div>
                                         <div class="product product-widget">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-3.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-3.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Sport Women’s Wear</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Sport Women’s
+                                                        Wear</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1286,14 +874,15 @@
                                     <div class="product-widget-wrap">
                                         <div class="product product-widget bb-no">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-4.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-4.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Latest Speaker</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Latest
+                                                        Speaker</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1308,14 +897,15 @@
                                         </div>
                                         <div class="product product-widget bb-no">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-5.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-5.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Men's Black Wrist Watch</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Men's Black
+                                                        Wrist Watch</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1331,14 +921,15 @@
                                         </div>
                                         <div class="product product-widget">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-6.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-6.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Wash Machine</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Wash
+                                                        Machine</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1355,14 +946,15 @@
                                     <div class="product-widget-wrap">
                                         <div class="product product-widget bb-no">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-7.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-7.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Security Guard</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Security
+                                                        Guard</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1377,14 +969,15 @@
                                         </div>
                                         <div class="product product-widget bb-no">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-8.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-8.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">Apple Super Notecom</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">Apple Super
+                                                        Notecom</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1400,14 +993,15 @@
                                         </div>
                                         <div class="product product-widget">
                                             <figure class="product-media">
-                                                <a href="{{route('user.product.detail', '1')}}">
-                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-9.jpg') }}" alt="Product"
-                                                        width="105" height="118" />
+                                                <a href="{{ route('user.product.detail', '1') }}">
+                                                    <img src="{{ asset('assets/user/images/demos/demo1/products/2-9.jpg') }}"
+                                                        alt="Product" width="105" height="118" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
                                                 <h4 class="product-name">
-                                                    <a href="{{route('user.product.detail', '1')}}">HD Television</a>
+                                                    <a href="{{ route('user.product.detail', '1') }}">HD
+                                                        Television</a>
                                                 </h4>
                                                 <div class="ratings-container">
                                                     <div class="ratings-full">
@@ -1433,7 +1027,8 @@
             <section class="category-section top-category bg-grey pt-10 pb-10 appear-animate">
                 <div class="container pb-2">
                     <h2 class="title justify-content-center pt-1 ls-normal mb-5">Top Categories Of The Month</h2>
-                    <div class="owl-carousel owl-theme row cols-lg-6 cols-md-5 cols-sm-3 cols-2" data-owl-options="{
+                    <div class="owl-carousel owl-theme row cols-lg-6 cols-md-5 cols-sm-3 cols-2"
+                        data-owl-options="{
                         'nav': false,
                         'dots': false,
                         'margin': 20,
@@ -1453,68 +1048,74 @@
                         }
                     }">
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
-                            <a href="{{route('user.shop')}}ml" class="category-media">
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-1.jpg') }}" alt="Category" width="130"
-                                    height="130">
+                            <a href="{{ route('user.shop') }}ml" class="category-media">
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-1.jpg') }}"
+                                    alt="Category" width="130" height="130">
                             </a>
                             <div class="category-content">
                                 <h4 class="category-name">Fashion</h4>
-                                <a href="{{route('user.shop')}}ml" class="btn btn-primary btn-link btn-underline">Shop
+                                <a href="{{ route('user.shop') }}ml"
+                                    class="btn btn-primary btn-link btn-underline">Shop
                                     Now</a>
                             </div>
                         </div>
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
-                            <a href="{{route('user.shop')}}ml" class="category-media">
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-2.jpg') }}" alt="Category" width="130"
-                                    height="130">
+                            <a href="{{ route('user.shop') }}ml" class="category-media">
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-2.jpg') }}"
+                                    alt="Category" width="130" height="130">
                             </a>
                             <div class="category-content">
                                 <h4 class="category-name">Furniture</h4>
-                                <a href="{{route('user.shop')}}ml" class="btn btn-primary btn-link btn-underline">Shop
+                                <a href="{{ route('user.shop') }}ml"
+                                    class="btn btn-primary btn-link btn-underline">Shop
                                     Now</a>
                             </div>
                         </div>
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
-                            <a href="{{route('user.shop')}}ml" class="category-media">
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-3.jpg') }}" alt="Category" width="130"
-                                    height="130">
+                            <a href="{{ route('user.shop') }}ml" class="category-media">
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-3.jpg') }}"
+                                    alt="Category" width="130" height="130">
                             </a>
                             <div class="category-content">
                                 <h4 class="category-name">Shoes</h4>
-                                <a href="{{route('user.shop')}}ml" class="btn btn-primary btn-link btn-underline">Shop
+                                <a href="{{ route('user.shop') }}ml"
+                                    class="btn btn-primary btn-link btn-underline">Shop
                                     Now</a>
                             </div>
                         </div>
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
-                            <a href="{{route('user.shop')}}ml" class="category-media">
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-4.jpg') }}" alt="Category" width="130"
-                                    height="130">
+                            <a href="{{ route('user.shop') }}ml" class="category-media">
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-4.jpg') }}"
+                                    alt="Category" width="130" height="130">
                             </a>
                             <div class="category-content">
                                 <h4 class="category-name">Sports</h4>
-                                <a href="{{route('user.shop')}}ml" class="btn btn-primary btn-link btn-underline">Shop
+                                <a href="{{ route('user.shop') }}ml"
+                                    class="btn btn-primary btn-link btn-underline">Shop
                                     Now</a>
                             </div>
                         </div>
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
-                            <a href="{{route('user.shop')}}ml" class="category-media">
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-5.jpg') }}" alt="Category" width="130"
-                                    height="130">
+                            <a href="{{ route('user.shop') }}ml" class="category-media">
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-5.jpg') }}"
+                                    alt="Category" width="130" height="130">
                             </a>
                             <div class="category-content">
                                 <h4 class="category-name">Games</h4>
-                                <a href="{{route('user.shop')}}ml" class="btn btn-primary btn-link btn-underline">Shop
+                                <a href="{{ route('user.shop') }}ml"
+                                    class="btn btn-primary btn-link btn-underline">Shop
                                     Now</a>
                             </div>
                         </div>
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
-                            <a href="{{route('user.shop')}}ml" class="category-media">
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-6.jpg') }}" alt="Category" width="130"
-                                    height="130">
+                            <a href="{{ route('user.shop') }}ml" class="category-media">
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/2-6.jpg') }}"
+                                    alt="Category" width="130" height="130">
                             </a>
                             <div class="category-content">
                                 <h4 class="category-name">Computers</h4>
-                                <a href="{{route('user.shop')}}ml" class="btn btn-primary btn-link btn-underline">Shop
+                                <a href="{{ route('user.shop') }}ml"
+                                    class="btn btn-primary btn-link btn-underline">Shop
                                     Now</a>
                             </div>
                         </div>
@@ -1549,11 +1150,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1567,13 +1168,15 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Classic Hat</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Classic Hat</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(1 Reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(1 Reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$53.00</ins>
@@ -1584,9 +1187,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1600,14 +1203,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s White
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s White
                                                 Handbag</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 80%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.62</ins>
@@ -1618,9 +1223,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1637,14 +1242,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi Funtional Apple
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi Funtional Apple
                                                 iPhone</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(5 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">136.26</ins>
@@ -1656,11 +1263,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1674,14 +1281,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Fashion Blue Towel</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Fashion Blue
+                                                Towel</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(8 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(8 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.55 - $29.99</ins>
@@ -1692,9 +1302,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1711,14 +1321,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Apple Super Notecom</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Apple Super
+                                                Notecom</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(4 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(4 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$243.30</ins>
@@ -1730,11 +1343,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1748,14 +1361,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s Comforter</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s Comforter</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(10 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(10 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$32.00 - $33.26</ins>
@@ -1766,9 +1381,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1782,14 +1397,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi-colorful Music</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi-colorful
+                                                Music</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$260.59 - $297.83</ins>
@@ -1800,11 +1418,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1818,14 +1436,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Comfortable Backpack</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Comfortable
+                                                Backpack</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(6 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(6 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$45.90</ins>
@@ -1836,9 +1457,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1852,14 +1473,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Data Transformer Tool
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Data Transformer Tool
                                             </a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$64.47</span>
@@ -1870,9 +1493,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1886,13 +1509,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s hairdye</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s hairdye</a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$173.84</span>
@@ -1908,11 +1534,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1926,14 +1552,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Fashion Blue Towel</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Fashion Blue
+                                                Towel</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(8 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(8 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.55 - $29.99</ins>
@@ -1944,9 +1573,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1963,14 +1592,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi Funtional Apple
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi Funtional Apple
                                                 iPhone</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(5 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">136.26</ins>
@@ -1982,11 +1613,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2000,14 +1631,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Comfortable Backpack</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Comfortable
+                                                Backpack</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(6 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(6 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$45.90</ins>
@@ -2018,9 +1652,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2034,14 +1668,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Data Transformer Tool
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Data Transformer Tool
                                             </a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$64.47</span>
@@ -2052,9 +1688,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2071,14 +1707,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Apple Super Notecom</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Apple Super
+                                                Notecom</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(4 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(4 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$243.30</ins>
@@ -2090,11 +1729,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2108,14 +1747,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s Comforter</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s Comforter</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(10 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(10 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$32.00 - $33.26</ins>
@@ -2126,9 +1767,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2142,14 +1783,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi-colorful Music</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi-colorful
+                                                Music</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$260.59 - $297.83</ins>
@@ -2160,11 +1804,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2178,13 +1822,15 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Classic Hat</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Classic Hat</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(1 Reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(1 Reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$53.00</ins>
@@ -2195,9 +1841,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2211,14 +1857,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s White
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s White
                                                 Handbag</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 80%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.62</ins>
@@ -2229,9 +1877,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2245,13 +1893,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s hairdye</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s hairdye</a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$173.84</span>
@@ -2267,9 +1918,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2283,14 +1934,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Data Transformer Tool
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Data Transformer Tool
                                             </a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$64.47</span>
@@ -2301,11 +1954,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2319,13 +1972,15 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Classic Hat</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Classic Hat</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(1 Reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(1 Reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$53.00</ins>
@@ -2336,9 +1991,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2355,14 +2010,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi Funtional Apple
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi Funtional Apple
                                                 iPhone</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(5 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">136.26</ins>
@@ -2374,9 +2031,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2390,14 +2047,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s White
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s White
                                                 Handbag</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 80%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.62</ins>
@@ -2408,9 +2067,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2424,13 +2083,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s hairdye</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s hairdye</a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$173.84</span>
@@ -2441,11 +2103,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2459,14 +2121,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Comfortable Backpack</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Comfortable
+                                                Backpack</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(6 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(6 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$45.90</ins>
@@ -2477,9 +2142,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2496,14 +2161,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Apple Super Notecom</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Apple Super
+                                                Notecom</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(4 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(4 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$243.30</ins>
@@ -2515,9 +2183,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2531,14 +2199,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi-colorful Music</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi-colorful
+                                                Music</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$260.59 - $297.83</ins>
@@ -2549,11 +2220,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2567,14 +2238,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s Comforter</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s Comforter</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(10 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(10 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$32.00 - $33.26</ins>
@@ -2585,11 +2258,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2603,14 +2276,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Fashion Blue Towel</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Fashion Blue
+                                                Towel</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(8 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(8 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.55 - $29.99</ins>
@@ -2626,11 +2302,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-4-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2644,14 +2320,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Fashion Blue Towel</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Fashion Blue
+                                                Towel</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(8 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(8 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.55 - $29.99</ins>
@@ -2662,9 +2341,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-10.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2678,13 +2357,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s hairdye</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s hairdye</a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$173.84</span>
@@ -2695,9 +2377,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-9.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2711,14 +2393,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Data Transformer Tool
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Data Transformer Tool
                                             </a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$64.47</span>
@@ -2729,11 +2413,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-8-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2747,14 +2431,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Comfortable Backpack</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Comfortable
+                                                Backpack</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(6 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(6 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$45.90</ins>
@@ -2765,9 +2452,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2781,14 +2468,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s White
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s White
                                                 Handbag</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 80%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.62</ins>
@@ -2799,9 +2488,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-5.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2818,14 +2507,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Apple Super Notecom</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Apple Super
+                                                Notecom</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(4 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(4 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$243.30</ins>
@@ -2837,9 +2529,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-3.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2856,14 +2548,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi Funtional Apple
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi Funtional Apple
                                                 iPhone</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(5 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">136.26</ins>
@@ -2875,9 +2569,9 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-7.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2891,14 +2585,17 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi-colorful Music</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Multi-colorful
+                                                Music</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(3 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$260.59 - $297.83</ins>
@@ -2909,11 +2606,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-6-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2927,14 +2624,16 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s Comforter</a>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Women’s Comforter</a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 100%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(10 reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(10 reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$32.00 - $33.26</ins>
@@ -2945,11 +2644,11 @@
                             <div class="product-wrap">
                                 <div class="product text-center">
                                     <figure class="product-media">
-                                        <a href="{{route('user.product.detail', '1')}}">
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}" alt="Product"
-                                                width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}" alt="Product"
-                                                width="300" height="338" />
+                                        <a href="{{ route('user.product.detail', '1') }}">
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-1.jpg') }}"
+                                                alt="Product" width="300" height="338" />
+                                            <img src="{{ asset('assets/user/images/demos/demo1/products/3-1-2.jpg') }}"
+                                                alt="Product" width="300" height="338" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2963,13 +2662,15 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Classic Hat</a></h4>
+                                        <h4 class="product-name"><a
+                                                href="{{ route('user.product.detail', '1') }}">Classic Hat</a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(1 Reviews)</a>
+                                            <a href="{{ route('user.product.detail', '1') }}"
+                                                class="rating-reviews">(1 Reviews)</a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$53.00</ins>
@@ -2987,14 +2688,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="banner banner-fixed category-banner-1 br-xs">
                             <figure>
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/3-1.jpg') }}" alt="Category Banner"
-                                    width="610" height="200" style="background-color: #3B4B48;" />
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/3-1.jpg') }}"
+                                    alt="Category Banner" width="610" height="200"
+                                    style="background-color: #3B4B48;" />
                             </figure>
                             <div class="banner-content y-50 pt-1">
                                 <h5 class="banner-subtitle font-weight-bold text-uppercase">Natural Process</h5>
                                 <h3 class="banner-title font-weight-bolder text-capitalize text-white">Cosmetic
                                     Makeup<br>Professional</h3>
-                                <a href="{{route('user.shop')}}ml"
+                                <a href="{{ route('user.shop') }}ml"
                                     class="btn btn-white btn-link btn-underline btn-icon-right">Shop Now<i
                                         class="w-icon-long-arrow-right"></i></a>
                             </div>
@@ -3003,14 +2705,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="banner banner-fixed category-banner-2 br-xs">
                             <figure>
-                                <img src="{{ asset('assets/user/images/demos/demo1/categories/3-2.jpg') }}" alt="Category Banner"
-                                    width="610" height="200" style="background-color: #E5E5E5;" />
+                                <img src="{{ asset('assets/user/images/demos/demo1/categories/3-2.jpg') }}"
+                                    alt="Category Banner" width="610" height="200"
+                                    style="background-color: #E5E5E5;" />
                             </figure>
                             <div class="banner-content y-50 pt-1">
                                 <h5 class="banner-subtitle font-weight-bold text-uppercase">Trending Now</h5>
                                 <h3 class="banner-title font-weight-bolder text-capitalize">Women's
                                     Lifestyle<br>Collection</h3>
-                                <a href="{{route('user.shop')}}ml"
+                                <a href="{{ route('user.shop') }}ml"
                                     class="btn btn-dark btn-link btn-underline btn-icon-right">Shop Now<i
                                         class="w-icon-long-arrow-right"></i></a>
                             </div>
@@ -3022,12 +2725,14 @@
                 <div class="product-wrapper-1 appear-animate mb-5">
                     <div class="title-link-wrapper pb-1 mb-4">
                         <h2 class="title ls-normal mb-0">Clothing & Apparel</h2>
-                        <a href="{{route('user.shop')}}" class="font-size-normal font-weight-bold ls-25 mb-0">More
+                        <a href="{{ route('user.shop') }}"
+                            class="font-size-normal font-weight-bold ls-25 mb-0">More
                             Products<i class="w-icon-long-arrow-right"></i></a>
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-sm-4 mb-4">
-                            <div class="banner h-100 br-sm" style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/2.jpg') }}); 
+                            <div class="banner h-100 br-sm"
+                                style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/2.jpg') }}); 
                                 background-color: #ebeced;">
                                 <div class="banner-content content-top">
                                     <h5 class="banner-subtitle font-weight-normal mb-2">Weekend Sale</h5>
@@ -3036,14 +2741,15 @@
                                         New Arrivals<br> <span
                                             class="font-weight-normal text-capitalize">Collection</span>
                                     </h3>
-                                    <a href="{{route('user.shop')}}ml"
+                                    <a href="{{ route('user.shop') }}ml"
                                         class="btn btn-dark btn-outline btn-rounded btn-sm">shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <!-- End of Banner -->
                         <div class="col-lg-9 col-sm-8">
-                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2" data-owl-options="{
+                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
+                                data-owl-options="{
                                 'nav': false,
                                 'dots': true,
                                 'margin': 20,
@@ -3066,66 +2772,78 @@
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Men’s Clothing</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Men’s
+                                                    Clothing</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$23.99</ins><del class="old-price">$25.68</del>
+                                                <ins class="new-price">$23.99</ins><del
+                                                    class="old-price">$25.68</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-5-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-5-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-5-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-5-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Best Travel Bag</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Best Travel
+                                                    Bag</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$25.68</ins><del class="old-price">$28.99</del>
+                                                <ins class="new-price">$25.68</ins><del
+                                                    class="old-price">$28.99</del>
                                             </div>
                                         </div>
                                     </div>
@@ -3134,66 +2852,76 @@
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-2-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-2-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-2-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-2-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s Fashion
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Women’s Fashion
                                                     Handbag </a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$25.68</ins><del class="old-price">$25.89</del>
+                                                <ins class="new-price">$25.68</ins><del
+                                                    class="old-price">$25.89</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-6.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-6.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Gray Leather
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Gray Leather
                                                     Shoes</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$26.88</ins><del class="old-price">$27.89</del>
+                                                <ins class="new-price">$26.88</ins><del
+                                                    class="old-price">$27.89</del>
                                             </div>
                                         </div>
                                     </div>
@@ -3202,64 +2930,74 @@
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-3.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-3.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Black Winter
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Black Winter
                                                     Skating</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$40.86</ins><del class="old-price">$45.89</del>
+                                                <ins class="new-price">$40.86</ins><del
+                                                    class="old-price">$45.89</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-7.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-7.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Men's Black Wrist
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Men's Black Wrist
                                                     Watch</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$135.60</ins><del class="old-price">$155.70</del>
+                                                <ins class="new-price">$135.60</ins><del
+                                                    class="old-price">$155.70</del>
                                             </div>
                                         </div>
                                     </div>
@@ -3268,63 +3006,72 @@
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-4-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-4-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-4-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-4-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Sport Women's
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Sport Women's
                                                     Wear</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$220.20</ins><del class="old-price">$300.62</del>
+                                                <ins class="new-price">$220.20</ins><del
+                                                    class="old-price">$300.62</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-8.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/4-8.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Women’s Hiking
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Women’s Hiking
                                                     Hat</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <span class="price">$53.00</span>
@@ -3341,12 +3088,14 @@
                 <div class="product-wrapper-1 appear-animate mb-8">
                     <div class="title-link-wrapper pb-1 mb-4">
                         <h2 class="title ls-normal mb-0">Consumer Electric</h2>
-                        <a href="{{route('user.shop')}}" class="font-size-normal font-weight-bold ls-25 mb-0">More
+                        <a href="{{ route('user.shop') }}"
+                            class="font-size-normal font-weight-bold ls-25 mb-0">More
                             Products<i class="w-icon-long-arrow-right"></i></a>
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-sm-4 mb-4">
-                            <div class="banner h-100 br-sm" style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/3.jpg') }}); 
+                            <div class="banner h-100 br-sm"
+                                style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/3.jpg') }}); 
                             background-color: #252525;">
                                 <div class="banner-content content-top">
                                     <h5 class="banner-subtitle text-white font-weight-normal mb-2">New Collection</h5>
@@ -3355,14 +3104,15 @@
                                         Top Camera <br> <span
                                             class="font-weight-normal text-capitalize">Mirrorless</span>
                                     </h3>
-                                    <a href="{{route('user.shop')}}ml"
+                                    <a href="{{ route('user.shop') }}ml"
                                         class="btn btn-white btn-outline btn-rounded btn-sm">shop now</a>
                                 </div>
                             </div>
                         </div>
                         <!-- End of Banner -->
                         <div class="col-lg-9 col-sm-8">
-                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2" data-owl-options="{
+                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
+                                data-owl-options="{
                                 'nav': false,
                                 'dots': true,
                                 'margin': 20,
@@ -3384,20 +3134,22 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-1-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-1-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-1-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-1-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3405,46 +3157,55 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Professional Pixel
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Professional
+                                                    Pixel
                                                     Camera</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(5 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$215.68</ins><del class="old-price">$230.45</del>
+                                                <ins class="new-price">$215.68</ins><del
+                                                    class="old-price">$230.45</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-5.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-5.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Latest Speaker</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Latest
+                                                    Speaker</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$250.68</ins>
@@ -3455,32 +3216,36 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-2-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-2-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-2-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-2-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Wash Machine</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Wash Machine</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(9 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(9 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$215.68</ins>
@@ -3489,30 +3254,35 @@
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-6.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-6.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Security Guard</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Security
+                                                    Guard</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$320.00</ins>
@@ -3523,18 +3293,20 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-3.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-3.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3542,34 +3314,39 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">HD Television</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">HD Television</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$450.68</ins><del class="old-price">$500.00</del>
+                                                <ins class="new-price">$450.68</ins><del
+                                                    class="old-price">$500.00</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-7.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-7.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3577,16 +3354,20 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">USB Receipt</a></h4>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">USB Receipt</a>
+                                            </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(5 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$26.89</ins><del class="old-price">$29.79</del>
+                                                <ins class="new-price">$26.89</ins><del
+                                                    class="old-price">$29.79</del>
                                             </div>
                                         </div>
                                     </div>
@@ -3594,30 +3375,34 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-4.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-4.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Data Transformer
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Data Transformer
                                                     Tool</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(6 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(6 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$64.47</ins>
@@ -3626,18 +3411,20 @@
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-8.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/5-8.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3645,17 +3432,20 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Multi Functional
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Multi Functional
                                                     Apple iPhone</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(9 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(9 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$136.26</ins><del class="old-price">$145.90</del>
+                                                <ins class="new-price">$136.26</ins><del
+                                                    class="old-price">$145.90</del>
                                             </div>
                                         </div>
                                     </div>
@@ -3667,11 +3457,13 @@
                 </div>
                 <!-- End of Product Wrapper 1 -->
 
-                <div class="banner banner-fashion appear-animate br-sm mb-9" style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/4.jpg') }});
+                <div class="banner banner-fashion appear-animate br-sm mb-9"
+                    style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/4.jpg') }});
                     background-color: #383839;">
                     <div class="banner-content align-items-center">
                         <div class="content-left d-flex align-items-center mb-3">
-                            <div class="banner-price-info font-weight-bolder text-secondary text-uppercase lh-1 ls-25">
+                            <div
+                                class="banner-price-info font-weight-bolder text-secondary text-uppercase lh-1 ls-25">
                                 25
                                 <sup class="font-weight-bold">%</sup><sub class="font-weight-bold ls-25">Off</sub>
                             </div>
@@ -3679,14 +3471,16 @@
                         </div>
                         <div class="content-right d-flex align-items-center flex-1 flex-wrap">
                             <div class="banner-info mb-0 mr-auto pr-4 mb-3">
-                                <h3 class="banner-title text-white font-weight-bolder text-uppercase ls-25">For Today's
+                                <h3 class="banner-title text-white font-weight-bolder text-uppercase ls-25">For
+                                    Today's
                                     Fashion</h3>
                                 <p class="text-white mb-0">Use code
                                     <span
                                         class="text-dark bg-white font-weight-bold ls-50 pl-1 pr-1 d-inline-block">Black
-                                        <strong>12345</strong></span> to get best offer.</p>
+                                        <strong>12345</strong></span> to get best offer.
+                                </p>
                             </div>
-                            <a href="{{route('user.shop')}}ml"
+                            <a href="{{ route('user.shop') }}ml"
                                 class="btn btn-white btn-outline btn-rounded btn-icon-right mb-3">Shop Now<i
                                     class="w-icon-long-arrow-right"></i></a>
                         </div>
@@ -3697,12 +3491,14 @@
                 <div class="product-wrapper-1 appear-animate mb-7">
                     <div class="title-link-wrapper pb-1 mb-4">
                         <h2 class="title ls-normal mb-0">Home Garden & Kitchen</h2>
-                        <a href="{{route('user.shop')}}" class="font-size-normal font-weight-bold ls-25 mb-0">More
+                        <a href="{{ route('user.shop') }}"
+                            class="font-size-normal font-weight-bold ls-25 mb-0">More
                             Products<i class="w-icon-long-arrow-right"></i></a>
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-sm-4 mb-4">
-                            <div class="banner h-100 br-sm" style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/5.jpg') }}); 
+                            <div class="banner h-100 br-sm"
+                                style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/5.jpg') }}); 
                             background-color: #EAEFF3;">
                                 <div class="banner-content content-top">
                                     <h5 class="banner-subtitle font-weight-normal mb-2">Deals And Promotions</h5>
@@ -3711,14 +3507,15 @@
                                         Trending <br> <span class="font-weight-normal text-capitalize">House
                                             Utensil</span>
                                     </h3>
-                                    <a href="{{route('user.shop')}}ml"
+                                    <a href="{{ route('user.shop') }}ml"
                                         class="btn btn-dark btn-outline btn-rounded btn-sm">shop now</a>
                                 </div>
                             </div>
                         </div>
                         <!-- End of Banner -->
                         <div class="col-lg-9 col-sm-8">
-                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2" data-owl-options="{
+                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
+                                data-owl-options="{
                                 'nav': false,
                                 'dots': true,
                                 'margin': 20,
@@ -3740,29 +3537,34 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Home Sofa</a></h4>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Home Sofa</a>
+                                            </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(5 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$75.99</ins>
@@ -3771,30 +3573,34 @@
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-5.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-5.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Electric
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Electric
                                                     Rice-Cooker</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$215.00</ins>
@@ -3805,20 +3611,22 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-2-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-2-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-2-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-2-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3826,46 +3634,54 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Kitchen Table</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Kitchen Table</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(9 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(9 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$75.50</ins><del class="old-price">$95.68</del>
+                                                <ins class="new-price">$75.50</ins><del
+                                                    class="old-price">$95.68</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-6.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-6.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Kitchen Cooker</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Kitchen
+                                                    Cooker</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$150.60</ins>
@@ -3876,31 +3692,36 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-3-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-3-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-3-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-3-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Table Lamp</a></h4>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Table Lamp</a>
+                                            </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 60%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(3 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(3 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$45.60</ins>
@@ -3909,18 +3730,20 @@
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-7.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-7.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3928,17 +3751,20 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Electric Frying
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Electric Frying
                                                     Pan</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(5 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(5 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$137.35</ins><del class="old-price">$155.65</del>
+                                                <ins class="new-price">$137.35</ins><del
+                                                    class="old-price">$155.65</del>
                                             </div>
                                         </div>
                                     </div>
@@ -3946,18 +3772,20 @@
                                 <div class="product-col">
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-4.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-4.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                             <div class="product-label-group">
@@ -3965,48 +3793,55 @@
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Latest Chair</a>
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Latest Chair</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(6 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(6 reviews)</a>
                                             </div>
                                             <div class="product-price">
-                                                <ins class="new-price">$70.00</ins><del class="old-price">$85.00</del>
+                                                <ins class="new-price">$70.00</ins><del
+                                                    class="old-price">$85.00</del>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="product-wrap product text-center">
                                         <figure class="product-media">
-                                            <a href="{{route('user.product.detail', '1')}}">
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-8-1.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
-                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-8-2.jpg') }}" alt="Product"
-                                                    width="216" height="243" />
+                                            <a href="{{ route('user.product.detail', '1') }}">
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-8-1.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
+                                                <img src="{{ asset('assets/user/images/demos/demo1/products/6-8-2.jpg') }}"
+                                                    alt="Product" width="216" height="243" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
                                                     title="Add to cart"></a>
                                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                     title="Add to wishlist"></a>
-                                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-quickview w-icon-search"
                                                     title="Quickview"></a>
-                                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                <a href="#"
+                                                    class="btn-product-icon btn-compare w-icon-compare"
                                                     title="Add to Compare"></a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-name"><a href="{{route('user.product.detail', '1')}}">Automatic
+                                            <h4 class="product-name"><a
+                                                    href="{{ route('user.product.detail', '1') }}">Automatic
                                                     Crusher</a></h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width: 100%;"></span>
                                                     <span class="tooltiptext tooltip-top"></span>
                                                 </div>
-                                                <a href="{{route('user.product.detail', '1')}}" class="rating-reviews">(9 reviews)</a>
+                                                <a href="{{ route('user.product.detail', '1') }}"
+                                                    class="rating-reviews">(9 reviews)</a>
                                             </div>
                                             <div class="product-price">
                                                 <ins class="new-price">$220.25</ins>
@@ -4021,7 +3856,7 @@
                 </div>
                 <!-- End of Product Wrapper 1 -->
 
-               
+
 
                 <h2 class="title title-underline mb-4 ls-normal appear-animate">Your Recent Views</h2>
                 <div class="owl-carousel owl-theme owl-shadow-carousel appear-animate row cols-xl-8 cols-lg-6 cols-md-4 cols-2 pb-2 mb-10"
@@ -4051,13 +3886,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-1.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-1.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Women's Fashion Handbag</a>
+                                <a href="{{ route('user.product.detail', '1') }}">Women's Fashion Handbag</a>
                             </h4>
                         </div>
                     </div>
@@ -4065,13 +3901,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-2.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-2.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Electric Frying Pan</a>
+                                <a href="{{ route('user.product.detail', '1') }}">Electric Frying Pan</a>
                             </h4>
                         </div>
                     </div>
@@ -4079,13 +3916,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-3.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-3.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Black Winter Skating</a>
+                                <a href="{{ route('user.product.detail', '1') }}">Black Winter Skating</a>
                             </h4>
                         </div>
                     </div>
@@ -4093,13 +3931,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-4.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-4.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">HD Television</a>
+                                <a href="{{ route('user.product.detail', '1') }}">HD Television</a>
                             </h4>
                         </div>
                     </div>
@@ -4107,13 +3946,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-5.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-5.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Home Sofa</a>
+                                <a href="{{ route('user.product.detail', '1') }}">Home Sofa</a>
                             </h4>
                         </div>
                     </div>
@@ -4121,13 +3961,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-6.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-6.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">USB Receipt</a>
+                                <a href="{{ route('user.product.detail', '1') }}">USB Receipt</a>
                             </h4>
                         </div>
                     </div>
@@ -4135,13 +3976,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-7.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-7.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Electric Rice-Cooker</a>
+                                <a href="{{ route('user.product.detail', '1') }}">Electric Rice-Cooker</a>
                             </h4>
                         </div>
                     </div>
@@ -4149,13 +3991,14 @@
                     <div class="product-wrap mb-0">
                         <div class="product text-center product-absolute">
                             <figure class="product-media">
-                                <a href="product-defa{{route('user.product.detail', '1')}}">
-                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-8.jpg') }}" alt="Category image"
-                                        width="130" height="146" style="background-color: #fff" />
+                                <a href="product-defa{{ route('user.product.detail', '1') }}">
+                                    <img src="{{ asset('assets/user/images/demos/demo1/products/7-8.jpg') }}"
+                                        alt="Category image" width="130" height="146"
+                                        style="background-color: #fff" />
                                 </a>
                             </figure>
                             <h4 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Table Lamp</a>
+                                <a href="{{ route('user.product.detail', '1') }}">Table Lamp</a>
                             </h4>
                         </div>
                     </div>
@@ -4190,8 +4033,8 @@
                         <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
                             <form action="#" method="get"
                                 class="input-wrapper input-wrapper-inline input-wrapper-rounded">
-                                <input type="email" class="form-control mr-2 bg-white" name="email" id="email"
-                                    placeholder="Your E-mail Address" />
+                                <input type="email" class="form-control mr-2 bg-white" name="email"
+                                    id="email" placeholder="Your E-mail Address" />
                                 <button class="btn btn-dark btn-rounded" type="submit">Subscribe<i
                                         class="w-icon-long-arrow-right"></i></button>
                             </form>
@@ -4204,9 +4047,9 @@
                     <div class="row">
                         <div class="col-lg-4 col-sm-6">
                             <div class="widget widget-about">
-                                <a href="{{route('user.home')}}" class="logo-footer">
-                                    <img src="{{ asset('assets/user/images/logo_footer.png') }}" alt="logo-footer" width="144"
-                                        height="45" />
+                                <a href="{{ route('user.home') }}" class="logo-footer">
+                                    <img src="{{ asset('assets/user/images/logo_footer.png') }}" alt="logo-footer"
+                                        width="144" height="45" />
                                 </a>
                                 <div class="widget-body">
                                     <p class="widget-about-title">Got Question? Call us 24/7</p>
@@ -4229,10 +4072,10 @@
                             <div class="widget">
                                 <h3 class="widget-title">Company</h3>
                                 <ul class="widget-body">
-                                    <li><a href="{{route('user.about')}}">About Us</a></li>
+                                    <li><a href="{{ route('user.about') }}">About Us</a></li>
                                     <li><a href="#">Team Member</a></li>
                                     <li><a href="#">Career</a></li>
-                                    <li><a href="{{route('user.contact')}}">Contact Us</a></li>
+                                    <li><a href="{{ route('user.contact') }}">Contact Us</a></li>
                                     <li><a href="#">Affilate</a></li>
                                     <li><a href="#">Order History</a></li>
                                 </ul>
@@ -4243,11 +4086,11 @@
                                 <h4 class="widget-title">My Account</h4>
                                 <ul class="widget-body">
                                     <li><a href="#">Track My Order</a></li>
-                                    <li><a href="{{route('user.cart')}}">View Cart</a></li>
-                                    <li><a href="{{route('user.login')}}">Sign In</a></li>
+                                    <li><a href="{{ route('user.cart') }}">View Cart</a></li>
+                                    <li><a href="{{ route('user.login') }}">Sign In</a></li>
                                     <li><a href="#">Help</a></li>
-                                    <li><a href="{{route('user.wishlist')}}">My Wishlist</a></li>
-                                    <li><a href="{{route(name: 'user.privacy')}}">Privacy Policy</a></li>
+                                    <li><a href="{{ route('user.wishlist') }}">My Wishlist</a></li>
+                                    <li><a href="{{ route(name: 'user.privacy') }}">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -4349,7 +4192,8 @@
                     <div class="footer-right">
                         <span class="payment-label mr-lg-8">We're using safe payment for</span>
                         <figure class="payment">
-                            <img src="{{ asset('assets/user/images/payment.png') }}" alt="payment" width="159" height="25" />
+                            <img src="{{ asset('assets/user/images/payment.png') }}" alt="payment"
+                                width="159" height="25" />
                         </figure>
                     </div>
                 </div>
@@ -4361,20 +4205,20 @@
 
     <!-- Start of Sticky Footer -->
     <div class="sticky-footer sticky-content fix-bottom">
-        <a href="{{route('user.home')}}" class="sticky-link active">
+        <a href="{{ route('user.home') }}" class="sticky-link active">
             <i class="w-icon-home"></i>
             <p>Home</p>
         </a>
-        <a href="{{route('user.shop')}}ml" class="sticky-link">
+        <a href="{{ route('user.shop') }}ml" class="sticky-link">
             <i class="w-icon-category"></i>
             <p>Shop</p>
         </a>
-        <a href="{{route('user.profile')}}" class="sticky-link">
+        <a href="{{ route('user.profile') }}" class="sticky-link">
             <i class="w-icon-account"></i>
             <p>Account</p>
         </a>
         <div class="cart-dropdown dir-up">
-            <a href="{{route('user.cart')}}" class="sticky-link">
+            <a href="{{ route('user.cart') }}" class="sticky-link">
                 <i class="w-icon-cart"></i>
                 <p>Cart</p>
             </a>
@@ -4383,7 +4227,7 @@
                     <div class="product product-cart">
                         <div class="product-detail">
                             <h3 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Beige knitted elas<br>tic
+                                <a href="{{ route('user.product.detail', '1') }}">Beige knitted elas<br>tic
                                     runner shoes</a>
                             </h3>
                             <div class="price-box">
@@ -4392,8 +4236,9 @@
                             </div>
                         </div>
                         <figure class="product-media">
-                            <a href="{{route('user.product.detail', '1')}}">
-                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product" height="84" width="94" />
+                            <a href="{{ route('user.product.detail', '1') }}">
+                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product"
+                                    height="84" width="94" />
                             </a>
                         </figure>
                         <button class="btn btn-link btn-close">
@@ -4404,7 +4249,7 @@
                     <div class="product product-cart">
                         <div class="product-detail">
                             <h3 class="product-name">
-                                <a href="{{route('user.product.detail', '1')}}">Blue utility pina<br>fore
+                                <a href="{{ route('user.product.detail', '1') }}">Blue utility pina<br>fore
                                     denim dress</a>
                             </h3>
                             <div class="price-box">
@@ -4413,8 +4258,9 @@
                             </div>
                         </div>
                         <figure class="product-media">
-                            <a href="{{route('user.product.detail', '1')}}">
-                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product" width="84" height="94" />
+                            <a href="{{ route('user.product.detail', '1') }}">
+                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product"
+                                    width="84" height="94" />
                             </a>
                         </figure>
                         <button class="btn btn-link btn-close">
@@ -4429,8 +4275,8 @@
                 </div>
 
                 <div class="cart-action">
-                    <a href="{{route('user.cart')}}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
-                    <a href="{{route('user.checkout')}}" class="btn btn-primary  btn-rounded">Checkout</a>
+                    <a href="{{ route('user.cart') }}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                    <a href="{{ route('user.checkout') }}" class="btn btn-primary  btn-rounded">Checkout</a>
                 </div>
             </div>
             <!-- End of Dropdown Box -->
@@ -4442,8 +4288,8 @@
                 <p>Search</p>
             </a>
             <form action="#" class="input-wrapper">
-                <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search"
-                    required />
+                <input type="text" class="form-control" name="search" autocomplete="off"
+                    placeholder="Search" required />
                 <button class="btn btn-search" type="submit">
                     <i class="w-icon-search"></i>
                 </button>
@@ -4453,7 +4299,8 @@
     <!-- End of Sticky Footer -->
 
     <!-- Start of Scroll Top -->
-    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i
+            class="fas fa-chevron-up"></i></a>
     <!-- End of Scroll Top -->
 
     <!-- Start of Mobile Menu -->
@@ -4466,8 +4313,8 @@
 
         <div class="mobile-menu-container scrollable">
             <form action="#" method="get" class="input-wrapper">
-                <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search"
-                    required />
+                <input type="text" class="form-control" name="search" autocomplete="off"
+                    placeholder="Search" required />
                 <button class="btn btn-search" type="submit">
                     <i class="w-icon-search"></i>
                 </button>
@@ -4486,224 +4333,224 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="main-menu">
                     <ul class="mobile-menu">
-                        <li><a href="{{route('user.home')}}">Home</a></li>
+                        <li><a href="{{ route('user.home') }}">Home</a></li>
                         <li>
-                            <a href="{{route('user.shop')}}ml">Shop</a>
-                           
+                            <a href="{{ route('user.shop') }}ml">Shop</a>
+
                         </li>
                         <li>
-                            <a href="{{route('user.vendor')}}">Vendor</a>
-                           
+                            <a href="{{ route('user.vendor') }}">Vendor</a>
+
                         </li>
                         <li>
-                            <a href="{{route('user.blog')}}">Blog</a>
-                           
+                            <a href="{{ route('user.blog') }}">Blog</a>
+
                         </li>
                         <li>
-                            <a href="{{route('user.about')}}">About</a>
-                           
+                            <a href="{{ route('user.about') }}">About</a>
+
                         </li>
-                        
+
                     </ul>
                 </div>
                 <div class="tab-pane" id="categories">
                     <ul class="mobile-menu">
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-tshirt2"></i>Fashion
                             </a>
                             <ul>
                                 <li>
                                     <a href="#">Women</a>
-                                 
+
                                 </li>
                                 <li>
                                     <a href="#">Men</a>
-                                   
+
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-home"></i>Home & Garden
                             </a>
                             <ul>
                                 <li>
                                     <a href="#">Bedroom</a>
-                                  
+
                                 </li>
                                 <li>
                                     <a href="#">Living Room</a>
-                                   
+
                                 </li>
                                 <li>
                                     <a href="#">Office</a>
-                                 
+
                                 </li>
                                 <li>
                                     <a href="#">Kitchen & Dining</a>
-                                 
+
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-electronics"></i>Electronics
                             </a>
                             <ul>
                                 <li>
                                     <a href="#">Laptops &amp; Computers</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Desktop
+                                        <li><a href="{{ route('user.shop') }}">Desktop
                                                 Computers</a></li>
-                                        <li><a href="{{route('user.shop')}}">Monitors</a></li>
-                                        <li><a href="{{route('user.shop')}}">Laptops</a></li>
-                                        <li><a href="{{route('user.shop')}}">Hard Drives &amp;
+                                        <li><a href="{{ route('user.shop') }}">Monitors</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Laptops</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Hard Drives &amp;
                                                 Storage</a></li>
-                                        <li><a href="{{route('user.shop')}}">Computer
+                                        <li><a href="{{ route('user.shop') }}">Computer
                                                 Accessories</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#">TV &amp; Video</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">TVs</a></li>
-                                        <li><a href="{{route('user.shop')}}">Home Audio
+                                        <li><a href="{{ route('user.shop') }}">TVs</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Home Audio
                                                 Speakers</a></li>
-                                        <li><a href="{{route('user.shop')}}">Projectors</a></li>
-                                        <li><a href="{{route('user.shop')}}">Media Streaming
+                                        <li><a href="{{ route('user.shop') }}">Projectors</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Media Streaming
                                                 Devices</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#">Digital Cameras</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Digital SLR
+                                        <li><a href="{{ route('user.shop') }}">Digital SLR
                                                 Cameras</a></li>
-                                        <li><a href="{{route('user.shop')}}">Sports & Action
+                                        <li><a href="{{ route('user.shop') }}">Sports & Action
                                                 Cameras</a></li>
-                                        <li><a href="{{route('user.shop')}}">Camera Lenses</a>
+                                        <li><a href="{{ route('user.shop') }}">Camera Lenses</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Photo Printer</a>
+                                        <li><a href="{{ route('user.shop') }}">Photo Printer</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Digital Memory
+                                        <li><a href="{{ route('user.shop') }}">Digital Memory
                                                 Cards</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#">Cell Phones</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Carrier Phones</a>
+                                        <li><a href="{{ route('user.shop') }}">Carrier Phones</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Unlocked Phones</a>
+                                        <li><a href="{{ route('user.shop') }}">Unlocked Phones</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Phone & Cellphone
+                                        <li><a href="{{ route('user.shop') }}">Phone & Cellphone
                                                 Cases</a></li>
-                                        <li><a href="{{route('user.shop')}}">Cellphone
+                                        <li><a href="{{ route('user.shop') }}">Cellphone
                                                 Chargers</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-furniture"></i>Furniture
                             </a>
                             <ul>
                                 <li>
                                     <a href="#">Furniture</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Sofas & Couches</a>
+                                        <li><a href="{{ route('user.shop') }}">Sofas & Couches</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Armchairs</a></li>
-                                        <li><a href="{{route('user.shop')}}">Bed Frames</a></li>
-                                        <li><a href="{{route('user.shop')}}">Beside Tables</a>
+                                        <li><a href="{{ route('user.shop') }}">Armchairs</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Bed Frames</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Beside Tables</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Dressing Tables</a>
+                                        <li><a href="{{ route('user.shop') }}">Dressing Tables</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a class="#">Lighting</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Light Bulbs</a>
+                                        <li><a href="{{ route('user.shop') }}">Light Bulbs</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Lamps</a></li>
-                                        <li><a href="{{route('user.shop')}}">Celling Lights</a>
+                                        <li><a href="{{ route('user.shop') }}">Lamps</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Celling Lights</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Wall Lights</a>
+                                        <li><a href="{{ route('user.shop') }}">Wall Lights</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Bathroom
+                                        <li><a href="{{ route('user.shop') }}">Bathroom
                                                 Lighting</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a class="#">Home Accessories</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Decorative
+                                        <li><a href="{{ route('user.shop') }}">Decorative
                                                 Accessories</a></li>
-                                        <li><a href="{{route('user.shop')}}">Candals &
+                                        <li><a href="{{ route('user.shop') }}">Candals &
                                                 Holders</a></li>
-                                        <li><a href="{{route('user.shop')}}">Home Fragrance</a>
+                                        <li><a href="{{ route('user.shop') }}">Home Fragrance</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Mirrors</a></li>
-                                        <li><a href="{{route('user.shop')}}">Clocks</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Mirrors</a></li>
+                                        <li><a href="{{ route('user.shop') }}">Clocks</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a class="#">Garden & Outdoors</a>
                                     <ul>
-                                        <li><a href="{{route('user.shop')}}">Garden
+                                        <li><a href="{{ route('user.shop') }}">Garden
                                                 Furniture</a></li>
-                                        <li><a href="{{route('user.shop')}}">Lawn Mowers</a>
+                                        <li><a href="{{ route('user.shop') }}">Lawn Mowers</a>
                                         </li>
-                                        <li><a href="{{route('user.shop')}}">Pressure
+                                        <li><a href="{{ route('user.shop') }}">Pressure
                                                 Washers</a></li>
-                                        <li><a href="{{route('user.shop')}}">All Garden
+                                        <li><a href="{{ route('user.shop') }}">All Garden
                                                 Tools</a></li>
-                                        <li><a href="{{route('user.shop')}}">Outdoor Dining</a>
+                                        <li><a href="{{ route('user.shop') }}">Outdoor Dining</a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-heartbeat"></i>Healthy & Beauty
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-gift"></i>Gift Ideas
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-gamepad"></i>Toy & Games
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-ice-cream"></i>Cooking
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-ios"></i>Smart Phones
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-camera"></i>Cameras & Photo
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}">
+                            <a href="{{ route('user.shop') }}">
                                 <i class="w-icon-ruby"></i>Accessories
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('user.shop')}}ml"
+                            <a href="{{ route('user.shop') }}ml"
                                 class="font-weight-bold text-primary text-uppercase ls-25">
                                 View All Categories<i class="w-icon-angle-right"></i>
                             </a>
@@ -4745,20 +4592,20 @@
                     <div class="product-thumbs-wrap">
                         <div class="product-thumbs">
                             <div class="product-thumb active">
-                                <img src="{{ asset('assets/user/images/products/popup/1-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/1-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                             <div class="product-thumb">
-                                <img src="{{ asset('assets/user/images/products/popup/2-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/2-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                             <div class="product-thumb">
-                                <img src="{{ asset('assets/user/images/products/popup/3-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/3-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                             <div class="product-thumb">
-                                <img src="{{ asset('assets/user/images/products/popup/4-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/4-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                         </div>
                         <button class="thumb-up disabled"><i class="w-icon-angle-left"></i></button>
@@ -4771,7 +4618,8 @@
                     <h2 class="product-title">Electronics Black Wrist Watch</h2>
                     <div class="product-bm-wrapper">
                         <figure class="brand">
-                            <img src="{{ asset('assets/user/images/products/brand/brand-1.jpg') }}" alt="Brand" width="102" height="48" />
+                            <img src="{{ asset('assets/user/images/products/brand/brand-1.jpg') }}" alt="Brand"
+                                width="102" height="48" />
                         </figure>
                         <div class="product-meta">
                             <div class="product-categories">
@@ -4834,7 +4682,8 @@
                     <div class="product-form">
                         <div class="product-qty-form">
                             <div class="input-group">
-                                <input class="quantity form-control" type="number" min="1" max="10000000">
+                                <input class="quantity form-control" type="number" min="1"
+                                    max="10000000">
                                 <button class="quantity-plus w-icon-plus"></button>
                                 <button class="quantity-minus w-icon-minus"></button>
                             </div>
@@ -4858,8 +4707,7 @@
                         <span class="divider d-xs-show"></span>
                         <div class="product-link-wrapper d-flex">
                             <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"></a>
-                            <a href="#"
-                                class="btn-product-icon btn-compare btn-icon-left w-icon-compare"></a>
+                            <a href="#" class="btn-product-icon btn-compare btn-icon-left w-icon-compare"></a>
                         </div>
                     </div>
                 </div>
@@ -4868,18 +4716,7 @@
     </div>
     <!-- End of Quick view -->
 
-    <!-- Plugin JS File -->
-    <script src="{{ asset('assets/user/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/jquery.plugin/jquery.plugin.min.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/zoom/jquery.zoom.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/jquery.countdown/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/user/vendor/skrollr/skrollr.js') }}"></script>
-
-    <!-- Main JS -->
-    <script src="{{ asset('assets/user/js/main.min.js') }}"></script>
+    @include('user.layouts.partials.scripts')
 </body>
 
 </html>
