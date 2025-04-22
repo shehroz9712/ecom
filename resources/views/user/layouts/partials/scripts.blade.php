@@ -10,3 +10,5 @@
 
     <!-- Main JS -->
     <script src="{{ asset('assets/user/js/main.min.js') }}"></script>
+
+    @yield('script')

@@ -28,4 +28,9 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class)->active()->orderBy('order');
     }
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+    
 }

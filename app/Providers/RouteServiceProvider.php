@@ -35,10 +35,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             // Web Routes (User)
-            // Web Routes (User)
             Route::middleware('web')
-                ->name('user.') // This affects route names like `user.blog`
-                ->prefix('user') // This affects URLs like /user/blog
+                ->name('user.')
                 ->group(base_path('routes/web.php'));
 
 

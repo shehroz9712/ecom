@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 
+use App\Repositories\Interfaces\SliderRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Exceptions\Handler;
+use App\Repositories\SliderRepository;
 use Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(ExceptionHandlerContract::class, Handler::class);
+        $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
     }
     /**
      * Bootstrap any application services.

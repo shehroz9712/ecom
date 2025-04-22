@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Category;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController  extends Controller
@@ -22,6 +23,7 @@ class HomeController  extends Controller
     public function index()
     {
         $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
-        return view('user.index', compact('categories'));
+        $sliders = Slider::all();
+        return view('user.index', compact('sliders', 'categories'));
     }
 }

@@ -15,7 +15,7 @@ class Blog extends Model
     use HasFactory, SoftDeletes, HasQueryFilters;
 
     protected $guarded = [];
-    protected $appends = ['creator_name', 'editor_name', 'blog_image','author_profile']; // Update here
+    protected $appends = ['creator_name', 'editor_name', 'blog_image', 'author_profile']; // Update here
 
     protected static function boot()
     {
@@ -41,15 +41,15 @@ class Blog extends Model
         static::updating(function ($model) {
             $model->updated_by = Auth::id();
 
-                $baseSlug = Str::slug($model->title);
-                $slug = $baseSlug;
-                $counter = 1;
+            $baseSlug = Str::slug($model->title);
+            $slug = $baseSlug;
+            $counter = 1;
 
-                while (Blog::where('slug', $slug)->exists()) {
-                    $slug = $baseSlug . '-' . $counter++;
-                }
+            while (Blog::where('slug', $slug)->exists()) {
+                $slug = $baseSlug . '-' . $counter++;
+            }
 
-                $model->slug = $slug;
+            $model->slug = $slug;
         });
     }
 
@@ -97,5 +97,4 @@ class Blog extends Model
     {
         return $this->authorImageMedia?->name ??  $this->authorImageMedia?->url;
     }
-
 }

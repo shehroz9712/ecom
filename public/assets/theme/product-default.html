@@ -21,29 +21,32 @@
         };
         (function (d) {
             var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = '{{ asset('assets/user/js/webfont.js') }}';
+            wf.src = '{{ asset('assets / user / js / webfont.js') }}';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
         })(document);
     </script>
 
-    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font"
+        type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font"
+        type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font"
+        type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('assets/user/fonts/wolmart.ttf?png09e" as="font" type="font/ttf"
         crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/user/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
-            crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/user/fonts/wolmart.ttf?png09e" as="font" type="font/ttf" crossorigin="anonymous">
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/animate/animate.min.css') }}">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/magnific-popup/magnific-popup.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/user/vendor/magnific-popup/magnific-popup.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/owl-carousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/photoswipe/photoswipe.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/vendor/photoswipe/default-skin/default-skin.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/user/vendor/photoswipe/default-skin/default-skin.min.css') }}">
 
     <!-- Default CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.min.css') }}">
@@ -69,17 +72,17 @@
                         <!-- End of DropDown Menu -->
 
                         <div class="dropdown">
-                            <a href="#language"><img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14"
-                                    height="8" class="dropdown-image" /> ENG</a>
+                            <a href="#language"><img src="{{ asset('assets/user/images/flags/eng.png') }}"
+                                    alt="ENG Flag" width="14" height="8" class="dropdown-image" /> ENG</a>
                             <div class="dropdown-box">
                                 <a href="#ENG">
-                                    <img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14" height="8"
-                                        class="dropdown-image" />
+                                    <img src="{{ asset('assets/user/images/flags/eng.png') }}" alt="ENG Flag" width="14"
+                                        height="8" class="dropdown-image" />
                                     ENG
                                 </a>
                                 <a href="#FRA">
-                                    <img src="{{ asset('assets/user/images/flags/fra.png') }}" alt="FRA Flag" width="14" height="8"
-                                        class="dropdown-image" />
+                                    <img src="{{ asset('assets/user/images/flags/fra.png') }}" alt="FRA Flag" width="14"
+                                        height="8" class="dropdown-image" />
                                     FRA
                                 </a>
                             </div>
@@ -92,7 +95,8 @@
                         <a href="{{ asset('assets/user/ajax/login.html" class="d-lg-show login sign-in"><i
                                 class="w-icon-account"></i>Sign In</a>
                         <span class="delimiter d-lg-show">/</span>
-                        <a href="{{ asset('assets/user/ajax/login.html" class="ml-0 d-lg-show login register">Register</a>
+                        <a href="{{ asset('assets/user/ajax/login.html"
+                            class="ml-0 d-lg-show login register">Register</a>
                     </div>
                 </div>
             </div>
@@ -106,7 +110,8 @@
                         <a href="demo1.html" class="logo ml-lg-0">
                             <img src="{{ asset('assets/user/images/logo.png') }}" alt="logo" width="144" height="45" />
                         </a>
-                        <form method="get" action="#" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+                        <form method="get" action="#"
+                            class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
                             <div class="select-box">
                                 <select id="category" name="category">
                                     <option value="">All Categories</option>
@@ -121,8 +126,8 @@
                                     <option value="12">Clothing</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control" name="search" id="search"
-                                placeholder="Search in..." required />
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Search in..."
+                                required />
                             <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
                             </button>
                         </form>
@@ -132,7 +137,8 @@
                             <a href="tel:#" class="w-icon-call"></a>
                             <div class="call-info d-lg-show">
                                 <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                                    <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4>
+                                    <a href="mailto:#" class="text-capitalize">Live Chat</a> or :
+                                </h4>
                                 <a href="tel:#" class="phone-number font-weight-bolder ls-50">0(800)123-456</a>
                             </div>
                         </div>
@@ -171,8 +177,8 @@
                                         </div>
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product" height="84"
-                                                    width="94" />
+                                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}"
+                                                    alt="product" height="84" width="94" />
                                             </a>
                                         </figure>
                                         <button class="btn btn-link btn-close">
@@ -192,8 +198,8 @@
                                         </div>
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product" width="84"
-                                                    height="94" />
+                                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}"
+                                                    alt="product" width="84" height="94" />
                                             </a>
                                         </figure>
                                         <button class="btn btn-link btn-close">
@@ -208,7 +214,8 @@
                                 </div>
 
                                 <div class="cart-action">
-                                    <a href="{{route('user.cart')}}" class="btn btn-dark btn-outline btn-rounded">View Cart</a>
+                                    <a href="{{route('user.cart')}}" class="btn btn-dark btn-outline btn-rounded">View
+                                        Cart</a>
                                     <a href="checkout.html" class="btn btn-primary  btn-rounded">Checkout</a>
                                 </div>
                             </div>
@@ -278,8 +285,8 @@
                                                 <li>
                                                     <div class="banner-fixed menu-banner menu-banner2">
                                                         <figure>
-                                                            <img src="{{ asset('assets/user/images/menu/banner-2.jpg') }}" alt="Menu Banner"
-                                                                width="235" height="347" />
+                                                            <img src="{{ asset('assets/user/images/menu/banner-2.jpg') }}"
+                                                                alt="Menu Banner" width="235" height="347" />
                                                         </figure>
                                                         <div class="banner-content">
                                                             <div class="banner-price-info mb-1 ls-normal">Get up to
@@ -361,8 +368,8 @@
                                                 <li>
                                                     <div class="menu-banner banner-fixed menu-banner3">
                                                         <figure>
-                                                            <img src="{{ asset('assets/user/images/menu/banner-3.jpg') }}" alt="Menu Banner"
-                                                                width="235" height="461" />
+                                                            <img src="{{ asset('assets/user/images/menu/banner-3.jpg') }}"
+                                                                alt="Menu Banner" width="235" height="461" />
                                                         </figure>
                                                         <div class="banner-content">
                                                             <h4
@@ -447,8 +454,8 @@
                                                 <li>
                                                     <div class="menu-banner banner-fixed menu-banner4">
                                                         <figure>
-                                                            <img src="{{ asset('assets/user/images/menu/banner-4.jpg') }}" alt="Menu Banner"
-                                                                width="235" height="433" />
+                                                            <img src="{{ asset('assets/user/images/menu/banner-4.jpg') }}"
+                                                                alt="Menu Banner" width="235" height="433" />
                                                         </figure>
                                                         <div class="banner-content">
                                                             <h4 class="banner-subtitle font-weight-normal">Deals Of The
@@ -536,8 +543,8 @@
                                                     <div class="col-6">
                                                         <div class="banner banner-fixed menu-banner5 br-xs">
                                                             <figure>
-                                                                <img src="{{ asset('assets/user/images/menu/banner-5.jpg') }}" alt="Banner"
-                                                                    width="410" height="123"
+                                                                <img src="{{ asset('assets/user/images/menu/banner-5.jpg') }}"
+                                                                    alt="Banner" width="410" height="123"
                                                                     style="background-color: #D2D2D2;" />
                                                             </figure>
                                                             <div class="banner-content text-right y-50">
@@ -556,8 +563,8 @@
                                                     <div class="col-6">
                                                         <div class="banner banner-fixed menu-banner5 br-xs">
                                                             <figure>
-                                                                <img src="{{ asset('assets/user/images/menu/banner-6.jpg') }}" alt="Banner"
-                                                                    width="410" height="123"
+                                                                <img src="{{ asset('assets/user/images/menu/banner-6.jpg') }}"
+                                                                    alt="Banner" width="410" height="123"
                                                                     style="background-color: #9F9888;" />
                                                             </figure>
                                                             <div class="banner-content y-50">
@@ -818,8 +825,8 @@
                             <i class="w-icon-angle-left"></i>
                         </a>
                         <span class="product-nav-popup">
-                            <img src="{{ asset('assets/user/images/products/product-nav-prev.jpg') }}" alt="Product" width="110"
-                                height="110" />
+                            <img src="{{ asset('assets/user/images/products/product-nav-prev.jpg') }}" alt="Product"
+                                width="110" height="110" />
                             <span class="product-name">Soft Sound Maker</span>
                         </span>
                     </li>
@@ -828,8 +835,8 @@
                             <i class="w-icon-angle-right"></i>
                         </a>
                         <span class="product-nav-popup">
-                            <img src="{{ asset('assets/user/images/products/product-nav-next.jpg') }}" alt="Product" width="110"
-                                height="110" />
+                            <img src="{{ asset('assets/user/images/products/product-nav-next.jpg') }}" alt="Product"
+                                width="110" height="110" />
                             <span class="product-name">Fabulous Sound Speaker</span>
                         </span>
                     </li>
@@ -916,8 +923,8 @@
                                         <h2 class="product-title">Electronics Black Wrist Watch</h2>
                                         <div class="product-bm-wrapper">
                                             <figure class="brand">
-                                                <img src="{{ asset('assets/user/images/products/brand/brand-1.jpg') }}" alt="Brand"
-                                                    width="102" height="48" />
+                                                <img src="{{ asset('assets/user/images/products/brand/brand-1.jpg') }}"
+                                                    alt="Brand" width="102" height="48" />
                                             </figure>
                                             <div class="product-meta">
                                                 <div class="product-categories">
@@ -1023,8 +1030,8 @@
                                 <div class="bought-together-products row mt-8 pb-4">
                                     <div class="product product-wrap text-center">
                                         <figure class="product-media">
-                                            <img src="{{ asset('assets/user/images/products/default/bought-1.jpg') }}" alt="Product"
-                                                width="138" height="138" />
+                                            <img src="{{ asset('assets/user/images/products/default/bought-1.jpg') }}"
+                                                alt="Product" width="138" height="138" />
                                             <div class="product-checkbox">
                                                 <input type="checkbox" class="custom-checkbox" id="product_check1"
                                                     name="product_check1">
@@ -1040,8 +1047,8 @@
                                     </div>
                                     <div class="product product-wrap text-center">
                                         <figure class="product-media">
-                                            <img src="{{ asset('assets/user/images/products/default/bought-2.jpg') }}" alt="Product"
-                                                width="138" height="138" />
+                                            <img src="{{ asset('assets/user/images/products/default/bought-2.jpg') }}"
+                                                alt="Product" width="138" height="138" />
                                             <div class="product-checkbox">
                                                 <input type="checkbox" class="custom-checkbox" id="product_check2"
                                                     name="product_check2">
@@ -1057,8 +1064,8 @@
                                     </div>
                                     <div class="product product-wrap text-center">
                                         <figure class="product-media">
-                                            <img src="{{ asset('assets/user/images/products/default/bought-3.jpg') }}" alt="Product"
-                                                width="138" height="138" />
+                                            <img src="{{ asset('assets/user/images/products/default/bought-3.jpg') }}"
+                                                alt="Product" width="138" height="138" />
                                             <div class="product-checkbox">
                                                 <input type="checkbox" class="custom-checkbox" id="product_check3"
                                                     name="product_check3">
@@ -1075,7 +1082,8 @@
                                     <div class="product-button">
                                         <div class="bought-price font-weight-bolder text-primary ls-50">$1,874.00</div>
                                         <div class="bought-count">For 3 items</div>
-                                        <a href="{{route('user.cart')}}" class="btn btn-dark btn-rounded">Add All To Cart</a>
+                                        <a href="{{route('user.cart')}}" class="btn btn-dark btn-rounded">Add All To
+                                            Cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -1852,10 +1860,10 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/1-1.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
-                                                <img src="{{ asset('assets/user/images/products/default/1-2.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/1-1.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/1-2.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1890,8 +1898,8 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/2.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/2.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1929,8 +1937,8 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/3.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/3.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -1966,10 +1974,10 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/4-1.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
-                                                <img src="{{ asset('assets/user/images/products/default/4-2.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/4-1.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/4-2.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2032,8 +2040,8 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/5.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/5.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2065,8 +2073,8 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/6.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/6.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2102,10 +2110,10 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/7-1.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
-                                                <img src="{{ asset('assets/user/images/products/default/7-2.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/7-1.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/7-2.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2138,8 +2146,8 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="product-default.html">
-                                                <img src="{{ asset('assets/user/images/products/default/8.jpg') }}" alt="Product"
-                                                    width="300" height="338" />
+                                                <img src="{{ asset('assets/user/images/products/default/8.jpg') }}"
+                                                    alt="Product" width="300" height="338" />
                                             </a>
                                             <div class="product-action-vertical">
                                                 <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2213,8 +2221,9 @@
                                     <div class="widget widget-banner mb-9">
                                         <div class="banner banner-fixed br-sm">
                                             <figure>
-                                                <img src="{{ asset('assets/user/images/shop/banner3.jpg') }}" alt="Banner" width="266"
-                                                    height="220" style="background-color: #1D2D44;" />
+                                                <img src="{{ asset('assets/user/images/shop/banner3.jpg') }}"
+                                                    alt="Banner" width="266" height="220"
+                                                    style="background-color: #1D2D44;" />
                                             </figure>
                                             <div class="banner-content">
                                                 <div class="banner-price-info font-weight-bolder text-white lh-1 ls-25">
@@ -2244,8 +2253,8 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/user/images/shop/13.jpg') }}" alt="Product"
-                                                                width="100" height="113" />
+                                                            <img src="{{ asset('assets/user/images/shop/13.jpg') }}"
+                                                                alt="Product" width="100" height="113" />
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -2264,8 +2273,8 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/user/images/shop/14.jpg') }}" alt="Product"
-                                                                width="100" height="113" />
+                                                            <img src="{{ asset('assets/user/images/shop/14.jpg') }}"
+                                                                alt="Product" width="100" height="113" />
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -2284,8 +2293,8 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/user/images/shop/15.jpg') }}" alt="Product"
-                                                                width="100" height="113" />
+                                                            <img src="{{ asset('assets/user/images/shop/15.jpg') }}"
+                                                                alt="Product" width="100" height="113" />
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -2306,8 +2315,8 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/user/images/shop/16.jpg') }}" alt="Product"
-                                                                width="100" height="113" />
+                                                            <img src="{{ asset('assets/user/images/shop/16.jpg') }}"
+                                                                alt="Product" width="100" height="113" />
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -2326,8 +2335,8 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/user/images/shop/17.jpg') }}" alt="Product"
-                                                                width="100" height="113" />
+                                                            <img src="{{ asset('assets/user/images/shop/17.jpg') }}"
+                                                                alt="Product" width="100" height="113" />
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -2346,8 +2355,8 @@
                                                 <div class="product product-widget">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/user/images/shop/18.jpg') }}" alt="Product"
-                                                                width="100" height="113" />
+                                                            <img src="{{ asset('assets/user/images/shop/18.jpg') }}"
+                                                                alt="Product" width="100" height="113" />
                                                         </a>
                                                     </figure>
                                                     <div class="product-details">
@@ -2416,8 +2425,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="widget widget-about">
                                 <a href="demo1.html" class="logo-footer">
-                                    <img src="{{ asset('assets/user/images/logo_footer.png') }}" alt="logo-footer" width="144"
-                                        height="45" />
+                                    <img src="{{ asset('assets/user/images/logo_footer.png') }}" alt="logo-footer"
+                                        width="144" height="45" />
                                 </a>
                                 <div class="widget-body">
                                     <p class="widget-about-title">Got Question? Call us 24/7</p>
@@ -2560,7 +2569,8 @@
                     <div class="footer-right">
                         <span class="payment-label mr-lg-8">We're using safe payment for</span>
                         <figure class="payment">
-                            <img src="{{ asset('assets/user/images/payment.png') }}" alt="payment" width="159" height="25" />
+                            <img src="{{ asset('assets/user/images/payment.png') }}" alt="payment" width="159"
+                                height="25" />
                         </figure>
                     </div>
                 </div>
@@ -2604,7 +2614,8 @@
                         </div>
                         <figure class="product-media">
                             <a href="#">
-                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product" height="84" width="94" />
+                                <img src="{{ asset('assets/user/images/cart/product-1.jpg') }}" alt="product"
+                                    height="84" width="94" />
                             </a>
                         </figure>
                         <button class="btn btn-link btn-close">
@@ -2625,7 +2636,8 @@
                         </div>
                         <figure class="product-media">
                             <a href="#">
-                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product" width="84" height="94" />
+                                <img src="{{ asset('assets/user/images/cart/product-2.jpg') }}" alt="product" width="84"
+                                    height="94" />
                             </a>
                         </figure>
                         <button class="btn btn-link btn-close">
@@ -3211,20 +3223,20 @@
                     <div class="product-thumbs-wrap">
                         <div class="product-thumbs">
                             <div class="product-thumb active">
-                                <img src="{{ asset('assets/user/images/products/popup/1-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/1-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                             <div class="product-thumb">
-                                <img src="{{ asset('assets/user/images/products/popup/2-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/2-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                             <div class="product-thumb">
-                                <img src="{{ asset('assets/user/images/products/popup/3-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/3-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                             <div class="product-thumb">
-                                <img src="{{ asset('assets/user/images/products/popup/4-103x116.jpg') }}" alt="Product Thumb" width="103"
-                                    height="116">
+                                <img src="{{ asset('assets/user/images/products/popup/4-103x116.jpg') }}"
+                                    alt="Product Thumb" width="103" height="116">
                             </div>
                         </div>
                         <button class="thumb-up disabled"><i class="w-icon-angle-left"></i></button>
@@ -3237,7 +3249,8 @@
                     <h2 class="product-title">Electronics Black Wrist Watch</h2>
                     <div class="product-bm-wrapper">
                         <figure class="brand">
-                            <img src="{{ asset('assets/user/images/products/brand/brand-1.jpg') }}" alt="Brand" width="102" height="48" />
+                            <img src="{{ asset('assets/user/images/products/brand/brand-1.jpg') }}" alt="Brand"
+                                width="102" height="48" />
                         </figure>
                         <div class="product-meta">
                             <div class="product-categories">

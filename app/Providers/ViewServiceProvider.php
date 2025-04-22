@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -37,8 +38,9 @@ class ViewServiceProvider extends ServiceProvider
             // Log::error('Settings load failed: ' . $e->getMessage());
             $settings = (object)[];
         }
-        
-        View::share('settings', json_decode(json_encode($settings)));
+        $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
+
+        View::share(['categories' => $categories, 'settings' => json_decode(json_encode($settings))]);
         $this->composeAdminPages();
     }
 
