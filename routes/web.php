@@ -17,6 +17,7 @@ Route::name('user.')->group(function () {
     route::get('/blog', [HomeController::class, 'index'])->name('blog');
     route::get('/shop', [HomeController::class, 'index'])->name('shop');
     route::get('/about', [HomeController::class, 'index'])->name('about');
+    route::get('/review/store', [HomeController::class, 'index'])->name('reviews.store');
 
 
 

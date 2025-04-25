@@ -45,6 +45,6 @@
         href="{{ asset('assets/user/vendor/magnific-popup/magnific-popup.min.css') }}">
 
     <!-- Default CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/demo1.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.min.css') }}">
     {!! $settings->header_script !!}
 </head>

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\Status;
 
-class Product extends Model
+class Review extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
 
@@ -60,52 +60,18 @@ class Product extends Model
     {
         return $this->editor?->name ?? 'N/A';
     }
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class);
-    }
 
-    public function category()
+    public function product()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    // images
     public function images()
     {
-        return $this->hasMany(ProductImage::class);
-    }
-
-    public function attributes()
-    {
-        return $this->belongsToMany(AttributeValue::class, 'product_attributes', 'product_id', 'attribute_value_id')
-            ->withPivot('attribute_id')
-            ->join('attributes', 'product_attributes.attribute_id', '=', 'attributes.id')
-            ->select('attribute_values.*', 'attributes.name as attribute_name', 'attributes.slug as attribute_slug');
-    }
-
-    public function getMainImageAttribute()
-    {
-        return $this->images->where('is_main', true)->first() ?? $this->images->first();
-    }
-
-    public function getCurrentPriceAttribute()
-    {
-        return $this->sale_price ?? $this->price;
-    }
-
-    public function getDiscountAttribute()
-    {
-        if ($this->sale_price) {
-            return round((($this->price - $this->sale_price) / $this->price) * 100, 2);
-        }
-        return 0;
-    }
-    public function getRatingAttribute()
-    {
-        return $this->reviews()->avg('rating') ?? 0;
-    }
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(ReviewImages::class, 'review_id', 'id');
     }
 }

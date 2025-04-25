@@ -4,11 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -16,27 +12,33 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('short_description')->nullable();
+            $table->text('description')->nullable();
+            $table->text('specifications')->nullable();
             $table->decimal('price', 10, 2);
             $table->decimal('sale_price', 10, 2)->nullable();
             $table->string('sku')->unique();
-            $table->unsignedBigInteger('brand_id')->nullable();
-            $table->unsignedBigInteger('category_id');
+
+            // Foreign keys
+            $table->foreignId('brand_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('sub_category_id')->constrained('sub_categories')->cascadeOnDelete();
+            $table->foreignId('sub_category_item_id')->constrained('sub_category_items')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+            // Metadata
             $table->float('rating')->default(0);
             $table->integer('review_count')->default(0);
-
-            $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->enum('status', ['active', 'inactive'])->default('active');
+
+            // Audit
+            $table->foreignId('created_by')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->constrained('users')->cascadeOnDelete();
+
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('products');

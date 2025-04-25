@@ -17,7 +17,7 @@ class RolePermissionSeeder extends Seeder
             'users',
             'roles',
             'permissions',
-
+            'vendors',
             'media',
             'carts',
             'orders',
@@ -88,6 +88,10 @@ class RolePermissionSeeder extends Seeder
             'view-sliders',
             'edit-sliders',
             'delete-sliders',
+            'create-vendors',
+            'view-vendors',
+            'edit-vendors',
+            'delete-vendors',
 
         ];
         $adminRole->syncPermissions($adminPermissions);
@@ -125,7 +129,6 @@ class RolePermissionSeeder extends Seeder
         ]);
 
         // Assign specific permissions to Guest User
-        $guestRole->syncPermissions([
-        ]);
+        $guestRole->syncPermissions([]);
     }
 }

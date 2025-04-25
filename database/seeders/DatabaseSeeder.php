@@ -14,18 +14,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(AdminUserSeeder::class,);
-        $this->call(RolePermissionSeeder::class,);
-        $this->call(MediaSeeder::class,);
-        $this->call(CountriesTableSeeder::class,);
-        $this->call(SettingSeeder::class);
-        $this->call(CitySeeder::class);
-        $this->call(PageSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(SliderSeeder::class);
-        $this->call(BrandSeeder::class);
-        $this->call(AttributeSeeder::class);
-
-        $this->call(ProductSeeder::class);
+        $this->call([
+            UserSeeder::class,
+            RolePermissionSeeder::class,
+            MediaSeeder::class,
+            CountriesTableSeeder::class,
+            SettingSeeder::class,
+            CitySeeder::class,
+            PageSeeder::class,
+            CategorySeeder::class,
+            SliderSeeder::class,
+            BrandSeeder::class,
+            AttributeSeeder::class,
+            ProductSeeder::class,
+            ReviewSeeder::class,
+            ReviewImageSeeder::class
+        ]);
     }
 }
