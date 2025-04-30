@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,26 @@ class HomeController  extends Controller
     {
         $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
         $sliders = Slider::all();
-        return view('user.index', compact('sliders', 'categories'));
+
+        $newArrivals = Product::with(['images', 'reviews'])
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+
+        $bestSellers = Product::with(['images', 'reviews'])
+            ->orderBy('sales_count', 'desc')
+            ->take(10)
+            ->get();
+
+        $mostPopular = Product::with(['images', 'reviews'])
+            ->orderBy('views_count', 'desc')
+            ->take(10)
+            ->get();
+
+        $featuredProducts = Product::with(['images', 'reviews'])
+            ->where('is_featured', true)
+            ->take(10)
+            ->get();
+        return view('user.index', compact('sliders', 'mostPopular', 'newArrivals', 'featuredProducts', 'bestSellers', 'categories'));
     }
 }

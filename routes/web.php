@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductController;
+use App\Http\Controllers\User\VendorController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -20,8 +21,12 @@ Route::name('user.')->group(function () {
     route::get('/review/store', [HomeController::class, 'index'])->name('reviews.store');
 
 
-
+    route::get('/shop', [ProductController::class, 'index'])->name('shop');
     route::get('/product/{slug}', [ProductController::class, 'detail'])->name('product.detail');
+
+    route::get('/vendor/{slug}', [VendorController::class, 'detail'])->name('vendor.detail');
+    route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');
+
 
     route::get('/cart', [HomeController::class, 'index'])->name('cart');
     route::get('/checkout', [HomeController::class, 'index'])->name('checkout');

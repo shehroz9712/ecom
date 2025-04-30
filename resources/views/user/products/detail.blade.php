@@ -12,21 +12,22 @@
                         <div class="product product-single row">
                             <div class="col-md-6 mb-6">
                                 <div class="product-gallery product-gallery-sticky">
-                                    <div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1 gutter-no">
-                                        @foreach($product->images as $image)
+                                    <div
+                                        class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1 gutter-no">
+                                        @foreach ($product->images as $image)
                                             <figure class="product-image">
-                                                <img src="{{ asset('assets/uploads/products/' . $image->image_path) }}" 
-                                                     data-zoom-image="{{ asset('assets/uploads/products/' . $image->image_path) }}"
-                                                     alt="{{ $product->name }}" width="800" height="900">
+                                                <img src="{{ asset('assets/uploads/products/' . $image->image_path) }}"
+                                                    data-zoom-image="{{ asset('assets/uploads/products/' . $image->image_path) }}"
+                                                    alt="{{ $product->name }}" width="800" height="900">
                                             </figure>
                                         @endforeach
                                     </div>
                                     <div class="product-thumbs-wrap">
                                         <div class="product-thumbs row cols-4 gutter-sm">
-                                            @foreach($product->images as $key => $image)
+                                            @foreach ($product->images as $key => $image)
                                                 <div class="product-thumb {{ $key === 0 ? 'active' : '' }}">
-                                                    <img src="{{ asset('assets/uploads/products/' . $image->image_path) }}" 
-                                                         alt="Product Thumb" width="800" height="900">
+                                                    <img src="{{ asset('assets/uploads/products/' . $image->image_path) }}"
+                                                        alt="Product Thumb" width="800" height="900">
                                                 </div>
                                             @endforeach
                                         </div>
@@ -39,10 +40,10 @@
                                 <div class="product-details" data-sticky-options="{'minWidth': 767}">
                                     <h2 class="product-title">{{ $product->name }}</h2>
                                     <div class="product-bm-wrapper">
-                                        @if($product->brand)
+                                        @if ($product->brand)
                                             <figure class="brand">
-                                                <img src="{{ $product->brand->image_url }}" 
-                                                     alt="{{ $product->brand->name }}" width="102" height="48" />
+                                                <img src="{{ $product->brand->image_url }}"
+                                                    alt="{{ $product->brand->name }}" width="102" height="48" />
                                             </figure>
                                         @endif
                                         <div class="product-meta">
@@ -50,10 +51,10 @@
                                                 Category:
                                                 <span class="product-category">
                                                     <a href="#">{{ $product->category->name }}</a>
-                                                    @if($product->subCategory)
+                                                    @if ($product->subCategory)
                                                         > <a href="#">{{ $product->subCategory->name }}</a>
                                                     @endif
-                                                    @if($product->subCategoryItem)
+                                                    @if ($product->subCategoryItem)
                                                         > <a href="#">{{ $product->subCategoryItem->name }}</a>
                                                     @endif
                                                 </span>
@@ -63,66 +64,69 @@
                                             </div>
                                         </div>
                                     </div>
-                        
+
                                     <hr class="product-divider">
-                        
+
                                     <div class="product-price">
-                                        @if($product->sale_price)
+                                        @if ($product->sale_price)
                                             <ins class="new-price">${{ number_format($product->sale_price, 2) }}</ins>
                                             <del class="old-price">${{ number_format($product->price, 2) }}</del>
                                         @else
                                             <ins class="new-price">${{ number_format($product->price, 2) }}</ins>
                                         @endif
                                     </div>
-                        
+
                                     <div class="ratings-container">
                                         <div class="ratings-full">
-                                            <span class="ratings" style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
+                                            <span class="ratings"
+                                                style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
                                             <span class="tooltiptext tooltip-top"></span>
                                         </div>
                                         <a href="#product-tab-reviews" class="rating-reviews scroll-to">
                                             ({{ $product->review_count }} Reviews)
                                         </a>
                                     </div>
-                        
+
                                     <div class="product-short-desc">
                                         {!! $product->short_description !!}
                                     </div>
-                        
+
                                     <hr class="product-divider">
-                        
-                                    @if($product->attributes->where('attribute_id', 1)->count() > 0)
+
+                                    @if ($product->attributes->where('attribute_id', 1)->count() > 0)
                                         <div class="product-form product-variation-form product-color-swatch">
                                             <label>Color:</label>
                                             <div class="d-flex align-items-center product-variations">
-                                                @foreach($product->attributes->where('attribute_id', 1) as $color)
-                                                    <a href="#" class="color" style="background-color: {{ $color->value }}"></a>
+                                                @foreach ($product->attributes->where('attribute_id', 1) as $color)
+                                                    <a href="#" class="color"
+                                                        style="background-color: {{ $color->value }}"></a>
                                                 @endforeach
                                             </div>
                                         </div>
                                     @endif
-                        
-                                    @if($product->attributes->where('attribute_id', 2)->count() > 0)
+
+                                    @if ($product->attributes->where('attribute_id', 2)->count() > 0)
                                         <div class="product-form product-variation-form product-size-swatch">
                                             <label class="mb-1">Size:</label>
                                             <div class="flex-wrap d-flex align-items-center product-variations">
-                                                @foreach($product->attributes->where('attribute_id', 2) as $size)
+                                                @foreach ($product->attributes->where('attribute_id', 2) as $size)
                                                     <a href="#" class="size">{{ $size->value }}</a>
                                                 @endforeach
                                             </div>
                                             <a href="#" class="product-variation-clean">Clean All</a>
                                         </div>
                                     @endif
-                        
+
                                     <div class="product-variation-price">
                                         <span></span>
                                     </div>
-                        
+
                                     <div class="fix-bottom product-sticky-content sticky-content">
                                         <div class="product-form container">
                                             <div class="product-qty-form">
                                                 <div class="input-group">
-                                                    <input class="quantity form-control" type="number" min="1" max="10000000" value="1">
+                                                    <input class="quantity form-control" type="number" min="1"
+                                                        max="10000000" value="1">
                                                     <button class="quantity-plus w-icon-plus"></button>
                                                     <button class="quantity-minus w-icon-minus"></button>
                                                 </div>
@@ -133,21 +137,24 @@
                                             </button>
                                         </div>
                                     </div>
-                        
+
                                     <div class="social-links-wrapper">
                                         <div class="social-links">
                                             <div class="social-icons social-no-color border-thin">
                                                 <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
                                                 <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
-                                                <a href="#" class="social-icon social-pinterest fab fa-pinterest-p"></a>
+                                                <a href="#"
+                                                    class="social-icon social-pinterest fab fa-pinterest-p"></a>
                                                 <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"></a>
                                                 <a href="#" class="social-icon social-youtube fab fa-linkedin-in"></a>
                                             </div>
                                         </div>
                                         <span class="divider d-xs-show"></span>
                                         <div class="product-link-wrapper d-flex">
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                            <a href="#" class="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
+                                            <a href="#"
+                                                class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
+                                            <a href="#"
+                                                class="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -310,39 +317,56 @@
                                         <div class="col-xl-4 col-lg-5 mb-4">
                                             <div class="ratings-wrapper">
                                                 <div class="avg-rating-container">
-                                                    <h4 class="avg-mark font-weight-bolder ls-50">{{ number_format($product->rating, 1) }}</h4>
+                                                    <h4 class="avg-mark font-weight-bolder ls-50">
+                                                        {{ number_format($product->rating, 1) }}</h4>
                                                     <div class="avg-rating">
                                                         <p class="text-dark mb-1">Average Rating</p>
                                                         <div class="ratings-container">
                                                             <div class="ratings-full">
-                                                                <span class="ratings" style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
+                                                                <span class="ratings"
+                                                                    style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
                                                                 <span class="tooltiptext tooltip-top"></span>
                                                             </div>
-                                                            <a href="#" class="rating-reviews">({{ $product->reviews->count() }} Reviews)</a>
+                                                            <a href="#"
+                                                                class="rating-reviews">({{ $product->reviews->count() }}
+                                                                Reviews)</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 @php
-                                                    $recommendedCount = $product->reviews->where('rating', '>=', 4)->count();
-                                                    $recommendedPercentage = $product->reviews->count() > 0 
-                                                        ? round(($recommendedCount / $product->reviews->count()) * 100, 1) 
-                                                        : 0;
+                                                    $recommendedCount = $product->reviews
+                                                        ->where('rating', '>=', 4)
+                                                        ->count();
+                                                    $recommendedPercentage =
+                                                        $product->reviews->count() > 0
+                                                            ? round(
+                                                                ($recommendedCount / $product->reviews->count()) * 100,
+                                                                1,
+                                                            )
+                                                            : 0;
                                                 @endphp
                                                 <div class="ratings-value d-flex align-items-center text-dark ls-25">
-                                                    <span class="text-dark font-weight-bold">{{ $recommendedPercentage }}%</span>Recommended<span
-                                                        class="count">({{ $recommendedCount }} of {{ $product->reviews->count() }})</span>
+                                                    <span
+                                                        class="text-dark font-weight-bold">{{ $recommendedPercentage }}%</span>Recommended<span
+                                                        class="count">({{ $recommendedCount }} of
+                                                        {{ $product->reviews->count() }})</span>
                                                 </div>
                                                 <div class="ratings-list">
-                                                    @for($i = 5; $i >= 1; $i--)
+                                                    @for ($i = 5; $i >= 1; $i--)
                                                         @php
                                                             $count = $product->reviews->where('rating', $i)->count();
-                                                            $percentage = $product->reviews->count() > 0 
-                                                                ? round(($count / $product->reviews->count()) * 100, 1) 
-                                                                : 0;
+                                                            $percentage =
+                                                                $product->reviews->count() > 0
+                                                                    ? round(
+                                                                        ($count / $product->reviews->count()) * 100,
+                                                                        1,
+                                                                    )
+                                                                    : 0;
                                                         @endphp
                                                         <div class="ratings-container">
                                                             <div class="ratings-full">
-                                                                <span class="ratings" style="width: {{ ($i / 5) * 100 }}%;"></span>
+                                                                <span class="ratings"
+                                                                    style="width: {{ ($i / 5) * 100 }}%;"></span>
                                                                 <span class="tooltiptext tooltip-top"></span>
                                                             </div>
                                                             <div class="progress-bar progress-bar-sm">
@@ -358,18 +382,23 @@
                                         </div>
                                         <div class="col-xl-8 col-lg-7 mb-4">
                                             <div class="review-form-wrapper">
-                                                <h3 class="title tab-pane-title font-weight-bold mb-1">Submit Your Review</h3>
-                                                <p class="mb-3">Your email address will not be published. Required fields are marked *</p>
-                                                <form action="{{ route('user.reviews.store', $product) }}" method="POST" class="review-form">
+                                                <h3 class="title tab-pane-title font-weight-bold mb-1">Submit Your Review
+                                                </h3>
+                                                <p class="mb-3">Your email address will not be published. Required fields
+                                                    are marked *</p>
+                                                <form action="{{ route('user.reviews.store', $product) }}" method="POST"
+                                                    class="review-form">
                                                     @csrf
                                                     <div class="rating-form">
                                                         <label for="rating">Your Rating Of This Product :</label>
                                                         <span class="rating-stars">
-                                                            @for($i = 1; $i <= 5; $i++)
-                                                                <a class="star-{{ $i }}" href="#" data-rating="{{ $i }}">{{ $i }}</a>
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                <a class="star-{{ $i }}" href="#"
+                                                                    data-rating="{{ $i }}">{{ $i }}</a>
                                                             @endfor
                                                         </span>
-                                                        <select name="rating" id="rating" required style="display: none;">
+                                                        <select name="rating" id="rating" required
+                                                            style="display: none;">
                                                             <option value="">Rate…</option>
                                                             <option value="5">Perfect</option>
                                                             <option value="4">Good</option>
@@ -378,25 +407,32 @@
                                                             <option value="1">Very poor</option>
                                                         </select>
                                                     </div>
-                                                    <textarea cols="30" rows="6" placeholder="Write Your Review Here..." class="form-control" id="review" name="comment" required></textarea>
+                                                    <textarea cols="30" rows="6" placeholder="Write Your Review Here..." class="form-control" id="review"
+                                                        name="comment" required></textarea>
                                                     <div class="row gutter-md">
                                                         <div class="col-md-6">
-                                                            <input type="text" class="form-control" placeholder="Your Name" id="author" name="name" required>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Your Name" id="author" name="name"
+                                                                required>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="email" class="form-control" placeholder="Your Email" id="email_1" name="email" required>
+                                                            <input type="email" class="form-control"
+                                                                placeholder="Your Email" id="email_1" name="email"
+                                                                required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" class="custom-checkbox" id="save-checkbox" name="save_info">
-                                                        <label for="save-checkbox">Save my name, email, and website in this browser for the next time I comment.</label>
+                                                        <input type="checkbox" class="custom-checkbox" id="save-checkbox"
+                                                            name="save_info">
+                                                        <label for="save-checkbox">Save my name, email, and website in this
+                                                            browser for the next time I comment.</label>
                                                     </div>
                                                     <button type="submit" class="btn btn-dark">Submit Review</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="tab tab-nav-boxed tab-nav-outline tab-nav-center">
                                         <ul class="nav nav-tabs" role="tablist">
                                             <li class="nav-item">
@@ -418,38 +454,48 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="show-all">
                                                 <ul class="comments list-style-none">
-                                                    @foreach($product->reviews as $review)
+                                                    @foreach ($product->reviews as $review)
                                                         <li class="comment">
                                                             <div class="comment-body">
                                                                 <figure class="comment-avatar">
                                                                     <img src="{{ $review->user->avatar ?? asset('assets/user/images/agents/1-100x100.png') }}"
-                                                                        alt="Commenter Avatar" width="90" height="90">
+                                                                        alt="Commenter Avatar" width="90"
+                                                                        height="90">
                                                                 </figure>
                                                                 <div class="comment-content">
                                                                     <h4 class="comment-author">
-                                                                        <a href="#">{{ $review->user->name ?? $review->name }}</a>
-                                                                        <span class="comment-date">{{ $review->created_at->format('F d, Y \a\t h:i a') }}</span>
+                                                                        <a
+                                                                            href="#">{{ $review->user->name ?? $review->name }}</a>
+                                                                        <span
+                                                                            class="comment-date">{{ $review->created_at->format('F d, Y \a\t h:i a') }}</span>
                                                                     </h4>
                                                                     <div class="ratings-container comment-rating">
                                                                         <div class="ratings-full">
-                                                                            <span class="ratings" style="width: {{ ($review->rating / 5) * 100 }}%;"></span>
+                                                                            <span class="ratings"
+                                                                                style="width: {{ ($review->rating / 5) * 100 }}%;"></span>
                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                         </div>
                                                                     </div>
                                                                     <p>{{ $review->comment }}</p>
                                                                     <div class="comment-action">
-                                                                        <a href="#" class="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize">
-                                                                            <i class="far fa-thumbs-up"></i>Helpful ({{ $review->helpful_count ?? 0 }})
+                                                                        <a href="#"
+                                                                            class="btn btn-secondary btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize">
+                                                                            <i class="far fa-thumbs-up"></i>Helpful
+                                                                            ({{ $review->helpful_count ?? 0 }})
                                                                         </a>
-                                                                        <a href="#" class="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize">
-                                                                            <i class="far fa-thumbs-down"></i>Unhelpful ({{ $review->unhelpful_count ?? 0 }})
+                                                                        <a href="#"
+                                                                            class="btn btn-dark btn-link btn-underline sm btn-icon-left font-weight-normal text-capitalize">
+                                                                            <i class="far fa-thumbs-down"></i>Unhelpful
+                                                                            ({{ $review->unhelpful_count ?? 0 }})
                                                                         </a>
-                                                                        @if($review->images->count() > 0)
+                                                                        @if ($review->images->count() > 0)
                                                                             <div class="review-image">
-                                                                                @foreach($review->images as $image)
+                                                                                @foreach ($review->images as $image)
                                                                                     <a href="#">
                                                                                         <figure>
-                                                                                            <img src="{{ asset('uploads/products/reviews'.$image->image) }}" width="60" height="60"
+                                                                                            <img src="{{ asset('uploads/products/reviews' . $image->image) }}"
+                                                                                                width="60"
+                                                                                                height="60"
                                                                                                 alt="Attachment image of {{ $review->user->name }}'s review"
                                                                                                 data-zoom-image="{{ $image->full_url }}" />
                                                                                         </figure>
@@ -464,35 +510,35 @@
                                                     @endforeach
                                                 </ul>
                                             </div>
-                                            
+
                                             <!-- Other tabs would filter the reviews similarly -->
                                             <div class="tab-pane" id="helpful-positive">
                                                 <ul class="comments list-style-none">
-                                                    @foreach($product->reviews->where('rating', '>=', 4)->sortByDesc('helpful_count') as $review)
+                                                    @foreach ($product->reviews->where('rating', '>=', 4)->sortByDesc('helpful_count') as $review)
                                                         <!-- Same review structure as above -->
                                                     @endforeach
                                                 </ul>
                                             </div>
-                                            
+
                                             <div class="tab-pane" id="helpful-negative">
                                                 <ul class="comments list-style-none">
-                                                    @foreach($product->reviews->where('rating', '<=', 2)->sortByDesc('unhelpful_count') as $review)
+                                                    @foreach ($product->reviews->where('rating', '<=', 2)->sortByDesc('unhelpful_count') as $review)
                                                         <!-- Same review structure as above -->
                                                     @endforeach
                                                 </ul>
                                             </div>
-                                            
+
                                             <div class="tab-pane" id="highest-rating">
                                                 <ul class="comments list-style-none">
-                                                    @foreach($product->reviews->sortByDesc('rating') as $review)
+                                                    @foreach ($product->reviews->sortByDesc('rating') as $review)
                                                         <!-- Same review structure as above -->
                                                     @endforeach
                                                 </ul>
                                             </div>
-                                            
+
                                             <div class="tab-pane" id="lowest-rating">
                                                 <ul class="comments list-style-none">
-                                                    @foreach($product->reviews->sortBy('rating') as $review)
+                                                    @foreach ($product->reviews->sortBy('rating') as $review)
                                                         <!-- Same review structure as above -->
                                                     @endforeach
                                                 </ul>
@@ -505,348 +551,99 @@
                         <section class="vendor-product-section">
                             <div class="title-link-wrapper mb-4">
                                 <h4 class="title text-left">More Products From This Vendor</h4>
-                                <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
-                                    Products<i class="w-icon-long-arrow-right"></i></a>
+                                <a href="{{ route('user.vendor.detail', $product->user_id) }}"
+                                    class="btn btn-dark btn-link btn-slide-right btn-icon-right">
+                                    More Products<i class="w-icon-long-arrow-right"></i>
+                                </a>
                             </div>
-                            <div class="owl-carousel owl-theme row cols-lg-3 cols-md-4 cols-sm-3 cols-2"
-                                data-owl-options="{
-                            'nav': false,
-                            'dots': false,
-                            'margin': 20,
-                            'responsive': {
-                                '0': {
-                                    'items': 2
-                                },
-                                '576': {
-                                    'items': 3
-                                },
-                                '768': {
-                                    'items': 4
-                                },
-                                '992': {
-                                    'items': 3
-                                }
-                            }
-                        }">
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/1-1.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/products/default/1-2.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
-                                        </div>
-                                        <h4 class="product-name"><a href="product-default.html">Sticky Pencil</a>
-                                        </h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$20.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/2.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Electronics</a>
-                                        </div>
-                                        <h4 class="product-name"><a href="product-default.html">Mini
-                                                Multi-Functional Cooker</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 80%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">
-                                                <ins class="new-price">$480.00</ins><del class="old-price">$534.00</del>
+                            <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
+                                @foreach ($vendorProducts as $vendorProduct)
+                                    <div class="product-wrap">
+                                        <div class="product text-center">
+                                            <figure class="product-media">
+                                                <a
+                                                    href="{{ route('user.product.detail', ['slug' => $vendorProduct->slug]) }}">
+                                                    @if ($vendorProduct->images->count() >= 2)
+                                                        <img src="{{ asset('assets/uploads/products/' . $vendorProduct->images[0]->image_path) }}"
+                                                            alt="{{ $vendorProduct->name }}" width="300"
+                                                            height="338" />
+                                                        <img src="{{ asset('assets/uploads/products/' . $vendorProduct->images[1]->image_path) }}"
+                                                            alt="{{ $vendorProduct->name }}" width="300"
+                                                            height="338" />
+                                                    @else
+                                                        <img src="{{ asset('assets/uploads/products/' . $vendorProduct->images[0]->image_path) }}"
+                                                            alt="{{ $vendorProduct->name }}" width="300"
+                                                            height="338" />
+                                                    @endif
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart"
+                                                        title="Add to cart"
+                                                        data-product-id="{{ $vendorProduct->id }}"></a>
+                                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                                                        title="Add to wishlist"
+                                                        data-product-id="{{ $vendorProduct->id }}"></a>
+                                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                        title="Quickview"
+                                                        data-product-slug="{{ $vendorProduct->slug }}"></a>
+                                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                                        title="Add to Compare"
+                                                        data-product-id="{{ $vendorProduct->id }}"></a>
+                                                </div>
+                                                @if ($vendorProduct->sale_price && $vendorProduct->price > $vendorProduct->sale_price)
+                                                    @php
+                                                        $discount = round(
+                                                            (($vendorProduct->price - $vendorProduct->sale_price) /
+                                                                $vendorProduct->price) *
+                                                                100,
+                                                        );
+                                                    @endphp
+                                                    <div class="product-label-group">
+                                                        <label class="product-label label-discount">{{ $discount }}%
+                                                            Off</label>
+                                                    </div>
+                                                @endif
+                                            </figure>
+                                            <div class="product-details">
+                                                <h4 class="product-name">
+                                                    <a
+                                                        href="{{ route('user.product.detail', ['slug' => $vendorProduct->slug]) }}">
+                                                        {{ $vendorProduct->name }}
+                                                    </a>
+                                                </h4>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full">
+                                                        <span class="ratings"
+                                                            style="width: {{ ($vendorProduct->rating / 5) * 100 }}%;"></span>
+                                                        <span
+                                                            class="tooltiptext tooltip-top">{{ number_format($vendorProduct->rating, 1) }}
+                                                            out of 5</span>
+                                                    </div>
+                                                    <a href="{{ route('user.product.detail', ['slug' => $vendorProduct->slug]) }}#reviews"
+                                                        class="rating-reviews">({{ $vendorProduct->review_count }}
+                                                        reviews)</a>
+                                                </div>
+                                                <div class="product-pa-wrapper">
+                                                    <div class="product-price">
+                                                        @if ($vendorProduct->sale_price && $vendorProduct->price > $vendorProduct->sale_price)
+                                                            <ins
+                                                                class="new-price">${{ number_format($vendorProduct->sale_price, 2) }}</ins>
+                                                            <del
+                                                                class="old-price">${{ number_format($vendorProduct->price, 2) }}</del>
+                                                        @else
+                                                            <span
+                                                                class="price">${{ number_format($vendorProduct->price, 2) }}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/3.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Sports</a></div>
-                                        <h4 class="product-name"><a href="product-default.html">Skate Pan</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">
-                                                <ins class="new-price">$278.00</ins><del class="old-price">$310.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/4-1.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/products/default/4-2.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
-                                        </div>
-                                        <h4 class="product-name"><a href="product-default.html">Clip Attachment</a>
-                                        </h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$40.00</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </section>
-                        <section class="related-product-section">
-                            <div class="title-link-wrapper mb-4">
-                                <h4 class="title">Related Products</h4>
-                                <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
-                                    Products<i class="w-icon-long-arrow-right"></i></a>
-                            </div>
-                            <div class="owl-carousel owl-theme row cols-lg-3 cols-md-4 cols-sm-3 cols-2"
-                                data-owl-options="{
-                            'nav': false,
-                            'dots': false,
-                            'margin': 20,
-                            'responsive': {
-                                '0': {
-                                    'items': 2
-                                },
-                                '576': {
-                                    'items': 3
-                                },
-                                '768': {
-                                    'items': 4
-                                },
-                                '992': {
-                                    'items': 3
-                                }
-                            }
-                        }">
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/5.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Drone</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$632.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/6.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Official Camera</a>
-                                        </h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">
-                                                <ins class="new-price">$263.00</ins><del class="old-price">$300.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/7-1.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                            <img src="{{ asset('assets/user/images/products/default/7-2.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Phone Charge Pad</a>
-                                        </h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 80%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(8 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$23.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product">
-                                    <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="{{ asset('assets/user/images/products/default/8.jpg') }}"
-                                                alt="Product" width="300" height="338" />
-                                        </a>
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                                title="Add to cart"></a>
-                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                                title="Add to wishlist"></a>
-                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                                title="Add to Compare"></a>
-                                        </div>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-                                                View</a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Fashionalble
-                                                Pencil</a></h4>
-                                        <div class="ratings-container">
-                                            <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div>
-                                            <a href="product-default.html" class="rating-reviews">(9 reviews)</a>
-                                        </div>
-                                        <div class="product-pa-wrapper">
-                                            <div class="product-price">$50.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+
+                   
                     </div>
                     <!-- End of Main Content -->
                     <aside class="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
@@ -908,140 +705,53 @@
                                     <div class="title-link-wrapper mb-2">
                                         <h4 class="title title-link font-weight-bold">More Products</h4>
                                     </div>
-
+                                
                                     <div class="owl-carousel owl-theme owl-nav-top"
                                         data-owl-options="{
-                                    'nav': true,
-                                    'dots': false,
-                                    'items': 1,
-                                    'margin': 20
-                                }">
+                                            'nav': true,
+                                            'dots': false,
+                                            'items': 1,
+                                            'margin': 20
+                                        }">
+                                        @php
+                                            $chunks = $relatedProducts->chunk(3);
+                                        @endphp
+                                        
+                                        @foreach($chunks as $chunk)
                                         <div class="widget-col">
+                                            @foreach($chunk as $product)
                                             <div class="product product-widget">
                                                 <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="{{ asset('assets/user/images/shop/13.jpg') }}"
-                                                            alt="Product" width="100" height="113" />
+                                                    <a href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
+                                                        <img src="{{ asset('assets/uploads/products /' . $product->images->first()->image_path) }}" 
+                                                             alt="{{ $product->name }}" width="100" height="113" />
                                                     </a>
                                                 </figure>
                                                 <div class="product-details">
                                                     <h4 class="product-name">
-                                                        <a href="#">Smart Watch</a>
+                                                        <a href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
+                                                            {{ $product->name }}
+                                                        </a>
                                                     </h4>
                                                     <div class="ratings-container">
                                                         <div class="ratings-full">
-                                                            <span class="ratings" style="width: 100%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
+                                                            <span class="ratings" style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
+                                                            <span class="tooltiptext tooltip-top">{{ number_format($product->rating, 1) }} out of 5</span>
                                                         </div>
                                                     </div>
-                                                    <div class="product-price">$80.00 - $90.00</div>
-                                                </div>
-                                            </div>
-                                            <div class="product product-widget">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="{{ asset('assets/user/images/shop/14.jpg') }}"
-                                                            alt="Product" width="100" height="113" />
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">
-                                                        <a href="#">Sky Medical Facility</a>
-                                                    </h4>
-                                                    <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: 80%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
-                                                        </div>
+                                                    <div class="product-price">
+                                                        @if($product->sale_price && $product->price > $product->sale_price)
+                                                            ${{ number_format($product->sale_price, 2) }} - ${{ number_format($product->price, 2) }}
+                                                        @else
+                                                            ${{ number_format($product->price, 2) }}
+                                                        @endif
                                                     </div>
-                                                    <div class="product-price">$58.00</div>
                                                 </div>
                                             </div>
-                                            <div class="product product-widget">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="{{ asset('assets/user/images/shop/15.jpg') }}"
-                                                            alt="Product" width="100" height="113" />
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">
-                                                        <a href="#">Black Stunt Motor</a>
-                                                    </h4>
-                                                    <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: 60%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">$374.00</div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="widget-col">
-                                            <div class="product product-widget">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="{{ asset('assets/user/images/shop/16.jpg') }}"
-                                                            alt="Product" width="100" height="113" />
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">
-                                                        <a href="#">Skate Pan</a>
-                                                    </h4>
-                                                    <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: 100%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">$278.00</div>
-                                                </div>
-                                            </div>
-                                            <div class="product product-widget">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="{{ asset('assets/user/images/shop/17.jpg') }}"
-                                                            alt="Product" width="100" height="113" />
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">
-                                                        <a href="#">Modern Cooker</a>
-                                                    </h4>
-                                                    <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: 80%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">$324.00</div>
-                                                </div>
-                                            </div>
-                                            <div class="product product-widget">
-                                                <figure class="product-media">
-                                                    <a href="#">
-                                                        <img src="{{ asset('assets/user/images/shop/18.jpg') }}"
-                                                            alt="Product" width="100" height="113" />
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">
-                                                        <a href="#">CT Machine</a>
-                                                    </h4>
-                                                    <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: 100%;"></span>
-                                                            <span class="tooltiptext tooltip-top"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">$236.00</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -1054,3 +764,30 @@
     </main>
     <!-- End of Main -->
 @endsection
+
+@push('js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Owl Carousels
+            $('[data-owl-options]').each(function() {
+                const options = JSON.parse($(this).attr('data-owl-options').replace(/'/g, '"'));
+                $(this).owlCarousel(options);
+            });
+
+            // Quick view handler
+            $(document).on('click', '.btn-quickview', function(e) {
+                e.preventDefault();
+                const url = $(this).attr('href');
+                // Implement your quick view logic here
+                // Example: $.get(url, function(data) { showModal(data); });
+            });
+
+            // Add to cart handler
+            $(document).on('click', '.btn-cart', function(e) {
+                e.preventDefault();
+                const productId = $(this).closest('.product').data('id');
+                // Implement your add to cart logic here
+            });
+        });
+    </script>
+@endpush

@@ -58,7 +58,7 @@
                     <ul class="mobile-menu">
                         <li><a href="{{ route('user.home') }}">Home</a></li>
                         <li>
-                            <a href="{{ route('user.shop') }}ml">Shop</a>
+                            <a href="{{ route('user.shop') }}">Shop</a>
 
                         </li>
                         <li>
@@ -273,7 +273,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('user.shop') }}ml"
+                            <a href="{{ route('user.shop') }}"
                                 class="font-weight-bold text-primary text-uppercase ls-25">
                                 View All Categories<i class="w-icon-angle-right"></i>
                             </a>

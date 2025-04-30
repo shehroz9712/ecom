@@ -17,6 +17,10 @@ return new class extends Migration {
             $table->decimal('price', 10, 2);
             $table->decimal('sale_price', 10, 2)->nullable();
             $table->string('sku')->unique();
+            $table->integer('sales_count')->default(0);
+            $table->integer('views_count')->default(0);
+            $table->boolean('is_featured')->default(false);
+
 
             // Foreign keys
             $table->foreignId('brand_id')->nullable()->constrained()->nullOnDelete();

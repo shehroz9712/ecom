@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->string('icon')->nullable();
+            $table->string('image')->nullable();
             $table->integer('order')->default(0);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();

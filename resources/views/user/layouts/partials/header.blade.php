@@ -172,14 +172,14 @@
                                         <a href="{{ route('user.home') }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('user.shop') }}ml">Shop</a>
+                                        <a href="{{ route('user.shop') }}">Shop</a>
 
                                         <!-- Start of Megamenu -->
 
                                         <!-- End of Megamenu -->
                                     </li>
                                     <li>
-                                        <a href="{{ route('user.vendor') }}">Vendor</a>
+                                        <a href="{{ route('user.vendors.index') }}">Vendor</a>
 
                                     </li>
                                     <li>
