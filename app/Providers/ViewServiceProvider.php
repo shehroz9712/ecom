@@ -38,10 +38,10 @@ class ViewServiceProvider extends ServiceProvider
             // Log::error('Settings load failed: ' . $e->getMessage());
             $settings = (object)[];
         }
-        $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
-        $brands = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
+        // $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
+        // $brands = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
 
-        View::share(['categories' => $categories, 'brands' => $brands, 'settings' => json_decode(json_encode($settings))]);
+        // View::share(['categories' => $categories, 'brands' => $brands, 'settings' => json_decode(json_encode($settings))]);
         $this->composeAdminPages();
     }
 

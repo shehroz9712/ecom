@@ -25,6 +25,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Afghanistan',
@@ -32,6 +34,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Albania',
@@ -39,6 +43,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Algeria',
@@ -46,6 +52,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'American Samoa',
@@ -53,6 +61,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:09:12',
         ], [
             'name' => 'Andorra',
@@ -60,6 +70,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:09:21',
         ], [
             'name' => 'Angola',
@@ -67,6 +79,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Anguilla',
@@ -74,6 +88,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:09:33',
         ], [
             'name' => 'Antarctica',
@@ -81,6 +97,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:02:37',
         ], [
             'name' => 'Antigua And Barbuda',
@@ -88,6 +106,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:09:39',
         ], [
             'name' => 'Argentina',
@@ -95,6 +115,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Armenia',
@@ -102,6 +124,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Aruba',
@@ -109,6 +133,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:09:50',
         ], [
             'name' => 'Australia',
@@ -116,6 +142,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Austria',
@@ -123,6 +151,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Azerbaijan',
@@ -130,6 +160,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bahamas The',
@@ -137,6 +169,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:09:59',
         ], [
             'name' => 'Bahrain',
@@ -144,6 +178,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bangladesh',
@@ -151,6 +187,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Barbados',
@@ -158,6 +196,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Belarus',
@@ -165,6 +205,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Belgium',
@@ -172,6 +214,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Belize',
@@ -179,6 +223,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:10:08',
         ], [
             'name' => 'Benin',
@@ -186,6 +232,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:10:15',
         ], [
             'name' => 'Bermuda',
@@ -193,6 +241,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bhutan',
@@ -200,6 +250,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bolivia',
@@ -207,6 +259,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bosnia and Herzegovina',
@@ -214,6 +268,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:10:34',
         ], [
             'name' => 'Botswana',
@@ -221,6 +277,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bouvet Island',
@@ -228,6 +286,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:10:39',
         ], [
             'name' => 'Brazil',
@@ -235,6 +295,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'British Indian Ocean Territory',
@@ -242,6 +304,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:10:53',
         ], [
             'name' => 'Brunei',
@@ -249,6 +313,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Bulgaria',
@@ -256,6 +322,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Burkina Faso',
@@ -263,6 +331,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Burundi',
@@ -270,6 +340,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cambodia',
@@ -277,6 +349,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cameroon',
@@ -284,6 +358,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Canada',
@@ -291,6 +367,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cape Verde',
@@ -298,6 +376,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:06',
         ], [
             'name' => 'Cayman Islands',
@@ -305,6 +385,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:13',
         ], [
             'name' => 'Central African Republic',
@@ -312,6 +394,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:21',
         ], [
             'name' => 'Chad',
@@ -319,6 +403,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:26',
         ], [
             'name' => 'Chile',
@@ -326,6 +412,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'China',
@@ -333,6 +421,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Christmas Island',
@@ -340,6 +430,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:31',
         ], [
             'name' => 'Cocos (Keeling) Islands',
@@ -347,6 +439,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:38',
         ], [
             'name' => 'Colombia',
@@ -354,6 +448,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Comoros',
@@ -361,6 +457,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cook Islands',
@@ -368,6 +466,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:11:48',
         ], [
             'name' => 'Costa Rica',
@@ -375,6 +475,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cote D\'Ivoire (Ivory Coast)',
@@ -382,6 +484,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:12:06',
         ], [
             'name' => 'Croatia (Hrvatska)',
@@ -389,6 +493,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cuba',
@@ -396,6 +502,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Cyprus',
@@ -403,6 +511,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Czech Republic',
@@ -410,6 +520,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Democratic Republic Of The Congo',
@@ -417,6 +529,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Denmark',
@@ -424,6 +538,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Djibouti',
@@ -431,6 +547,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Dominica',
@@ -438,6 +556,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:12:34',
         ], [
             'name' => 'Dominican Republic',
@@ -445,6 +565,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'East Timor',
@@ -452,6 +574,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:12:40',
         ], [
             'name' => 'Ecuador',
@@ -459,6 +583,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Egypt',
@@ -466,6 +592,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'El Salvador',
@@ -473,6 +601,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:12:47',
         ], [
             'name' => 'Equatorial Guinea',
@@ -480,6 +610,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:12:51',
         ], [
             'name' => 'Eritrea',
@@ -487,6 +619,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:21',
         ], [
             'name' => 'Estonia',
@@ -494,6 +628,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Ethiopia',
@@ -501,6 +637,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Falkland Islands',
@@ -508,6 +646,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:26',
         ], [
             'name' => 'Faroe Islands',
@@ -515,6 +655,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:31',
         ], [
             'name' => 'Fiji Islands',
@@ -522,6 +664,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:36',
         ], [
             'name' => 'Finland',
@@ -529,6 +673,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'France',
@@ -536,6 +682,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'French Guiana',
@@ -543,6 +691,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:42',
         ], [
             'name' => 'French Polynesia',
@@ -550,6 +700,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:45',
         ], [
             'name' => 'French Southern Territories',
@@ -557,6 +709,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:13:55',
         ], [
             'name' => 'Gabon',
@@ -564,6 +718,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:01',
         ], [
             'name' => 'Gambia The',
@@ -571,6 +727,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:05',
         ], [
             'name' => 'Georgia',
@@ -578,6 +736,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Germany',
@@ -585,6 +745,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Ghana',
@@ -592,6 +754,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Gibraltar',
@@ -599,6 +763,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:14',
         ], [
             'name' => 'Greece',
@@ -606,6 +772,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Greenland',
@@ -613,6 +781,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Grenada',
@@ -620,6 +790,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:23',
         ], [
             'name' => 'Guadeloupe',
@@ -627,6 +799,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:27',
         ], [
             'name' => 'Guam',
@@ -634,6 +808,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:32',
         ], [
             'name' => 'Guatemala',
@@ -641,6 +817,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:38',
         ], [
             'name' => 'Guernsey and Alderney',
@@ -648,6 +826,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:41',
         ], [
             'name' => 'Guinea',
@@ -655,6 +835,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Guinea-Bissau',
@@ -662,6 +844,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Guyana',
@@ -669,6 +853,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Haiti',
@@ -676,6 +862,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:55',
         ], [
             'name' => 'Heard and McDonald Islands',
@@ -683,6 +871,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:52',
         ], [
             'name' => 'Honduras',
@@ -690,6 +880,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:14:59',
         ], [
             'name' => 'Hong Kong S.A.R.',
@@ -697,6 +889,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:15:06',
         ], [
             'name' => 'Hungary',
@@ -704,6 +898,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Iceland',
@@ -711,6 +907,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'India',
@@ -718,6 +916,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Indonesia',
@@ -725,6 +925,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Iran',
@@ -732,6 +934,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Iraq',
@@ -739,6 +943,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Ireland',
@@ -746,6 +952,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Israel',
@@ -753,6 +961,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Italy',
@@ -760,6 +970,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Jamaica',
@@ -767,6 +979,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Japan',
@@ -774,6 +988,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Jersey',
@@ -781,6 +997,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Jordan',
@@ -788,6 +1006,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Kazakhstan',
@@ -795,6 +1015,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Kenya',
@@ -802,6 +1024,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Kiribati',
@@ -809,6 +1033,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Korea North',
@@ -816,6 +1042,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Korea South',
@@ -823,6 +1051,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Kuwait',
@@ -830,6 +1060,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Kyrgyzstan',
@@ -837,6 +1069,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Laos',
@@ -844,6 +1078,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Latvia',
@@ -851,6 +1087,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Lebanon',
@@ -858,6 +1096,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Lesotho',
@@ -865,6 +1105,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Liberia',
@@ -872,6 +1114,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Libya',
@@ -879,6 +1123,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Liechtenstein',
@@ -886,6 +1132,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:15:51',
         ], [
             'name' => 'Lithuania',
@@ -893,6 +1141,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:15:57',
         ], [
             'name' => 'Luxembourg',
@@ -900,6 +1150,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Macau S.A.R.',
@@ -907,6 +1159,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Macedonia',
@@ -914,6 +1168,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Madagascar',
@@ -921,6 +1177,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:16:27',
         ], [
             'name' => 'Malawi',
@@ -928,6 +1186,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Malaysia',
@@ -935,6 +1195,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Maldives',
@@ -942,6 +1204,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Mali',
@@ -949,6 +1213,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Malta',
@@ -956,6 +1222,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Man (Isle of)',
@@ -963,6 +1231,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:16:38',
         ], [
             'name' => 'Marshall Islands',
@@ -970,6 +1240,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:16:54',
         ], [
             'name' => 'Martinique',
@@ -977,6 +1249,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:16:57',
         ], [
             'name' => 'Mauritania',
@@ -984,6 +1258,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:05',
         ], [
             'name' => 'Mauritius',
@@ -991,6 +1267,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Mayotte',
@@ -998,6 +1276,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:11',
         ], [
             'name' => 'Mexico',
@@ -1005,6 +1285,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Micronesia',
@@ -1012,6 +1294,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:19',
         ], [
             'name' => 'Moldova',
@@ -1019,6 +1303,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:25',
         ], [
             'name' => 'Monaco',
@@ -1026,6 +1312,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:29',
         ], [
             'name' => 'Mongolia',
@@ -1033,6 +1321,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Montserrat',
@@ -1040,6 +1330,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:40',
         ], [
             'name' => 'Morocco',
@@ -1047,6 +1339,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Mozambique',
@@ -1054,6 +1348,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Myanmar',
@@ -1061,6 +1357,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Namibia',
@@ -1068,6 +1366,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Nauru',
@@ -1075,6 +1375,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:17:49',
         ], [
             'name' => 'Nepal',
@@ -1082,6 +1384,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Netherlands Antilles',
@@ -1089,6 +1393,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:11',
         ], [
             'name' => 'Netherlands The',
@@ -1096,6 +1402,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'New Caledonia',
@@ -1103,6 +1411,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:20',
         ], [
             'name' => 'New Zealand',
@@ -1110,6 +1420,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Nicaragua',
@@ -1117,6 +1429,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:25',
         ], [
             'name' => 'Niger',
@@ -1124,6 +1438,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:32',
         ], [
             'name' => 'Nigeria',
@@ -1131,6 +1447,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Niue',
@@ -1138,6 +1456,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:36',
         ], [
             'name' => 'Norfolk Island',
@@ -1145,6 +1465,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:42',
         ], [
             'name' => 'Northern Mariana Islands',
@@ -1152,6 +1474,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:50',
         ], [
             'name' => 'Norway',
@@ -1159,6 +1483,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Oman',
@@ -1166,6 +1492,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Pakistan',
@@ -1173,6 +1501,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Palau',
@@ -1180,6 +1510,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:18:57',
         ], [
             'name' => 'Palestinian Territory Occupied',
@@ -1187,6 +1519,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:19:02',
         ], [
             'name' => 'Panama',
@@ -1194,6 +1528,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Papua new Guinea',
@@ -1201,6 +1537,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Paraguay',
@@ -1208,6 +1546,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Peru',
@@ -1215,6 +1555,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Philippines',
@@ -1222,6 +1564,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Pitcairn Island',
@@ -1229,6 +1573,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:19:11',
         ], [
             'name' => 'Poland',
@@ -1236,6 +1582,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Portugal',
@@ -1243,6 +1591,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Puerto Rico',
@@ -1250,6 +1600,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Qatar',
@@ -1257,6 +1609,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Republic Of The Congo',
@@ -1264,6 +1618,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Reunion',
@@ -1271,6 +1627,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:19:26',
         ], [
             'name' => 'Romania',
@@ -1278,6 +1636,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Russia',
@@ -1285,6 +1645,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Rwanda',
@@ -1292,6 +1654,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Saint Helena',
@@ -1299,6 +1663,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:19:40',
         ], [
             'name' => 'Saint Kitts And Nevis',
@@ -1306,6 +1672,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:19:44',
         ], [
             'name' => 'Saint Lucia',
@@ -1313,6 +1681,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Saint Pierre and Miquelon',
@@ -1320,6 +1690,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Saint Vincent And The Grenadines',
@@ -1327,6 +1699,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Samoa',
@@ -1334,6 +1708,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'San Marino',
@@ -1341,6 +1717,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Sao Tome and Principe',
@@ -1348,6 +1726,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Saudi Arabia',
@@ -1355,6 +1735,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Senegal',
@@ -1362,6 +1744,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Serbia',
@@ -1369,6 +1753,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Seychelles',
@@ -1376,6 +1762,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Sierra Leone',
@@ -1383,6 +1771,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Singapore',
@@ -1390,6 +1780,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Slovakia',
@@ -1397,6 +1789,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Slovenia',
@@ -1404,6 +1798,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Smaller Territories of the UK',
@@ -1411,6 +1807,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:20:18',
         ], [
             'name' => 'Solomon Islands',
@@ -1418,6 +1816,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:20:23',
         ], [
             'name' => 'Somalia',
@@ -1425,6 +1825,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'South Africa',
@@ -1432,6 +1834,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'South Georgia',
@@ -1439,6 +1843,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'South Sudan',
@@ -1446,6 +1852,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:20:41',
         ], [
             'name' => 'Spain',
@@ -1453,6 +1861,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Sri Lanka',
@@ -1460,6 +1870,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Sudan',
@@ -1467,6 +1879,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Suriname',
@@ -1474,6 +1888,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:06',
         ], [
             'name' => 'Svalbard And Jan Mayen Islands',
@@ -1481,6 +1897,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:00',
         ], [
             'name' => 'Swaziland',
@@ -1488,6 +1906,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:12',
         ], [
             'name' => 'Sweden',
@@ -1495,6 +1915,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Switzerland',
@@ -1502,6 +1924,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Syria',
@@ -1509,6 +1933,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Taiwan',
@@ -1516,6 +1942,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Tajikistan',
@@ -1523,6 +1951,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Tanzania',
@@ -1530,6 +1960,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Thailand',
@@ -1537,6 +1969,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Togo',
@@ -1544,6 +1978,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Tokelau',
@@ -1551,6 +1987,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Tonga',
@@ -1558,6 +1996,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Trinidad And Tobago',
@@ -1565,6 +2005,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Tunisia',
@@ -1572,6 +2014,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Turkey',
@@ -1579,6 +2023,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Turkmenistan',
@@ -1586,6 +2032,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Turks And Caicos Islands',
@@ -1593,6 +2041,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:31',
         ], [
             'name' => 'Tuvalu',
@@ -1600,6 +2050,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:37',
         ], [
             'name' => 'Uganda',
@@ -1607,6 +2059,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Ukraine',
@@ -1614,6 +2068,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'United Arab Emirates',
@@ -1621,6 +2077,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'United Kingdom',
@@ -1628,6 +2086,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'United States',
@@ -1635,6 +2095,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'United States Minor Outlying Islands',
@@ -1642,6 +2104,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:52',
         ], [
             'name' => 'Uruguay',
@@ -1649,6 +2113,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Uzbekistan',
@@ -1656,6 +2122,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Vanuatu',
@@ -1663,6 +2131,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:21:58',
         ], [
             'name' => 'Vatican City State (Holy See)',
@@ -1670,6 +2140,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:22:08',
         ], [
             'name' => 'Venezuela',
@@ -1677,6 +2149,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Vietnam',
@@ -1684,6 +2158,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Virgin Islands (British)',
@@ -1691,6 +2167,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:22:15',
         ], [
             'name' => 'Virgin Islands (US)',
@@ -1698,6 +2176,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:22:20',
         ], [
             'name' => 'Wallis And Futuna Islands',
@@ -1705,6 +2185,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:22:28',
         ], [
             'name' => 'Western Sahara',
@@ -1712,6 +2194,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => '2024-03-07 23:22:33',
         ], [
             'name' => 'Yemen',
@@ -1719,6 +2203,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Yugoslavia',
@@ -1726,6 +2212,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Zambia',
@@ -1733,6 +2221,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ], [
             'name' => 'Zimbabwe',
@@ -1740,6 +2230,8 @@ class CountriesTableSeeder extends Seeder
             'status' => 'active',
             'created_at' => now(),
             'updated_at' => now(),
+            'created_by' => 1,
+            'updated_by' => 1,
             'deleted_at' => NULL,
         ]]);
     }

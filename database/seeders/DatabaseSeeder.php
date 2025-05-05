@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             MediaSeeder::class,
             CountriesTableSeeder::class,
             SettingSeeder::class,
-            CitySeeder::class,
+            StateTableSeeder::class,
             PageSeeder::class,
             CategorySeeder::class,
             SliderSeeder::class,
@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             AttributeSeeder::class,
             ProductSeeder::class,
             ReviewSeeder::class,
-            ReviewImageSeeder::class
+            ReviewImageSeeder::class,
+            VendorTableSeeder::class,
         ]);
     }
 }

@@ -1,7 +1,7 @@
-@extends('admin.layouts.auth')
+@extends('user.layouts.auth')
 
 @section('content')
-    <section>
+    {{-- <section>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-7">
@@ -72,5 +72,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

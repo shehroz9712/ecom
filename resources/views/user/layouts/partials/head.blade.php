@@ -49,4 +49,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/user/css/style.min.css') }}">
     {!! $settings->header_script !!}
     @yield('css')
+
+    <style>
+        .main {
+            margin-top: 3rem !important;
+        }
+    </style>
 </head>

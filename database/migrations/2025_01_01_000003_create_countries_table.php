@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('code');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

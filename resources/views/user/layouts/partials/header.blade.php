@@ -182,21 +182,13 @@
                                         <a href="{{ route('user.vendors.index') }}">Vendor</a>
 
                                     </li>
-                                    <li>
-                                        <a href="{{ route('user.blog') }}">Blog</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.about') }}">Pages</a>
-
-                                    </li>
-
                                 </ul>
                             </nav>
                         </div>
                         <div class="header-right">
-                            <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Track Order</a>
-                            <a href="#"><i class="w-icon-sale"></i>Daily Deals</a>
+                            <a href="{{ route('user.order.track') }}" class="d-xl-show"><i
+                                    class="w-icon-map-marker mr-1"></i>Track Order</a>
+                            <a href="{{ route('user.daily.deals') }}"><i class="w-icon-sale"></i>Daily Deals</a>
                         </div>
                     </div>
                 </div>

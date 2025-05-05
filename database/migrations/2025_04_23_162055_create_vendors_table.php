@@ -13,11 +13,21 @@ return new class extends Migration
     {
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('banner_image')->nullable();  // Path to banner image
+            $table->string('brand_logo')->nullable();    // Path to brand logo
+            $table->string('slug')->unique();            // For URL use
+            $table->string('country_id')->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('city_id')->nullable();
+            $table->string('zip_code')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('cascade');
         });
     }
 

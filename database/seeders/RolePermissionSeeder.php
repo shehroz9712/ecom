@@ -21,11 +21,12 @@ class RolePermissionSeeder extends Seeder
             'media',
             'carts',
             'orders',
-
+            'states',
             'pages',
             'sliders',
             'blogs',
             'settings',
+            'countries',
 
         ];
 
@@ -92,6 +93,14 @@ class RolePermissionSeeder extends Seeder
             'view-vendors',
             'edit-vendors',
             'delete-vendors',
+            'create-countries',
+            'view-countries',
+            'edit-countries',
+            'delete-countries',
+            'create-states',
+            'view-states',
+            'edit-states',
+            'delete-states',
 
         ];
         $adminRole->syncPermissions($adminPermissions);

@@ -47,4 +47,10 @@ class HomeController  extends Controller
             ->get();
         return view('user.index', compact('sliders', 'mostPopular', 'newArrivals', 'featuredProducts', 'bestSellers', 'categories'));
     }
+
+
+    public function contact()
+    {
+        return view('user.pages.contact');
+    }
 }

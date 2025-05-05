@@ -28,6 +28,9 @@ Route::name('user.')->group(function () {
     route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');
 
 
+    route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');
+    route::get('/order/track', [HomeController::class, 'index'])->name('order.track');
+    route::post('/order/track/check', [HomeController::class, 'index'])->name('order.track.check');
     route::get('/cart', [HomeController::class, 'index'])->name('cart');
     route::get('/checkout', [HomeController::class, 'index'])->name('checkout');
     route::get('/search', [HomeController::class, 'index'])->name('search');
@@ -44,7 +47,7 @@ Route::name('user.')->group(function () {
 
     route::get('/profile', [HomeController::class, 'index'])->name('profile');
 
-    route::get('/contact', [HomeController::class, 'index'])->name('contact');
+    route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
 });
 
