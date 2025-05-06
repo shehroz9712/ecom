@@ -51,3 +51,42 @@
         </div>
     </div>
 </div>
+@section('js')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.btn-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const productId = this.dataset.productId;
+
+                fetch('{{ route('user.cart.add') }}', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        product_id: productId,
+                        qty: 1
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Product added to cart!');
+                        // Optionally update cart counter UI here
+                    } else {
+                        alert('Failed to add product to cart.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    });
+</script>
+
+@endsection

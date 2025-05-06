@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\User\VendorController;
@@ -28,11 +29,15 @@ Route::name('user.')->group(function () {
     route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');
 
 
+    route::Post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+    route::get('/cart', [CartController::class, 'index'])->name('cart');
+    route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+
+
     route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');
     route::get('/order/track', [HomeController::class, 'index'])->name('order.track');
     route::post('/order/track/check', [HomeController::class, 'index'])->name('order.track.check');
-    route::get('/cart', [HomeController::class, 'index'])->name('cart');
-    route::get('/checkout', [HomeController::class, 'index'])->name('checkout');
+
     route::get('/search', [HomeController::class, 'index'])->name('search');
     route::get('/order', [HomeController::class, 'index'])->name('order');
     route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');

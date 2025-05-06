@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Schema;
@@ -23,27 +24,31 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        try {
-            if (Schema::hasTable('settings')) {
-                $settingsArray = Setting::where('status', 'active')
-                    ->pluck('value', 'key')
-                    ->toArray();
+        $settings = (object)[];
+        $categories = collect();
+        $brands = collect();
 
-                // Convert array to object
-                $settings = json_decode(json_encode($settingsArray));
-            } else {
-                $settings = (object)[];
-            }
-        } catch (\Exception $e) {
-            // Log::error('Settings load failed: ' . $e->getMessage());
-            $settings = (object)[];
-        }
-        $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
-        $brands = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
+        // if (Schema::hasTable('settings')) {
+        //     $settings = (object) Setting::where('status', 'active')
+        //         ->pluck('value', 'key')
+        //         ->toArray();
+        // }
 
-        View::share(['categories' => $categories, 'brands' => $brands, 'settings' => json_decode(json_encode($settings))]);
+        // if (Schema::hasTable('categories')) {
+        //     $categories = Category::with('activeSubCategories.activeItems')->get();
+        // }
+
+        // if (Schema::hasTable('brands')) {
+        //     $brands = Brand::get(); // Customize with relations if needed
+        // }
+
+
+
+        // View::share(compact('settings', 'categories', 'brands'));
+
         $this->composeAdminPages();
     }
+
 
     private function composeAdminPages() {}
 }

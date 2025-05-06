@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Cart extends Model
 {
-    use HasFactory, SoftDeletes,HasQueryFilters;
+    use HasFactory, SoftDeletes, HasQueryFilters;
 
     protected $guarded = [];
     protected $appends = ['creator_name', 'editor_name'];
@@ -63,5 +63,9 @@ class Cart extends Model
     public function getEditorNameAttribute()
     {
         return $this->editor?->name ?? 'N/A';
+    }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }
