@@ -29,7 +29,7 @@
                                                             alt="{{ $item->product->name }}" width="300" height="338">
                                                     </figure>
                                                 </a>
-                                                <form action="{{ route('cart.remove', $item->id) }}" method="POST">
+                                                <form action="{{ route('user.cart.remove', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-close"><i

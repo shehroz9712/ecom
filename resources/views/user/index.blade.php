@@ -437,7 +437,7 @@
     </main>
 @endsection
 
-@section('script')
+@section('scripts')
     <script>
         $('.custom-carousel').owlCarousel({
             nav: false,
@@ -455,6 +455,7 @@
             'nav': false,
             'dots': false,
             'margin': 20,
+            'items': 6,
             'responsive': {
                 '0': {
                     'items': 2

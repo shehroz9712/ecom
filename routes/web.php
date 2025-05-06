@@ -30,8 +30,10 @@ Route::name('user.')->group(function () {
 
 
     route::Post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+    route::delete('/remove-cart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
     route::get('/cart', [CartController::class, 'index'])->name('cart');
     route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/cart/mini', [CartController::class, 'fetchMiniCart'])->name('cart.mini');
 
 
     route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');

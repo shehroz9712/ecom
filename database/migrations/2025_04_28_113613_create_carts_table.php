@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2)->nullable();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
 
+            $table->string('device_id')->nullable();
             $table->string('device_type')->nullable();
 
             // Nullable user references for guests
