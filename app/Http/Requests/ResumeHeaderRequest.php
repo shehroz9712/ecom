@@ -42,7 +42,7 @@ class ResumeHeaderRequest extends FormRequest
             'website'         => 'nullable|url|max:255',
             'country_id'      => 'required|exists:countries,id|integer',
             'state_id'        => 'required|exists:states,id|integer',
-            'city_id'         => 'required|exists:cities,id|integer',
+            'city'         => 'required|exists:cities,id|integer',
             'address'         => 'nullable|string|max:255',
             'postal_code'     => 'nullable|string|max:10',
         ];

@@ -1,64 +1,78 @@
-<?php
+    <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+    use Illuminate\Database\Migrations\Migration;
+    use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    return new class extends Migration
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+        /**
+         * Run the migrations.
+         */
+        public function up(): void
+        {
+            Schema::create('orders', function (Blueprint $table) {
+                $table->id();
 
-            $table->string('invoice_number', 5)->nullable();
-            $table->string('currency', 4);
-            $table->decimal('discount_amount', 10, 2)->nullable(); // 10 total digits, 2 decimal places
-            $table->decimal('tax_amount', 10, 2)->nullable(); // 10 total digits, 2 decimal places
-            $table->string('tax_type', 100)->nullable();
-            $table->decimal('fees_amount', 10, 2)->nullable(); // 10 total digits, 2 decimal places
-            $table->decimal('subtotal', 10, 2); // 10 total digits, 2 decimal places
-            $table->decimal('total_amount', 10, 2); // 10 total digits, 2 decimal places
-            $table->text('description'); // Use 'text' instead of 'longText' for descriptions
-            $table->enum('payment_type', ['paypal', 'payoneer', 'google pay', 'coins', 'stripe', 'free_premium']);
-            $table->string('card_number')->nullable();
-            $table->string('card_name')->nullable();
-            $table->string('card_holder_email')->nullable();
-            $table->string('address')->nullable();
-            $table->string('postal_code')->nullable();
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable();
-            $table->string('decline_issue')->nullable();
-            $table->string('coupon_code', 150)->nullable();
-            $table->integer('coupon_discount_percent')->nullable();
-            $table->integer('used_coins')->nullable();
-            $table->tinyInteger('is_coins')->default(0);
+                // Order Identification
+                $table->string('order_number', 20)->unique(); // More practical length for order numbers
+                $table->string('invoice_number', 20)->nullable()->unique(); // Increased length
 
-            // Define foreign keys
-            $table->integer('template_id')->nullable(); // purchased template or cover_template id
-            $table->boolean('is_resume_template')->default(false);
-            $table->boolean('is_cover_template')->default(false);
+                // Pricing Information
+                $table->string('currency', 3)->default('USD'); // ISO 4217 currency codes are 3 chars
+                $table->decimal('subtotal', 12, 2); // Increased precision for large orders
+                $table->decimal('discount_amount', 12, 2)->default(0.00);
+                $table->decimal('tax_amount', 12, 2)->default(0.00);
+                $table->string('tax_type', 50)->nullable(); // e.g., VAT, GST, etc.
+                $table->decimal('shipping_amount', 12, 2)->default(0.00); // Added shipping cost
+                $table->decimal('fees_amount', 12, 2)->default(0.00);
+                $table->decimal('total_amount', 12, 2);
 
-            $table->enum('status', ['active', 'inactive'])->default('active');
+                // Payment Information
+                $table->enum('payment_method', ['cod', 'bank_transfer', 'credit_card', 'paypal', 'stripe', 'other'])->default('cod');
+                $table->enum('payment_status', ['pending', 'processing', 'paid', 'failed', 'refunded', 'partially_refunded', 'cancelled'])->default('pending');
+                $table->string('transaction_id')->nullable(); // For payment gateway reference
 
-            $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('updated_by')->nullable()->references('id')->on('users')->onDelete('cascade');
+                // Order Details
+                $table->text('customer_note')->nullable();
+                $table->text('admin_note')->nullable(); // For internal use
 
-            $table->timestamps();
-            $table->softDeletes();
-        });
-    }
+                // Shipping/Billing Information
+                $table->foreignId('shipping_address_id')->nullable()->constrained('addresses')->onDelete('set null');
+                $table->foreignId('billing_address_id')->nullable()->constrained('addresses')->onDelete('set null');
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('orders');
-    }
-};
+                // Promotions
+                $table->string('coupon_code', 50)->nullable();
+                $table->foreignId('coupon_id')->nullable()->constrained('coupons')->onDelete('set null');
+
+                // Order Status
+                $table->enum('status', ['pending', 'processing', 'on_hold', 'completed', 'cancelled', 'refunded', 'failed'])->default('pending');
+
+                // Dates
+                $table->timestamp('paid_at')->nullable();
+                $table->timestamp('completed_at')->nullable();
+                $table->timestamp('cancelled_at')->nullable();
+
+                // User References
+                $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+                $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+                $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('cascade');
+
+                // Timestamps
+                $table->timestamps();
+                $table->softDeletes();
+
+                // Indexes
+                $table->index('order_number');
+                $table->index('status');
+                $table->index('user_id');
+            });
+        }
+        /**
+         * Reverse the migrations.
+         */
+        public function down(): void
+        {
+            Schema::dropIfExists('orders');
+        }
+    };

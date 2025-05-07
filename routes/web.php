@@ -3,6 +3,7 @@
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\VendorController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,25 @@ Route::name('user.')->group(function () {
 
     route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
+
+    Route::get('/account', [ProfileController::class, 'dashboard'])->name('user.account');
+
+    // Update Account Details
+    Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('user.account.update');
+
+    // Orders
+    Route::get('/account/orders', [OrderController::class, 'index'])->name('user.orders.index');
+    Route::get('/account/orders/{order}', [OrderController::class, 'show'])->name('user.orders.show');
+
+    // Addresses
+    Route::resource('/account/addresses', AddressController::class)->names([
+        'index' => 'user.addresses.index',
+        'create' => 'user.addresses.create',
+        'store' => 'user.addresses.store',
+        'edit' => 'user.addresses.edit',
+        'update' => 'user.addresses.update',
+        'destroy' => 'user.addresses.destroy'
+    ]);
 });
 
 

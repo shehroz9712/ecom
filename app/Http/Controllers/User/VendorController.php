@@ -35,8 +35,8 @@ class VendorController extends Controller
             $query->where('state_id', $request->state_id);
         }
 
-        if ($request->filled('city_id')) {
-            $query->where('city_id', $request->city_id);
+        if ($request->filled('city')) {
+            $query->where('city', $request->city);
         }
 
         if ($request->filled('zip')) {

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('slug')->unique();            // For URL use
             $table->string('country_id')->nullable();
             $table->string('state_id')->nullable();
-            $table->string('city_id')->nullable();
+            $table->string('city')->nullable();
             $table->string('zip_code')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();

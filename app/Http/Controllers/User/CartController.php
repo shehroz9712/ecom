@@ -5,8 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
-use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class CartController extends Controller
@@ -15,7 +15,7 @@ class CartController extends Controller
     {
         $cartItems = Cart::with('product')->where(function ($query) {
             if (Auth::check()) {
-                $query->where('user_id', auth()->id());
+                $query->where('user_id', Auth::id());
             } else {
                 $query->where('device_id', request()->cookie('device_id'));
             }
@@ -36,7 +36,7 @@ class CartController extends Controller
             'qty' => 'required|integer|min:1',
         ]);
 
-        $userId = auth()->id();
+        $userId = Auth::id();
         $deviceId = $userId ? null : $request->cookie('device_id') ?? Str::uuid();
 
         $product = Product::findOrFail($request->product_id);
@@ -75,8 +75,8 @@ class CartController extends Controller
         $cart = Cart::findOrFail($id);
 
         if (
-            (auth()->check() && $cart->user_id == auth()->id()) ||
-            (!auth()->check() && $cart->device_id == request()->cookie('device_id'))
+            (Auth::check() && $cart->user_id == Auth::id()) ||
+            (!Auth::check() && $cart->device_id == request()->cookie('device_id'))
         ) {
             $cart->delete();
         }
@@ -85,7 +85,7 @@ class CartController extends Controller
     }
     public function fetchMiniCart()
     {
-        $userId = auth()->id();
+        $userId = Auth::id();
         $deviceId = request()->cookie('device_id');
 
         $carts = Cart::with('product.images')

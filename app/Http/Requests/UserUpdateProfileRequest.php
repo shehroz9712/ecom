@@ -41,7 +41,7 @@ class UserUpdateProfileRequest extends FormRequest
             'contact'     => ['nullable', 'regex:/^\+?[0-9\s\-()]{7,15}$/'],
             'country_id'  => ['required', 'integer', 'exists:countries,id'],
             'state_id'    => ['nullable', 'integer', 'exists:states,id'],
-            'city_id'     => ['nullable', 'integer', 'exists:cities,id'],
+            'city'     => ['nullable', 'string', 'max:255'],
             'address'     => ['nullable', 'string', 'max:255'],
             'zip_code'    => ['nullable', 'string', 'max:50'],
             'job_title'   => ['nullable', 'string', 'max:255'],
