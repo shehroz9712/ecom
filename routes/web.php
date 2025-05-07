@@ -15,6 +15,8 @@ require __DIR__ . '/auth.php';
 
 
 Route::name('user.')->group(function () {
+    Route::post('/ajax/login', [HomeController::class, 'login'])->name('login.ajax');
+    Route::post('/ajax/register', [HomeController::class, 'register'])->name('register.ajax');
 
     route::get('/', [HomeController::class, 'index'])->name('home');
     route::get('/blog', [HomeController::class, 'index'])->name('blog');

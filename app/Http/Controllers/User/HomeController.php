@@ -53,4 +53,13 @@ class HomeController  extends Controller
     {
         return view('user.pages.contact');
     }
+
+
+
+    // login
+
+    public function login()
+    {
+      
+    }
 }

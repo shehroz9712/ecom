@@ -93,7 +93,7 @@
 
                                     <hr class="product-divider">
 
-                                    @if ($product->attributes->where('attribute_id', 1)->count() > 0)
+                                    {{-- @if ($product->attributes->where('attribute_id', 1)->count() > 0)
                                         <div class="product-form product-variation-form product-color-swatch">
                                             <label>Color:</label>
                                             <div class="d-flex align-items-center product-variations">
@@ -115,7 +115,7 @@
                                             </div>
                                             <a href="#" class="product-variation-clean">Clean All</a>
                                         </div>
-                                    @endif
+                                    @endif --}}
 
                                     <div class="product-variation-price">
                                         <span></span>
@@ -123,17 +123,20 @@
 
                                     <div class="fix-bottom product-sticky-content sticky-content">
                                         <div class="product-form container">
-                                            <div class="product-qty-form">
+                                            <div class="product-qty-form" style="margin-top: 10px;">
                                                 <div class="input-group">
                                                     <input class="quantity form-control" type="number" min="1"
-                                                        max="10000000" value="1">
-                                                    <button class="quantity-plus w-icon-plus"></button>
-                                                    <button class="quantity-minus w-icon-minus"></button>
+                                                        max="10000000" value="1"
+                                                        data-product-id="{{ $product->id }}">
+                                                    <button class="quantity-plus w-icon-plus"
+                                                        data-product-id="{{ $product->id }}"></button>
+                                                    <button class="quantity-minus w-icon-minus"
+                                                        data-product-id="{{ $product->id }}"></button>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary btn-cart">
+                                            <button data-product-id="{{ $product->id }}" class="btn btn-primary btn-cart">
                                                 <i class="w-icon-cart"></i>
-                                                <span>Add to Cart</span>
+                                                <span data-product-id="{{ $product->id }}">Add to Cart</span>
                                             </button>
                                         </div>
                                     </div>
@@ -141,22 +144,25 @@
                                     <div class="social-links-wrapper">
                                         <div class="social-links">
                                             <div class="social-icons social-no-color border-thin">
-                                                <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
-                                                <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
-                                                <a href="#"
-                                                    class="social-icon social-pinterest fab fa-pinterest-p"></a>
-                                                <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"></a>
-                                                <a href="#" class="social-icon social-youtube fab fa-linkedin-in"></a>
+                                                <a href="#" class="social-icon social-facebook w-icon-facebook"
+                                                    onclick="shareOnFacebook('{{ route('user.product.detail', $product->slug) }}')"></a>
+                                                <a href="#" class="social-icon social-twitter w-icon-twitter"
+                                                    onclick="shareOnTwitter('{{ $product->name }}', '{{ route('user.product.detail', $product->slug) }}')"></a>
+                                                <a href="#" class="social-icon social-pinterest fab fa-pinterest-p"
+                                                    onclick="shareOnPinterest('{{ $product->name }}', '{{ asset('assets/uploads/products/' . $product->images[0]->image_path) }}', '{{ route('user.product.detail', $product->slug) }}')"></a>
+                                                <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"
+                                                    onclick="shareOnWhatsApp('{{ $product->name }} - {{ route('user.product.detail', $product->slug) }}')"></a>
+                                                <a href="#" class="social-icon social-youtube fab fa-linkedin-in"
+                                                    onclick="shareOnLinkedIn('{{ route('user.product.detail', $product->slug) }}')"></a>
                                             </div>
                                         </div>
                                         <span class="divider d-xs-show"></span>
                                         <div class="product-link-wrapper d-flex">
                                             <a href="#"
                                                 class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
-                                            <a href="#"
-                                                class="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -643,7 +649,7 @@
                             </div>
                         </section>
 
-                   
+
                     </div>
                     <!-- End of Main Content -->
                     <aside class="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
@@ -705,7 +711,7 @@
                                     <div class="title-link-wrapper mb-2">
                                         <h4 class="title title-link font-weight-bold">More Products</h4>
                                     </div>
-                                
+
                                     <div class="owl-carousel owl-theme owl-nav-top"
                                         data-owl-options="{
                                             'nav': true,
@@ -716,40 +722,47 @@
                                         @php
                                             $chunks = $relatedProducts->chunk(3);
                                         @endphp
-                                        
-                                        @foreach($chunks as $chunk)
-                                        <div class="widget-col">
-                                            @foreach($chunk as $product)
-                                            <div class="product product-widget">
-                                                <figure class="product-media">
-                                                    <a href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
-                                                        <img src="{{ asset('assets/uploads/products /' . $product->images->first()->image_path) }}" 
-                                                             alt="{{ $product->name }}" width="100" height="113" />
-                                                    </a>
-                                                </figure>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">
-                                                        <a href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
-                                                            {{ $product->name }}
-                                                        </a>
-                                                    </h4>
-                                                    <div class="ratings-container">
-                                                        <div class="ratings-full">
-                                                            <span class="ratings" style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
-                                                            <span class="tooltiptext tooltip-top">{{ number_format($product->rating, 1) }} out of 5</span>
+
+                                        @foreach ($chunks as $chunk)
+                                            <div class="widget-col">
+                                                @foreach ($chunk as $product)
+                                                    <div class="product product-widget">
+                                                        <figure class="product-media">
+                                                            <a
+                                                                href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
+                                                                <img src="{{ asset('assets/uploads/products /' . $product->images->first()->image_path) }}"
+                                                                    alt="{{ $product->name }}" width="100"
+                                                                    height="113" />
+                                                            </a>
+                                                        </figure>
+                                                        <div class="product-details">
+                                                            <h4 class="product-name">
+                                                                <a
+                                                                    href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
+                                                                    {{ $product->name }}
+                                                                </a>
+                                                            </h4>
+                                                            <div class="ratings-container">
+                                                                <div class="ratings-full">
+                                                                    <span class="ratings"
+                                                                        style="width: {{ ($product->rating / 5) * 100 }}%;"></span>
+                                                                    <span
+                                                                        class="tooltiptext tooltip-top">{{ number_format($product->rating, 1) }}
+                                                                        out of 5</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-price">
+                                                                @if ($product->sale_price && $product->price > $product->sale_price)
+                                                                    ${{ number_format($product->sale_price, 2) }} -
+                                                                    ${{ number_format($product->price, 2) }}
+                                                                @else
+                                                                    ${{ number_format($product->price, 2) }}
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="product-price">
-                                                        @if($product->sale_price && $product->price > $product->sale_price)
-                                                            ${{ number_format($product->sale_price, 2) }} - ${{ number_format($product->price, 2) }}
-                                                        @else
-                                                            ${{ number_format($product->price, 2) }}
-                                                        @endif
-                                                    </div>
-                                                </div>
+                                                @endforeach
                                             </div>
-                                            @endforeach
-                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -789,5 +802,39 @@
                 // Implement your add to cart logic here
             });
         });
+    </script>
+    <script>
+        // Social sharing functions
+        function shareOnFacebook(url) {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url),
+                'facebook-share-dialog', 'width=626,height=436');
+            return false;
+        }
+
+        function shareOnTwitter(text, url) {
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(
+                    url),
+                'twitter-share-dialog', 'width=626,height=436');
+            return false;
+        }
+
+        function shareOnPinterest(description, imageUrl, url) {
+            window.open('https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(url) +
+                '&media=' + encodeURIComponent(imageUrl) + '&description=' + encodeURIComponent(description),
+                'pinterest-share-dialog', 'width=626,height=436');
+            return false;
+        }
+
+        function shareOnWhatsApp(text) {
+            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text),
+                'whatsapp-share-dialog', 'width=626,height=436');
+            return false;
+        }
+
+        function shareOnLinkedIn(url) {
+            window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url),
+                'linkedin-share-dialog', 'width=626,height=436');
+            return false;
+        }
     </script>
 @endpush

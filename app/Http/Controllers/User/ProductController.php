@@ -3,24 +3,38 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
     public function index(Request $request)
     {
-        // Get all categories for sidebar
-        $categories = Category::all();
+        // Get all active categories for sidebar
+        $categories = Category::active()->get();
+        $brands = Brand::active()->get();
 
-        // Start product query
-        $products = Product::query()->with(['category', 'images']);
+        // Start product query with eager loading
+        $products = Product::query()
+            ->with(['category', 'brand', 'images'])
+            ->active()
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating');
 
         // Category filter
         if ($request->has('category')) {
             $products->whereHas('category', function ($query) use ($request) {
                 $query->where('slug', $request->category);
+            });
+        }
+
+        // Brand filter
+        if ($request->has('brand')) {
+            $products->whereHas('brand', function ($query) use ($request) {
+                $query->where('slug', $request->brand);
             });
         }
 
@@ -39,7 +53,7 @@ class ProductController extends Controller
                 $products->orderBy('views', 'desc');
                 break;
             case 'rating':
-                $products->orderBy('average_rating', 'desc');
+                $products->orderBy('reviews_avg_rating', 'desc');
                 break;
             case 'date':
                 $products->orderBy('created_at', 'desc');
@@ -57,12 +71,18 @@ class ProductController extends Controller
 
         // Items per page
         $perPage = $request->get('count', 12);
+        $layout = $request->get('layout', 'grid');
 
         // Paginate results
         $products = $products->paginate($perPage)
-            ->appends($request->except('page'));
+            ->appends($request->query());
 
-        return view('user.products.shop', compact('products', 'categories'));
+        return view('user.products.shop', compact(
+            'products',
+            'categories',
+            'brands',
+            'layout'
+        ));
     }
     public function detail($slug)
     {

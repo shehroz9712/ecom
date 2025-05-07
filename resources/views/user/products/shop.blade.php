@@ -108,16 +108,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Size Filter -->
-                                <div class="widget widget-collapsible">
-                                    <h3 class="widget-title"><span>Size</span></h3>
-                                    <ul class="widget-body filter-items item-check mt-1">
-                                        <li><a href="#">Extra Large</a></li>
-                                        <li><a href="#">Large</a></li>
-                                        <li><a href="#">Medium</a></li>
-                                        <li><a href="#">Small</a></li>
-                                    </ul>
-                                </div>
 
                                 <!-- Brand Filter -->
                                 <div class="widget widget-collapsible">
@@ -133,19 +123,7 @@
                                     </ul>
                                 </div>
 
-                                <!-- Color Filter -->
-                                <div class="widget widget-collapsible">
-                                    <h3 class="widget-title"><span>Color</span></h3>
-                                    <ul class="widget-body filter-items item-check mt-1">
-                                        <li><a href="#">Black</a></li>
-                                        <li><a href="#">Blue</a></li>
-                                        <li><a href="#">Brown</a></li>
-                                        <li><a href="#">Green</a></li>
-                                        <li><a href="#">Grey</a></li>
-                                        <li><a href="#">Orange</a></li>
-                                        <li><a href="#">Yellow</a></li>
-                                    </ul>
-                                </div>
+
                             </div>
                             <!-- End of Sticky Sidebar -->
                         </div>
@@ -163,10 +141,10 @@
                                 </a>
                                 <div class="toolbox-item toolbox-sort select-box text-dark">
                                     <label>Sort By :</label>
-                                    <select name="orderby" class="form-control" onchange="updateSort(this.value)">
+                                    <select name="orderby" class="form-control">
                                         <option value="default"
                                             {{ request('orderby', 'default') == 'default' ? 'selected' : '' }}>Default
-                                            sorting</option>
+                                        </option>
                                         <option value="popularity"
                                             {{ request('orderby') == 'popularity' ? 'selected' : '' }}>Sort by popularity
                                         </option>
@@ -185,8 +163,7 @@
                             </div>
                             <div class="toolbox-right">
                                 <div class="toolbox-item toolbox-show select-box">
-                                    <select name="count" class="form-control"
-                                        onchange="updateItemsPerPage(this.value)">
+                                    <select name="count" class="form-control">
                                         <option value="9" {{ request('count', 12) == 9 ? 'selected' : '' }}>Show 9
                                         </option>
                                         <option value="12" {{ request('count', 12) == 12 ? 'selected' : '' }}>Show 12
@@ -246,102 +223,115 @@
         <!-- End of Page Content -->
     </main>
 @endsection
-@section('js')
+@section('script')
     <!-- JavaScript for Sidebar and Filtering -->
+
     <script>
-        // Toggle sidebar on mobile
-        document.querySelector('.left-sidebar-toggle').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('.sidebar').classList.add('active');
-            document.querySelector('.sidebar-overlay').classList.add('active');
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sort dropdown handler
+            const sortSelect = document.querySelector('select[name="orderby"]');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('orderby', this.value);
+                    url.searchParams.delete('page');
+                    window.location.href = url.toString();
+                });
+            }
 
-        // Close sidebar
-        document.querySelector('.sidebar-close').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('.sidebar').classList.remove('active');
-            document.querySelector('.sidebar-overlay').classList.remove('active');
-        });
+            // Items per page handler
+            const countSelect = document.querySelector('select[name="count"]');
+            if (countSelect) {
+                countSelect.addEventListener('change', function() {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('count', this.value);
+                    url.searchParams.delete('page');
+                    window.location.href = url.toString();
+                });
+            }
 
-        // Close sidebar when clicking overlay
-        document.querySelector('.sidebar-overlay').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.remove('active');
-            this.classList.remove('active');
-        });
-
-        // Update sort option
-        function updateSort(sortValue) {
-            const url = new URL(window.location.href);
-            url.searchParams.set('orderby', sortValue);
-            window.location.href = url.toString();
-        }
-
-        // Update items per page
-        function updateItemsPerPage(count) {
-            const url = new URL(window.location.href);
-            url.searchParams.set('count', count);
-            window.location.href = url.toString();
-        }
-
-        // Price range links
-        document.querySelectorAll('.filter-items.search-ul li a').forEach(link => {
-            link.addEventListener('click', function(e) {
+            // Toggle sidebar on mobile
+            document.querySelector('.left-sidebar-toggle')?.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.location.href = this.href;
+                document.querySelector('.sidebar').classList.add('active');
+                document.querySelector('.sidebar-overlay').classList.add('active');
             });
-        });
 
-        // Add to cart
-        $(document).on('click', '.btn-cart', function(e) {
-            e.preventDefault();
-            const productId = $(this).data('product-id');
-
-            $.ajax({
-                url: '/cart/add',
-                method: 'POST',
-                data: {
-                    product_id: productId,
-                    quantity: 1,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    updateCartCount(response.cartCount);
-                    showToast('Product added to cart');
-                }
+            // Close sidebar
+            document.querySelector('.sidebar-close')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.sidebar').classList.remove('active');
+                document.querySelector('.sidebar-overlay').classList.remove('active');
             });
-        });
 
-        // Quick view
-        $(document).on('click', '.btn-quickview', function(e) {
-            e.preventDefault();
-            const productId = $(this).data('product-id');
-
-            $.get('/products/quick-view/' + productId, function(response) {
-                $('#quickViewModal .modal-body').html(response);
-                $('#quickViewModal').modal('show');
+            // Close sidebar when clicking overlay
+            document.querySelector('.sidebar-overlay')?.addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.remove('active');
+                this.classList.remove('active');
             });
-        });
 
-        // Wishlist
-        $(document).on('click', '.btn-wishlist', function(e) {
-            e.preventDefault();
-            const productId = $(this).data('product-id');
+            // Price range links
+            document.querySelectorAll('.filter-items.search-ul li a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = this.href;
+                });
+            });
 
-            $.ajax({
-                url: '/wishlist/toggle',
-                method: 'POST',
-                data: {
-                    product_id: productId,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    if (response.added) {
-                        showToast('Product added to wishlist');
-                    } else {
-                        showToast('Product removed from wishlist');
+            // Add to cart
+            $(document).on('click', '.btn-cart', function(e) {
+                e.preventDefault();
+                const productId = $(this).data('product-id');
+
+                $.ajax({
+                    url: '/cart/add',
+                    method: 'POST',
+                    data: {
+                        product_id: productId,
+                        quantity: 1,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        updateCartCount(response.cartCount);
+                        showToast('Product added to cart');
                     }
-                }
+                });
+            });
+
+            // Quick view
+            $(document).on('click', '.btn-quickview', function(e) {
+                e.preventDefault();
+                const productId = $(this).data('product-id');
+
+                $.get('/products/quick-view/' + productId, function(response) {
+                    $('#quickViewModal .modal-body').html(response);
+                    $('#quickViewModal').modal('show');
+                });
+            });
+
+            // Wishlist
+            $(document).on('click', '.btn-wishlist', function(e) {
+                e.preventDefault();
+                const productId = $(this).data('product-id');
+
+                $.ajax({
+                    url: '/wishlist/toggle',
+                    method: 'POST',
+                    data: {
+                        product_id: productId,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.added) {
+                            showToast('Product added to wishlist');
+                        } else {
+                            showToast('Product removed from wishlist');
+                        }
+                    }
+                });
             });
         });
+
+        // Make sure these are defined globally if used elsewhere
     </script>
 @endsection
