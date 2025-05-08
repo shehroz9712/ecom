@@ -15,45 +15,147 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="sign-in">
-                                <div class="form-group">
-                                    <label>Username or email address *</label>
-                                    <input type="text" class="form-control" name="username" id="username" required>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <label>Password *</label>
-                                    <input type="text" class="form-control" name="password" id="password" required>
-                                </div>
-                                <div class="form-checkbox d-flex align-items-center justify-content-between">
-                                    <input type="checkbox" class="custom-checkbox" id="remember"  {{ old('remember') ? 'checked' : '' }}> name="remember"
-                                        required="">
-                                    <label for="remember">Remember me</label>
-                                    <a href="#">Last your password?</a>
-                                </div>
-                                <a href="#" class=" mt-2 btn btn-primary">Sign In</a>
+                            <div class="tab-pane active" id="sign-in">`
+                                <form method="POST" action="{{ route(name: 'user.login') }}" class="theme-form login-form">
+                                    @csrf
+                                    <div class="form-group mb-2">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div><!--end form-group-->
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="userpassword">Password</label>
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            required autocomplete="current-password">
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div><!--end form-group-->
+
+                                    <div class="mt-3 form-checkbox d-flex align-items-center justify-content-between">
+                                        <input type="checkbox" class="custom-checkbox" id="remember"
+                                            {{ old('remember') ? 'checked' : '' }} name="remember">
+                                        <label for="remember">Remember me</label>
+                                        <a href="#">Last your password?</a>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Sign In</button>
+                                </form>
                             </div>
                             <div class="tab-pane" id="sign-up">
-                                <div class="form-group">
-                                    <label>Your Email address *</label>
-                                    <input type="text" class="form-control" name="email_1" id="email_1" required>
-                                </div>
-                                <div class="form-group mb-5">
-                                    <label>Password *</label>
-                                    <input type="text" class="form-control" name="password_1" id="password_1" required>
-                                </div>
-                                <p>Your personal data will be used to support your experience
-                                    throughout this website, to manage access to your account,
-                                    and for other purposes described in our <a href="#" class="text-primary">privacy
-                                        policy</a>.
-                                </p>
-                                <a href="#" class="d-block mb-5 text-primary">Signup as a vendor?</a>
-                                <div class="form-checkbox d-flex align-items-center justify-content-between mb-5">
-                                    <input type="checkbox" class="custom-checkbox" id="agree" name="agree"
-                                        required="">
-                                    <label for="agree" class="font-size-md">I agree to the <a href="#"
-                                            class="text-primary font-size-md">privacy policy</a></label>
-                                </div>
-                                <a href="#" class="mt-2 btn btn-primary">Sign Up</a>
+                                <form method="POST" action="{{ route('user.register.store') }}" class="theme-form login-form">
+                                    @csrf
+                                    <!-- Personal Information -->
+                                    <div class="form-group mb-2">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input id="username" type="text"
+                                            class="form-control @error('username') is-invalid @enderror" name="username"
+                                            value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                        @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-2">
+                                                <label class="form-label" for="first_name">First Name</label>
+                                                <input id="first_name" type="text"
+                                                    class="form-control @error('first_name') is-invalid @enderror"
+                                                    name="first_name" value="{{ old('first_name') }}" required>
+                                                @error('first_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-2">
+                                                <label class="form-label" for="last_name">Last Name</label>
+                                                <input id="last_name" type="text"
+                                                    class="form-control @error('last_name') is-invalid @enderror"
+                                                    name="last_name" value="{{ old('last_name') }}" required>
+                                                @error('last_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Contact Information -->
+                                    <div class="form-group mb-2">
+                                        <label class="form-label" for="email">Email Address</label>
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group mb-2">
+                                        <label class="form-label" for="mobile_number">Mobile Number</label>
+                                        <input id="mobile_number" type="tel"
+                                            class="form-control @error('mobile_number') is-invalid @enderror"
+                                            name="mobile_number" value="{{ old('mobile_number') }}">
+                                        @error('mobile_number')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Security -->
+                                    <div class="form-group mb-2">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            required>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="password-confirm">Confirm Password</label>
+                                        <input id="password-confirm" type="password" class="form-control"
+                                            name="password_confirmation" required>
+                                    </div>
+
+                                    <!-- Terms Agreement -->
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the <a href="#">Terms and Conditions</a>
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100">Register</button>
+
+                                    <div class="text-center mt-3">
+                                        <p>Already have an account? <a href="{{ route('user.login') }}">Login here</a></p>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <p class="text-center">Sign in with social account</p>
