@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attribute extends Model
 {
+    protected $guarded = [];
     use HasFactory;
     public function values()
     {

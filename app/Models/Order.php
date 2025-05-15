@@ -14,44 +14,11 @@ class Order extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
 
-    protected $fillable = [
-        'invoice_number',
-        'currency',
-        'discount_amount',
-        'tax_amount',
-        'tax_type',
-        'fees_amount',
-        'subtotal',
-        'total_amount',
-        'description',
-        'payment_type',
-        'card_number',
-        'card_name',
-        'card_holder_email',
-        'address',
-        'postal_code',
-        'city',
-        'state',
-        'country',
-        'decline_issue',
-        'coupon_code',
-        'coupon_discount_percent',
-        'used_coins',
-        'is_coins',
-        'template_id',
-        'is_resume_template',
-        'is_cover_template',
-        'user_id',
-        'status',
-        'created_by',
-        'updated_by',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'status' => Status::class,
     ];
-
-    protected $guarded = [];
     protected $appends = ['creator_name', 'editor_name'];
 
     public static function allowedColumns(): array

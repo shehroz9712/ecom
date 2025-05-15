@@ -13,7 +13,8 @@ class Slider extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
 
-    protected $fillable = ['id', 'created_by', 'created_at', 'updated_by', 'updated_at']; // Replace with actual column names
+ 
+    protected $guarded = [];
 
     public static function allowedColumns(): array
     {

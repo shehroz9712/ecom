@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class SubCategoryItem extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
+
+    protected $guarded = [];
     protected $casts = [
         'status' => Status::class,
     ];

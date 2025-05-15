@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShopifyImportController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductController;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+Route::get('/import-shopify', [ShopifyImportController::class, 'import'])->name('shopify.import');
 
 require __DIR__ . '/auth.php';
 
