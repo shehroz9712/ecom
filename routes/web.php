@@ -12,11 +12,12 @@ use Illuminate\Http\Request;
 
 Route::get('/import-shopify', [ShopifyImportController::class, 'import'])->name('shopify.import');
 
-require __DIR__ . '/auth.php';
 
 
 
 Route::name('user.')->group(function () {
+    require __DIR__ . '/auth.php';
+
     Route::post('/ajax/login', [HomeController::class, 'login'])->name('login.ajax');
     Route::post('/ajax/register', [HomeController::class, 'register'])->name('register.ajax');
 

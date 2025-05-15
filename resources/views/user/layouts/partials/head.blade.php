@@ -54,5 +54,13 @@
         .main {
             margin-top: 3rem !important;
         }
+
+        .btn {
+            border-radius: 10px !important;
+        }
+
+        .invalid-feedback {
+            color: red !important;
+        }
     </style>
 </head>
