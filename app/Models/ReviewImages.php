@@ -13,8 +13,6 @@ class ReviewImages extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
     protected $fillable = ['id', 'image', 'created_at', 'review_id', 'updated_at']; // Replace with actual column names
 
 

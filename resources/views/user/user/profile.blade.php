@@ -11,7 +11,7 @@
                         <li class="nav-item">
                             <a href="#account-orders" class="nav-link">Orders</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="#account-addresses" class="nav-link">Addresses</a>
                         </li>
@@ -35,7 +35,7 @@
                                 <span class="text-dark font-weight-bold">{{ Auth::user()->name }}</span>
                                 (not
                                 <span class="text-dark font-weight-bold">{{ Auth::user()->name }}</span>?
-                                <a href="{{ route('user.logout') }}" class="text-primary"
+                                <a href="{{ route('logout') }}" class="text-primary"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Log out
                                 </a>)
@@ -63,7 +63,7 @@
                                         </div>
                                     </a>
                                 </div>
-                               
+
                                 <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
                                     <a href="#account-addresses" class="link-to-tab">
                                         <div class="icon-box text-center">
@@ -152,8 +152,7 @@
                                                     <span
                                                         class="order-price">{{ formatCurrency($order->total_amount) }}</span>
                                                     for
-                                                    <span
-                                                        class="order-quantity">{{ $order->items->sum('quantity') }}</span>
+                                                    <span class="order-quantity">{{ $order->items->sum('quantity') }}</span>
                                                     items
                                                 </td>
                                                 <td class="order-action">
@@ -174,6 +173,7 @@
                         </div>
 
                         <!-- Addresses Tab -->
+                        <!-- Addresses Tab -->
                         <div class="tab-pane" id="account-addresses">
                             <div class="icon-box icon-box-side icon-box-light">
                                 <span class="icon-box-icon icon-map-marker">
@@ -192,175 +192,70 @@
                             @endif
 
                             <div class="row">
+                                <!-- Billing Address Section -->
                                 <div class="col-sm-6 mb-6">
                                     <div class="ecommerce-address billing-address pr-lg-8">
-                                        <h4 class="title title-underline ls-25 font-weight-bold">Billing Address</h4>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h4 class="title title-underline ls-25 font-weight-bold">Billing Address</h4>
+                                            <button class="btn btn-sm btn-primary toggle-address-form"
+                                                data-type="billing">
+                                                {{ $billingAddress ? 'Edit' : 'Add' }} Billing Address
+                                            </button>
+                                        </div>
 
-                                        @php
-                                            $billingAddress = auth()
-                                                ->user()
-                                                ->addresses()
-                                                ->where('type', 'billing')
-                                                ->where('is_default', true)
-                                                ->first();
-                                        @endphp
+                                        <!-- Billing Address Display -->
+                                        <div id="billing-address-display">
+                                            @if ($billingAddress)
+                                                <address class="mb-4">
+                                                    <!-- Display existing address as before -->
+                                                </address>
+                                            @else
+                                                <p>No default billing address set.</p>
+                                            @endif
+                                        </div>
 
-                                        @if ($billingAddress)
-                                            <address class="mb-4">
-                                                <table class="address-table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th>Name:</th>
-                                                            <td>{{ $billingAddress->full_name }}</td>
-                                                        </tr>
-                                                        @if ($billingAddress->company)
-                                                            <tr>
-                                                                <th>Company:</th>
-                                                                <td>{{ $billingAddress->company }}</td>
-                                                            </tr>
-                                                        @endif
-                                                        <tr>
-                                                            <th>Address:</th>
-                                                            <td>{{ $billingAddress->address_line_1 }}</td>
-                                                        </tr>
-                                                        @if ($billingAddress->address_line_2)
-                                                            <tr>
-                                                                <th>&nbsp;</th>
-                                                                <td>{{ $billingAddress->address_line_2 }}</td>
-                                                            </tr>
-                                                        @endif
-                                                        <tr>
-                                                            <th>City:</th>
-                                                            <td>{{ $billingAddress->city }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>State:</th>
-                                                            <td>{{ $billingAddress->state }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Country:</th>
-                                                            <td>{{ $billingAddress->country }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Postcode:</th>
-                                                            <td>{{ $billingAddress->postcode }}</td>
-                                                        </tr>
-                                                        @if ($billingAddress->phone)
-                                                            <tr>
-                                                                <th>Phone:</th>
-                                                                <td>{{ $billingAddress->phone }}</td>
-                                                            </tr>
-                                                        @endif
-                                                    </tbody>
-                                                </table>
-                                            </address>
-                                        @else
-                                            <p>No default billing address set.</p>
-                                        @endif
-
-                                        <a href="{{ route('user.addresses.create', ['type' => 'billing']) }}"
-                                            class="btn btn-link btn-underline btn-icon-right text-primary">
-                                            {{ $billingAddress ? 'Edit your billing address' : 'Add billing address' }}
-                                            <i class="w-icon-long-arrow-right"></i>
-                                        </a>
-
-                                        @if (auth()->user()->addresses()->where('type', 'billing')->count() > 1)
-                                            <a href="{{ route('user.addresses.index', ['type' => 'billing']) }}"
-                                                class="btn btn-link btn-underline btn-icon-right text-primary mt-2">
-                                                Manage billing addresses
-                                                <i class="w-icon-long-arrow-right"></i>
-                                            </a>
-                                        @endif
+                                        <!-- Billing Address Form (Initially Hidden) -->
+                                        <div id="billing-address-form" style="display: none;">
+                                            @include('user.account.partials.address-form', [
+                                                'type' => 'billing',
+                                                'address' => $billingAddress,
+                                            ])
+                                        </div>
                                     </div>
                                 </div>
 
+                                <!-- Shipping Address Section -->
                                 <div class="col-sm-6 mb-6">
                                     <div class="ecommerce-address shipping-address pr-lg-8">
-                                        <h4 class="title title-underline ls-25 font-weight-bold">Shipping Address</h4>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h4 class="title title-underline ls-25 font-weight-bold">Shipping Address</h4>
+                                            <button class="btn btn-sm btn-primary toggle-address-form"
+                                                data-type="shipping">
+                                                {{ $shippingAddress ? 'Edit' : 'Add' }} Shipping Address
+                                            </button>
+                                        </div>
 
-                                        @php
-                                            $shippingAddress = auth()
-                                                ->user()
-                                                ->addresses()
-                                                ->where('type', 'shipping')
-                                                ->where('is_default', true)
-                                                ->first();
-                                        @endphp
+                                        <!-- Shipping Address Display -->
+                                        <div id="shipping-address-display">
+                                            @if ($shippingAddress)
+                                                <address class="mb-4">
+                                                    <!-- Display existing address as before -->
+                                                </address>
+                                            @else
+                                                <p>No default shipping address set.</p>
+                                            @endif
+                                        </div>
 
-                                        @if ($shippingAddress)
-                                            <address class="mb-4">
-                                                <table class="address-table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th>Name:</th>
-                                                            <td>{{ $shippingAddress->full_name }}</td>
-                                                        </tr>
-                                                        @if ($shippingAddress->company)
-                                                            <tr>
-                                                                <th>Company:</th>
-                                                                <td>{{ $shippingAddress->company }}</td>
-                                                            </tr>
-                                                        @endif
-                                                        <tr>
-                                                            <th>Address:</th>
-                                                            <td>{{ $shippingAddress->address_line_1 }}</td>
-                                                        </tr>
-                                                        @if ($shippingAddress->address_line_2)
-                                                            <tr>
-                                                                <th>&nbsp;</th>
-                                                                <td>{{ $shippingAddress->address_line_2 }}</td>
-                                                            </tr>
-                                                        @endif
-                                                        <tr>
-                                                            <th>City:</th>
-                                                            <td>{{ $shippingAddress->city }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>State:</th>
-                                                            <td>{{ $shippingAddress->state }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Country:</th>
-                                                            <td>{{ $shippingAddress->country }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Postcode:</th>
-                                                            <td>{{ $shippingAddress->postcode }}</td>
-                                                        </tr>
-                                                        @if ($shippingAddress->phone)
-                                                            <tr>
-                                                                <th>Phone:</th>
-                                                                <td>{{ $shippingAddress->phone }}</td>
-                                                            </tr>
-                                                        @endif
-                                                    </tbody>
-                                                </table>
-                                            </address>
-                                        @else
-                                            <p>No default shipping address set.</p>
-                                        @endif
-
-                                        <a href="{{ route('user.addresses.create', ['type' => 'shipping']) }}"
-                                            class="btn btn-link btn-underline btn-icon-right text-primary">
-                                            {{ $shippingAddress ? 'Edit your shipping address' : 'Add shipping address' }}
-                                            <i class="w-icon-long-arrow-right"></i>
-                                        </a>
-
-                                        @if (auth()->user()->addresses()->where('type', 'shipping')->count() > 1)
-                                            <a href="{{ route('user.addresses.index', ['type' => 'shipping']) }}"
-                                                class="btn btn-link btn-underline btn-icon-right text-primary mt-2">
-                                                Manage shipping addresses
-                                                <i class="w-icon-long-arrow-right"></i>
-                                            </a>
-                                        @endif
+                                        <!-- Shipping Address Form (Initially Hidden) -->
+                                        <div id="shipping-address-form" style="display: none;">
+                                            @include('user.account.partials.address-form', [
+                                                'type' => 'shipping',
+                                                'address' => $shippingAddress,
+                                            ])
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Orders table remains the same -->
-                            <table class="shop-table account-orders-table mb-6">
-                                <!-- ... existing orders table code ... -->
-                            </table>
                         </div>
 
                         <!-- Account Details Tab -->
@@ -438,4 +333,50 @@
             </div>
         </div>
     </main>
+@endsection
+@section('js')
+<script>
+    $(document).ready(function() {
+        // Toggle address forms
+        $('.toggle-address-form').click(function() {
+            const type = $(this).data('type');
+            $(`#${type}-address-display`).hide();
+            $(`#${type}-address-form`).show();
+        });
+
+        // Cancel button
+        $(document).on('click', '.cancel-address-form', function() {
+            const type = $(this).data('type');
+            $(`#${type}-address-form`).hide();
+            $(`#${type}-address-display`).show();
+        });
+
+        // Handle form submission
+        $('form[id$="-address-form"]').on('submit', function(e) {
+            e.preventDefault();
+            const form = $(this);
+            const type = form.find('input[name="type"]').val();
+
+            $.ajax({
+                url: form.attr('action'),
+                method: form.attr('method'),
+                data: form.serialize(),
+                success: function(response) {
+                    // Refresh the address display
+                    $(`#${type}-address-display`).load(location.href +
+                        ` #${type}-address-display > *`);
+                    $(`#${type}-address-form`).hide();
+                    $(`#${type}-address-display`).show();
+
+                    // Show success message
+                    alert('Address saved successfully');
+                },
+                error: function(xhr) {
+                    // Handle errors
+                    alert('An error occurred: ' + xhr.responseJSON.message);
+                }
+            });
+        });
+    });
+</script>
 @endsection

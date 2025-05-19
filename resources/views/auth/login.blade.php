@@ -16,7 +16,7 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="sign-in">`
-                                <form method="POST" action="{{ route(name: 'user.login') }}" class="theme-form login-form">
+                                <form method="POST" action="{{ route(name: 'login') }}" class="theme-form login-form">
                                     @csrf
                                     <div class="form-group mb-2">
                                         <label class="form-label" for="username">Username</label>
@@ -54,14 +54,15 @@
                                 </form>
                             </div>
                             <div class="tab-pane" id="sign-up">
-                                <form method="POST" action="{{ route('user.register.store') }}" class="theme-form login-form">
+                                <form method="POST" action="{{ route('register.store') }}"
+                                    class="theme-form login-form">
                                     @csrf
                                     <!-- Personal Information -->
                                     <div class="form-group mb-2">
-                                        <label class="form-label" for="name">Username</label>
+                                        <label class="form-label" for="name">User name</label>
                                         <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="username"
-                                            value="{{ old('name') }}" required autocomplete="username" autofocus>
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -69,34 +70,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group mb-2">
-                                                <label class="form-label" for="first_name">First Name</label>
-                                                <input id="first_name" type="text"
-                                                    class="form-control @error('first_name') is-invalid @enderror"
-                                                    name="first_name" value="{{ old('first_name') }}" required>
-                                                @error('first_name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group mb-2">
-                                                <label class="form-label" for="last_name">Last Name</label>
-                                                <input id="last_name" type="text"
-                                                    class="form-control @error('last_name') is-invalid @enderror"
-                                                    name="last_name" value="{{ old('last_name') }}" required>
-                                                @error('last_name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                     <!-- Contact Information -->
                                     <div class="form-group mb-2">
@@ -111,17 +85,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-group mb-2">
-                                        <label class="form-label" for="mobile_number">Mobile Number</label>
-                                        <input id="mobile_number" type="tel"
-                                            class="form-control @error('mobile_number') is-invalid @enderror"
-                                            name="mobile_number" value="{{ old('mobile_number') }}">
-                                        @error('mobile_number')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+
 
                                     <!-- Security -->
                                     <div class="form-group mb-2">
@@ -153,7 +117,7 @@
                                     <button type="submit" class="btn btn-primary w-100">Register</button>
 
                                     <div class="text-center mt-3">
-                                        <p>Already have an account? <a href="{{ route('user.login') }}">Login here</a></p>
+                                        <p>Already have an account? <a href="{{ route('login') }}">Login here</a></p>
                                     </div>
                                 </form>
                             </div>

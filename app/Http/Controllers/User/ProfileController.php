@@ -16,7 +16,6 @@ class ProfileController extends Controller
 
     public function index()
     {
-        dd(Auth::user());
         $user = Auth::user();
         $orders = Order::where('user_id', $user->id)->get();
         return view('user.user.profile', compact('user', 'orders'));

@@ -25,10 +25,10 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SliderSeeder::class,
             BrandSeeder::class,
-            // AttributeSeeder::class,
-            // ProductSeeder::class,
-            // ReviewSeeder::class,
-            // ReviewImageSeeder::class,
+            AttributeSeeder::class,
+            ProductSeeder::class,
+            ReviewSeeder::class,
+            ReviewImageSeeder::class,
             VendorTableSeeder::class,
         ]);
     }

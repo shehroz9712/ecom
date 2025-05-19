@@ -19,8 +19,7 @@
                     data-product-id="{{ $product->id }}"></a>
                 <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quickview"
                     data-product-slug="{{ $product->slug }}"></a>
-                <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"
-                    data-product-id="{{ $product->id }}"></a>
+
             </div>
             @if ($product->discount > 0)
                 <div class="product-label-group">
@@ -52,5 +51,4 @@
     </div>
 </div>
 @section('script')
-   
 @endsection

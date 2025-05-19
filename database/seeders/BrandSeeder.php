@@ -14,7 +14,7 @@ class BrandSeeder extends Seeder
     public function run(): void
     {
         Brand::create([
-            'name' => 'Default',
+            'name' => 'Electro',
             'logo' => 'brand/brand-1.jpg',
             'updated_by' => 1,
             'created_by' => 1,

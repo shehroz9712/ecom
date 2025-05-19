@@ -13,7 +13,7 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="sign-in">
-                    <form method="POST" action="{{ route(name: 'user.login') }}" class="theme-form login-form">
+                    <form method="POST" action="{{ route(name: 'login') }}" class="theme-form login-form">
                         @csrf
                         <div class="form-group">
                             <label>Username or email address *</label>

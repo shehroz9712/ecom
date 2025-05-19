@@ -36,64 +36,64 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
 
-        $apiResponseObject = new BaseController();
+        // $apiResponseObject = new BaseController();
 
-        if ($request->expectsJson()) {
-            if ($exception instanceof MethodNotAllowedHttpException) {
-                return $apiResponseObject->respondMethodNotAllowed(
-                    [$exception->getMessage()],
-                    false,
-                    'Method Not Allowed!'
-                );
-            }
+        // if ($request->expectsJson()) {
+        //     if ($exception instanceof MethodNotAllowedHttpException) {
+        //         return $apiResponseObject->respondMethodNotAllowed(
+        //             [$exception->getMessage()],
+        //             false,
+        //             'Method Not Allowed!'
+        //         );
+        //     }
 
-            if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
-                return $apiResponseObject->respondNotFound(
-                    [$exception->getMessage()],
-                    false,
-                    'Not Found!'
-                );
-            }
-            if ($exception instanceof AuthorizationException || $exception instanceof AccessDeniedHttpException) {
-                return $apiResponseObject->respondForbidden(
-                    [$exception->getMessage()],
-                    false,
-                    'Forbidden!'
-                );
-            }
+        //     if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
+        //         return $apiResponseObject->respondNotFound(
+        //             [$exception->getMessage()],
+        //             false,
+        //             'Not Found!'
+        //         );
+        //     }
+        //     if ($exception instanceof AuthorizationException || $exception instanceof AccessDeniedHttpException) {
+        //         return $apiResponseObject->respondForbidden(
+        //             [$exception->getMessage()],
+        //             false,
+        //             'Forbidden!'
+        //         );
+        //     }
 
-            if ($exception instanceof ValidationException) {
-                return $apiResponseObject->respondUnprocessableEntity(
-                    $exception->errors(),
-                    false,
-                    'Validation Failed!'
-                );
-            }
+        //     if ($exception instanceof ValidationException) {
+        //         return $apiResponseObject->respondUnprocessableEntity(
+        //             $exception->errors(),
+        //             false,
+        //             'Validation Failed!'
+        //         );
+        //     }
 
-            if ($exception instanceof ThrottleRequestsException) {
-                return $apiResponseObject->respondToManyAttempt(
-                    [$exception->getMessage()],
-                    false,
-                    'Too Many Requests!'
-                );
-            }
+        //     if ($exception instanceof ThrottleRequestsException) {
+        //         return $apiResponseObject->respondToManyAttempt(
+        //             [$exception->getMessage()],
+        //             false,
+        //             'Too Many Requests!'
+        //         );
+        //     }
 
-            if ($exception instanceof AuthorizationException) {
-                return $apiResponseObject->respondForbidden(
-                    ['error' => 'You do not have permission to perform this action.'],
-                    false,
-                    'Forbidden'
-                );
-            }
+        //     if ($exception instanceof AuthorizationException) {
+        //         return $apiResponseObject->respondForbidden(
+        //             ['error' => 'You do not have permission to perform this action.'],
+        //             false,
+        //             'Forbidden'
+        //         );
+        //     }
 
-            if ($exception instanceof AuthenticationException) {
-                return $apiResponseObject->respondUnauthorized(
-                    [],
-                    false,
-                    'Unauthorized!'
-                );
-            }
-        }
+        //     if ($exception instanceof AuthenticationException) {
+        //         return $apiResponseObject->respondUnauthorized(
+        //             [],
+        //             false,
+        //             'Unauthorized!'
+        //         );
+        //     }
+        // }
 
         //dd($request->all());
         return parent::render($request, $exception);
@@ -112,5 +112,6 @@ class Handler extends ExceptionHandler
                 'errors' => ['error' => ['Unauthorized']]
             ], 401);
         }
+        return redirect()->route('login')->with('message', 'You must be logged in to access this page.');
     }
 }

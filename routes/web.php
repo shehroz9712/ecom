@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ShopifyImportController;
 use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
@@ -11,13 +10,10 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-Route::get('/import-shopify', [ShopifyImportController::class, 'import'])->name('shopify.import');
+require __DIR__ . '/auth.php';
 
-
-
-// Public routes (no authentication needed)
+// Public routes (no authentication needed)LoginRequest
 Route::name('user.')->group(function () {
-    require __DIR__ . '/auth.php';
 
     // AJAX routes
     Route::post('/ajax/login', [HomeController::class, 'login'])->name('login.ajax');
@@ -43,7 +39,7 @@ Route::name('user.')->group(function () {
     Route::get('/cart/mini', [CartController::class, 'fetchMiniCart'])->name('cart.mini');
     Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
     Route::delete('/remove-cart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
-   
+
     // Search and deals
     Route::get('/search', [HomeController::class, 'index'])->name('search');
     Route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');
@@ -53,6 +49,7 @@ Route::name('user.')->group(function () {
 // Authenticated user routes
 Route::middleware(['auth'])->name('user.')->group(function () {
     // Dashboard
+    Route::get('/reviews/store', [HomeController::class, 'index'])->name('reviews.store');
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
     // Profile routes
@@ -67,7 +64,7 @@ Route::middleware(['auth'])->name('user.')->group(function () {
     Route::post('/order/track/check', [HomeController::class, 'index'])->name('order.track.check');
 
     // Cart management
-  Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
     // Wishlist
     Route::get('/wishlist', [HomeController::class, 'index'])->name('wishlist');
