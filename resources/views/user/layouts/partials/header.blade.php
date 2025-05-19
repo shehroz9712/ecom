@@ -7,13 +7,18 @@
                     <div class="header-right">
                         <a href="{{ route('user.blog') }}" class="d-lg-show">Blog</a>
                         <a href="{{ route('user.contact') }}" class="d-lg-show">Contact Us</a>
-                        <a href="{{ route('user.profile') }}" class="d-lg-show">My Account</a>
-                        <a href="{{ asset('assets/user/ajax/login.html') }}" class="d-lg-show login sign-in"><i
-                                class="w-icon-account"></i>Sign In</a>
-                        <span class="delimiter d-lg-show">/</span>
-                        <a href="{{ asset('assets/user/ajax/login.html') }}"
-                            class="ml-0 d-lg-show login register">Register</a>
+
+                        @auth
+                            <a href="{{ route('user.profile') }}" class="d-lg-show">My Account</a>
+                        @else
+                            <a href="{{ route('user.login') }}" class="d-lg-show  ">
+                                <i class="w-icon-account"></i>Sign In
+                            </a>
+                            <span class="delimiter d-lg-show">/</span>
+                            <a href="{{ route('user.login') }}" class="ml-0 d-lg-show  ">Register</a>
+                        @endauth
                     </div>
+
                 </div>
             </div>
             <!-- End of Header Top -->

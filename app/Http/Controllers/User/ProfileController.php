@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,15 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+
+    public function index()
+    {
+        dd(Auth::user());
+        $user = Auth::user();
+        $orders = Order::where('user_id', $user->id)->get();
+        return view('user.user.profile', compact('user', 'orders'));
+    }
+
     /**
      * Display the user's profile form.
      */

@@ -62,7 +62,7 @@
 
                         </li>
                         <li>
-                            <a href="{{ route('user.vendor') }}">Vendor</a>
+                            <a href="{{ route('user.vendors.index') }}">Vendor</a>
 
                         </li>
                         <li>

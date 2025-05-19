@@ -58,11 +58,11 @@
                                     @csrf
                                     <!-- Personal Information -->
                                     <div class="form-group mb-2">
-                                        <label class="form-label" for="username">Username</label>
-                                        <input id="username" type="text"
-                                            class="form-control @error('username') is-invalid @enderror" name="username"
-                                            value="{{ old('username') }}" required autocomplete="username" autofocus>
-                                        @error('username')
+                                        <label class="form-label" for="name">Username</label>
+                                        <input id="name" type="text"
+                                            class="form-control @error('name') is-invalid @enderror" name="username"
+                                            value="{{ old('name') }}" required autocomplete="username" autofocus>
+                                        @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

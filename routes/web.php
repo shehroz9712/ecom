@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ShopifyImportController;
+use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductController;
@@ -14,79 +15,80 @@ Route::get('/import-shopify', [ShopifyImportController::class, 'import'])->name(
 
 
 
-
+// Public routes (no authentication needed)
 Route::name('user.')->group(function () {
     require __DIR__ . '/auth.php';
 
+    // AJAX routes
     Route::post('/ajax/login', [HomeController::class, 'login'])->name('login.ajax');
     Route::post('/ajax/register', [HomeController::class, 'register'])->name('register.ajax');
 
-    route::get('/', [HomeController::class, 'index'])->name('home');
-    route::get('/blog', [HomeController::class, 'index'])->name('blog');
-    route::get('/shop', [HomeController::class, 'index'])->name('shop');
-    route::get('/about', [HomeController::class, 'index'])->name('about');
-    route::get('/review/store', [HomeController::class, 'index'])->name('reviews.store');
+    // Home and static pages
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/about', [HomeController::class, 'index'])->name('about');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
+    Route::get('/blog', [HomeController::class, 'index'])->name('blog');
 
+    // Product routes
+    Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+    Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('product.detail');
 
-    route::get('/shop', [ProductController::class, 'index'])->name('shop');
-    route::get('/product/{slug}', [ProductController::class, 'detail'])->name('product.detail');
+    // Vendor routes
+    Route::get('/vendor/{slug}', [VendorController::class, 'detail'])->name('vendor.detail');
+    Route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');
 
-    route::get('/vendor/{slug}', [VendorController::class, 'detail'])->name('vendor.detail');
-    route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');
-
-
-    route::Post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-    route::delete('/remove-cart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
-    route::get('/cart', [CartController::class, 'index'])->name('cart');
-    route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    // Cart routes (some may need auth later)
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/cart/mini', [CartController::class, 'fetchMiniCart'])->name('cart.mini');
-
-
-    route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');
-    route::get('/order/track', [HomeController::class, 'index'])->name('order.track');
-    route::post('/order/track/check', [HomeController::class, 'index'])->name('order.track.check');
-
-    route::get('/search', [HomeController::class, 'index'])->name('search');
-    route::get('/order', [HomeController::class, 'index'])->name('order');
-    route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
-    route::get('/order/track', [HomeController::class, 'index'])->name('order.track');
-    route::get('/blog', [HomeController::class, 'index'])->name('blog');
-
-    route::get('/compare', [HomeController::class, 'index'])->name('compare');
-    route::get('/vendor', [HomeController::class, 'index'])->name('vendor');
-
-
-    route::get('/wishlist', [HomeController::class, 'index'])->name('wishlist');
-
-    route::get('/profile', [HomeController::class, 'index'])->name('profile');
-
-    route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-    route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
-
-    Route::get('/account', [ProfileController::class, 'dashboard'])->name('user.account');
-
-    // Update Account Details
-    Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('user.account.update');
-
-    // Orders
-    Route::get('/account/orders', [OrderController::class, 'index'])->name('user.orders.index');
-    Route::get('/account/orders/{order}', [OrderController::class, 'show'])->name('user.orders.show');
-
-    // Addresses
-    Route::resource('/account/addresses', AddressController::class)->names([
-        'index' => 'user.addresses.index',
-        'create' => 'user.addresses.create',
-        'store' => 'user.addresses.store',
-        'edit' => 'user.addresses.edit',
-        'update' => 'user.addresses.update',
-        'destroy' => 'user.addresses.destroy'
-    ]);
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/remove-cart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
+   
+    // Search and deals
+    Route::get('/search', [HomeController::class, 'index'])->name('search');
+    Route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');
+    Route::get('/compare', [HomeController::class, 'index'])->name('compare');
 });
 
+// Authenticated user routes
+Route::middleware(['auth'])->name('user.')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
+    // Profile routes
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/account', [ProfileController::class, 'dashboard'])->name('account');
+    Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('account.update');
 
+    // Order routes
+    Route::get('/order', [HomeController::class, 'index'])->name('order');
+    Route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
+    Route::get('/order/track', [HomeController::class, 'index'])->name('order.track');
+    Route::post('/order/track/check', [HomeController::class, 'index'])->name('order.track.check');
 
+    // Cart management
+  Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
+    // Wishlist
+    Route::get('/wishlist', [HomeController::class, 'index'])->name('wishlist');
+
+    // Orders
+    Route::get('/account/orders', [ProfileController::class, 'index'])->name('orders.index');
+    Route::get('/account/orders/{order}', [ProfileController::class, 'show'])->name('orders.show');
+
+    // Address management
+    Route::prefix('addresses')->group(function () {
+        Route::get('/', [AddressController::class, 'index'])->name('addresses.index');
+        Route::get('/create', [AddressController::class, 'create'])->name('addresses.create');
+        Route::post('/', [AddressController::class, 'store'])->name('addresses.store');
+        Route::get('/{address}/edit', [AddressController::class, 'edit'])->name('addresses.edit');
+        Route::put('/{address}', [AddressController::class, 'update'])->name('addresses.update');
+        Route::delete('/{address}', [AddressController::class, 'destroy'])->name('addresses.destroy');
+        Route::post('/{address}/set-default', [AddressController::class, 'setDefault'])->name('addresses.set-default');
+    });
+});
+
+// System routes (not user-facing)
 Route::get('/run-migrations', function (Request $request) {
     if ($request->query('key') !== env('MIGRATION_SECRET')) {
         return response()->json(['error' => 'Unauthorized'], 403);

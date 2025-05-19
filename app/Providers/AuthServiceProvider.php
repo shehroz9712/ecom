@@ -23,8 +23,6 @@ class AuthServiceProvider extends ServiceProvider
         // Register Policies Here
         $this->registerPolicies();
 
-        // Explicitly register policies
-        Gate::policy(Education::class, EducationPolicy::class);
 
         // Passport token expiration settings
         Passport::tokensExpireIn(now()->addDays(15));
