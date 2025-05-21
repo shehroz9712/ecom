@@ -13,8 +13,9 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
 
-    protected $fillable = ['id', 'created_by', 'created_at', 'updated_by', 'updated_at']; // Replace with actual column names
+    protected $guarded = []; // Replace with actual column names
 
+    protected $append = ['main_image'];
     public static function allowedColumns(): array
     {
         return ['id', 'created_by', 'created_at', 'updated_by', 'updated_at'];
@@ -60,28 +61,6 @@ class Product extends Model
     {
         return $this->editor?->name ?? 'N/A';
     }
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function images()
-    {
-        return $this->hasMany(ProductImage::class);
-    }
-
-    public function attributes()
-    {
-        return $this->belongsToMany(AttributeValue::class, 'product_attributes', 'product_id', 'attribute_value_id')
-            ->withPivot('attribute_id')
-            ->join('attributes', 'product_attributes.attribute_id', '=', 'attributes.id')
-            ->select('attribute_values.*', 'attributes.name as attribute_name', 'attributes.slug as attribute_slug');
-    }
 
     public function getMainImageAttribute()
     {
@@ -104,8 +83,69 @@ class Product extends Model
     {
         return $this->reviews()->avg('rating') ?? 0;
     }
+
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class)->withDefault();
+    }
+
+    public function subCategoryItem()
+    {
+        return $this->belongsTo(SubCategoryItem::class)->withDefault();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+
+
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
+
+    public function defaultVariant()
+    {
+        return $this->hasOne(ProductVariant::class)->where('is_default', true);
+    }
+
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    // Accessors
+
+    public function getPriceRangeAttribute()
+    {
+        if ($this->variants->count() > 0) {
+            $minPrice = $this->variants->min('price');
+            $maxPrice = $this->variants->max('price');
+
+            if ($minPrice === $maxPrice) {
+                return formatPrice($minPrice);
+            }
+            return formatPrice($minPrice) . ' - ' . formatPrice($maxPrice);
+        }
+
+        return formatPrice($this->price);
     }
 }

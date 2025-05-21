@@ -35,10 +35,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>Skysuite 320</p></li><li><label>Color</label><p>Black</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '1-1.jpg', 'is_main' => true],
-                        ['image_path' => '1-2.jpg'],
-                        ['image_path' => '1-800x900.jpg'],
-                        ['image_path' => '2.jpg']
+                        ['image' => '1-1.jpg', 'is_main' => true],
+                        ['image' => '1-2.jpg'],
+                        ['image' => '1-800x900.jpg'],
+                        ['image' => '2.jpg']
                     ]
                 ],
                 [
@@ -59,11 +59,11 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>SoundMax Pro</p></li><li><label>Battery</label><p>30 hours</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '2-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '3.jpg'],
-                        ['image_path' => '3-800x900.jpg'],
-                        ['image_path' => '4-2.jpg'],
-                        ['image_path' => '4-1.jpg']
+                        ['image' => '2-800x900.jpg', 'is_main' => true],
+                        ['image' => '3.jpg'],
+                        ['image' => '3-800x900.jpg'],
+                        ['image' => '4-2.jpg'],
+                        ['image' => '4-1.jpg']
                     ]
                 ],
                 [
@@ -84,9 +84,9 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>FitTrack X</p></li><li><label>Battery</label><p>7 days</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '4-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '5.jpg'],
-                        ['image_path' => '5-800x900.jpg'],
+                        ['image' => '4-800x900.jpg', 'is_main' => true],
+                        ['image' => '5.jpg'],
+                        ['image' => '5-800x900.jpg'],
                     ]
                 ],
                 [
@@ -107,10 +107,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>UltraView 55X</p></li><li><label>Screen</label><p>55 inches</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '6.jpg', 'is_main' => true],
-                        ['image_path' => '6-800x900.jpg'],
-                        ['image_path' => '7-1.jpg'],
-                        ['image_path' => '7-2.jpg']
+                        ['image' => '6.jpg', 'is_main' => true],
+                        ['image' => '6-800x900.jpg'],
+                        ['image' => '7-1.jpg'],
+                        ['image' => '7-2.jpg']
                     ]
                 ],
                 [
@@ -131,10 +131,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>Skysuite 320</p></li><li><label>Color</label><p>Black</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '1-1.jpg', 'is_main' => true],
-                        ['image_path' => '1-2.jpg'],
-                        ['image_path' => '1-800x900.jpg'],
-                        ['image_path' => '2.jpg']
+                        ['image' => '1-1.jpg', 'is_main' => true],
+                        ['image' => '1-2.jpg'],
+                        ['image' => '1-800x900.jpg'],
+                        ['image' => '2.jpg']
                     ]
                 ],
                 [
@@ -155,11 +155,11 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>SoundMax Pro</p></li><li><label>Battery</label><p>30 hours</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '2-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '3.jpg'],
-                        ['image_path' => '3-800x900.jpg'],
-                        ['image_path' => '4-2.jpg'],
-                        ['image_path' => '4-1.jpg']
+                        ['image' => '2-800x900.jpg', 'is_main' => true],
+                        ['image' => '3.jpg'],
+                        ['image' => '3-800x900.jpg'],
+                        ['image' => '4-2.jpg'],
+                        ['image' => '4-1.jpg']
                     ]
                 ],
                 [
@@ -180,9 +180,9 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>FitTrack X</p></li><li><label>Battery</label><p>7 days</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '4-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '5.jpg'],
-                        ['image_path' => '5-800x900.jpg'],
+                        ['image' => '4-800x900.jpg', 'is_main' => true],
+                        ['image' => '5.jpg'],
+                        ['image' => '5-800x900.jpg'],
                     ]
                 ],
                 [
@@ -203,10 +203,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>UltraView 55X</p></li><li><label>Screen</label><p>55 inches</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '6.jpg', 'is_main' => true],
-                        ['image_path' => '6-800x900.jpg'],
-                        ['image_path' => '7-1.jpg'],
-                        ['image_path' => '7-2.jpg']
+                        ['image' => '6.jpg', 'is_main' => true],
+                        ['image' => '6-800x900.jpg'],
+                        ['image' => '7-1.jpg'],
+                        ['image' => '7-2.jpg']
                     ]
                 ],
                 [
@@ -227,10 +227,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>Skysuite 320</p></li><li><label>Color</label><p>Black</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '1-1.jpg', 'is_main' => true],
-                        ['image_path' => '1-2.jpg'],
-                        ['image_path' => '1-800x900.jpg'],
-                        ['image_path' => '2.jpg']
+                        ['image' => '1-1.jpg', 'is_main' => true],
+                        ['image' => '1-2.jpg'],
+                        ['image' => '1-800x900.jpg'],
+                        ['image' => '2.jpg']
                     ]
                 ],
                 [
@@ -251,11 +251,11 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>SoundMax Pro</p></li><li><label>Battery</label><p>30 hours</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '2-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '3.jpg'],
-                        ['image_path' => '3-800x900.jpg'],
-                        ['image_path' => '4-2.jpg'],
-                        ['image_path' => '4-1.jpg']
+                        ['image' => '2-800x900.jpg', 'is_main' => true],
+                        ['image' => '3.jpg'],
+                        ['image' => '3-800x900.jpg'],
+                        ['image' => '4-2.jpg'],
+                        ['image' => '4-1.jpg']
                     ]
                 ],
                 [
@@ -276,9 +276,9 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>FitTrack X</p></li><li><label>Battery</label><p>7 days</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '4-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '5.jpg'],
-                        ['image_path' => '5-800x900.jpg'],
+                        ['image' => '4-800x900.jpg', 'is_main' => true],
+                        ['image' => '5.jpg'],
+                        ['image' => '5-800x900.jpg'],
                     ]
                 ],
                 [
@@ -299,10 +299,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>UltraView 55X</p></li><li><label>Screen</label><p>55 inches</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '6.jpg', 'is_main' => true],
-                        ['image_path' => '6-800x900.jpg'],
-                        ['image_path' => '7-1.jpg'],
-                        ['image_path' => '7-2.jpg']
+                        ['image' => '6.jpg', 'is_main' => true],
+                        ['image' => '6-800x900.jpg'],
+                        ['image' => '7-1.jpg'],
+                        ['image' => '7-2.jpg']
                     ]
                 ],
                 [
@@ -323,10 +323,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>Skysuite 320</p></li><li><label>Color</label><p>Black</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '1-1.jpg', 'is_main' => true],
-                        ['image_path' => '1-2.jpg'],
-                        ['image_path' => '1-800x900.jpg'],
-                        ['image_path' => '2.jpg']
+                        ['image' => '1-1.jpg', 'is_main' => true],
+                        ['image' => '1-2.jpg'],
+                        ['image' => '1-800x900.jpg'],
+                        ['image' => '2.jpg']
                     ]
                 ],
                 [
@@ -347,11 +347,11 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>SoundMax Pro</p></li><li><label>Battery</label><p>30 hours</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '2-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '3.jpg'],
-                        ['image_path' => '3-800x900.jpg'],
-                        ['image_path' => '4-2.jpg'],
-                        ['image_path' => '4-1.jpg']
+                        ['image' => '2-800x900.jpg', 'is_main' => true],
+                        ['image' => '3.jpg'],
+                        ['image' => '3-800x900.jpg'],
+                        ['image' => '4-2.jpg'],
+                        ['image' => '4-1.jpg']
                     ]
                 ],
                 [
@@ -372,9 +372,9 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>FitTrack X</p></li><li><label>Battery</label><p>7 days</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '4-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '5.jpg'],
-                        ['image_path' => '5-800x900.jpg'],
+                        ['image' => '4-800x900.jpg', 'is_main' => true],
+                        ['image' => '5.jpg'],
+                        ['image' => '5-800x900.jpg'],
                     ]
                 ],
                 [
@@ -395,10 +395,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>UltraView 55X</p></li><li><label>Screen</label><p>55 inches</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '6.jpg', 'is_main' => true],
-                        ['image_path' => '6-800x900.jpg'],
-                        ['image_path' => '7-1.jpg'],
-                        ['image_path' => '7-2.jpg']
+                        ['image' => '6.jpg', 'is_main' => true],
+                        ['image' => '6-800x900.jpg'],
+                        ['image' => '7-1.jpg'],
+                        ['image' => '7-2.jpg']
                     ]
                 ],
                 [
@@ -419,10 +419,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>Skysuite 320</p></li><li><label>Color</label><p>Black</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '1-1.jpg', 'is_main' => true],
-                        ['image_path' => '1-2.jpg'],
-                        ['image_path' => '1-800x900.jpg'],
-                        ['image_path' => '2.jpg']
+                        ['image' => '1-1.jpg', 'is_main' => true],
+                        ['image' => '1-2.jpg'],
+                        ['image' => '1-800x900.jpg'],
+                        ['image' => '2.jpg']
                     ]
                 ],
                 [
@@ -443,11 +443,11 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>SoundMax Pro</p></li><li><label>Battery</label><p>30 hours</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '2-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '3.jpg'],
-                        ['image_path' => '3-800x900.jpg'],
-                        ['image_path' => '4-2.jpg'],
-                        ['image_path' => '4-1.jpg']
+                        ['image' => '2-800x900.jpg', 'is_main' => true],
+                        ['image' => '3.jpg'],
+                        ['image' => '3-800x900.jpg'],
+                        ['image' => '4-2.jpg'],
+                        ['image' => '4-1.jpg']
                     ]
                 ],
                 [
@@ -468,9 +468,9 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>FitTrack X</p></li><li><label>Battery</label><p>7 days</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '4-800x900.jpg', 'is_main' => true],
-                        ['image_path' => '5.jpg'],
-                        ['image_path' => '5-800x900.jpg'],
+                        ['image' => '4-800x900.jpg', 'is_main' => true],
+                        ['image' => '5.jpg'],
+                        ['image' => '5-800x900.jpg'],
                     ]
                 ],
                 [
@@ -491,10 +491,10 @@ class ProductSeeder extends Seeder
                     'specifications' => '<ul class="list-none"><li><label>Model</label><p>UltraView 55X</p></li><li><label>Screen</label><p>55 inches</p></li></ul>',
                     'updated_by' =>  1,
                     'images' => [
-                        ['image_path' => '6.jpg', 'is_main' => true],
-                        ['image_path' => '6-800x900.jpg'],
-                        ['image_path' => '7-1.jpg'],
-                        ['image_path' => '7-2.jpg']
+                        ['image' => '6.jpg', 'is_main' => true],
+                        ['image' => '6-800x900.jpg'],
+                        ['image' => '7-1.jpg'],
+                        ['image' => '7-2.jpg']
                     ]
                 ],
             ];

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ShopifyImportController;
 use App\Http\Controllers\User\AddressController;
+use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProductController;
@@ -10,7 +12,11 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+
+
+Route::get('/import-shopify', [ShopifyImportController::class, 'import'])->name('shopify.import');
 require __DIR__ . '/auth.php';
+
 
 // Public routes (no authentication needed)LoginRequest
 Route::name('user.')->group(function () {
@@ -24,12 +30,13 @@ Route::name('user.')->group(function () {
     Route::get('/about', [HomeController::class, 'index'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
-    Route::get('/blog', [HomeController::class, 'index'])->name('blog');
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
     // Product routes
     Route::get('/shop', [ProductController::class, 'index'])->name('shop');
     Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('product.detail');
-
+    Route::post('/product/variant-details', [ProductController::class, 'getVariantDetails'])
+        ->name('product.getVariantDetails');
     // Vendor routes
     Route::get('/vendor/{slug}', [VendorController::class, 'detail'])->name('vendor.detail');
     Route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');

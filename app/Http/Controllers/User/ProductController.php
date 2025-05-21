@@ -13,26 +13,36 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        // Get all active categories for sidebar
+        // Get all active categories and brands
         $categories = Category::active()->get();
         $brands = Brand::active()->get();
 
-        // Start product query with eager loading
+        // Start product query
         $products = Product::query()
             ->with(['category', 'brand', 'images'])
             ->active()
             ->withCount('reviews')
             ->withAvg('reviews', 'rating');
 
-        // Category filter
-        if ($request->has('category')) {
+        // Category filter (only apply if slug is not empty)
+        if ($request->filled('category')) {
             $products->whereHas('category', function ($query) use ($request) {
                 $query->where('slug', $request->category);
             });
         }
 
+        // 🔍 Search filter
+        if ($request->filled('search')) {
+            $searchTerm = $request->search;
+
+            $products->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('description', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+
         // Brand filter
-        if ($request->has('brand')) {
+        if ($request->filled('brand')) {
             $products->whereHas('brand', function ($query) use ($request) {
                 $query->where('slug', $request->brand);
             });
@@ -46,7 +56,7 @@ class ProductController extends Controller
             $products->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
-        // Sort by
+        // Sorting
         $sortOption = $request->get('orderby', 'default');
         switch ($sortOption) {
             case 'popularity':
@@ -69,11 +79,10 @@ class ProductController extends Controller
                     ->orderBy('created_at', 'desc');
         }
 
-        // Items per page
+        // Pagination and layout
         $perPage = $request->get('count', 12);
         $layout = $request->get('layout', 'grid');
 
-        // Paginate results
         $products = $products->paginate($perPage)
             ->appends($request->query());
 
@@ -84,25 +93,90 @@ class ProductController extends Controller
             'layout'
         ));
     }
+
     public function detail($slug)
     {
-        $product = Product::with(['brand', 'reviews', 'category', 'images', 'attributes.attribute'])
-            ->where('slug', $slug)
-            ->firstOrFail();
+        $product = Product::with([
+            'brand',
+            'category',
+            'subCategory',
+            'subCategoryItem',
+            'images',
+            'variants.attributes.attribute',
+            'variants.attributes.attributeValue',
+            'reviews.user',
+            'reviews.images'
+        ])->where('slug', $slug)->firstOrFail();
+        // Get related products (same category)
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->with(['images'])
+            ->inRandomOrder()
+            ->limit(8)
+            ->get();
 
-        // Group attributes by type
-        $groupedAttributes = $product->attributes->groupBy('attribute_slug');
+        // Get recently viewed products
+        $recentlyViewed = Product::with(['images'])
+            ->limit(3)
+            ->get();
+
+        // Track recently viewed
+
 
         $vendorProducts = Product::where('user_id', $product->user_id)
             ->where('id', '!=', $product->id)
             ->limit(8)
             ->get();
 
-        $relatedProducts = Product::where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id)
-            ->limit(8)
-            ->get();
+        // Get variant attributes if product has variants
+        $variantAttributes = [];
+        if ($product->variants->isNotEmpty()) {
+            $variantAttributes = $product->variants->first()->attributes->groupBy('attribute.name');
+        }
+        return view('user.products.detail', compact(
+            'product',
+            'relatedProducts',
+            'recentlyViewed',
+            'variantAttributes',
+            'vendorProducts'
+        ));
+    }
 
-        return view('user.products.detail', compact('product', 'relatedProducts', 'vendorProducts', 'groupedAttributes'));
+    public function getVariantDetails(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'attributes' => 'required|array'
+        ]);
+
+        $product = Product::with(['variants.attributes.attributeValue'])
+            ->findOrFail($request->product_id);
+
+        $selectedAttributes = $request->attributes;
+
+        // Find matching variant
+        $variant = $product->variants->first(function ($variant) use ($selectedAttributes) {
+            return $variant->attributes->every(function ($attribute) use ($selectedAttributes) {
+                return in_array($attribute->attribute_value_id, $selectedAttributes);
+            });
+        });
+
+        if (!$variant) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Selected combination is not available'
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'variant' => [
+                'id' => $variant->id,
+                'price' => number_format($variant->price, 2),
+                'sale_price' => $variant->sale_price ? number_format($variant->sale_price, 2) : null,
+                'stock' => $variant->stock,
+                'sku' => $variant->sku
+            ]
+        ]);
     }
 }

@@ -32,22 +32,30 @@
                             <img src="{{ asset('assets/user/images/logo.png') }}" alt="logo" width="144"
                                 height="45" />
                         </a>
-                        <form method="get" action="#"
+                        <form method="get" action="{{ route('user.shop') }}"
                             class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+
                             <div class="select-box">
                                 <select id="category" name="category">
                                     <option value="">All Categories</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->slug }}"
+                                            {{ request('category') == $category->slug ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
                                     @endforeach
-
                                 </select>
                             </div>
+
                             <input type="text" class="form-control" name="search" id="search"
-                                placeholder="Search in..." required />
-                            <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
+                                value="{{ request('search') }}" placeholder="Search in..."  />
+
+                            <button class="btn btn-search" type="submit"
+                                style="border-bottom-left-radius: unset!important;border-top-left-radius: unset!important;">
+                                <i class="w-icon-search"></i>
                             </button>
                         </form>
+
                     </div>
                     <div class="header-right ml-4">
                         <div class="header-call d-xs-show d-lg-flex align-items-center">
@@ -63,10 +71,10 @@
                             <i class="w-icon-heart"></i>
                             <span class="wishlist-label d-lg-show">Wishlist</span>
                         </a>
-                        <a class="compare label-down link d-xs-show" href="{{ route('user.compare') }}">
+                        {{-- <a class="compare label-down link d-xs-show" href="{{ route('user.compare') }}">
                             <i class="w-icon-compare"></i>
                             <span class="compare-label d-lg-show">Compare</span>
-                        </a>
+                        </a> --}}
                         <div id="header-cart">
                             @include('partials.header-cart', [
                                 'carts' => $headerCarts,

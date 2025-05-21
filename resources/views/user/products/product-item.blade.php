@@ -3,12 +3,12 @@
         <figure class="product-media">
             <a href="{{ route('user.product.detail', $product->slug) }}">
                 @if ($product->images->count() >= 2)
-                    <img src="{{ asset('assets/uploads/products/' . $product->images[0]->image_path) }}"
+                    <img src="{{ asset('assets/uploads/products/' . $product->images[0]->image) }}"
                         alt="{{ $product->name }}" width="300" height="338" />
-                    <img src="{{ asset('assets/uploads/products/' . $product->images[1]->image_path) }}"
+                    <img src="{{ asset('assets/uploads/products/' . $product->images[1]->image) }}"
                         alt="{{ $product->name }}" width="300" height="338" />
                 @else
-                    <img src="{{ asset('assets/uploads/products/' . $product->images[0]->image_path) }}"
+                    <img src="{{ asset('assets/uploads/products/' . $product->images[0]->image) }}"
                         alt="{{ $product->name }}" width="300" height="338" />
                 @endif
             </a>
