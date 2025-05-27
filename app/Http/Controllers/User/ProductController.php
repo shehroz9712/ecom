@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -179,4 +182,37 @@ class ProductController extends Controller
             ]
         ]);
     }
+
+
+    public function wishlist()
+    {
+        $wishlists = Wishlist::with('product.images')->where('user_id', auth()->id())->get();
+
+        return view('user.products.wishlist', compact('wishlists'));
+    }
+
+    public function toggle(Request $request)
+    {
+        $request->validate(['product_id' => 'required|exists:products,id']);
+
+        $userId = auth()->id();
+        $productId = $request->product_id;
+
+        $wishlist = Wishlist::where('user_id', $userId)
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($wishlist) {
+            $wishlist->delete();
+            return response()->json(['message' => 'Removed from wishlist', 'status' => 'removed']);
+        } else {
+            Wishlist::create([
+                'user_id' => $userId,
+                'product_id' => $productId,
+            ]);
+            return response()->json(['message' => 'Added to wishlist', 'status' => 'added']);
+        }
+    }
+
+    public function deals() {}
 }

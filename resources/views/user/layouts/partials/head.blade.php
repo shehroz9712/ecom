@@ -62,5 +62,9 @@
         .invalid-feedback {
             color: red !important;
         }
+
+        a.added.btn-product-icon.btn-wishlist.w-icon-heart-full {
+            color: red;
+        }
     </style>
 </head>

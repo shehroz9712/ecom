@@ -49,7 +49,7 @@ Route::name('user.')->group(function () {
 
     // Search and deals
     Route::get('/search', [HomeController::class, 'index'])->name('search');
-    Route::get('/daily/deal', [HomeController::class, 'index'])->name('daily.deals');
+    Route::get('/daily/deal', [productController::class, 'deals'])->name('daily.deals');
     Route::get('/compare', [HomeController::class, 'index'])->name('compare');
 });
 
@@ -74,7 +74,8 @@ Route::middleware(['auth'])->name('user.')->group(function () {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
     // Wishlist
-    Route::get('/wishlist', [HomeController::class, 'index'])->name('wishlist');
+    Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
+    Route::post('/wishlist/toggle', [ProductController::class, 'toggle'])->name('wishlist.toggle');
 
     // Orders
     Route::get('/account/orders', [ProfileController::class, 'index'])->name('orders.index');

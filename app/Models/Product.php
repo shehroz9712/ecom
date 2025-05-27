@@ -148,4 +148,15 @@ class Product extends Model
 
         return formatPrice($this->price);
     }
+
+    public function getInWishlistAttribute()
+    {
+        if (!Auth::check()) {
+            return false;
+        }
+
+        return Wishlist::where('user_id', Auth::id())
+            ->where('product_id', $this->id)
+            ->exists();
+    }
 }

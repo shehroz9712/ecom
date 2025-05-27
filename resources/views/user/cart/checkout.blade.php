@@ -8,7 +8,7 @@
             <ul class="breadcrumb shop-breadcrumb bb-no">
                 <li class="passed"><a href="{{route('user.cart')}}">Shopping Cart</a></li>
                 <li class="active"><a href="{{route('user.checkout')}}">Checkout</a></li>
-                <li><a href="order.html">Order Complete</a></li>
+                <li><a href="#">Order Complete</a></li>
             </ul>
         </div>
     </nav>

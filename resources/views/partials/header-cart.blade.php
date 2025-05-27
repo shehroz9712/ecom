@@ -26,7 +26,7 @@
                     </div>
                     <figure class="product-media">
                         <a href="{{ route('user.product.detail', $item->product->slug) }}">
-                            <img src="{{ asset('assets/uploads/products/' . ($item->product->images[0]->image_path ?? 'default.jpg')) }}"
+                            <img src="{{ asset('assets/uploads/products/' . ($item->product->main_image->image ?? 'default.jpg')) }}"
                                 alt="{{ $item->product->name }}" height="84" width="94" />
                         </a>
                     </figure>

@@ -23,6 +23,28 @@
 @yield('script')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Add to Wishlist
+        document.querySelectorAll('.btn-wishlist').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productId = this.dataset.productId;
+
+                fetch('{{ route('user.wishlist.toggle') }}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            product_id: productId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message || 'Added to wishlist!');
+                    });
+            });
+        });
         const addToCartButtons = document.querySelectorAll('.btn-cart');
 
         // Quantity plus/minus handlers

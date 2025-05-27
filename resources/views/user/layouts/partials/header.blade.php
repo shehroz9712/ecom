@@ -5,7 +5,7 @@
                         <p class="welcome-msg">{{ $settings->headline }}</p>
                     </div>
                     <div class="header-right">
-                        <a href="{{ route('user.blog') }}" class="d-lg-show">Blog</a>
+                        {{-- <a href="{{ route('user.blog') }}" class="d-lg-show">Blog</a> --}}
                         <a href="{{ route('user.contact') }}" class="d-lg-show">Contact Us</a>
 
                         @auth

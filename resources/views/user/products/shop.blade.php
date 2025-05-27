@@ -12,8 +12,8 @@
                         <h4 class="banner-subtitle font-weight-bold">Accessories Collection</h4>
                         <h3 class="banner-title text-white text-uppercase font-weight-bolder ls-normal">Smart Wrist
                             Watches</h3>
-                        <a href="shop-banner-sidebar.html" class="btn btn-dark btn-rounded btn-icon-right">Discover
-                            Now<i class="w-icon-long-arrow-right"></i></a>
+                        {{-- <a href="#" class="btn btn-dark btn-rounded btn-icon-right">Discover
+                            Now<i class="w-icon-long-arrow-right"></i></a> --}}
                     </div>
                 </div>
 

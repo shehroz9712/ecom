@@ -14,12 +14,12 @@
         <nav class="breadcrumb-nav mb-10">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="demo1.html">Home</a></li>
+                    <li><a href="{{ route('user.home') }}">Home</a></li>
                     <li>Wishlist</li>
                 </ul>
             </div>
         </nav>
-        <!-- End of Breadcrumb -->
+        <!-- End of Breadcrumb  -->
 
         <!-- Start of PageContent -->
         <div class="page-content">
@@ -36,113 +36,59 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="product-thumbnail">
-                                <div class="p-relative">
-                                    <a href="product-default.html">
-                                        <figure>
-                                            <img src="{{ asset('assets/user/images/shop/7-1.jpg') }}" alt="product"
-                                                width="300" height="338">
-                                        </figure>
+                        @forelse ($wishlists as $wishlist)
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <div class="p-relative">
+                                        <a href="{{ route('user.product.detail', $wishlist->product->slug) }}">
+                                            <figure>
+                                                <img src="{{ asset('assets/uploads/products/' . $wishlist->product->main_image->image ?? 'assets/user/images/placeholder.png') }}"
+                                                    alt="{{ $wishlist->product->name }}" width="300" height="338">
+                                            </figure>
+                                        </a>
+                                        <form action="{{ route('user.wishlist.toggle', $wishlist->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-close"><i
+                                                    class="fas fa-times"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td class="product-name">
+                                    <a href="{{ route('user.product.detail', $wishlist->product->slug) }}">
+                                        {{ $wishlist->product->name }}
                                     </a>
-                                    <button type="submit" class="btn btn-close"><i class="fas fa-times"></i></button>
-                                </div>
-                            </td>
-                            <td class="product-name">
-                                <a href="product-default.html">
-                                    Blue Sky Trunk
-                                </a>
-                            </td>
-                            <td class="product-price">
-                                <ins class="new-price">$85.00</ins>
-                            </td>
-                            <td class="product-stock-status">
-                                <span class="wishlist-in-stock">In Stock</span>
-                            </td>
-                            <td class="wishlist-action">
-                                <div class="d-lg-flex">
-                                    <a href="#"
-                                        class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                        View</a>
-                                    <a href="#" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                        cart</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="product-thumbnail">
-                                <div class="p-relative">
-                                    <a href="product-default.html">
-                                        <figure>
-                                            <img src="{{ asset('assets/user/images/shop/19-1.jpg') }}" alt="product"
-                                                width="300" height="338">
-                                        </figure>
-                                    </a>
-                                    <button type="submit" class="btn btn-close"><i class="fas fa-times"></i></button>
-                                </div>
-                            </td>
-                            <td class="product-name">
-                                <a href="product-default.html">
-                                    Handmade Ring
-                                </a>
-                            </td>
-                            <td class="product-price"><ins class="new-price">$5.00</ins></td>
-                            <td class="product-stock-status">
-                                <span class="wishlist-in-stock">In Stock</span>
-                            </td>
-                            <td class="wishlist-action">
-                                <div class="d-lg-flex">
-                                    <a href="#"
-                                        class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                        View</a>
-                                    <a href="#" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                        cart</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="product-thumbnail">
-                                <div class="p-relative">
-                                    <a href="product-default.html">
-                                        <figure>
-                                            <img src="{{ asset('assets/user/images/shop/20.jpg') }}" alt="product"
-                                                width="300" height="338">
-                                        </figure>
-                                    </a>
-                                    <button type="submit" class="btn btn-close"><i class="fas fa-times"></i></button>
-                                </div>
-                            </td>
-                            <td class="product-name">
-                                <a href="product-default.html">
-                                    Pencil Case
-                                </a>
-                            </td>
-                            <td class="product-price"><ins class="new-price">$54.00</ins></td>
-                            <td class="product-stock-status">
-                                <span class="wishlist-in-stock">In Stock</span>
-                            </td>
-                            <td class="wishlist-action">
-                                <div class="d-lg-flex">
-                                    <a href="#"
-                                        class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                        View</a>
-                                    <a href="#" class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
-                                        cart</a>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                                <td class="product-price">
+                                    <ins
+                                        class="new-price">${{ $wishlist->product->sale_price ?? $wishlist->product->price }}</ins>
+                                </td>
+                                <td class="product-stock-status">
+                                    <span class="wishlist-in-stock">In Stock</span>
+                                </td>
+                                <td class="wishlist-action">
+                                    <div class="d-lg-flex">
+                                        <a href="{{ route('user.product.detail', $wishlist->product->slug) }}"
+                                            class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
+                                            View</a>
+                                        <form action="{{ route('user.cart.add', $wishlist->product->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit"
+                                                class="btn btn-dark btn-rounded btn-sm ml-lg-2 btn-cart">Add to
+                                                cart</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">Your wishlist is empty.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
+
                 </table>
-                <div class="social-links">
-                    <label>Share On:</label>
-                    <div class="social-icons social-no-color border-thin">
-                        <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
-                        <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
-                        <a href="#" class="social-icon social-pinterest w-icon-pinterest"></a>
-                        <a href="#" class="social-icon social-email far fa-envelope"></a>
-                        <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"></a>
-                    </div>
-                </div>
+
             </div>
         </div>
         <!-- End of PageContent -->

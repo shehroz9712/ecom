@@ -154,7 +154,7 @@
                                         <div class="store-content">
                                             <h4 class="store-title">
                                                 <a
-                                                    href="{{ route('vendor.show', $vendor->slug) }}">{{ $vendor->name }}</a>
+                                                    href="{{ route('user.vendor.detail', $vendor->slug) }}">{{ $vendor->name }}</a>
                                             </h4>
                                             <div class="ratings-container">
                                                 <div class="ratings-full">
@@ -187,7 +187,7 @@
                                             <a href="#" class="btn btn-inquiry btn-rounded btn-icon-left">
                                                 <i class="far fa-question-circle"></i>Inquiry
                                             </a>
-                                            <a href="{{ route('vendor.show', $vendor->slug) }}"
+                                            <a href="{{ route('user.vendor.detail', $vendor->slug) }}"
                                                 class="btn btn-rounded btn-visit">Visit Store</a>
                                         </div>
                                     </div>

@@ -211,8 +211,9 @@
                                         </div>
                                         <span class="divider d-xs-show"></span>
                                         <div class="product-link-wrapper d-flex">
-                                            <a href="#"
-                                                class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
+                                            <a href="#" title="Add to wishlist"
+                                                data-product-id="{{ $product->id }}"
+                                                class="btn-product-icon btn-wishlist {{ $product->in_wishlist ? 'w-icon-heart-full added' : 'w-icon-heart ' }}"><span></span></a>
                                         </div>
                                     </div>
                                 </div>
