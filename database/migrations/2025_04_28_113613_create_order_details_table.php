@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
             $table->foreignId('cart_id')->constrained('carts')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('carts')->onDelete('cascade');
             $table->decimal('price', 10, 2);
             $table->string('media_id')->nullable();
             $table->timestamps();

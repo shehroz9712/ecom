@@ -199,6 +199,8 @@
                                     {{ $products->total() }}</span>Products
                             </p>
                             {{ $products->withQueryString()->links() }}
+
+
                         </div>
                     </div>
                     <!-- End of Shop Main Content -->

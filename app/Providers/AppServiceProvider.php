@@ -16,6 +16,7 @@ use App\Repositories\SliderRepository;
 use App\Repositories\StateRepository;
 use App\Repositories\VendorRepository;
 use Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Paginator::defaultView('vendor.pagination.default');
         Route::middleware('api')
             ->prefix('api')
             ->group(base_path('routes/api.php'));

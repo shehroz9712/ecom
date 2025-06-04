@@ -5,9 +5,11 @@ use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\VendorController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -51,46 +53,50 @@ Route::name('user.')->group(function () {
     Route::get('/search', [HomeController::class, 'index'])->name('search');
     Route::get('/daily/deal', [productController::class, 'deals'])->name('daily.deals');
     Route::get('/compare', [HomeController::class, 'index'])->name('compare');
-});
 
-// Authenticated user routes
-Route::middleware(['auth'])->name('user.')->group(function () {
-    // Dashboard
-    Route::get('/reviews/store', [HomeController::class, 'index'])->name('reviews.store');
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-    // Profile routes
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::get('/account', [ProfileController::class, 'dashboard'])->name('account');
-    Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('account.update');
+      Route::get('/order/track', [OrderController::class, 'orderTrack'])->name('order.track');
+        Route::post('/order/track/check', [OrderController::class, 'orderTrackCheck'])->name('order.track.check');
 
-    // Order routes
-    Route::get('/order', [HomeController::class, 'index'])->name('order');
-    Route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
-    Route::get('/order/track', [HomeController::class, 'index'])->name('order.track');
-    Route::post('/order/track/check', [HomeController::class, 'index'])->name('order.track.check');
 
-    // Cart management
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    // Authenticated user routes
+    Route::middleware(['auth'])->group(function () {
+        // Dashboard
+        Route::get('/reviews/store', [HomeController::class, 'index'])->name('reviews.store');
+        Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-    // Wishlist
-    Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
-    Route::post('/wishlist/toggle', [ProductController::class, 'toggle'])->name('wishlist.toggle');
+        // Profile routes
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        Route::get('/account', [ProfileController::class, 'dashboard'])->name('account');
+        Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('account.update');
 
-    // Orders
-    Route::get('/account/orders', [ProfileController::class, 'index'])->name('orders.index');
-    Route::get('/account/orders/{order}', [ProfileController::class, 'show'])->name('orders.show');
+        // Order routes
+        Route::get('/order', [HomeController::class, 'index'])->name('order');
+        Route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
+      
+        // Cart management
+        Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
-    // Address management
-    Route::prefix('addresses')->group(function () {
-        Route::get('/', [AddressController::class, 'index'])->name('addresses.index');
-        Route::get('/create', [AddressController::class, 'create'])->name('addresses.create');
-        Route::post('/', [AddressController::class, 'store'])->name('addresses.store');
-        Route::get('/{address}/edit', [AddressController::class, 'edit'])->name('addresses.edit');
-        Route::put('/{address}', [AddressController::class, 'update'])->name('addresses.update');
-        Route::delete('/{address}', [AddressController::class, 'destroy'])->name('addresses.destroy');
-        Route::post('/{address}/set-default', [AddressController::class, 'setDefault'])->name('addresses.set-default');
+        // Wishlist
+        Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
+        Route::post('/wishlist/toggle', [ProductController::class, 'toggle'])->name('wishlist.toggle');
+
+        // Orders
+        Route::get('/account/orders', [ProfileController::class, 'index'])->name('orders.index');
+        Route::get('/account/orders/{order}', [ProfileController::class, 'show'])->name('orders.show');
+
+        // Address management
+        Route::prefix('addresses')->group(function () {
+            Route::get('/', [AddressController::class, 'index'])->name('addresses.index');
+            Route::get('/create', [AddressController::class, 'create'])->name('addresses.create');
+            Route::post('/', [AddressController::class, 'store'])->name('addresses.store');
+            Route::get('/{address}/edit', [AddressController::class, 'edit'])->name('addresses.edit');
+            Route::put('/{address}', [AddressController::class, 'update'])->name('addresses.update');
+            Route::delete('/{address}', [AddressController::class, 'destroy'])->name('addresses.destroy');
+            Route::post('/{address}/set-default', [AddressController::class, 'setDefault'])->name('addresses.set-default');
+        });
     });
+    Route::get('/{slug}', [HomeController::class, 'page'])->name('page');
 });
 
 // System routes (not user-facing)

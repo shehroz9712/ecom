@@ -28,24 +28,31 @@ class CartController extends Controller
         return view('cart.index', compact('cartItems', 'subtotal'));
     }
 
-    public  function addToCart(Request $request)
+    public function addToCart(Request $request)
     {
-
+        dd($request->all());
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'qty' => 'required|integer|min:1',
+            'variant_id' => 'nullable|exists:product_variants,id', // Uncomment if you handle variants
         ]);
 
         $userId = Auth::id();
-        $deviceId = $userId ? null : $request->cookie('device_id') ?? Str::uuid();
+        $deviceId = $userId ? null : ($request->cookie('device_id') ?? (string) Str::uuid());
 
         $product = Product::findOrFail($request->product_id);
 
-        // Check if cart item already exists
-        $cartItem = Cart::where('product_id', $product->id)
+        // Determine cart item query
+        $cartItemQuery = Cart::where('product_id', $product->id)
             ->when($userId, fn($q) => $q->where('user_id', $userId))
-            ->when(!$userId, fn($q) => $q->where('device_id', $deviceId))
-            ->first();
+            ->when(!$userId, fn($q) => $q->where('device_id', $deviceId));
+
+        // Optional: filter by variant if used
+        if ($request->filled('variant_id')) {
+            $cartItemQuery->where('variant_id', $request->variant_id);
+        }
+
+        $cartItem = $cartItemQuery->first();
 
         if ($cartItem) {
             $cartItem->qty += $request->qty;
@@ -58,18 +65,20 @@ class CartController extends Controller
                 'user_id' => $userId,
                 'device_id' => $deviceId,
                 'device_type' => $request->header('User-Agent'),
+                'variant_id' => $request->variant_id, // Uncomment if used
             ]);
         }
 
-        $response = ['success' => true];
+        $response = ['success' => true, 'message' => 'Product added to cart'];
 
-        // If guest, set device_id cookie
+        // Attach device_id cookie for guests (30 days)
         if (!$userId && !$request->cookie('device_id')) {
-            return response()->json($response)->cookie('device_id', $deviceId, 60 * 24 * 30); // 30 days
+            return response()->json($response)->cookie('device_id', $deviceId, 60 * 24 * 30);
         }
 
         return response()->json($response);
     }
+
     public function removeCart($id)
     {
         $cart = Cart::findOrFail($id);

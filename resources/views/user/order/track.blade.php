@@ -1,176 +1,209 @@
 @extends('user.layouts.app')
 @section('content')
-    <main class="main">
-        <div class="page-content contact-us">
+    <!-- Start of Main -->
+    <main class="main order">
+        <!-- Start of Page Header -->
+        <div class="page-header">
             <div class="container">
-                <section class="content-title-section mb-10">
-                    <h3 class="title title-center mb-3">Contact
-                        Information
-                    </h3>
-                    <p class="text-center">Lorem ipsum dolor sit amet,
-                        consectetur
-                        adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-                </section>
-                <!-- End of Contact Title Section -->
-
-                <section class="contact-information-section mb-10">
-                    <div class="row owl-carousel owl-theme cols-xl-4 cols-md-3 cols-sm-2 cols-1"
-                        data-owl-options="{
-                'items': 4,
-                'nav': false,
-                'dots': false,
-                'loop': false,
-                'margin': 20,
-                'responsive': {
-                    '0': {
-                        'items': 1
-                    },
-                    '480': {
-                        'items': 2
-                    },
-                    '768': {
-                        'items': 3
-                    },
-                    '992': {
-                        'items': 3
-                    }
-                }
-            }">
-                        <div class="icon-box text-center icon-box-primary">
-                            <span class="icon-box-icon icon-email">
-                                <i class="w-icon-envelop-closed"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">E-mail Address</h4>
-                                <p>{{ $settings->email }}</p>
-                            </div>
-                        </div>
-                        <div class="icon-box text-center icon-box-primary">
-                            <span class="icon-box-icon icon-headphone">
-                                <i class="w-icon-headphone"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Phone Number</h4>
-                                <p>{{ $settings->phone }} / {{ $settings->another_phone }}</p>
-                            </div>
-                        </div>
-                        <div class="icon-box text-center icon-box-primary">
-                            <span class="icon-box-icon icon-map-marker">
-                                <i class="w-icon-map-marker"></i>
-                            </span>
-                            <div class="icon-box-content">
-                                <h4 class="icon-box-title">Address</h4>
-                                <p>Lawrence, NY 11345, USA</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-                <!-- End of Contact Information section -->
-
-                <hr class="divider mb-10 pb-1">
-
-                <section class="contact-section">
-                    <div class="row gutter-lg pb-3">
-                        <div class="col-lg-6 mb-8">
-                            <h4 class="title mb-3">People usually ask these</h4>
-                            <div class="accordion accordion-bg accordion-gutter-md accordion-border">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse1" class="collapse">How can I cancel my order?</a>
-                                    </div>
-                                    <div id="collapse1" class="card-body expanded">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
-                                            orincid
-                                            idunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulp utate
-                                            eu sceler
-                                            isque felis. Vel pretium.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse2" class="expand">Why is my registration delayed?</a>
-                                    </div>
-                                    <div id="collapse2" class="card-body collapsed">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
-                                            orincid
-                                            idunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulp utate
-                                            eu sceler
-                                            isque felis. Vel pretium.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse3" class="expand">What do I need to buy products?</a>
-                                    </div>
-                                    <div id="collapse3" class="card-body collapsed">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
-                                            orincid
-                                            idunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulp utate
-                                            eu sceler
-                                            isque felis. Vel pretium.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse4" class="expand">How can I track an order?</a>
-                                    </div>
-                                    <div id="collapse4" class="card-body collapsed">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp
-                                            orincid
-                                            idunt ut labore et dolore magna aliqua. Venenatis tellus in metus vulp utate
-                                            eu sceler
-                                            isque felis. Vel pretium.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="#collapse5" class="expand">How can I get money back?</a>
-                                    </div>
-                                    <div id="collapse5" class="card-body collapsed">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            temp orincid idunt ut labore et dolore magna aliqua. Venenatis tellus in
-                                            metus vulp utate eu sceler isque felis. Vel pretium.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-8">
-                            <h4 class="title mb-3">Send Us a Message</h4>
-                            <form class="form contact-us-form" action="#" method="post">
-                                <div class="form-group">
-                                    <label for="username">Your Name</label>
-                                    <input type="text" id="username" name="username" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email_1">Your Email</label>
-                                    <input type="email" id="email_1" name="email_1" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Your Message</label>
-                                    <textarea id="message" name="message" cols="30" rows="5" class="form-control"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-dark btn-rounded">Send Now</button>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-                <!-- End of Contact Section -->
+                <h1 class="page-title mb-0">Track Order</h1>
             </div>
         </div>
+        <!-- End of Page Header -->
+
+
+        <!-- Start of PageContent -->
+        <div class="page-content mb-10 pb-2">
+            <div class="container">
+                <div class="order-success text-center font-weight-bolder text-dark">
+                    <i class="fas fa-check"></i>
+                    Thank you. Your order has been received.
+                </div>
+                <!-- End of Order Success -->
+
+                <ul class="order-view list-style-none">
+                    <li>
+                        <label>Order number</label>
+                        <strong>945</strong>
+                    </li>
+                    <li>
+                        <label>Status</label>
+                        <strong>On hold</strong>
+                    </li>
+                    <li>
+                        <label>Date</label>
+                        <strong>April 27, 2021</strong>
+                    </li>
+                    <li>
+                        <label>Total</label>
+                        <strong>$1,646.36</strong>
+                    </li>
+                    <li>
+                        <label>Payment method</label>
+                        <strong>Direct bank transfor</strong>
+                    </li>
+                </ul>
+                <!-- End of Order View -->
+
+                <div class="order-details-wrapper mb-5">
+                    <h4 class="title text-uppercase ls-25 mb-5">Order Details</h4>
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th class="text-dark">Product</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#">Palm Print Jacket</a>&nbsp;<strong>x 1</strong><br>
+                                    Vendor : <a href="#">Vendor 1</a>
+                                </td>
+                                <td>$40.00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#">Brown Backpack</a>&nbsp;<strong>x 1</strong><br>
+                                    Vendor : <a href="#">Vendor 1</a>
+                                </td>
+                                <td>$60.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Subtotal:</th>
+                                <td>$100.00</td>
+                            </tr>
+                            <tr>
+                                <th>Shipping:</th>
+                                <td>Flat rate</td>
+                            </tr>
+                            <tr>
+                                <th>Payment method:</th>
+                                <td>Direct bank transfor</td>
+                            </tr>
+                            <tr class="total">
+                                <th class="border-no">Total:</th>
+                                <td class="border-no">$100.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- End of Order Details -->
+
+                <div class="sub-orders mb-10">
+                    <h4 class="title mb-5 font-weight-bold ls-25">Sub Orders</h4>
+                    <div class="alert alert-icon alert-inline mb-5">
+                        <i class="w-icon-exclamation-triangle"></i>
+                        <strong>Note: </strong>This order has products from multiple vendors. So we divided this
+                        order into multiple vendor orders.
+                        Each order will be handled by their respective vendor independently.
+                    </div>
+                    <table class="order-subtable">
+                        <thead>
+                            <tr>
+                                <th class="order">Order</th>
+                                <th class="date">Date</th>
+                                <th class="status">Status</th>
+                                <th class="total">Total</th>
+                                <th class="action"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="order">950</td>
+                                <td class="date">April 23, 2021</td>
+                                <td class="status">On hold</td>
+                                <td class="total">$40.00 for 1 items</td>
+                                <td class="action"><a href="order-view.html" class="btn btn-rounded">View</a></td>
+                            </tr>
+                            <tr>
+                                <td class="order">951</td>
+                                <td class="date">April 25, 2021</td>
+                                <td class="status">On hold</td>
+                                <td class="total">$60.00 for 1 items</td>
+                                <td class="action"><a href="order-view.html" class="btn btn-rounded">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End of Sub Orders-->
+
+                <div id="account-addresses">
+                    <div class="row">
+                        <div class="col-sm-6 mb-8">
+                            <div class="ecommerce-address billing-address">
+                                <h4 class="title title-underline ls-25 font-weight-bold">Billing Address</h4>
+                                <address class="mb-4">
+                                    <table class="address-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>John Doe</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Conia</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wall Street</td>
+                                            </tr>
+                                            <tr>
+                                                <td>California</td>
+                                            </tr>
+                                            <tr>
+                                                <td>United States (US)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>92020</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1112223334</td>
+                                            </tr>
+                                            <tr class="email">
+                                                <td>nicework125@gmail.com</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-8">
+                            <div class="ecommerce-address shipping-address">
+                                <h4 class="title title-underline ls-25 font-weight-bold">Shipping Address</h4>
+                                <address class="mb-4">
+                                    <table class="address-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>John Doe</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Conia</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wall Street</td>
+                                            </tr>
+                                            <tr>
+                                                <td>California</td>
+                                            </tr>
+                                            <tr>
+                                                <td>United States (US)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>92020</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Account Address -->
+
+                <a href="#" class="btn btn-dark btn-rounded btn-icon-left btn-back mt-6"><i
+                        class="w-icon-long-arrow-left"></i>Back To List</a>
+            </div>
+        </div>
+        <!-- End of PageContent -->
     </main>
+    <!-- End of Main -->
 @endsection

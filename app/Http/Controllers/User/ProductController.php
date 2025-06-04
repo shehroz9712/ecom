@@ -22,7 +22,7 @@ class ProductController extends Controller
 
         // Start product query
         $products = Product::query()
-            ->with(['category', 'brand', 'images'])
+            ->with(['category','subCategory', 'subCategoryItem', 'brand', 'images'])
             ->active()
             ->withCount('reviews')
             ->withAvg('reviews', 'rating');
@@ -30,6 +30,16 @@ class ProductController extends Controller
         // Category filter (only apply if slug is not empty)
         if ($request->filled('category')) {
             $products->whereHas('category', function ($query) use ($request) {
+                $query->where('slug', $request->category);
+            });
+        }
+        if ($request->filled('sub_category')) {
+            $products->whereHas('subCategory', function ($query) use ($request) {
+                $query->where('slug', $request->category);
+            });
+        }
+        if ($request->filled('sub_category_item')) {
+            $products->whereHas('subCategoryItem', function ($query) use ($request) {
                 $query->where('slug', $request->category);
             });
         }

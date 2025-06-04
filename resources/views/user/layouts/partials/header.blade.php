@@ -48,7 +48,7 @@
                             </div>
 
                             <input type="text" class="form-control" name="search" id="search"
-                                value="{{ request('search') }}" placeholder="Search in..."  />
+                                value="{{ request('search') }}" placeholder="Search in..." />
 
                             <button class="btn btn-search" type="submit"
                                 style="border-bottom-left-radius: unset!important;border-top-left-radius: unset!important;">
@@ -103,7 +103,7 @@
                                     <ul class="category-menu menu vertical-menu">
                                         @foreach ($categories as $category)
                                             <li>
-                                                <a href="{{ route('user.shop') }}">
+                                                <a href="{{ route('user.shop', ['category' => $category->slug]) }}">
                                                     <i class="{{ $category->icon }}"></i>{{ $category->name }}
                                                 </a>
 
@@ -111,13 +111,17 @@
                                                     <ul class="megamenu">
                                                         @foreach ($category->subCategories as $subCategory)
                                                             <li>
-                                                                <h4 class="menu-title">{{ $subCategory->name }}</h4>
+                                                                <h4 class="menu-title">
+                                                                    <a
+                                                                        href="{{ route('user.shop', ['sub_category' => $subCategory->slug]) }}">
+                                                                        {{ $subCategory->name }}
+                                                                </h4></a>
                                                                 <hr class="divider">
                                                                 <ul>
                                                                     @foreach ($subCategory->activeItems as $item)
                                                                         <li>
                                                                             <a
-                                                                                href="{{ route('user.shop', ['category' => $item->slug]) }}">{{ $item->name }}</a>
+                                                                                href="{{ route('user.shop', ['sub_category_item' => $item->slug]) }}">{{ $item->name }}</a>
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>
