@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\Status;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Vendor extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
 
-    protected $guarded = [];// Replace with actual column names
+    protected $guarded = []; // Replace with actual column names
 
     public static function allowedColumns(): array
     {
@@ -73,5 +74,21 @@ class Vendor extends Model
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the user that owns the Vendor
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

@@ -1,9 +1,6 @@
 @extends('user.layouts.app')
 @section('content')
     <main class="main mt-3">
-        <!-- Start of Breadcrumb -->
-
-        <!-- End of Breadcrumb -->
 
         <!-- Start of Pgae Contetn -->
         <div class="page-content mb-8">
@@ -84,20 +81,24 @@
                                     </div>
 
                                     <!-- Sorting -->
-                                    <div class="widget widget-filter mt-4">
-                                        <select name="sort_by" class="form-control" onchange="this.form.submit()">
-                                            <option value="new-old"
-                                                {{ request('sort_by', 'new-old') == 'new-old' ? 'selected' : '' }}>Newest
-                                                First</option>
-                                            <option value="old-new"
-                                                {{ request('sort_by') == 'old-new' ? 'selected' : '' }}>Oldest First
+                                    @php
+                                        $sortOptions = [
+                                            'new-old' => 'Newest First',
+                                            'old-new' => 'Oldest First',
+                                            'a-z' => 'A to Z',
+                                            'z-a' => 'Z to A',
+                                        ];
+                                    @endphp
+
+                                    <select name="sort_by" class="form-control" onchange="this.form.submit()">
+                                        @foreach ($sortOptions as $key => $label)
+                                            <option value="{{ $key }}"
+                                                {{ request('sort_by', 'new-old') == $key ? 'selected' : '' }}>
+                                                {{ $label }}
                                             </option>
-                                            <option value="a-z" {{ request('sort_by') == 'a-z' ? 'selected' : '' }}>A to
-                                                Z</option>
-                                            <option value="z-a" {{ request('sort_by') == 'z-a' ? 'selected' : '' }}>Z to
-                                                A</option>
-                                        </select>
-                                    </div>
+                                        @endforeach
+                                    </select>
+
 
                                     <!-- Clear Filters -->
                                     <div class="mt-4">
@@ -181,7 +182,7 @@
                                         </div>
                                         <div class="store-footer">
                                             <figure class="seller-brand">
-                                                <img src="{{ asset($vendor->brand_logo ?? 'assets/user/images/default-brand.jpg') }}"
+                                                <img src="{{ asset('assets/uploads/brands/' . $vendor->brand_logo) }}"
                                                     alt="{{ $vendor->name }}" width="80" height="80">
                                             </figure>
                                             <a href="#" class="btn btn-inquiry btn-rounded btn-icon-left">

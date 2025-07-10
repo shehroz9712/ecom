@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('long_description')->nullable();
             $table->text('meta_keywords')->nullable();
             $table->text('meta_description')->nullable();
+            $table->text('file')->nullable()->comment('filename');
             $table->integer('sort')->default(1);
             $table->enum('status', ['active', 'inactive'])->default('active');
 

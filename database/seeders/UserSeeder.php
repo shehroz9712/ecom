@@ -11,14 +11,22 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
-            'name' => 'shehroz123',
-            'email' => 'shehroz@example.com',
-            'password' => Hash::make('password123'),
+        User::insert([[
+            'name' => 'user',
+            'email' => 'user@example.com',
+            'password' => Hash::make('password1'),
             'email_verified_at' => now(),
             'verify_code' => Str::random(6),
             'email_verification_token' => Str::uuid(),
             'status' => 'active',
-        ]);
+        ], [
+            'name' => 'vendor',
+            'email' => 'vendor@example.com',
+            'password' => Hash::make('password1'),
+            'email_verified_at' => now(),
+            'verify_code' => Str::random(6),
+            'email_verification_token' => Str::uuid(),
+            'status' => 'active',
+        ]]);
     }
 }

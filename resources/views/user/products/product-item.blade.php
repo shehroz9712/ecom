@@ -8,8 +8,10 @@
                     <img src="{{ asset('assets/uploads/products/' . $product->images[1]->image) }}"
                         alt="{{ $product->name }}" width="300" height="338" />
                 @else
-                    <img src="{{ asset('assets/uploads/products/' . $product->images[0]->image) }}"
-                        alt="{{ $product->name }}" width="300" height="338" />
+                    @isset($record->images[0])
+                        <img src="{{ asset('assets/uploads/products/' . $product->images[0]->image) }}"
+                            alt="{{ $product->name }}" width="300" height="338" />
+                    @endisset($product->images[0])
                 @endif
             </a>
             <div class="product-action-vertical">

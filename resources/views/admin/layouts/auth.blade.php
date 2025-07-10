@@ -12,7 +12,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{ asset('assets/admin/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.png') }}" type="image/x-icon">
-    <title>Login {{ $setting->title }}</title>
+    <title>Login {{$settings->title }}</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link

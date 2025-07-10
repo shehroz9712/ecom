@@ -11,13 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
+
+            // Personal Information
+            $table->string('name')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
-$table->timestamps();
-$table->softDeletes();
-$table->foreignId('created_by')->references('id')->on('users')->onDelete('cascade');
-$table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascade');
+            $table->rememberToken();
+
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +32,6 @@ $table->foreignId('updated_by')->references('id')->on('users')->onDelete('cascad
      */
     public function down(): void
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('admins');
     }
 };

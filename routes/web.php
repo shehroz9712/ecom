@@ -31,6 +31,7 @@ Route::name('user.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'index'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::get('/contact/submit', [HomeController::class, 'contact'])->name('contact.submit');
     Route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
@@ -42,6 +43,7 @@ Route::name('user.')->group(function () {
     // Vendor routes
     Route::get('/vendor/{slug}', [VendorController::class, 'detail'])->name('vendor.detail');
     Route::get('/vendors', [VendorController::class, 'index'])->name('vendors.index');
+    Route::get('/vendor/contact', [VendorController::class, 'index'])->name('vendor.contact');
 
     // Cart routes (some may need auth later)
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
@@ -55,9 +57,10 @@ Route::name('user.')->group(function () {
     Route::get('/compare', [HomeController::class, 'index'])->name('compare');
 
 
-      Route::get('/order/track', [OrderController::class, 'orderTrack'])->name('order.track');
-        Route::post('/order/track/check', [OrderController::class, 'orderTrackCheck'])->name('order.track.check');
-
+    Route::post('/order/track/check', [OrderController::class, 'orderTrackCheck'])->name('order.track.check');
+    // web.php
+    Route::get('/order/track', [OrderController::class, 'orderTrack'])->name('order.track');
+    Route::post('/order/track', [OrderController::class, 'orderTrackCheck'])->name('track.order');
 
     // Authenticated user routes
     Route::middleware(['auth'])->group(function () {
@@ -73,7 +76,7 @@ Route::name('user.')->group(function () {
         // Order routes
         Route::get('/order', [HomeController::class, 'index'])->name('order');
         Route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
-      
+
         // Cart management
         Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
@@ -84,6 +87,7 @@ Route::name('user.')->group(function () {
         // Orders
         Route::get('/account/orders', [ProfileController::class, 'index'])->name('orders.index');
         Route::get('/account/orders/{order}', [ProfileController::class, 'show'])->name('orders.show');
+
 
         // Address management
         Route::prefix('addresses')->group(function () {

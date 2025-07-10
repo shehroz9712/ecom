@@ -16,7 +16,7 @@
         <!-- Page Header Start-->
         <div class="page-main-header">
             <div class="main-header-right row m-0">
-                <div class="main-header-left">
+                <div class="main-header-left p-2 px-4">
                     <div class="logo-wrapper"><a href="{{ route('admin.dashboard') }}"><img class="img-fluid"
                                 src="{{ asset('assets/admin/images/logo/logo.png') }}" alt=""></a></div>
                     <div class="dark-logo-wrapper"><a href="{{ route('admin.dashboard') }}"><img class="img-fluid"

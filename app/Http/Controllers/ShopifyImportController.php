@@ -107,7 +107,7 @@ class ShopifyImportController extends Controller
             ProductImage::updateOrCreate(
                 [
                     'product_id' => $product->id,
-                    'url' => $data['Image Src'],
+                    'image' => $data['Image Src'],
                 ],
                 [
                     'is_main' => ($data['Image Position'] == 1),

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-xl-7">
                     <img class="bg-img-cover bg-center"
-                        src="https://statics.vinwonders.com/international-travel-0_1684821084.jpg" alt="looginpage">
+                        src="{{asset('assets/admin/images/adnminbg.jpg')}}" alt="looginpage">
                 </div>
                 <div class="col-xl-5 p-0">
                     <div class="login-card">

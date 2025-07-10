@@ -2,12 +2,7 @@
 @section('content')
     <!-- Start of Main -->
     <main class="main">
-        <!-- Start of Page Header -->
-        <div class="page-header">
-            <div class="container">
-                <h1 class="page-title mb-0">Contact Us</h1>
-            </div>
-        </div>
+   
         <!-- End of Page Header -->
 
 
@@ -28,7 +23,7 @@
                 <section class="contact-information-section mb-10">
                     <div class="row owl-carousel owl-theme cols-xl-4 cols-md-3 cols-sm-2 cols-1"
                         data-owl-options="{
-                        'items': 4,
+                        'items': 3,
                         'nav': false,
                         'dots': false,
                         'loop': false,
@@ -44,7 +39,7 @@
                                 'items': 3
                             },
                             '992': {
-                                'items': 4
+                                'items': 3
                             }
                         }
                     }">
@@ -162,7 +157,7 @@
                         </div>
                         <div class="col-lg-6 mb-8">
                             <h4 class="title mb-3">Send Us a Message</h4>
-                            <form class="form contact-us-form" action="#" method="post">
+                            <form action="{{route('user.contact.submit')}}" class="form contact-us-form" action="#" method="post">
                                 <div class="form-group">
                                     <label for="username">Your Name</label>
                                     <input type="text" id="username" name="username" class="form-control">
