@@ -22,7 +22,7 @@ class ProductController extends Controller
 
         // Start product query
         $products = Product::query()
-            ->with(['category','subCategory', 'subCategoryItem', 'brand', 'images'])
+            ->with(['category', 'subCategory', 'subCategoryItem', 'brand', 'images'])
             ->active()
             ->withCount('reviews')
             ->withAvg('reviews', 'rating');
@@ -165,7 +165,7 @@ class ProductController extends Controller
         $product = Product::with(['variants.attributes.attributeValue'])
             ->findOrFail($request->product_id);
 
-        $selectedAttributes = $request->attributes;
+        $selectedAttributes = $request->input('attributes'); // ✅ FIXED
 
         // Find matching variant
         $variant = $product->variants->first(function ($variant) use ($selectedAttributes) {
@@ -192,6 +192,7 @@ class ProductController extends Controller
             ]
         ]);
     }
+
 
 
     public function wishlist()

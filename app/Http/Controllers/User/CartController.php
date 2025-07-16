@@ -25,12 +25,11 @@ class CartController extends Controller
             return $item->qty * $item->price;
         });
 
-        return view('cart.index', compact('cartItems', 'subtotal'));
+        return view('user.cart.index', compact('cartItems', 'subtotal'));
     }
 
     public function addToCart(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'qty' => 'required|integer|min:1',

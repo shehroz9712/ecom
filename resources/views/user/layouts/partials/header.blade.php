@@ -29,8 +29,8 @@
                         <a href="#" class="mobile-menu-toggle  w-icon-hamburger">
                         </a>
                         <a href="{{ route('user.home') }}" class="logo ml-lg-0">
-                            <img src="{{ asset('assets/user/images/logo.png') }}" alt="logo" width="144"
-                                height="45" />
+                            <img src="{{ asset('assets/uploads/logo/' . $settings->logo) }}" alt="logo"
+                                width="144" height="45" />
                         </a>
                         <form method="get" action="{{ route('user.shop') }}"
                             class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">

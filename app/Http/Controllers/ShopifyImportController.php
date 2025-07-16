@@ -104,10 +104,12 @@ class ShopifyImportController extends Controller
         );
 
         if (!empty($data['Image Src'])) {
+            $imageName = basename(parse_url($data['Image Src'], PHP_URL_PATH)); // Extract only the file name
+
             ProductImage::updateOrCreate(
                 [
                     'product_id' => $product->id,
-                    'image' => $data['Image Src'],
+                    'image' => $imageName,
                 ],
                 [
                     'is_main' => ($data['Image Position'] == 1),
@@ -174,10 +176,11 @@ class ShopifyImportController extends Controller
         }
 
         if (!empty($data['Image Src']) && $data['Image Position'] != 1) {
+            $imageName = basename(parse_url($data['Image Src'], PHP_URL_PATH)); // Extract only the file name
             ProductImage::updateOrCreate(
                 [
                     'product_id' => $productId,
-                    'url' => $data['Image Src'], // Use url for external images
+                    'image' =>  $imageName, // Use url for external images
                 ],
                 [
                     'is_main' => false,

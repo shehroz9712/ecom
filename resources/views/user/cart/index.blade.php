@@ -23,7 +23,7 @@
                                     <tr>
                                         <td class="product-thumbnail">
                                             <div class="p-relative">
-                                                <a href="{{ route('product.show', $item->product->slug ?? '#') }}">
+                                                <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                     <figure>
                                                         <img src="{{ asset($item->product->image ?? 'default.jpg') }}"
                                                             alt="{{ $item->product->name }}" width="300" height="338">
@@ -38,14 +38,14 @@
                                             </div>
                                         </td>
                                         <td class="product-name">
-                                            <a href="{{ route('product.show', $item->product->slug ?? '#') }}">
+                                            <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                 {{ $item->product->name ?? 'Unknown Product' }}
                                             </a>
                                         </td>
                                         <td class="product-price"><span
                                                 class="amount">${{ number_format($item->price, 2) }}</span></td>
                                         <td class="product-quantity">
-                                            <form action="{{ route('cart.update', $item->id) }}" method="POST">
+                                            <form action="{{ route('user.cart.add', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="input-group">

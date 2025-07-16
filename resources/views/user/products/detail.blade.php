@@ -1,4 +1,60 @@
 @extends('user.layouts.app')
+@section('css')
+    <style>
+        /* Variant Selection Styles */
+        .product-variations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .product-variations .color,
+        .product-variations .size {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-variations .color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .product-variations .size {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .product-variations .color.active,
+        .product-variations .size.active {
+            border-color: #333;
+            font-weight: bold;
+        }
+
+        .product-variations .color.active {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 3px #333;
+        }
+
+        .product-variant-details {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .variant-stock.in-stock {
+            color: #26a69a;
+        }
+
+        .variant-stock.out-of-stock {
+            color: #ff5252;
+        }
+    </style>
+@endsection
+
 @section('content')
     <!-- Start of Main -->
     <main class="main mb-10 pb-1">
@@ -7,15 +63,15 @@
             <div class="container">
                 <div class="row gutter-lg">
                     <div class="main-content">
-                        <div class="product product-single row">
+                        <div class="product product-single row product-detail-wrapper" data-product-id="{{ $product->id }}">
                             <div class="col-md-6 mb-6">
                                 <div class="product-gallery product-gallery-sticky">
                                     <div
                                         class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1 gutter-no">
                                         @foreach ($product->images as $image)
                                             <figure class="product-image">
-                                                <img src="{{ asset('assets/uploads/products/' . $image->image) }}"
-                                                    data-zoom-image="{{ asset('assets/uploads/products/' . $image->image) }}"
+                                                <img src="{{ productImage($image->image) }}"
+                                                    data-zoom-image="{{ productImage($image->image) }}"
                                                     alt="{{ $product->name }}" width="800" height="900">
                                             </figure>
                                         @endforeach
@@ -24,8 +80,8 @@
                                         <div class="product-thumbs row cols-4 gutter-sm">
                                             @foreach ($product->images as $key => $image)
                                                 <div class="product-thumb {{ $key === 0 ? 'active' : '' }}">
-                                                    <img src="{{ asset('assets/uploads/products/' . $image->image) }}"
-                                                        alt="Product Thumb" width="800" height="900">
+                                                    <img src="{{ productImage($image->image) }}" alt="Product Thumb"
+                                                        width="800" height="900">
                                                 </div>
                                             @endforeach
                                         </div>
@@ -115,28 +171,31 @@
                                     </div>
 
                                     <hr class="product-divider">
-
                                     <!-- Variant Selection -->
                                     @if ($product->variants->isNotEmpty())
                                         <div class="product-variations-wrapper">
                                             @php
-                                                // Group attributes by type (color, size etc.)
                                                 $attributeGroups = [];
-                                                foreach ($product->variants->first()->attributes as $attribute) {
-                                                    $attributeGroups[$attribute->attribute->name][] = $attribute;
+                                                foreach ($product->variants as $variant) {
+                                                    foreach ($variant->attributes as $attribute) {
+                                                        $attributeGroups[$attribute->attribute->name][
+                                                            $attribute->attribute_value_id
+                                                        ] = $attribute;
+                                                    }
                                                 }
                                             @endphp
 
                                             @foreach ($attributeGroups as $attributeName => $attributes)
                                                 <div
                                                     class="product-form product-variation-form 
-                                                    @if (strtolower($attributeName) === 'color') product-color-swatch @else product-size-swatch @endif">
+                                                     @if (strtolower($attributeName) === 'color') product-color-swatch @else product-size-swatch @endif">
                                                     <label>{{ $attributeName }}:</label>
                                                     <div class="d-flex align-items-center product-variations">
                                                         @foreach ($attributes as $attribute)
                                                             <a href="#"
                                                                 class="@if (strtolower($attributeName) === 'color') color @else size @endif"
                                                                 data-attribute-id="{{ $attribute->attribute_id }}"
+                                                                data-product-id="{{ $product->id }}"
                                                                 data-attribute-value-id="{{ $attribute->attribute_value_id }}"
                                                                 @if (strtolower($attributeName) === 'color') style="background-color: {{ $attribute->attributeValue->code ?? '#ccc' }}" @endif>
                                                                 @if (strtolower($attributeName) !== 'color')
@@ -147,6 +206,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
+
                                         </div>
 
                                         <!-- Variant Details (will be shown after selection) -->
@@ -202,7 +262,7 @@
                                                 <a href="#" class="social-icon social-twitter w-icon-twitter"
                                                     onclick="shareOnTwitter('{{ $product->name }}', '{{ route('user.product.detail', $product->slug) }}')"></a>
                                                 <a href="#" class="social-icon social-pinterest fab fa-pinterest-p"
-                                                    onclick="shareOnPinterest('{{ $product->name }}', '{{ asset('assets/uploads/products/' . $product->main_image) }}', '{{ route('user.product.detail', $product->slug) }}')"></a>
+                                                    onclick="shareOnPinterest('{{ $product->name }}', '{{ productImage($product->main_image) }}', '{{ route('user.product.detail', $product->slug) }}')"></a>
                                                 <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"
                                                     onclick="shareOnWhatsApp('{{ $product->name }} - {{ route('user.product.detail', $product->slug) }}')"></a>
                                                 <a href="#" class="social-icon social-youtube fab fa-linkedin-in"
@@ -263,14 +323,14 @@
                                                 <a
                                                     href="{{ route('user.product.detail', ['slug' => $vendorProduct->slug]) }}">
                                                     @if ($vendorProduct->images->count() >= 2)
-                                                        <img src="{{ asset('assets/uploads/products/' . $vendorProduct->images[0]->image) }}"
+                                                        <img src="{{ productImage($vendorProduct->images[0]->image) }}"
                                                             alt="{{ $vendorProduct->name }}" width="300"
                                                             height="338" />
-                                                        <img src="{{ asset('assets/uploads/products/' . $vendorProduct->images[1]->image) }}"
+                                                        <img src="{{ productImage($vendorProduct->images[1]->image) }}"
                                                             alt="{{ $vendorProduct->name }}" width="300"
                                                             height="338" />
                                                     @else
-                                                        <img src="{{ asset('assets/uploads/products/' . $vendorProduct->images[0]->image) }}"
+                                                        <img src="{{ productImage($vendorProduct->images[0]->image) }}"
                                                             alt="{{ $vendorProduct->name }}" width="300"
                                                             height="338" />
                                                     @endif
@@ -423,7 +483,7 @@
                                                         <figure class="product-media">
                                                             <a
                                                                 href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
-                                                                <img src="{{ asset('assets/uploads/products /' . $product->images->first()->image) }}"
+                                                                <img src="{{ productImage($product->images->first()->image) }}"
                                                                     alt="{{ $product->name }}" width="100"
                                                                     height="113" />
                                                             </a>
@@ -471,63 +531,8 @@
     <!-- End of Main -->
 @endsection
 
-@push('css')
-    <style>
-        /* Variant Selection Styles */
-        .product-variations {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
 
-        .product-variations .color,
-        .product-variations .size {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .product-variations .color {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
-        }
-
-        .product-variations .size {
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .product-variations .color.active,
-        .product-variations .size.active {
-            border-color: #333;
-            font-weight: bold;
-        }
-
-        .product-variations .color.active {
-            box-shadow: 0 0 0 2px #fff, 0 0 0 3px #333;
-        }
-
-        .product-variant-details {
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-
-        .variant-stock.in-stock {
-            color: #26a69a;
-        }
-
-        .variant-stock.out-of-stock {
-            color: #ff5252;
-        }
-    </style>
-@endpush
-
-@push('js')
+@section('script')
     <script>
         $(document).ready(function() {
             // Initialize Owl Carousels
@@ -536,9 +541,9 @@
                 $(this).owlCarousel(options);
             });
 
-            // Handle variant selection
             let selectedAttributes = {};
 
+            // Handle variant selection
             $('.product-variations .color, .product-variations .size').on('click', function(e) {
                 e.preventDefault();
 
@@ -552,15 +557,19 @@
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
-                // If all attributes are selected, fetch variant details
+                // Check if all attributes selected
                 if (Object.keys(selectedAttributes).length === {{ count($variantAttributes ?? []) }}) {
                     fetchVariantDetails(selectedAttributes);
+                } else {
+                    // Disable Add to Cart if variant is incomplete
+                    $('.btn-cart').addClass('disabled').prop('disabled', true);
+                    $('.product-variant-details').hide();
                 }
             });
 
             function fetchVariantDetails(attributes) {
                 const attributeValues = Object.values(attributes);
-                const productId = {{ $product->id }};
+                const productId = $('.product-detail-wrapper').data('product-id');
 
                 $.ajax({
                     url: '{{ route('user.product.getVariantDetails') }}',
@@ -574,87 +583,52 @@
                         if (response.success) {
                             const variant = response.variant;
 
-                            // Update price display
+                            // Update main price area
+                            let priceHtml = '';
                             if (variant.sale_price) {
-                                $('.variant-price').text(variant.sale_price);
-                                $('.variant-sale-price').text(variant.price).show();
+                                priceHtml += `<ins class="new-price">$${variant.price}</ins>`;
+                                priceHtml += `<del class="old-price">$${variant.sale_price}</del>`;
                             } else {
-                                $('.variant-price').text(variant.price);
-                                $('.variant-sale-price').hide();
+                                priceHtml += `<ins class="new-price">$${variant.price}</ins>`;
                             }
+                            $('.product-price .price-range, .product-price').html(priceHtml);
 
-                            // Update other details
-                            $('.variant-sku').text(variant.sku);
-                            $('.variant-stock').text(variant.stock > 0 ? 'In Stock' : 'Out of Stock')
+                            // Update SKU
+                            $('.product-sku span').text(variant.sku);
+
+                            // Update stock status
+                            let stockText = variant.stock > 0 ? 'In Stock' : 'Out of Stock';
+                            let stockClass = variant.stock > 0 ? 'in-stock' : 'out-of-stock';
+                            $('.product-stock span')
+                                .text(stockText)
                                 .removeClass('in-stock out-of-stock')
-                                .addClass(variant.stock > 0 ? 'in-stock' : 'out-of-stock');
+                                .addClass(stockClass);
+
+                            // Update hidden variant_id
                             $('#selected_variant_id').val(variant.id);
 
-                            // Show variant details
-                            $('.product-variant-details').show();
+                            // Enable add to cart
+                            $('.btn-cart').removeClass('disabled').prop('disabled', false);
                         } else {
                             alert(response.message);
-                            $('.product-variant-details').hide();
+
+                            // Reset or hide values if not valid
+                            $('.btn-cart').addClass('disabled').prop('disabled', true);
+                            $('#selected_variant_id').val('');
                         }
                     },
                     error: function() {
                         alert('Error fetching variant details');
-                        $('.product-variant-details').hide();
+                        $('.btn-cart').addClass('disabled').prop('disabled', true);
+                        $('#selected_variant_id').val('');
                     }
                 });
             }
 
             // Update add to cart to handle variants
-            $(document).on('click', '.btn-cart', function(e) {
-                e.preventDefault();
 
-                const productId = $(this).data('product-id');
-                const quantity = $('.quantity[data-product-id="' + productId + '"]').val();
-                const variantId = $('#selected_variant_id').val();
 
-                // If product has variants but none selected
-                if ({{ $product->variants->isNotEmpty() ? 'true' : 'false' }} && !variantId) {
-                    alert('Please select all variant options');
-                    return;
-                }
 
-                addToCart(productId, quantity, variantId);
-            });
-
-            function addToCart(productId, quantity, variantId = null) {
-                $.ajax({
-                    url: '{{ route('user.cart.add') }}',
-                    type: 'POST',
-                    data: {
-                        product_id: productId,
-                        quantity: quantity,
-                        variant_id: variantId,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            updateCartCount(response.cart_count);
-                            showToast('success', 'Product added to cart');
-                        } else {
-                            showToast('error', response.message);
-                        }
-                    },
-                    error: function(xhr) {
-                        const error = xhr.responseJSON?.message || 'Error adding to cart';
-                        showToast('error', error);
-                    }
-                });
-            }
-
-            function updateCartCount(count) {
-                $('.cart-count').text(count);
-            }
-
-            function showToast(type, message) {
-                const toast = `<div class="toast toast-${type}">${message}</div>`;
-                $('body').append(toast);
-                setTimeout(() => $('.toast').remove(), 3000);
-            }
 
             // Quantity controls
             $(document).on('click', '.quantity-plus', function() {
@@ -704,4 +678,4 @@
             }
         });
     </script>
-@endpush
+@endsection

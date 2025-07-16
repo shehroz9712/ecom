@@ -5,37 +5,45 @@
     <style>
         .card {
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .form-label {
             font-weight: 500;
             color: #333;
         }
+
         .variant-item {
             background: #f8f9fa;
             border-radius: 5px;
         }
+
         .dropzone {
-            border: 2px dashed #007bff;a
-            background: #f8f9fa;
+            border: 2px dashed #007bff;
+            a background: #f8f9fa;
             border-radius: 5px;
             padding: 20px;
             min-height: 150px;
         }
+
         .dropzone .dz-message {
             color: #666;
             font-size: 16px;
         }
+
         .dropzone .dz-preview {
             margin: 10px;
         }
+
         .dropzone .dz-image img {
             border-radius: 5px;
         }
+
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
         }
+
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #0056b3;
@@ -57,14 +65,16 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="form theme-form">
+                    <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data"
+                        id="product-form" class="form theme-form">
                         @csrf
                         <div class="card-body">
                             <div class="row g-3">
                                 <!-- Name -->
                                 <div class="col-md-6">
                                     <label class="form-label">Product Name</label>
-                                    <input type="text" name="name" id="product_name" class="form-control" value="{{ old('name') }}">
+                                    <input type="text" name="name" id="product_name" class="form-control"
+                                        value="{{ old('name') }}">
                                     @error('name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -73,7 +83,8 @@
                                 <!-- Slug -->
                                 <div class="col-md-6">
                                     <label class="form-label">Slug</label>
-                                    <input type="text" name="slug" id="slug" class="form-control" value="{{ old('slug') }}">
+                                    <input type="text" name="slug" id="slug" class="form-control"
+                                        value="{{ old('slug') }}">
                                     @error('slug')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -91,7 +102,8 @@
                                 <!-- Price -->
                                 <div class="col-md-6">
                                     <label class="form-label">Price</label>
-                                    <input type="number" name="price" class="form-control" step="0.01" value="{{ old('price') }}">
+                                    <input type="number" name="price" class="form-control" step="0.01"
+                                        value="{{ old('price') }}">
                                     @error('price')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -100,7 +112,8 @@
                                 <!-- Sale Price -->
                                 <div class="col-md-6">
                                     <label class="form-label">Sale Price</label>
-                                    <input type="number" name="sale_price" class="form-control" step="0.01" value="{{ old('sale_price') }}">
+                                    <input type="number" name="sale_price" class="form-control" step="0.01"
+                                        value="{{ old('sale_price') }}">
                                     @error('sale_price')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -112,7 +125,8 @@
                                     <select name="category_id" id="category_id" class="form-control">
                                         <option value="">Select Category</option>
                                         @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                            <option value="{{ $category->id }}"
+                                                {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                                 {{ $category->name }}
                                             </option>
                                         @endforeach
@@ -150,7 +164,8 @@
                                     <select name="brand_id" class="form-control">
                                         <option value="">Select Brand</option>
                                         @foreach ($brands as $brand)
-                                            <option value="{{ $brand->id }}" {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
+                                            <option value="{{ $brand->id }}"
+                                                {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
                                                 {{ $brand->name }}
                                             </option>
                                         @endforeach
@@ -164,8 +179,10 @@
                                 <div class="col-md-6">
                                     <label class="form-label">Status</label>
                                     <select name="status" class="form-control">
-                                        <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
-                                        <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                        <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active
+                                        </option>
+                                        <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>
+                                            Inactive</option>
                                     </select>
                                 </div>
 
@@ -190,7 +207,8 @@
                                 <!-- Is Featured -->
                                 <div class="col-md-3">
                                     <div class="form-check">
-                                        <input type="checkbox" name="is_featured" value="1" class="form-check-input" {{ old('is_featured') ? 'checked' : '' }}>
+                                        <input type="checkbox" name="is_featured" value="1"
+                                            class="form-check-input" {{ old('is_featured') ? 'checked' : '' }}>
                                         <label class="form-check-label">Featured Product</label>
                                     </div>
                                 </div>
@@ -224,11 +242,13 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label class="form-label">Price</label>
-                                                    <input type="number" name="variants[0][price]" class="form-control" step="0.01">
+                                                    <input type="number" name="variants[0][price]" class="form-control"
+                                                        step="0.01">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label class="form-label">Sale Price</label>
-                                                    <input type="number" name="variants[0][sale_price]" class="form-control" step="0.01">
+                                                    <input type="number" name="variants[0][sale_price]"
+                                                        class="form-control" step="0.01">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label class="form-label">Stock</label>
@@ -236,7 +256,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label class="form-label">Attributes</label>
-                                                    <select name="variants[0][attributes][]" class="form-control" multiple>
+                                                    <select name="variants[0][attributes][]" class="form-control">
                                                         @foreach ($attributes as $attribute)
                                                             @foreach ($attribute->values as $value)
                                                                 <option value="{{ $attribute->id }}_{{ $value->id }}">
@@ -249,7 +269,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-variant">+ Add Variant</button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-variant">+
+                                        Add Variant</button>
                                 </div>
                             </div>
                         </div>
@@ -269,10 +290,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/angawkv2xx2vxc4g4fmmz2kga206yrhmrnuu1i2avvbr1n6d/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/angawkv2xx2vxc4g4fmmz2kga206yrhmrnuu1i2avvbr1n6d/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <script>
-        // Initialize TinyMCE
+        // ========== TinyMCE ==========
         tinymce.init({
             selector: 'textarea.rich-text',
             height: 300,
@@ -282,86 +304,67 @@
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         });
 
-        // Slug auto-generate
+        // ========== Slug Generator ==========
         document.getElementById('product_name').addEventListener('input', function() {
-            document.getElementById('slug').value = slugify(this.value, { lower: true, strict: true });
+            document.getElementById('slug').value = slugify(this.value, {
+                lower: true,
+                strict: true
+            });
         });
 
-        // Initialize Dropzone
+        // ========== Dropzone ==========
         Dropzone.autoDiscover = false;
-        const imageDropzone = new Dropzone("#image-dropzone", {
-            url: "{{ route('admin.products.upload') }}",
-            paramName: "images",
-            maxFilesize: 2, // MB
-            acceptedFiles: 'image/png,image/jpeg,image/jpg',
+        const myDropzone = new Dropzone("#image-dropzone", {
+            url: "#", // Prevent auto-upload
+            autoProcessQueue: false,
+            uploadMultiple: true,
+            parallelUploads: 10,
+            maxFiles: 10,
             addRemoveLinks: true,
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '{{ csrf_token() }}'
-            },
-            success: function(file, response) {
-                console.log('File uploaded:', response);
-                file.serverId = response.id; // Store server ID for potential removal
-            },
-            removedfile: function(file) {
-                // Optional: Implement file removal from server
-                if (file.serverId) {
-                    fetch('/admin/products/remove-image/' + file.serverId, {
-                        method: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '{{ csrf_token() }}'
-                        }
-                    }).then(() => {
-                        file.previewElement.remove();
-                    });
-                } else {
-                    file.previewElement.remove();
-                }
-            }
+            paramName: "images[]",
+            acceptedFiles: 'image/*',
         });
 
-        // Variant handling
+        // ========== Add Variant ==========
         let variantIndex = 1;
         document.getElementById('add-variant').addEventListener('click', () => {
             const wrapper = document.getElementById('variant-wrapper');
             const html = `
-                <div class="variant-item border p-3 mb-3">
-                    <div class="row g-3">
-                        <div class="col-md-3">
-                            <label class="form-label">Variant SKU</label>
-                            <input type="text" name="variants[${variantIndex}][sku]" class="form-control">
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label">Price</label>
-                            <input type="number" name="variants[${variantIndex}][price]" class="form-control" step="0.01">
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label">Sale Price</label>
-                            <input type="number" name="variants[${variantIndex}][sale_price]" class="form-control" step="0.01">
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label">Stock</label>
-                            <input type="number" name="variants[${variantIndex}][stock]" class="form-control">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Attributes</label>
-                            <select name="variants[${variantIndex}][attributes][]" class="form-control" multiple>
-                                @foreach ($attributes as $attribute)
-                                    @foreach ($attribute->values as $value)
-                                        <option value="{{ $attribute->id }}_{{ $value->id }}">
-                                            {{ $attribute->name }} - {{ $value->value }}
-                                        </option>
-                                    @endforeach
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+        <div class="variant-item border p-3 mb-3">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">Variant SKU</label>
+                    <input type="text" name="variants[${variantIndex}][sku]" class="form-control">
                 </div>
-            `;
+                <div class="col-md-2">
+                    <label class="form-label">Price</label>
+                    <input type="number" name="variants[${variantIndex}][price]" class="form-control" step="0.01">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Sale Price</label>
+                    <input type="number" name="variants[${variantIndex}][sale_price]" class="form-control" step="0.01">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Stock</label>
+                    <input type="number" name="variants[${variantIndex}][stock]" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Attributes</label>
+                    <select name="variants[${variantIndex}][attributes][]" class="form-control">
+                        @foreach ($attributes as $attribute)
+                            @foreach ($attribute->values as $value)
+                                <option value="{{ $attribute->id }}_{{ $value->id }}">{{ $attribute->name }} - {{ $value->value }}</option>
+                            @endforeach
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>`;
             wrapper.insertAdjacentHTML('beforeend', html);
             variantIndex++;
         });
 
-        // Category/Subcategory handling
+        // ========== Dependent Dropdowns ==========
         const routes = {
             getSubCategories: @json(route('admin.getSubCategories', ['id' => '__ID__'])),
             getSubCategoryItems: @json(route('admin.getSubCategoryItems', ['id' => '__ID__']))
@@ -370,34 +373,72 @@
         document.getElementById('category_id').addEventListener('change', function() {
             const categoryId = this.value;
             if (!categoryId) return;
-            const url = routes.getSubCategories.replace('__ID__', categoryId);
-            fetch(url)
+            fetch(routes.getSubCategories.replace('__ID__', categoryId))
                 .then(res => res.json())
                 .then(data => {
-                    let options = '<option value="">Select Sub Category</option>';
+                    const subCategory = document.getElementById('sub_category');
+                    subCategory.innerHTML = '<option value="">Select Sub Category</option>';
                     data.forEach(sc => {
-                        options += `<option value="${sc.id}">${sc.name}</option>`;
+                        subCategory.innerHTML += `<option value="${sc.id}">${sc.name}</option>`;
                     });
-                    document.getElementById('sub_category').innerHTML = options;
-                    document.getElementById('sub_category_item').innerHTML = '<option value="">Select Sub Category Item</option>';
-                })
-                .catch(err => console.error('Error fetching subcategories:', err));
+                    document.getElementById('sub_category_item').innerHTML =
+                        '<option value="">Select Sub Category Item</option>';
+                });
         });
 
         document.getElementById('sub_category').addEventListener('change', function() {
             const subCategoryId = this.value;
             if (!subCategoryId) return;
-            const url = routes.getSubCategoryItems.replace('__ID__', subCategoryId);
-            fetch(url)
+            fetch(routes.getSubCategoryItems.replace('__ID__', subCategoryId))
                 .then(res => res.json())
                 .then(data => {
-                    let options = '<option value="">Select Sub Category Item</option>';
+                    const subCategoryItem = document.getElementById('sub_category_item');
+                    subCategoryItem.innerHTML = '<option value="">Select Sub Category Item</option>';
                     data.forEach(item => {
-                        options += `<option value="${item.id}">${item.name}</option>`;
+                        subCategoryItem.innerHTML += `<option value="${item.id}">${item.name}</option>`;
                     });
-                    document.getElementById('sub_category_item').innerHTML = options;
+                });
+        });
+
+        // ========== Form Submit Handler ==========
+        document.getElementById('product-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Sync TinyMCE fields
+            tinymce.triggerSave();
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            // Append Dropzone images manually
+            myDropzone.files.forEach(file => {
+                if (file instanceof File) {
+                    formData.append('images[]', file, file.name);
+                }
+            });
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    }
                 })
-                .catch(err => console.error('Error fetching subcategory items:', err));
+                .then(res => {
+                    if (res.redirected) {
+                        window.location.href = res.url;
+                    } else {
+                        return res.text(); // For validation errors or debug
+                    }
+                })
+                .then(data => {
+                    if (typeof data === 'string') {
+                        console.log('Non-redirect response:', data);
+                    }
+                })
+                .catch(err => {
+                    console.error('Form submit error:', err);
+                });
         });
     </script>
 @endsection

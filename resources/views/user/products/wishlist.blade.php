@@ -42,7 +42,7 @@
                                     <div class="p-relative">
                                         <a href="{{ route('user.product.detail', $wishlist->product->slug) }}">
                                             <figure>
-                                                <img src="{{ asset('assets/uploads/products/' . $wishlist->product->main_image->image ?? 'assets/user/images/placeholder.png') }}"
+                                                <img src="{{ productImage($wishlist->product->main_image->image ?? 'assets/user/images/placeholder.png') }}"
                                                     alt="{{ $wishlist->product->name }}" width="300" height="338">
                                             </figure>
                                         </a>

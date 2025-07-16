@@ -77,6 +77,9 @@
                 const quantityInput = document.querySelector(
                     `.quantity[data-product-id="${productId}"]`);
                 const qty = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+                // ✅ Variant ID (check if exists)
+                let variantInput = document.querySelector(`#selected_variant_id`);
+                let variantId = variantInput ? variantInput.value : null;
 
                 fetch('{{ route('user.cart.add') }}', {
                         method: 'POST',
@@ -86,7 +89,8 @@
                         },
                         body: JSON.stringify({
                             product_id: productId,
-                            qty: qty
+                            qty: qty,
+                            variant_id: variantId
                         })
                     })
                     .then(response => response.json())
