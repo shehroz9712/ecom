@@ -11,6 +11,7 @@ Breadcrumbs::for('admin.dashboard', function (BreadcrumbTrail $trail) {
 
 // Entity list
 $entities = [
+    'dashboard'                    => 'Dashboard',
     'admins'                    => 'Admin',
     'users'                     => 'User',
     'products'                  => 'Product',

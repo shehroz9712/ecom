@@ -1,6 +1,8 @@
 <div class="product-wrap">
     <div class="product text-center">
         <figure class="product-media">
+
+            
             <a href="{{ route('user.product.detail', $product->slug) }}">
                 @if ($product->images->count() >= 2)
                     <img src="{{ productImage($product->images[0]->image) }}" alt="{{ $product->name }}" width="300"
@@ -8,7 +10,7 @@
                     <img src="{{ productImage($product->images[1]->image) }}" alt="{{ $product->name }}" width="300"
                         height="338" />
                 @else
-                    @isset($record->images[0])
+                    @isset($product->images[0])
                         <img src="{{ productImage($product->images[0]->image) }}" alt="{{ $product->name }}" width="300"
                             height="338" />
                     @endisset

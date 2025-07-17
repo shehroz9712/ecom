@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     {{-- <h3>{{ $pageTitle }}</h3> --}}
-                    {{ Breadcrumbs::render('dashboard') }}
+                    {{ Breadcrumbs::render('admin.dashboard') }}
                 </div>
 
             </div>

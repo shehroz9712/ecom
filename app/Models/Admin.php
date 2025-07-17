@@ -10,4 +10,5 @@ class Admin extends Authenticatable
 {
     use Notifiable, HasRoles;
     //
+    protected $guarded = [];
 }

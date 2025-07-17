@@ -56,8 +56,8 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // Products
     Route::resource('products', ProductController::class);
-    Route::resource('product_variants', ProductVariantController::class);
-    Route::resource('product_variant_attributes', ProductVariantAttributeController::class);
+    Route::resource('product_variants', ProductVariantController::class)->names('variants');
+    Route::resource('product_variant_attributes', ProductVariantAttributeController::class)->names('variant_attributes');
     Route::resource('product_images', ProductImageController::class);
 
     // Categories

@@ -18,26 +18,13 @@ function uploadImage($file, $folder): string
     return $image_name;
 }
 
-function darkLogo(): string
-{
-    $image = Setting::first()->dark_logo;
-    if ($image && file_exists(public_path('assets/uploads/logo/' . $image))) {
-        return asset('assets/uploads/logo/' . $image);
+if (!function_exists('adminStatusBadge')) {
+    function adminStatusBadge($status)
+    {
+        $color = $status === 'active' ? 'success' : 'danger';
+        return '<span class="badge bg-' . $color . '">' . ucfirst($status) . '</span>';
     }
-    return asset('uploads/no-image.png');
 }
-
-function favicon(): string
-{
-    $image = Setting::first()->favicon;
-
-    if ($image && file_exists(public_path('assets/uploads/logo/' . $image))) {
-        return asset('assets/uploads/logo/' . $image);
-    }
-    return asset('uploads/no-image.png');
-}
-
-
 
 
 if (!function_exists('productImage')) {

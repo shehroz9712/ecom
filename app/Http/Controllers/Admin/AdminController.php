@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::all();
+        $admins = Admin::latest()->get();
         return view('admin.admins.index', compact('admins'));
     }
 
@@ -31,15 +32,17 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|max:100|unique:admins',
+            'name'     => 'required|string|max:100',
+            'email'    => 'required|email|max:100|unique:admins',
             'password' => 'required|min:6',
+            'status'   => 'required|in:active,inactive',
         ]);
 
         Admin::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name'     => $request->name,
+            'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'status'   => $request->status,
         ]);
 
         return redirect()->route('admin.admins.index')->with('success', 'Admin created successfully.');
@@ -59,14 +62,23 @@ class AdminController extends Controller
     public function update(Request $request, Admin $admin)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|max:100|unique:admins,email,' . $admin->id,
+            'name'     => 'required|string|max:100',
+            'email'    => 'required|email|max:100|unique:admins,email,' . $admin->id,
+            'status'   => 'required|in:active,inactive',
+            'password' => 'nullable|min:6',
         ]);
 
-        $admin->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+        $data = [
+            'name'   => $request->name,
+            'email'  => $request->email,
+            'status' => $request->status,
+        ];
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $admin->update($data);
 
         return redirect()->route('admin.admins.index')->with('success', 'Admin updated successfully.');
     }
@@ -76,7 +88,7 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        $admin->delete();
+        $admin->delete(); // uses soft deletes
         return redirect()->route('admin.admins.index')->with('success', 'Admin deleted successfully.');
     }
 }
