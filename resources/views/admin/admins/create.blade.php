@@ -2,23 +2,19 @@
 @section('css')
 @endsection
 @section('content')
-    <div class="container-fluid">
-        <div class="page-header">
-            <div class="row">
+    <div class="container-fluid py-4">
+        <div class="page-header mb-4">
+            <div class="row align-items-center">
                 <div class="col-sm-6">
-                    <h3>{{ $pageTitle }}</h3>
-                    {{ Breadcrumbs::render('admin.admins.index') }}
+                    <h3 class="mb-0">{{ $pageTitle }}</h3>
+                    {{ Breadcrumbs::render('admin.products.index') }}
                 </div>
-
             </div>
         </div>
-    </div>
-    <!-- Container-fluid starts-->
-    <div class="container-fluid">
-        <div class="row starter-main">
-            <div class="col-sm-12">
-                <div class="card">
 
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
                     <form action="{{ route('admin.admins.store') }}" method="POST" class="form theme-form">
                         @csrf
                         <div class="card-body">

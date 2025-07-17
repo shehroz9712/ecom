@@ -71,97 +71,46 @@ class ViewServiceProvider extends ServiceProvider
 
     private function composeAdminPages()
     {
+        $entities = [
+            'admins'            => 'Admin',
+            'users'             => 'User',
+            'products'          => 'Product',
+            'product_images'    => 'Product Image',
+            'product_variants'  => 'Variant',
+            'product_variant_attributes' => 'Variant Attribute',
+            'categories'        => 'Category',
+            'sub_categories'    => 'Sub Category',
+            'sub_category_items' => 'Sub Category Item',
+            'orders'            => 'Order',
+            'reviews'           => 'Review',
+            'review_images'     => 'Review Image',
+            'testimonials'      => 'Testimonial',
+            'vendors'           => 'Vendor',
+            'wishlists'         => 'Wishlist',
+            'blogs'             => 'Blog',
+            'pages'             => 'Page',
+            'sliders'           => 'Slider',
+            'payment_methods'   => 'Payment Method',
+            'countries'         => 'Country',
+            'states'            => 'State',
+            'cities'            => 'City',
+            'addresses'         => 'Address',
+            'settings'          => 'Setting',
+        ];
 
-
-
-        /*
-         * variant
-         */
-        view()->composer('admin.variants.index', function ($view) {
-            $view->with(['pageTitle' => ' Variants List']);
-        });
-        view()->composer('admin.variants.create', function ($view) {
-            $view->with(['pageTitle' => 'Add  Variant']);
-        });
-        view()->composer('admin.variants.show', function ($view) {
-            $view->with(['pageTitle' => 'Show  Variant']);
-        });
-        view()->composer('admin.variants.edit', function ($view) {
-            $view->with(['pageTitle' => 'Edit  Variant']);
-        });
-        /*
-         * user
-         */
-        view()->composer('admin.users.index', function ($view) {
-            $view->with(['pageTitle' => ' Users List']);
-        });
-        view()->composer('admin.users.create', function ($view) {
-            $view->with(['pageTitle' => 'Add  User']);
-        });
-        view()->composer('admin.users.show', function ($view) {
-            $view->with(['pageTitle' => 'Show  User']);
-        });
-        view()->composer('admin.users.edit', function ($view) {
-            $view->with(['pageTitle' => 'Edit  User']);
-        }); /*
-         * order
-         */
-        view()->composer('admin.orders.index', function ($view) {
-            $view->with(['pageTitle' => ' Orders List']);
-        });
-        view()->composer('admin.orders.create', function ($view) {
-            $view->with(['pageTitle' => 'Add  Order']);
-        });
-        view()->composer('admin.orders.show', function ($view) {
-            $view->with(['pageTitle' => 'Show  Order']);
-        });
-        view()->composer('admin.orders.edit', function ($view) {
-            $view->with(['pageTitle' => 'Edit  Order']);
-        });
-        /*
-         * order
-         */
-        view()->composer('admin.setting.index', function ($view) {
-            $view->with(['pageTitle' => ' Setting List']);
-        });
-        view()->composer('admin.setting.create', function ($view) {
-            $view->with(['pageTitle' => 'Add  Setting']);
-        });
-        view()->composer('admin.setting.show', function ($view) {
-            $view->with(['pageTitle' => 'Show  Setting']);
-        });
-        view()->composer('admin.setting.edit', function ($view) {
-            $view->with(['pageTitle' => 'Edit  Setting']);
-        });
-        /*
-         * product
-         */
-        view()->composer('admin.products.index', function ($view) {
-            $view->with(['pageTitle' => ' Products List']);
-        });
-        view()->composer('admin.products.create', function ($view) {
-            $view->with(['pageTitle' => 'Add  Product']);
-        });
-        view()->composer('admin.products.show', function ($view) {
-            $view->with(['pageTitle' => 'Show  Product']);
-        });
-        view()->composer('admin.products.edit', function ($view) {
-            $view->with(['pageTitle' => 'Edit  Product']);
-        });
-          /*
-         * admin
-         */
-        view()->composer('admin.admins.index', function ($view) {
-            $view->with(['pageTitle' => ' Admins List']);
-        });
-        view()->composer('admin.admins.create', function ($view) {
-            $view->with(['pageTitle' => 'Add  Admin']);
-        });
-        view()->composer('admin.admins.show', function ($view) {
-            $view->with(['pageTitle' => 'Show  Admin']);
-        });
-        view()->composer('admin.admins.edit', function ($view) {
-            $view->with(['pageTitle' => 'Edit  Admin']);
-        });
+        foreach ($entities as $folder => $title) {
+            view()->composer("admin.{$folder}.index", function ($view) use ($title) {
+                $view->with(['pageTitle' => "{$title}s List"]);
+            });
+            view()->composer("admin.{$folder}.create", function ($view) use ($title) {
+                $view->with(['pageTitle' => "Add {$title}"]);
+            });
+            view()->composer("admin.{$folder}.show", function ($view) use ($title) {
+                $view->with(['pageTitle' => "Show {$title}"]);
+            });
+            view()->composer("admin.{$folder}.edit", function ($view) use ($title) {
+                $view->with(['pageTitle' => "Edit {$title}"]);
+            });
+        }
     }
 }

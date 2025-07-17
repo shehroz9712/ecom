@@ -11,8 +11,23 @@ use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\SubCategoryItemController;
-use App\Models\SubCategory;
-use App\Models\SubCategoryItem;
+use App\Http\Controllers\Admin\ProductVariantController;
+use App\Http\Controllers\Admin\ProductVariantAttributeController;
+use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ReviewImageController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\WishlistController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\PaymentMethodController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\StateController;
+use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\AddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,15 +50,43 @@ Route::get('sub-categories/{id}/items', [SubCategoryItemController::class, 'getS
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', action: [HomeController::class, 'index'])->name('dashboard');
-
+    // Users & Admins
     Route::resource('admins', AdminController::class);
-    Route::resource('variants', VariantController::class);
-    Route::resource('orders', OrderController::class);
-    Route::resource('products', ProductController::class);
-
-    Route::resource('settings', SettingController::class);
-
     Route::resource('users', UserController::class);
 
-    Route::resource('variants', VariantController::class);
+    // Products
+    Route::resource('products', ProductController::class);
+    Route::resource('product_variants', ProductVariantController::class);
+    Route::resource('product_variant_attributes', ProductVariantAttributeController::class);
+    Route::resource('product_images', ProductImageController::class);
+
+    // Categories
+    Route::resource('categories', CategoryController::class);
+    Route::resource('sub_categories', SubCategoryController::class);
+    Route::resource('sub_category_items', SubCategoryItemController::class);
+
+    // Orders
+    Route::resource('orders', OrderController::class);
+
+    // Content
+    Route::resource('blogs', BlogController::class);
+    Route::resource('pages', PageController::class);
+    Route::resource('sliders', SliderController::class);
+    Route::resource('testimonials', TestimonialController::class);
+    Route::resource('settings', SettingController::class);
+
+    // Reviews
+    Route::resource('reviews', ReviewController::class);
+    Route::resource('review_images', ReviewImageController::class);
+
+    // Vendors, Wishlists, Payments
+    Route::resource('vendors', VendorController::class);
+    Route::resource('wishlists', WishlistController::class);
+    Route::resource('payment_methods', PaymentMethodController::class);
+
+    // Locations
+    Route::resource('countries', CountryController::class);
+    Route::resource('states', StateController::class);
+    Route::resource('cities', CityController::class);
+    Route::resource('addresses', AddressController::class);
 });
