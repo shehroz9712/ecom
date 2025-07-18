@@ -1,13 +1,15 @@
 @extends('admin.layouts.app')
+
 @section('css')
 @endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-6">
                     <h3>{{ $pageTitle }}</h3>
-                    {{ Breadcrumbs::render('admin.admins.index') }}
+                    {{ Breadcrumbs::render('admin.users.index') }}
                 </div>
             </div>
         </div>
@@ -19,7 +21,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('admin.admins.create') }}" class="btn btn-primary">Add Admin</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Add User</a>
                     </div>
 
                     <div class="card-body">
@@ -35,26 +37,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($admins as $admin)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $admin->id }}</td>
-                                            <td>{{ $admin->name }}</td>
-                                            <td>{{ $admin->email }}</td>
-                                            <td>{!! adminStatusBadge($admin->status) !!}</td>
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{!! userStatusBadge($user->status) !!}</td>
                                             <td>
-                                                @if ($admin->id != 1)
-                                                    <a href="{{ route('admin.admins.edit', $admin->id) }}"
+                                                @if ($user->id !== 1)
+                                                    <a href="{{ route('admin.users.edit', $user->id) }}"
                                                         class="action-btn"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <form id="delete-form-{{ $admin->id }}"
-                                                        action="{{ route('admin.admins.destroy', $admin->id) }}"
+
+                                                    <form id="delete-form-{{ $user->id }}"
+                                                        action="{{ route('admin.users.destroy', $user->id) }}"
                                                         method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
 
-                                                    <a href="#" class="action-btn"
-                                                        onclick="event.preventDefault(); if(confirm('Are you sure?')) document.getElementById('delete-form-{{ $admin->id }}').submit();"
-                                                        class="text-danger">
+                                                    <a href="#" class="action-btn text-danger"
+                                                        onclick="event.preventDefault(); if(confirm('Are you sure?')) document.getElementById('delete-form-{{ $user->id }}').submit();">
                                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                                     </a>
                                                 @else
@@ -73,5 +75,6 @@
     </div>
     <!-- Container-fluid Ends-->
 @endsection
+
 @section('js')
 @endsection

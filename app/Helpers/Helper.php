@@ -25,6 +25,20 @@ if (!function_exists('adminStatusBadge')) {
         return '<span class="badge bg-' . $color . '">' . ucfirst($status) . '</span>';
     }
 }
+function orderStatusBadge($status)
+{
+    $colors = [
+        'pending' => 'warning',
+        'processing' => 'info',
+        'on_hold' => 'secondary',
+        'completed' => 'success',
+        'cancelled' => 'dark',
+        'refunded' => 'primary',
+        'failed' => 'danger',
+    ];
+
+    return '<span class="badge bg-' . ($colors[$status] ?? 'light') . '">' . ucfirst($status) . '</span>';
+}
 
 
 if (!function_exists('productImage')) {

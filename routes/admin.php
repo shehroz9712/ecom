@@ -67,7 +67,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // Orders
     Route::resource('orders', OrderController::class);
-
+    Route::post('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
     // Content
     Route::resource('blogs', BlogController::class);
     Route::resource('pages', PageController::class);
