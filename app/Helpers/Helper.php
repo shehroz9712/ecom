@@ -18,23 +18,19 @@ function uploadImage($file, $folder): string
     return $image_name;
 }
 
-if (!function_exists('adminStatusBadge')) {
-    function adminStatusBadge($status)
-    {
-        $color = $status === 'active' ? 'success' : 'danger';
-        return '<span class="badge bg-' . $color . '">' . ucfirst($status) . '</span>';
-    }
-}
-function orderStatusBadge($status)
+
+function StatusBadge($status)
 {
     $colors = [
         'pending' => 'warning',
         'processing' => 'info',
         'on_hold' => 'secondary',
         'completed' => 'success',
+        'active' => 'success',
         'cancelled' => 'dark',
         'refunded' => 'primary',
         'failed' => 'danger',
+        'inactive' => 'danger',
     ];
 
     return '<span class="badge bg-' . ($colors[$status] ?? 'light') . '">' . ucfirst($status) . '</span>';

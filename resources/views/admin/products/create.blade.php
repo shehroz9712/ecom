@@ -287,7 +287,6 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/angawkv2xx2vxc4g4fmmz2kga206yrhmrnuu1i2avvbr1n6d/tinymce/6/tinymce.min.js"
@@ -402,7 +401,7 @@
 
         // ========== Form Submit Handler ==========
         document.getElementById('product-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default form submission
 
             // Sync TinyMCE fields
             tinymce.triggerSave();
@@ -410,34 +409,51 @@
             const form = e.target;
             const formData = new FormData(form);
 
-            // Append Dropzone images manually
+            // Append Dropzone files to FormData
             myDropzone.files.forEach(file => {
                 if (file instanceof File) {
                     formData.append('images[]', file, file.name);
                 }
             });
 
+            // Submit the form via AJAX to handle file uploads properly
             fetch(form.action, {
                     method: 'POST',
                     body: formData,
                     headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                    }
+                        'Accept': 'application/json',
+                    },
                 })
-                .then(res => {
-                    if (res.redirected) {
-                        window.location.href = res.url;
+                .then(response => {
+                    if (response.ok) {
+                        return response.json().then(data => ({
+                            status: 'success',
+                            data
+                        }));
                     } else {
-                        return res.text(); // For validation errors or debug
+                        return response.json().then(data => ({
+                            status: 'error',
+                            data
+                        }));
                     }
                 })
-                .then(data => {
-                    if (typeof data === 'string') {
-                        console.log('Non-redirect response:', data);
+                .then(({
+                    status,
+                    data
+                }) => {
+                    if (status === 'success') {
+                        // Handle successful submission (e.g., redirect or show success message)
+                        alert('Product saved successfully!');
+                        window.location.href = "{{ route('admin.products.index') }}";
+                    } else {
+                        // Handle validation errors
+                        console.error('Validation errors:', data.errors);
+                        alert('Please fix the following errors:\n' + Object.values(data.errors).join('\n'));
                     }
                 })
-                .catch(err => {
-                    console.error('Form submit error:', err);
+                .catch(error => {
+                    console.error('Submission error:', error);
+                    alert('An error occurred while submitting the form.');
                 });
         });
     </script>

@@ -77,9 +77,9 @@
                         </a> --}}
                         <div id="header-cart">
                             @include('partials.header-cart', [
-                                'carts' => $headerCarts,
-                                'cartCount' => $headerCartCount,
-                                'cartSubtotal' => $headerCartSubtotal,
+                                'headerCarts' => $headerCarts,
+                                'headerCartCount' => $headerCartCount,
+                                'headerCartSubtotal' => $headerCartSubtotal,
                             ])
                         </div>
 

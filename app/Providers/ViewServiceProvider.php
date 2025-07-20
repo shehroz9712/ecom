@@ -26,12 +26,17 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            $productId = auth()->id();
+            $userId = auth('web')->id();
             $deviceId = request()->cookie('device_id');
 
-            $carts = Cart::with('product.images') // eager load product & images
-                ->when($productId, fn($q) => $q->where('product_id', $productId))
-                ->when(!$productId, fn($q) => $q->where('device_id', $deviceId))
+            $carts = Cart::with(
+                'product.images',
+                'variant.attributeValues',
+                'variant.attributes.attribute',
+                'variant.attributes.attributeValue'
+            )
+                ->when($userId, fn($q) => $q->where('user_id', $userId))
+                ->when(!$userId, fn($q) => $q->where('device_id', $deviceId))
                 ->where('status', 'active')
                 ->get();
 
@@ -75,26 +80,21 @@ class ViewServiceProvider extends ServiceProvider
             'admins'            => 'Admin',
             'users'             => 'User',
             'products'          => 'Product',
-            'product_images'    => 'Product Image',
-            'product_variants'  => 'Variant',
-            'product_variant_attributes' => 'Variant Attribute',
+            'attributes' => 'Variant Attribute',
             'categories'        => 'Category',
             'sub_categories'    => 'Sub Category',
             'sub_category_items' => 'Sub Category Item',
             'orders'            => 'Order',
             'reviews'           => 'Review',
             'review_images'     => 'Review Image',
-            'testimonials'      => 'Testimonial',
             'vendors'           => 'Vendor',
             'wishlists'         => 'Wishlist',
             'blogs'             => 'Blog',
             'pages'             => 'Page',
             'sliders'           => 'Slider',
-            'payment_methods'   => 'Payment Method',
             'countries'         => 'Country',
             'states'            => 'State',
             'cities'            => 'City',
-            'addresses'         => 'Address',
             'settings'          => 'Setting',
         ];
 

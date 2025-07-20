@@ -1,13 +1,18 @@
+<!-- Global Routes -->
 <script>
     window.routes = {
         cart: @json(route('user.cart')),
         checkout: @json(route('user.checkout')),
         compare: @json(route('user.compare')),
         wishlist: @json(route('user.wishlist')),
-
+        cartUpdateQty: @json(route('user.cart.updateQty')),
+        cartAdd: @json(route('user.cart.add')),
+        cartMini: @json(route('user.cart.mini')),
+        wishlistToggle: @json(route('user.wishlist.toggle')),
     };
 </script>
-<!-- Plugin JS File -->
+
+<!-- jQuery and Plugin Scripts -->
 <script src="{{ asset('assets/user/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/user/vendor/jquery.plugin/jquery.plugin.min.js') }}"></script>
 <script src="{{ asset('assets/user/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
@@ -19,17 +24,27 @@
 
 <!-- Main JS -->
 <script src="{{ asset('assets/user/js/main.js') }}"></script>
-
 @yield('script')
+
+<!-- Global AJAX Loader -->
+<script>
+    $(document).ajaxSend(function() {
+        $('#ajax-loader').fadeIn();
+    }).ajaxComplete(function() {
+        $('#ajax-loader').fadeOut();
+    });
+</script>
+
+<!-- Quantity + Wishlist + Cart AJAX -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Add to Wishlist
+        // Wishlist toggle
         document.querySelectorAll('.btn-wishlist').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 const productId = this.dataset.productId;
 
-                fetch('{{ route('user.wishlist.toggle') }}', {
+                fetch(window.routes.wishlistToggle, {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -45,43 +60,88 @@
                     });
             });
         });
-        const addToCartButtons = document.querySelectorAll('.btn-cart');
 
-        // Quantity plus/minus handlers
+        // Quantity +/-
         document.querySelectorAll('.quantity-plus').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const productId = this.dataset.productId;
-                const input = document.querySelector(
-                    `.quantity[data-product-id="${productId}"]`);
-                input.value = parseInt(input.value) + 1;
+            button.addEventListener('click', function() {
+                const form = this.closest('form');
+                const input = form.querySelector('input[name="qty"]');
+                const itemId = form.dataset.cartId;
+                const newQty = parseInt(input.value) + 1;
+                updateQuantity(itemId, newQty);
             });
         });
 
-        document.querySelectorAll('.quantity-minus').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const productId = this.dataset.productId;
-                const input = document.querySelector(
-                    `.quantity[data-product-id="${productId}"]`);
-                if (parseInt(input.value) > 1) {
-                    input.value = parseInt(input.value) - 1;
+        document.querySelectorAll('.quantity-minus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const form = this.closest('form');
+                const input = form.querySelector('input[name="qty"]');
+                const itemId = form.dataset.cartId;
+                let newQty = parseInt(input.value);
+                if (newQty > 1) {
+                    newQty -= 1;
+                    updateQuantity(itemId, newQty);
                 }
             });
         });
 
-        addToCartButtons.forEach(button => {
+        // Update Cart Qty
+        function updateQuantity(itemId, qty) {
+            $('#ajax-loader').fadeIn();
+            fetch(window.routes.cartUpdateQty, {
+                    method: 'PUT',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        cart_id: itemId,
+                        qty: qty
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    $('#ajax-loader').fadeOut();
+
+                    if (data.success) {
+                        const form = document.querySelector(`form[data-cart-id="${itemId}"]`);
+                        const input = form.querySelector('input[name="qty"]');
+                        input.value = qty;
+
+                        const row = form.closest('tr');
+                        row.querySelector('.product-subtotal .amount').textContent =
+                            `RS ${data.item_subtotal}`;
+                        document.querySelector('.cart-summary .cart-subtotal span').textContent =
+                            `RS ${data.subtotal}`;
+                        document.querySelector('.cart-summary .order-total span').textContent =
+                            `RS ${data.total}`;
+
+                        row.classList.add('flash');
+                        setTimeout(() => row.classList.remove('flash'), 300);
+
+                        updateMiniCart();
+                    } else {
+                        alert(data.message || 'Update failed.');
+                    }
+                }).catch(err => {
+                    $('#ajax-loader').fadeOut();
+                    console.error(err);
+                    alert('Something went wrong.');
+                });
+        }
+
+        // Add to Cart
+        document.querySelectorAll('.btn-cart').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const productId = this.dataset.productId;
-                const quantityInput = document.querySelector(
+                const qtyInput = document.querySelector(
                     `.quantity[data-product-id="${productId}"]`);
-                const qty = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
-                // ✅ Variant ID (check if exists)
-                let variantInput = document.querySelector(`#selected_variant_id`);
-                let variantId = variantInput ? variantInput.value : null;
+                const qty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+                const variantInput = document.getElementById('selected_variant_id');
+                const variantId = variantInput ? variantInput.value : null;
 
-                fetch('{{ route('user.cart.add') }}', {
+                fetch(window.routes.cartAdd, {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -93,23 +153,20 @@
                             variant_id: variantId
                         })
                     })
-                    .then(response => response.json())
+                    .then(res => res.json())
                     .then(data => {
                         if (data.success) {
                             updateMiniCart();
-                            alert('Product added to cart!');
                         } else {
-                            alert(data.message || 'Failed to add product to cart.');
+                            alert(data.message || 'Could not add to cart.');
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
                     });
             });
         });
 
+        // Mini Cart Refresh
         function updateMiniCart() {
-            fetch('{{ route('user.cart.mini') }}')
+            fetch(window.routes.cartMini)
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {

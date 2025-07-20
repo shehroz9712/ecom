@@ -40,9 +40,7 @@
                         </a>
                         <ul class="nav-submenu menu-content">
                             <li><a href="{{ route('admin.products.index') }}">Products</a></li>
-                            <li><a href="{{ route('admin.variants.index') }}">Product Variants</a></li>
-                            <li><a href="{{ route('admin.variant_attributes.index') }}">Variant Attributes</a></li>
-                            <li><a href="{{ route('admin.product_images.index') }}">Product Images</a></li>
+                            <li><a href="{{ route('admin.attributes.index') }}">Product Variants</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -58,12 +56,8 @@
                     <li class="dropdown"><a class="nav-link menu-title link-nav"
                             href="{{ route('admin.reviews.index') }}"><i
                                 data-feather="star"></i><span>Reviews</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav"
-                            href="{{ route('admin.review_images.index') }}"><i data-feather="image"></i><span>Review
-                                Images</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav"
-                            href="{{ route('admin.testimonials.index') }}"><i
-                                data-feather="message-circle"></i><span>Testimonials</span></a></li>
+
+                  
                     <li class="dropdown"><a class="nav-link menu-title link-nav"
                             href="{{ route('admin.vendors.index') }}"><i
                                 data-feather="briefcase"></i><span>Vendors</span></a></li>
@@ -79,9 +73,7 @@
                     <li class="dropdown"><a class="nav-link menu-title link-nav"
                             href="{{ route('admin.sliders.index') }}"><i
                                 data-feather="sliders"></i><span>Sliders</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav"
-                            href="{{ route('admin.payment_methods.index') }}"><i
-                                data-feather="credit-card"></i><span>Payment Methods</span></a></li>
+             
                     <li class="dropdown">
                         <a class="nav-link menu-title" href="javascript:void(0)">
                             <i data-feather="map-pin"></i><span>Locations</span>
@@ -90,7 +82,6 @@
                             <li><a href="{{ route('admin.countries.index') }}">Countries</a></li>
                             <li><a href="{{ route('admin.states.index') }}">States</a></li>
                             <li><a href="{{ route('admin.cities.index') }}">Cities</a></li>
-                            <li><a href="{{ route('admin.addresses.index') }}">Addresses</a></li>
                         </ul>
                     </li>
 

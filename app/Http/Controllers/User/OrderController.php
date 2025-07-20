@@ -15,23 +15,23 @@ class OrderController extends Controller
     }
 
     public function orderTrackCheck(Request $request)
-{
-    $request->validate([
-        'order_number' => 'required',
-        'email' => 'required|email',
-    ]);
+    {
+        $request->validate([
+            'order_number' => 'required',
+            'email' => 'required|email',
+        ]);
 
-    $order = Order::with(['orderDetails.product', 'billingAddress', 'shippingAddress'])
-        ->where('order_number', $request->order_number)
-        ->whereHas('user', function ($query) use ($request) {
-            $query->where('email', $request->email);
-        })
-        ->first();
+        $order = Order::with(['orderDetails.product', 'billingAddress', 'shippingAddress'])
+            ->where('order_number', $request->order_number)
+            ->whereHas('user', function ($query) use ($request) {
+                $query->where('email', $request->email);
+            })
+            ->first();
 
-    if (!$order) {
-        return redirect()->back()->withErrors(['Order not found. Please check your details.']);
+        if (!$order) {
+            return redirect()->back()->withErrors(['Order not found. Please check your details.']);
+        }
+
+        return view('user.order.track-order-details', compact('order'));
     }
-
-    return view('user.order.track-order-details', compact('order'));
-}
 }

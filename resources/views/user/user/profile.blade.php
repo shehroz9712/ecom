@@ -189,55 +189,76 @@
                             </div>
                             <p>The following addresses will be used on the checkout page by default.</p>
 
+                            <a href="shop-banner-sidebar.html" class="btn btn-dark btn-rounded btn-icon-right">Add
+                                Address<i class="w-icon-long-arrow-right"></i></a>
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
                                 </div>
                             @endif
 
-                            <div class="row">
+                            <div class="row mt-4">
                                 <!-- Billing Address Section -->
-                                @if ($user->addresses->count() > 0)
+                                @if ($user->addresses->count())
                                     <table class="shop-table account-orders-table mb-6">
                                         <thead>
                                             <tr>
-                                                <th class="order-id">Order</th>
-                                                <th class="order-date">Date</th>
-                                                <th class="order-status">Status</th>
-                                                <th class="order-total">Total</th>
-                                                <th class="order-actions">Actions</th>
+                                                <th>Type</th>
+                                                <th>Full Name</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                                <th>Default</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $order)
+                                            @foreach ($user->addresses as $address)
                                                 <tr>
-                                                    <td class="order-id">#{{ $order->order_number }}</td>
-                                                    <td class="order-date">{{ $order->created_at->format('F j, Y') }}</td>
-                                                    <td class="order-status">
-                                                        <span
-                                                            class="badge badge-{{ $order->status == 'completed' ? 'success' : 'warning' }}">
-                                                            {{ ucfirst($order->status) }}
-                                                        </span>
+                                                    <td>{{ ucfirst($address->type) }}</td>
+                                                    <td>{{ $address->full_name }}</td>
+                                                    <td>
+                                                        {{ $address->address_line_1 }}
+                                                        @if ($address->address_line_2)
+                                                            , {{ $address->address_line_2 }}
+                                                        @endif,
+                                                        {{ $address->city }}, {{ $address->state }},
+                                                        {{ $address->postcode }}, {{ $address->country }}
                                                     </td>
-                                                    <td class="order-total">
-                                                        <span
-                                                            class="order-price">{{ formatCurrency($order->total_amount) }}</span>
-                                                        for
-                                                        <span
-                                                            class="order-quantity">{{ $order->items->sum('quantity') }}</span>
-                                                        items
+                                                    <td>{{ $address->phone }}</td>
+                                                    <td>
+                                                        @if ($address->is_default)
+                                                            <span class="badge badge-success">Default</span>
+                                                        @else
+                                                            <form
+                                                                action="{{ route('user.addresses.set-default', $address->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                <button type="submit"
+                                                                    class="btn btn-sm btn-outline-primary">Mark as
+                                                                    Default</button>
+                                                            </form>
+                                                        @endif
                                                     </td>
-                                                    <td class="order-action">
-                                                        <a href="{{ route('user.orders.show', $order->id) }}"
-                                                            class="btn btn-outline btn-default btn-block btn-sm btn-rounded">View</a>
+                                                    <td>
+                                                        <a href="{{ route('user.addresses.edit', $address->id) }}"
+                                                            class="btn btn-sm btn-outline-secondary">Edit</a>
+                                                        <form action="{{ route('user.addresses.destroy', $address->id) }}"
+                                                            method="POST" style="display:inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-sm btn-outline-danger" type="submit"
+                                                                onclick="return confirm('Are you sure?')">Delete</button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                 @else
-                                    <p>You haven't placed any orders yet.</p>
+                                    <p>You haven't added any addresses yet.</p>
                                 @endif
+
+
                             </div>
                         </div>
 

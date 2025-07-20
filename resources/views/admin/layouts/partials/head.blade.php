@@ -37,6 +37,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/owlcarousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/dropzone.css') }}">
+    
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/bootstrap.css') }}">

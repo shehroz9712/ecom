@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\ProductVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -33,7 +34,7 @@ class CartController extends Controller
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'qty' => 'required|integer|min:1',
-            'variant_id' => 'nullable|exists:product_variants,id', // Uncomment if you handle variants
+            'variant_id' => 'nullable|exists:product_variants,id',
         ]);
 
         $userId = Auth::id();
@@ -41,12 +42,18 @@ class CartController extends Controller
 
         $product = Product::findOrFail($request->product_id);
 
-        // Determine cart item query
+        $variant = null;
+        $finalPrice = $product->price;
+
+        if ($request->filled('variant_id')) {
+            $variant = ProductVariant::findOrFail($request->variant_id);
+            $finalPrice = $variant->sale_price ?? $variant->price;
+        }
+
         $cartItemQuery = Cart::where('product_id', $product->id)
             ->when($userId, fn($q) => $q->where('user_id', $userId))
             ->when(!$userId, fn($q) => $q->where('device_id', $deviceId));
 
-        // Optional: filter by variant if used
         if ($request->filled('variant_id')) {
             $cartItemQuery->where('variant_id', $request->variant_id);
         }
@@ -57,26 +64,26 @@ class CartController extends Controller
             $cartItem->qty += $request->qty;
             $cartItem->save();
         } else {
-            Cart::create([
+            $cartItem = Cart::create([
                 'product_id' => $product->id,
                 'qty' => $request->qty,
-                'price' => $product->sale_price ?? $product->price,
+                'price' => $finalPrice,
                 'user_id' => $userId,
                 'device_id' => $deviceId,
                 'device_type' => $request->header('User-Agent'),
-                'variant_id' => $request->variant_id, // Uncomment if used
+                'variant_id' => $request->variant_id,
             ]);
         }
 
-        $response = ['success' => true, 'message' => 'Product added to cart'];
+        $response = ['success' => true, 'message' => 'Product added to cart', 'cartItem' => $cartItem];
 
-        // Attach device_id cookie for guests (30 days)
         if (!$userId && !$request->cookie('device_id')) {
             return response()->json($response)->cookie('device_id', $deviceId, 60 * 24 * 30);
         }
 
         return response()->json($response);
     }
+
 
     public function removeCart($id)
     {
@@ -110,6 +117,44 @@ class CartController extends Controller
         return response()->json([
             'success' => true,
             'html' => $html,
+        ]);
+    }
+
+    public function checkout()
+    {
+
+        $cartItems = Cart::with(['product', 'variant.attributes.attributeValue'])->where('user_id', auth()->id())->get();
+
+        return view('user.cart.checkout', compact('cartItems'));
+    }
+
+    public function updateCart(Request $request)
+    {
+        $request->validate([
+            'cart_id' => 'required|exists:carts,id',
+            'qty' => 'required|integer|min:1',
+        ]);
+
+        $cart = Cart::findOrFail($request->cart_id);
+        $cart->qty = $request->qty;
+        $cart->save();
+
+        // Recalculate subtotal for the current user
+        $userId = auth()->id();
+        $cartItems = Cart::where('user_id', $userId)->get();
+
+        $newSubtotal = $cartItems->sum(function ($item) {
+            return $item->price * $item->qty;
+        });
+
+        // Load settings (like shipping)
+        $settings = \App\Models\Setting::first(); // or use cache if needed
+
+        return response()->json([
+            'success' => true,
+            'item_subtotal' => number_format($cart->price * $cart->qty, 2),
+            'subtotal' => number_format($newSubtotal, 2),
+            'total' => number_format($newSubtotal + $settings->shipping, 2),
         ]);
     }
 }

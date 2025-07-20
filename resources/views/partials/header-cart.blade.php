@@ -2,7 +2,7 @@
     <div class="cart-overlay"></div>
     <a href="#" class="cart-toggle label-down link">
         <i class="w-icon-cart">
-            <span class="cart-count">{{ $cartCount }}</span>
+            <span class="cart-count">{{ $headerCartCount }}</span>
         </i>
         <span class="cart-label">Cart</span>
     </a>
@@ -13,12 +13,19 @@
         </div>
 
         <div class="products">
-            @forelse ($carts as $item)
+            @forelse ($headerCarts as $item)
                 <div class="product product-cart">
                     <div class="product-detail">
                         <a href="{{ route('user.product.detail', $item->product->slug) }}" class="product-name">
                             {{ \Illuminate\Support\Str::limit($item->product->name, 35) }}
                         </a>
+
+                            <br>
+                            @foreach ($item->variant->attributes as $attr)
+                                <span class="me-2">
+                                    {{ $attr->attribute->name }}: {{ $attr->attributeValue->value }}
+                                </span>
+                            @endforeach
                         <div class="price-box">
                             <span class="product-quantity">{{ $item->qty }}</span>
                             <span class="product-price">${{ number_format($item->price, 2) }}</span>
@@ -45,7 +52,7 @@
 
         <div class="cart-total">
             <label>Subtotal:</label>
-            <span class="price">${{ number_format($cartSubtotal, 2) }}</span>
+            <span class="price">${{ number_format($headerCartSubtotal, 2) }}</span>
         </div>
 
         <div class="cart-action">

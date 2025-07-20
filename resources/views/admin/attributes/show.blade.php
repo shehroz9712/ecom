@@ -30,7 +30,7 @@
                                 <p><strong>Name:</strong> {{ $attribute->name }}</p>
                                 <p><strong>Slug:</strong> {{ $attribute->slug }}</p>
                                 <p><strong>Created At:</strong> {{ $attribute->created_at->format('d M, Y') }}</p>
-                                <p><strong>Status:</strong> {!! adminStatusBadge($attribute->status) !!}</p>
+                                <p><strong>Status:</strong> {!! StatusBadge($attribute->status) !!}</p>
                             </div>
 
                             <!-- Attribute Values -->

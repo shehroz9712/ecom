@@ -7,7 +7,7 @@ use App\Models\Attribute;
 use App\Models\AttributeValue;
 use Illuminate\Http\Request;
 
-class VariantController extends Controller
+class AttributeController extends Controller
 {
     public function index()
     {
@@ -50,7 +50,6 @@ class VariantController extends Controller
 
     public function edit(Attribute $attribute)
     {
-        $attribute->load('values');
         return view('admin.attributes.edit', compact('attribute'))->with('pageTitle', 'Edit Attribute');
     }
 

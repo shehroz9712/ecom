@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('company')->nullable();
             $table->string('address_line_1');
             $table->string('address_line_2')->nullable();
-            $table->string('city');
-            $table->string('state');
+            $table->foreignId('country_id')->constrained()->onDelete('restrict');
+            $table->foreignId('state_id')->constrained()->onDelete('restrict');
+            $table->foreignId('city_id')->constrained()->onDelete('restrict');
             $table->string('postcode');
-            $table->string('country');
             $table->string('phone');
             $table->boolean('is_default')->default(false);
             $table->timestamps();

@@ -35,6 +35,8 @@
 <script src="{{ asset('assets/admin/js/owlcarousel/owl.carousel.js') }}"></script>
 <script src="{{ asset('assets/admin/js/owlcarousel/owl-custom.js') }}"></script>
 <script src="{{ asset('assets/admin/js/dashboard/dashboard_2.js') }}"></script>
+<script src="{{ asset('assets/admin/js/dropzone/dropzone.js') }}"></script>
+<script src="{{ asset('assets/admin/js/dropzone/dropzone-script.js') }}"></script>
 
 <!-- Plugins JS Ends-->
 <!-- Theme js-->

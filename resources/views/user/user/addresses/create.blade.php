@@ -1,96 +1,59 @@
-<form action="{{ isset($address) ? route('user.addresses.update', $address->id) : route('user.addresses.store') }}" method="POST">
-    @csrf
-    @if(isset($address))
-        @method('PUT')
-    @endif
-    
-    <input type="hidden" name="type" value="{{ $type }}">
+<div class="col-md-6 mb-3">
+    <label for="type">Address Type</label>
+    <select name="type" class="form-control" id="edit_type" required>
+        <option value="billing">Billing</option>
+        <option value="shipping">Shipping</option>
+    </select>
+</div>
 
-    <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" name="full_name" class="form-control" 
-               value="{{ old('full_name', $address->full_name ?? '') }}" required>
+<div class="col-md-6 mb-3">
+    <label for="full_name">Full Name</label>
+    <input type="text" name="full_name" class="form-control" id="edit_full_name" required>
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="company">Company</label>
+    <input type="text" name="company" class="form-control" id="edit_company">
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="address_line_1">Address Line 1</label>
+    <input type="text" name="address_line_1" class="form-control" id="edit_address_line_1" required>
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="address_line_2">Address Line 2</label>
+    <input type="text" name="address_line_2" class="form-control" id="edit_address_line_2">
+</div>
+
+<div class="col-md-4 mb-3">
+    <label for="city">City</label>
+    <input type="text" name="city" class="form-control" id="edit_city" required>
+</div>
+
+<div class="col-md-4 mb-3">
+    <label for="state">State</label>
+    <input type="text" name="state" class="form-control" id="edit_state" required>
+</div>
+
+<div class="col-md-4 mb-3">
+    <label for="postcode">Postcode</label>
+    <input type="text" name="postcode" class="form-control" id="edit_postcode" required>
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="country">Country</label>
+    <input type="text" name="country" class="form-control" id="edit_country" required>
+</div>
+
+<div class="col-md-6 mb-3">
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" class="form-control" id="edit_phone" required>
+</div>
+
+<div class="col-md-12 mb-3">
+    <div class="form-check">
+        <input type="checkbox" name="is_default" value="1" class="form-check-input" id="edit_is_default">
+        <label class="form-check-label" for="edit_is_default">Mark as Default</label>
     </div>
-
-    <div class="form-group">
-        <label>Company (Optional)</label>
-        <input type="text" name="company" class="form-control" 
-               value="{{ old('company', $address->company ?? '') }}">
-    </div>
-
-    <div class="form-group">
-        <label>Address Line 1</label>
-        <input type="text" name="address_line_1" class="form-control" 
-               value="{{ old('address_line_1', $address->address_line_1 ?? '') }}" required>
-    </div>
-
-    <div class="form-group">
-        <label>Address Line 2 (Optional)</label>
-        <input type="text" name="address_line_2" class="form-control" 
-               value="{{ old('address_line_2', $address->address_line_2 ?? '') }}">
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>City</label>
-                <input type="text" name="city" class="form-control" 
-                       value="{{ old('city', $address->city ?? '') }}" required>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>State/Province</label>
-                <input type="text" name="state" class="form-control" 
-                       value="{{ old('state', $address->state ?? '') }}" required>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Postal Code</label>
-                <input type="text" name="postcode" class="form-control" 
-                       value="{{ old('postcode', $address->postcode ?? '') }}" required>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Country</label>
-                <select name="country" class="form-control" required>
-                    @foreach(config('countries') as $code => $name)
-                        <option value="{{ $code }}" 
-                            {{ (old('country', $address->country ?? '') == $code) ? 'selected' : '' }}>
-                            {{ $name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-    </div>
-
-    @if ($type === 'billing')
-        <div class="form-group">
-            <label>Phone (Optional)</label>
-            <input type="text" name="phone" class="form-control" 
-                   value="{{ old('phone', $address->phone ?? '') }}">
-        </div>
-    @endif
-
-    <div class="form-check mb-3">
-        <input type="checkbox" name="is_default" id="is_default_{{ $type }}" 
-               class="form-check-input" value="1"
-               {{ (isset($address) && $address->is_default) ? 'checked' : '' }}>
-        <label for="is_default_{{ $type }}" class="form-check-label">
-            Set as default {{ $type }} address
-        </label>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save Address</button>
-        <button type="button" class="btn btn-secondary cancel-address-form" data-type="{{ $type }}">
-            Cancel
-        </button>
-    </div>
-</form>
+</div>

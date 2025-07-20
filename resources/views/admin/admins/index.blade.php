@@ -40,7 +40,7 @@
                                             <td>{{ $admin->id }}</td>
                                             <td>{{ $admin->name }}</td>
                                             <td>{{ $admin->email }}</td>
-                                            <td>{!! adminStatusBadge($admin->status) !!}</td>
+                                            <td>{!! StatusBadge($admin->status) !!}</td>
                                             <td>
                                                 @if ($admin->id != 1)
                                                     <a href="{{ route('admin.admins.edit', $admin->id) }}"

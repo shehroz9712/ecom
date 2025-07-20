@@ -52,7 +52,7 @@ class ProductController extends Controller
             'status' => 'required|in:active,inactive',
             'is_featured' => 'nullable|boolean',
             'images' => 'nullable|array',
-            'images.*' => 'image|mimes:jpeg,jpg,png,webp|max:2048',
+            'images.*' => 'image|mimes:jpeg,jpg,png,webp',
             'variants' => 'nullable|array',
             'variants.*.sku' => 'nullable|string',
             'variants.*.price' => 'required|numeric',

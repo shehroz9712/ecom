@@ -122,38 +122,15 @@
                                     <hr class="product-divider">
 
                                     <!-- Dynamic Price Display -->
-                                    @if ($product->variants->isNotEmpty())
-                                        <div class="product-price">
-                                            <span class="price-range">
-                                                @php
-                                                    $minPrice = $product->variants->min('price');
-                                                    $maxPrice = $product->variants->max('price');
-                                                    $minSalePrice = $product->variants->min('sale_price') ?? $minPrice;
-                                                @endphp
 
-                                                @if ($minPrice === $maxPrice)
-                                                    @if ($minSalePrice < $minPrice)
-                                                        <ins class="new-price">${{ number_format($minSalePrice, 2) }}</ins>
-                                                        <del class="old-price">${{ number_format($minPrice, 2) }}</del>
-                                                    @else
-                                                        <ins class="new-price">${{ number_format($minPrice, 2) }}</ins>
-                                                    @endif
-                                                @else
-                                                    ${{ number_format($minPrice, 2) }} -
-                                                    ${{ number_format($maxPrice, 2) }}
-                                                @endif
-                                            </span>
-                                        </div>
-                                    @else
-                                        <div class="product-price">
-                                            @if ($product->sale_price)
-                                                <ins class="new-price">${{ number_format($product->sale_price, 2) }}</ins>
-                                                <del class="old-price">${{ number_format($product->price, 2) }}</del>
-                                            @else
-                                                <ins class="new-price">${{ number_format($product->price, 2) }}</ins>
-                                            @endif
-                                        </div>
-                                    @endif
+                                    <div class="product-price">
+                                        @if ($product->sale_price)
+                                            <ins class="new-price">${{ number_format($product->sale_price, 2) }}</ins>
+                                            <del class="old-price">${{ number_format($product->price, 2) }}</del>
+                                        @else
+                                            <ins class="new-price">${{ number_format($product->price, 2) }}</ins>
+                                        @endif
+                                    </div>
 
                                     <div class="ratings-container">
                                         <div class="ratings-full">
@@ -192,12 +169,13 @@
                                                     <label>{{ $attributeName }}:</label>
                                                     <div class="d-flex align-items-center product-variations">
                                                         @foreach ($attributes as $attribute)
+                                                            {{-- active class in a tag --}}
                                                             <a href="#"
                                                                 class="@if (strtolower($attributeName) === 'color') color @else size @endif"
                                                                 data-attribute-id="{{ $attribute->attribute_id }}"
                                                                 data-product-id="{{ $product->id }}"
                                                                 data-attribute-value-id="{{ $attribute->attribute_value_id }}"
-                                                                @if (strtolower($attributeName) === 'color') style="background-color: {{ $attribute->attributeValue->code ?? '#ccc' }}" @endif>
+                                                                @if (strtolower($attributeName) === 'color') style="background-color: {{ $attribute->attributeValue->code ?? $attribute->attributeValue->value }}" @endif>
                                                                 @if (strtolower($attributeName) !== 'color')
                                                                     {{ $attribute->attributeValue->value }}
                                                                 @endif
@@ -208,7 +186,6 @@
                                             @endforeach
 
                                         </div>
-
                                         <!-- Variant Details (will be shown after selection) -->
                                         <div class="product-variant-details mt-3" style="display: none;">
                                             <div class="product-price">
@@ -246,8 +223,7 @@
                                                         data-product-id="{{ $product->id }}"></button>
                                                 </div>
                                             </div>
-                                            <button data-product-id="{{ $product->id }}"
-                                                class="btn btn-primary btn-cart">
+                                            <button data-product-id="{{ $product->id }}" class="btn btn-primary btn-cart">
                                                 <i class="w-icon-cart"></i>
                                                 <span>Add to Cart</span>
                                             </button>
@@ -543,27 +519,37 @@
 
             let selectedAttributes = {};
 
-            // Handle variant selection
             $('.product-variations .color, .product-variations .size').on('click', function(e) {
                 e.preventDefault();
 
-                const attributeId = $(this).data('attribute-id');
-                const attributeValueId = $(this).data('attribute-value-id');
+                const $this = $(this);
+                const attributeId = $this.data('attribute-id');
+                const attributeValueId = $this.data('attribute-value-id');
 
-                // Update selected attributes
-                selectedAttributes[attributeId] = attributeValueId;
-
-                // Update UI
-                $(this).siblings().removeClass('active');
-                $(this).addClass('active');
-
-                // Check if all attributes selected
-                if (Object.keys(selectedAttributes).length === {{ count($variantAttributes ?? []) }}) {
-                    fetchVariantDetails(selectedAttributes);
+                // Toggle selection
+                if (selectedAttributes[attributeId] === attributeValueId) {
+                    delete selectedAttributes[attributeId];
+                    $this.removeClass('active');
                 } else {
-                    // Disable Add to Cart if variant is incomplete
+                    selectedAttributes[attributeId] = attributeValueId;
+                    $this.closest('.product-variations').find('a').removeClass('active');
+                    $this.addClass('active');
+                }
+
+                const totalAttributes = {{ count($variantAttributes ?? []) }};
+                const selectedCount = Object.keys(selectedAttributes).length;
+
+                if (selectedCount === totalAttributes) {
+                    fetchVariantDetails(selectedAttributes);
+                    $('.btn-cart').removeClass('disabled').prop('disabled', false);
+                } else {
+                    // Reset UI if selection incomplete
                     $('.btn-cart').addClass('disabled').prop('disabled', true);
                     $('.product-variant-details').hide();
+                    $('.variant-price').text('');
+                    $('.variant-sale-price').text('').hide();
+                    $('.variant-sku').text('');
+                    $('.variant-stock').text('');
                 }
             });
 

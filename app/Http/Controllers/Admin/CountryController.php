@@ -2,64 +2,49 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+
+use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CountryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $countries = Country::latest()->paginate(10);
+        return view('admin.countries.index', compact('countries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.countries.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+       
+
+        return redirect()->route('admin.countries.index')->with('success', 'Country added successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Country $country)
     {
-        //
+        return view('admin.countries.edit', compact('country'));
+    }
+    public function show(Country $country)
+    {
+        return view('admin.countries.show', compact('country'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Country $country)
     {
-        //
+       
+        return redirect()->route('admin.countries.index')->with('success', 'Country updated successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Country $country)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $country->delete();
+        return redirect()->route('admin.countries.index')->with('success', 'Country deleted successfully.');
     }
 }
