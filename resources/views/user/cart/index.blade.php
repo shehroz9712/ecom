@@ -22,10 +22,9 @@
                                         <tr>
                                             <td class="product-thumbnail">
                                                 <div class="p-relative">
-                                                    <a
-                                                        href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
+                                                    <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                         <figure>
-                                                            <img src="{{ asset($item->product->image ?? 'default.jpg') }}"
+                                                            <img src="{{ productImage($item->product->main_image->image) }}"
                                                                 alt="{{ $item->product->name }}" width="300"
                                                                 height="338">
                                                         </figure>
@@ -42,7 +41,9 @@
                                             <td class="product-name">
                                                 <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                     {{ $item->product->name ?? 'Unknown Product' }}
+                                                    <span>sds</span>
                                                 </a>
+
                                             </td>
                                             <td class="product-price"><span
                                                     class="amount">${{ number_format($item->price, 2) }}</span></td>
@@ -53,7 +54,7 @@
                                                     @method('PUT')
                                                     <div class="input-group">
 
-                                                        <input class="quantity form-control" type="number" name="qty"
+                                                        <input class="quantity2 form-control" type="number" name="qty"
                                                             value="{{ $item->qty }}" min="1" max="100000">
                                                         <button type="button"
                                                             class="quantity-btn quantity-plus w-icon-plus"></button>
