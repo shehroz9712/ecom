@@ -22,7 +22,8 @@
                                         <tr>
                                             <td class="product-thumbnail">
                                                 <div class="p-relative">
-                                                    <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
+                                                    <a
+                                                        href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                         <figure>
                                                             <img src="{{ productImage($item->product->main_image->image) }}"
                                                                 alt="{{ $item->product->name }}" width="300"
@@ -46,7 +47,7 @@
 
                                             </td>
                                             <td class="product-price"><span
-                                                    class="amount">${{ number_format($item->price, 2) }}</span></td>
+                                                    class="amount">{{ productAmount($item->price) }}</span></td>
                                             <td class="product-quantity">
                                                 <form action="{{ route('user.cart.updateQty', $item->id) }}" method="PUT"
                                                     data-cart-id="{{ $item->id }}" class="quantity-form">
@@ -78,7 +79,7 @@
                                             </td>
                                             <td class="product-subtotal">
                                                 <span
-                                                    class="amount">${{ number_format($item->price * $item->qty, 2) }}</span>
+                                                    class="amount">{{ productAmount($item->price * $item->qty) }}</span>
                                             </td>
                                         </tr>
                                     @empty

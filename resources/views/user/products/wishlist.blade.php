@@ -61,7 +61,7 @@
                                 </td>
                                 <td class="product-price">
                                     <ins
-                                        class="new-price">${{ $wishlist->product->sale_price ?? $wishlist->product->price }}</ins>
+                                        class="new-price">{{ productAmount($wishlist->product->sale_price ?? $wishlist->product->price) }}</ins>
                                 </td>
                                 <td class="product-stock-status">
                                     <span class="wishlist-in-stock">In Stock</span>

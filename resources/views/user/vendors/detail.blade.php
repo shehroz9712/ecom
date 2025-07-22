@@ -97,11 +97,11 @@
                                                     <div class="product-price">
                                                         @if ($product->sale_price)
                                                             <ins
-                                                                class="new-price">{{ format_price($product->sale_price) }}</ins>
+                                                                class="new-price">{{ productAmount($product->sale_price) }}</ins>
                                                             <del
-                                                                class="old-price">{{ format_price($product->price) }}</del>
+                                                                class="old-price">{{ productAmount($product->price) }}</del>
                                                         @else
-                                                            {{ format_price($product->price) }}
+                                                            {{ productAmount($product->price) }}
                                                         @endif
                                                     </div>
                                                 </div>

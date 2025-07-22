@@ -10,6 +10,8 @@ class SettingSeeder extends Seeder
 {
     public function run()
     {
+
+        DB::table('settings')->truncate();
         DB::table('settings')->insert([
             [
                 'key' => 'favicon',
@@ -164,6 +166,26 @@ class SettingSeeder extends Seeder
             [
                 'key' => 'shipping',
                 'value' => '1',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'currency',
+                'value' => 'PKR',
+                'deletable' => 0,
+                'status' => 'active',
+                'created_by' => 1,
+                'updated_by' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'key' => 'currency_position',
+                'value' => 'left',
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,

@@ -39,7 +39,7 @@
                                         <tr>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->sku }}</td>
-                                            <td>{{ $product->price }}</td>
+                                            <td>{{ productAmount($product->price) }}</td>
                                             <td>{{ $product->status }}</td>
                                             <td>
                                                 <a href="{{ route('admin.products.show', $product->id) }}"

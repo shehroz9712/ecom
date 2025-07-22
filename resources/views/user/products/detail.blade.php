@@ -125,10 +125,10 @@
 
                                     <div class="product-price">
                                         @if ($product->sale_price)
-                                            <ins class="new-price">${{ number_format($product->sale_price, 2) }}</ins>
-                                            <del class="old-price">${{ number_format($product->price, 2) }}</del>
+                                            <ins class="new-price">{{ productAmount($item->price) }}</ins>
+                                            <del class="old-price">{{ productAmount($item->price) }}</del>
                                         @else
-                                            <ins class="new-price">${{ number_format($product->price, 2) }}</ins>
+                                            <ins class="new-price">{{ productAmount($item->price) }}</ins>
                                         @endif
                                     </div>
 
@@ -362,12 +362,12 @@
                                                     <div class="product-price">
                                                         @if ($vendorProduct->sale_price && $vendorProduct->price > $vendorProduct->sale_price)
                                                             <ins
-                                                                class="new-price">${{ number_format($vendorProduct->sale_price, 2) }}</ins>
+                                                                class="new-price">{{ productAmount($vendorProduct->sale_price) }}</ins>
                                                             <del
-                                                                class="old-price">${{ number_format($vendorProduct->price, 2) }}</del>
+                                                                class="old-price">{{ productAmount($vendorProduct->price) }}</del>
                                                         @else
                                                             <span
-                                                                class="price">${{ number_format($vendorProduct->price, 2) }}</span>
+                                                                class="price">{{ productAmount($vendorProduct->price) }}</span>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -482,10 +482,10 @@
                                                             </div>
                                                             <div class="product-price">
                                                                 @if ($product->sale_price && $product->price > $product->sale_price)
-                                                                    ${{ number_format($product->sale_price, 2) }} -
-                                                                    ${{ number_format($product->price, 2) }}
+                                                                    {{ productAmount($item->price) }} -
+                                                                    {{ productAmount($item->price) }}
                                                                 @else
-                                                                    ${{ number_format($product->price, 2) }}
+                                                                    {{ productAmount($item->price) }}
                                                                 @endif
                                                             </div>
                                                         </div>

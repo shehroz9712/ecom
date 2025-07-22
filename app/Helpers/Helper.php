@@ -47,10 +47,22 @@ if (!function_exists('productImage')) {
     }
 }
 
-
-if (!function_exists('format_price')) {
-    function format_price($amount, $currency = '$', $decimal = 2)
+// amount with currency formatting
+if (!function_exists('productAmount')) {
+    function productAmount($amount,  $decimal = 2, $currency = null,): string
     {
-        return $currency . Number::format($amount, $decimal);
+        $settings = Setting::first();
+
+        if (!$currency) {
+            $currency = $settings && $settings->currency ? $settings->currency : 'PKR';
+        }
+
+        $position = $settings && $settings->currency_position === 'right' ? 'right' : 'left';
+
+        $formatted = number_format($amount, $decimal);
+
+        return $position === 'left'
+            ? $currency . ' ' . $formatted
+            : $formatted . ' ' . $currency;
     }
 }

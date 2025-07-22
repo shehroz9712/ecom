@@ -28,7 +28,7 @@
                             @endforeach
                         <div class="price-box">
                             <span class="product-quantity">{{ $item->qty }}</span>
-                            <span class="product-price">${{ number_format($item->price, 2) }}</span>
+                            <span class="product-price">{{ productAmount($item->price) }}</span>
                         </div>
                     </div>
                     <figure class="product-media">
