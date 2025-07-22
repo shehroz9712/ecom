@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('qty')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->foreignId('variant_id')->constrained('product_variants')->onDelete('cascade');
+            $table->foreignId('variant_id')->nullable()->constrained('product_variants')->onDelete('cascade');
 
             $table->string('device_id')->nullable();
             $table->string('device_type')->nullable();

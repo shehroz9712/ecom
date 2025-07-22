@@ -47,10 +47,10 @@
             </div>
             <div class="product-price">
                 @if ($product->sale_price && $product->sale_price < $product->price)
-                    <ins class="new-price">{{ productAmount($item->price) }}</ins>
-                    <del class="old-price">{{ productAmount($item->price) }}</del>
+                    <ins class="new-price">{{ productAmount($product->sale_price) }}</ins>
+                    <del class="old-price">{{ productAmount($product->price) }}</del>
                 @else
-                    <span class="price">{{ productAmount($item->price) }}</span>
+                    <span class="price">{{ productAmount($product->price) }}</span>
                 @endif
             </div>
         </div>

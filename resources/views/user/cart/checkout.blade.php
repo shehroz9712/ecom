@@ -6,9 +6,8 @@
     <div class="page-content">
         <div class="container">
             <h2 class="checkout-title">Checkout</h2>
-            <form action="{{ route('user.checkout.process') }}" method="POST">
+            <form action="{{ route('user.checkout.process') }}" method="POST" id="checkoutForm">
                 @csrf
-
                 <div class="row">
                     <!-- Billing Details -->
                     <div class="col-lg-7">
@@ -16,22 +15,26 @@
                         <div class="row">
                             <div class="col-sm-6 mb-3">
                                 <label>First Name *</label>
-                                <input type="text" name="first_name" class="form-control" required>
+                                <input type="text" name="first_name" class="form-control"
+                                    value="{{ old('first_name', auth()->user()->first_name ?? '') }}" required>
                             </div>
                             <div class="col-sm-6 mb-3">
                                 <label>Last Name *</label>
-                                <input type="text" name="last_name" class="form-control" required>
+                                <input type="text" name="last_name" class="form-control"
+                                    value="{{ old('last_name', auth()->user()->last_name ?? '') }}" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label>Email Address *</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <input type="email" name="email" class="form-control"
+                                value="{{ old('email', auth()->user()->email ?? '') }}" required>
                         </div>
 
                         <div class="mb-3">
                             <label>Phone *</label>
-                            <input type="text" name="phone" class="form-control" required>
+                            <input type="text" name="phone" class="form-control"
+                                value="{{ old('phone', auth()->user()->phone ?? '') }}" required>
                         </div>
 
                         <div class="mb-3">
@@ -53,6 +56,27 @@
                             <label>Country *</label>
                             <input type="text" name="country" class="form-control" required>
                         </div>
+
+                        <!-- Optional Account Creation -->
+                        @guest
+                            <div class="form-check mt-3 mb-2">
+                                <input class="form-check-input" type="checkbox" id="createAccountCheckbox">
+                                <label class="form-check-label" for="createAccountCheckbox">
+                                    Create an account?
+                                </label>
+                            </div>
+
+                            <div id="accountFields" class="d-none">
+                                <div class="mb-3">
+                                    <label>Password *</label>
+                                    <input type="password" name="password" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Confirm Password *</label>
+                                    <input type="password" name="password_confirmation" class="form-control">
+                                </div>
+                            </div>
+                        @endguest
                     </div>
 
                     <!-- Order Summary -->
@@ -113,4 +137,21 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('createAccountCheckbox');
+            const accountFields = document.getElementById('accountFields');
+
+            checkbox?.addEventListener('change', function() {
+                if (this.checked) {
+                    accountFields.classList.remove('d-none');
+                } else {
+                    accountFields.classList.add('d-none');
+                }
+            });
+        });
+    </script>
 @endsection

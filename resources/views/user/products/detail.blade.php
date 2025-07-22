@@ -125,10 +125,10 @@
 
                                     <div class="product-price">
                                         @if ($product->sale_price)
-                                            <ins class="new-price">{{ productAmount($item->price) }}</ins>
-                                            <del class="old-price">{{ productAmount($item->price) }}</del>
+                                            <ins class="new-price">{{ productAmount($product->price) }}</ins>
+                                            <del class="old-price">{{ productAmount($product->price) }}</del>
                                         @else
-                                            <ins class="new-price">{{ productAmount($item->price) }}</ins>
+                                            <ins class="new-price">{{ productAmount($product->price) }}</ins>
                                         @endif
                                     </div>
 
@@ -482,10 +482,10 @@
                                                             </div>
                                                             <div class="product-price">
                                                                 @if ($product->sale_price && $product->price > $product->sale_price)
-                                                                    {{ productAmount($item->price) }} -
-                                                                    {{ productAmount($item->price) }}
+                                                                    {{ productAmount($product->price) }} -
+                                                                    {{ productAmount($product->sale_price) }}
                                                                 @else
-                                                                    {{ productAmount($item->price) }}
+                                                                    {{ productAmount($product->price) }}
                                                                 @endif
                                                             </div>
                                                         </div>

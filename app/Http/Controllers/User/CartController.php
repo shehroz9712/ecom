@@ -37,7 +37,7 @@ class CartController extends Controller
             'variant_id' => 'nullable|exists:product_variants,id',
         ]);
 
-        $userId = Auth::id();
+        $userId = Auth::guard('web')->id();
         $deviceId = $userId ? null : ($request->cookie('device_id') ?? (string) Str::uuid());
 
         $product = Product::findOrFail($request->product_id);
@@ -156,5 +156,21 @@ class CartController extends Controller
             'subtotal' => number_format($newSubtotal, 2),
             'total' => number_format($newSubtotal + $settings->shipping, 2),
         ]);
+    }
+
+    function clearCart()
+    {
+        $userId = Auth::id();
+        $deviceId = request()->cookie('device_id');
+
+        Cart::where(function ($query) use ($userId, $deviceId) {
+            if ($userId) {
+                $query->where('user_id', $userId);
+            } else {
+                $query->where('device_id', $deviceId);
+            }
+        })->delete();
+
+        return redirect()->route('user.cart')->with('success', 'Cart cleared successfully.');
     }
 }

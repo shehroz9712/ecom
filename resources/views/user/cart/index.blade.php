@@ -42,7 +42,12 @@
                                             <td class="product-name">
                                                 <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                     {{ $item->product->name ?? 'Unknown Product' }}
-                                                    <span>sds</span>
+                                                    <br>
+                                                    @foreach ($item->variant->attributes as $attr)
+                                                        <span class="me-2">
+                                                            {{ $attr->attribute->name }}: {{ $attr->attributeValue->value }}
+                                                        </span>
+                                                    @endforeach
                                                 </a>
 
                                             </td>
@@ -78,8 +83,7 @@
 
                                             </td>
                                             <td class="product-subtotal">
-                                                <span
-                                                    class="amount">{{ productAmount($item->price * $item->qty) }}</span>
+                                                <span class="amount">{{ productAmount($item->price * $item->qty) }}</span>
                                             </td>
                                         </tr>
                                     @empty
@@ -91,10 +95,11 @@
                             </table>
 
                             <div class="cart-action mb-6">
-                                <a href="#" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i
+                                <a href="{{ route('user.shop') }}" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i
                                         class="w-icon-long-arrow-left"></i>Continue Shopping</a>
                                 <form action="{{ route('user.cart.clear') }}" method="POST">
                                     @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-rounded btn-default btn-clear"
                                         name="clear_cart">Clear
                                         Cart</button>

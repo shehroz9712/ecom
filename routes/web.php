@@ -53,6 +53,10 @@ Route::name('user.')->group(function () {
     Route::delete('/remove-cart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
     Route::delete('/clear-cart', [CartController::class, 'clearCart'])->name('cart.clear');
     Route::post('/check/coupon', [CartController::class, 'removeCart'])->name('cart.coupon');
+    // Cart management
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout/process', [CartController::class, 'checkout'])->name('checkout.process');
+
 
     // Search and deals
     Route::get('/search', [HomeController::class, 'index'])->name('search');
@@ -79,10 +83,6 @@ Route::name('user.')->group(function () {
         // Order routes
         Route::get('/order', [HomeController::class, 'index'])->name('order');
         Route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
-
-        // Cart management
-        Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
-        Route::get('/checkout/process', [CartController::class, 'checkout'])->name('checkout.process');
 
         // Wishlist
         Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
