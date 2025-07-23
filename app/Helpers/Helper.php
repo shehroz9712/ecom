@@ -37,32 +37,28 @@ function StatusBadge($status)
 }
 
 
-if (!function_exists('productImage')) {
-    function productImage($image): string
-    {
-        if ($image && file_exists(public_path('assets/uploads/products/' . $image))) {
-            return asset('assets/uploads/products/' . $image);
-        }
-        return asset('uploads/no-image.png');
+function productImage($image): string
+{
+    if ($image && file_exists(public_path('assets/uploads/products/' . $image))) {
+        return asset('assets/uploads/products/' . $image);
     }
+    return asset('uploads/no-image.png');
 }
 
 // amount with currency formatting
-if (!function_exists('productAmount')) {
-    function productAmount($amount,  $decimal = 2, $currency = null,): string
-    {
-        $settings = Setting::first();
+function productAmount($amount,  $decimal = 2, $currency = null,): string
+{
+    $settings = Setting::first();
 
-        if (!$currency) {
-            $currency = $settings && $settings->currency ? $settings->currency : 'PKR';
-        }
-
-        $position = $settings && $settings->currency_position === 'right' ? 'right' : 'left';
-
-        $formatted = number_format($amount, $decimal);
-
-        return $position === 'left'
-            ? $currency . ' ' . $formatted
-            : $formatted . ' ' . $currency;
+    if (!$currency) {
+        $currency = $settings && $settings->currency ? $settings->currency : 'PKR';
     }
+
+    $position = $settings && $settings->currency_position === 'right' ? 'right' : 'left';
+
+    $formatted = number_format($amount, $decimal);
+
+    return $position === 'left'
+        ? $currency . ' ' . $formatted
+        : $formatted . ' ' . $currency;
 }

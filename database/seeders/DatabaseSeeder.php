@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             SliderSeeder::class,
             // BrandSeeder::class,
             // AttributeSeeder::class,
-            // ProductSeeder::class,
+            ProductSeeder::class,
             // ReviewSeeder::class,
             // ReviewImageSeeder::class,
             VendorTableSeeder::class,
