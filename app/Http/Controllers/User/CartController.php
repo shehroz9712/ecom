@@ -122,8 +122,13 @@ class CartController extends Controller
 
     public function checkout()
     {
-
-        $cartItems = Cart::with(['product', 'variant.attributes.attributeValue'])->where('user_id', auth()->id())->get();
+        $userId = auth('web')->id();
+        $deviceId = request()->cookie('device_id');
+        $cartItems = Cart::with(['product', 'variant.attributes.attributeValue'])
+            ->when($userId, fn($q) => $q->where('user_id', $userId))
+            ->when(!$userId, fn($q) => $q->where('device_id', $deviceId))
+            ->where('status', 'active')
+            ->get();
 
         return view('user.cart.checkout', compact('cartItems'));
     }
