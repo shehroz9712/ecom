@@ -167,7 +167,26 @@
         <section class="category-section top-category bg-grey pt-10 pb-10 appear-animate">
             <div class="container pb-2">
                 <h2 class="title justify-content-center pt-1 ls-normal mb-5">Top Categories Of The Month</h2>
-                <div class=" category-carousel owl-carousel owl-theme row cols-lg-6 cols-md-5 cols-sm-3 cols-2 ">
+                <div class="owl-carousel owl-theme row cols-lg-6 cols-md-5 cols-sm-3 cols-2"
+                    data-owl-options="{
+                        'nav': false,
+                        'dots': false,
+                        'margin': 20,
+                        'responsive': {
+                            '0': {
+                                'items': 2
+                            },
+                            '576': {
+                                'items': 3
+                            },
+                            '768': {
+                                'items': 5
+                            },
+                            '992': {
+                                'items': 6
+                            }
+                        }
+                    }">
                     @foreach ($categories as $category)
                         <div class="category category-classic category-absolute overlay-zoom br-xs">
                             <a href="{{ route('user.shop', ['category' => $category->slug]) }}" class="category-media">
