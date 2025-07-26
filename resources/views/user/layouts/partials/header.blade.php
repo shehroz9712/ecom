@@ -141,16 +141,25 @@
                                         <a href="{{ route('user.home') }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('user.shop') }}">Shop</a>
+                                        <a href="{{ route('user.shop') }}"> <span class="tip tip-new">Hot</span>
+                                            Promotion </a>
 
-                                        <!-- Start of Megamenu -->
-
-                                        <!-- End of Megamenu -->
                                     </li>
                                     <li>
-                                        <a href="{{ route('user.vendors.index') }}">Vendor</a>
+                                        <a href="{{ route('user.shop') }}">New Arrival
+                                        </a>
 
                                     </li>
+                                    <li>
+                                        <a href="{{ route('user.shop') }}">Shop</a>
+
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('user.shop') }}">About
+                                        </a>
+
+                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
