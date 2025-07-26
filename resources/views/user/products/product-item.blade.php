@@ -1,8 +1,10 @@
 <div class="product-wrap">
     <div class="product text-center">
         <figure class="product-media">
+            <div class="product-label-group">
+                <label class="label-discount product-label text-normal">New Arrivals</label>
+            </div>
 
-            
             <a href="{{ route('user.product.detail', $product->slug) }}">
                 @if ($product->images->count() >= 2)
                     <img src="{{ productImage($product->images[0]->image) }}" alt="{{ $product->name }}" width="300"
