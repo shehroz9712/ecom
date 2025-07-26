@@ -66,5 +66,27 @@
         a.added.btn-product-icon.btn-wishlist.w-icon-heart-full {
             color: red;
         }
+
+        /* Hide scrollbar but keep scrolling */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #bb4345;
+            border-radius: 4px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: #9d1619;
+        }
+
+        .show a.category-toggle.text-dark {
+            background-color: #9d1619;
+        }
     </style>
 </head>
