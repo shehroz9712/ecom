@@ -88,5 +88,17 @@
         .show a.category-toggle.text-dark {
             background-color: #9d1619;
         }
+
+        .social-icons-colored .social-icon {
+            background: white !important;
+            border-color: #9d1619 !important;
+            color: #9d1619 !important;
+        }
+
+        .social-icons-colored .social-icon:hover {
+            background: #9d1619 !important;
+            border-color: #9d1619 !important;
+            color: white !important;
+        }
     </style>
 </head>
