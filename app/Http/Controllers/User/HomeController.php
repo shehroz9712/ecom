@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
@@ -25,6 +26,7 @@ class HomeController  extends Controller
     {
         $categories = Category::with('activeSubCategories', 'activeSubCategories.activeItems')->get();
         $sliders = Slider::all();
+        $brands = Brand::all();
 
         $newArrivals = Product::with(['images', 'reviews'])
             ->orderBy('created_at', 'desc')
@@ -45,7 +47,7 @@ class HomeController  extends Controller
             ->where('is_featured', true)
             ->take(10)
             ->get();
-        return view('user.index', compact('sliders', 'mostPopular', 'newArrivals', 'featuredProducts', 'bestSellers', 'categories'));
+        return view('user.index', compact('sliders', 'brands', 'mostPopular', 'newArrivals', 'featuredProducts', 'bestSellers', 'categories'));
     }
 
 
@@ -58,8 +60,5 @@ class HomeController  extends Controller
 
     // login
 
-    public function login()
-    {
-      
-    }
+    public function login() {}
 }

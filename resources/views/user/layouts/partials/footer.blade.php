@@ -35,7 +35,7 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="widget widget-about">
                         <a href="{{ route('user.home') }}" class="logo-footer">
-                            <img src="{{ asset('assets/user/images/logo_footer.png') }}" alt="logo-footer"
+                            <img src="{{ asset('assets/uploads/logo/' . $settings->logo) }}" alt="logo-footer"
                                 width="144" height="45" />
                         </a>
                         <div class="widget-body">

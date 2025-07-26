@@ -37,6 +37,13 @@ function StatusBadge($status)
 }
 
 
+function images($image): string
+{
+    if ($image && file_exists($image)) {
+        return  $image;
+    }
+    return asset('uploads/no-image.png');
+}
 function productImage($image): string
 {
     if ($image && file_exists(public_path('assets/uploads/products/' . $image))) {
