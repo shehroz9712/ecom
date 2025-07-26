@@ -21,7 +21,6 @@ class Cart extends Model
         // Automatically set `created_by` when creating
         static::creating(function ($model) {
             $model->created_by = Auth::id() ?? 1; // Default to 1 if no auth user (for testing)
-            $model->user_id = Auth::id() ?? 1; // Default to 1 if no auth user (for testing)
         });
 
         // Automatically set `updated_by` when updating

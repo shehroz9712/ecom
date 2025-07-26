@@ -165,13 +165,29 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'shipping',
-                'value' => '1',
+                'value' => json_encode([
+                    [
+                        'location' => ['Karachi', 'Lahore'],
+                        'base_rate' => 250,
+                        'per_kg_rate' => 20
+                    ],
+                    [
+                        'location' => 'Pakistan',
+                        'base_rate' => 350,
+                        'per_kg_rate' => 30
+                    ],
+                    [
+                        'location' => 'Other Country',
+                        'base_rate' => 500,
+                        'per_kg_rate' => 50
+                    ],
+                ]),
                 'deletable' => 0,
                 'status' => 'active',
                 'created_by' => 1,
                 'updated_by' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'key' => 'currency',

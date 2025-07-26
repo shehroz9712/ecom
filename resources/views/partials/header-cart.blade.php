@@ -20,12 +20,15 @@
                             {{ \Illuminate\Support\Str::limit($item->product->name, 35) }}
                         </a>
 
-                            <br>
+                        <br>
+                        @if ($item->variant && $item->variant->attributes)
                             @foreach ($item->variant->attributes as $attr)
                                 <span class="me-2">
                                     {{ $attr->attribute->name }}: {{ $attr->attributeValue->value }}
                                 </span>
                             @endforeach
+                        @endif
+
                         <div class="price-box">
                             <span class="product-quantity">{{ $item->qty }}</span>
                             <span class="product-price">{{ productAmount($item->price) }}</span>

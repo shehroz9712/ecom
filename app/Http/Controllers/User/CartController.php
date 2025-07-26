@@ -38,10 +38,9 @@ class CartController extends Controller
         ]);
 
         $userId = Auth::guard('web')->id();
-        $deviceId = $userId ? null : ($request->cookie('device_id') ?? (string) Str::uuid());
+        $deviceId = $request->cookie('device_id') ?? (string) Str::uuid();
 
         $product = Product::findOrFail($request->product_id);
-
         $variant = null;
         $finalPrice = $product->price;
 
@@ -50,12 +49,16 @@ class CartController extends Controller
             $finalPrice = $variant->sale_price ?? $variant->price;
         }
 
+        // ✅ Match cart item based on user_id or device_id and variant_id (including null check)
         $cartItemQuery = Cart::where('product_id', $product->id)
+            ->where('status', 'active')
             ->when($userId, fn($q) => $q->where('user_id', $userId))
             ->when(!$userId, fn($q) => $q->where('device_id', $deviceId));
 
         if ($request->filled('variant_id')) {
             $cartItemQuery->where('variant_id', $request->variant_id);
+        } else {
+            $cartItemQuery->whereNull('variant_id');
         }
 
         $cartItem = $cartItemQuery->first();
@@ -68,21 +71,29 @@ class CartController extends Controller
                 'product_id' => $product->id,
                 'qty' => $request->qty,
                 'price' => $finalPrice,
-                'user_id' => $userId,
+                'user_id' => $userId ?? null,
                 'device_id' => $deviceId,
                 'device_type' => $request->header('User-Agent'),
                 'variant_id' => $request->variant_id,
+                'created_by' => $userId ?? null,
+                'status' => 'active',
             ]);
         }
 
-        $response = ['success' => true, 'message' => 'Product added to cart', 'cartItem' => $cartItem];
+        $response = [
+            'success' => true,
+            'message' => 'Product added to cart',
+            'cartItem' => $cartItem
+        ];
 
+        // ✅ Set cookie only if device_id is newly generated
         if (!$userId && !$request->cookie('device_id')) {
             return response()->json($response)->cookie('device_id', $deviceId, 60 * 24 * 30);
         }
 
         return response()->json($response);
     }
+
 
 
     public function removeCart($id)

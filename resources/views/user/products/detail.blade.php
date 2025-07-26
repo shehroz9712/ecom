@@ -459,7 +459,7 @@
                                                         <figure class="product-media">
                                                             <a
                                                                 href="{{ route('user.product.detail', ['slug' => $product->slug]) }}">
-                                                                <img src="{{ productImage($product->images->first()->image) }}"
+                                                                <img src="{{ productImage($product->main_image?->image) }}"
                                                                     alt="{{ $product->name }}" width="100"
                                                                     height="113" />
                                                             </a>

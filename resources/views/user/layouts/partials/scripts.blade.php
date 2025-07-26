@@ -109,13 +109,10 @@
                         input.value = qty;
 
                         const row = form.closest('tr');
-                        row.querySelector('.product-subtotal .amount').textContent =
-                            `RS ${data.item_subtotal}`;
-                        document.querySelector('.cart-summary .cart-subtotal span').textContent =
-                            `RS ${data.subtotal}`;
-                        document.querySelector('.cart-summary .order-total span').textContent =
-                            `RS ${data.total}`;
-
+                        row.querySelector('.product-subtotal .amount').textContent = data.item_subtotal;
+                        // ✅ Update cart total row
+                        const totalEl = document.querySelector(' .cart-total .amount');
+                        if (totalEl) totalEl.textContent = data.total;
                         row.classList.add('flash');
                         setTimeout(() => row.classList.remove('flash'), 300);
 

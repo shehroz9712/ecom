@@ -35,10 +35,13 @@ class ViewServiceProvider extends ServiceProvider
                 'variant.attributes.attribute',
                 'variant.attributes.attributeValue'
             )
-                ->when($userId, fn($q) => $q->where('user_id', $userId))
-                ->when(!$userId, fn($q) => $q->where('device_id', $deviceId))
                 ->where('status', 'active')
+                ->where(function ($query) use ($userId, $deviceId) {
+                    $query->where('user_id', $userId);
+                    $query->orWhere('device_id', $deviceId);
+                })
                 ->get();
+
 
             $cartCount = $carts->sum('qty');
             $cartSubtotal = $carts->sum(fn($item) => $item->price * $item->qty);

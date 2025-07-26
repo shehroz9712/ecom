@@ -6,7 +6,7 @@
             <div class="page-content">
                 <div class="container">
                     <div class="row gutter-lg mb-10">
-                        <div class="col-lg-8 pr-lg-4 mb-6">
+                        <div class="col-lg-12 pr-lg-12 mb-6">
                             <table class="shop-table cart-table">
                                 <thead>
                                     <tr>
@@ -43,11 +43,14 @@
                                                 <a href="{{ route('user.product.detail', $item->product->slug ?? '#') }}">
                                                     {{ $item->product->name ?? 'Unknown Product' }}
                                                     <br>
-                                                    @foreach ($item->variant->attributes as $attr)
-                                                        <span class="me-2">
-                                                            {{ $attr->attribute->name }}: {{ $attr->attributeValue->value }}
-                                                        </span>
-                                                    @endforeach
+                                                    @if ($item->variant && $item->variant->attributes)
+                                                        @foreach ($item->variant->attributes as $attr)
+                                                            <span class="me-2">
+                                                                {{ $attr->attribute->name }}:
+                                                                {{ $attr->attributeValue->value }}
+                                                            </span>
+                                                        @endforeach
+                                                    @endif
                                                 </a>
 
                                             </td>
@@ -69,16 +72,6 @@
                                                     </div>
                                                 </form>
 
-                                                {{-- <form action="{{ route('user.cart.add', $item->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="input-group">
-                                                        <input class="quantity form-control" type="number" name="qty"
-                                                            value="{{ $item->qty }}" min="1" max="100000">
-                                                        <button type="submit" class="quantity-plus w-icon-plus"></button>
-                                                        <button type="submit" class="quantity-minus w-icon-minus"></button>
-                                                    </div>
-                                                </form> --}}
 
 
                                             </td>
@@ -91,11 +84,25 @@
                                             <td colspan="5" class="text-center">Your cart is empty.</td>
                                         </tr>
                                     @endforelse
+                                    @if ($cartItems->count())
+                                        <tr class="cart-total-row border-top ">
+                                            <td colspan="4" class="text-end pe-4 py-4">
+                                                <strong class="text-uppercase">Cart Total:</strong>
+                                            </td>
+                                            <td class="text-start py-4 product-subtotal cart-total text-left">
+                                                <strong class="text-primary">
+                                                    <span class="amount">{{ productAmount($subtotal) }}</span>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    @endif
+
                                 </tbody>
                             </table>
 
                             <div class="cart-action mb-6">
-                                <a href="{{ route('user.shop') }}" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i
+                                <a href="{{ route('user.shop') }}"
+                                    class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i
                                         class="w-icon-long-arrow-left"></i>Continue Shopping</a>
                                 <form action="{{ route('user.cart.clear') }}" method="POST">
                                     @csrf
@@ -104,42 +111,12 @@
                                         name="clear_cart">Clear
                                         Cart</button>
                                 </form>
+                                <a href="{{ route('user.checkout') }}"
+                                    class="btn btn-block btn-primary btn-icon-right btn-rounded  btn-checkout">
+                                    Proceed to checkout<i class="w-icon-long-arrow-right"></i></a>
                             </div>
 
-                            <form class="coupon">
-                                <h5 class="title coupon-title font-weight-bold text-uppercase">Coupon Discount</h5>
-                                <input type="text" class="form-control mb-4" placeholder="Enter coupon code here..."
-                                    required />
-                                <button class="btn btn-dark btn-outline btn-rounded">Apply Coupon</button>
-                            </form>
-                        </div>
-                        <div class="col-lg-4 sticky-sidebar-wrapper">
-                            <div class="sticky-sidebar">
-                                <div class="cart-summary mb-4">
-                                    <h3 class="cart-title text-uppercase">Cart Totals</h3>
-                                    <div class="cart-subtotal d-flex align-items-center justify-content-between">
-                                        <label class="ls-25">Subtotal</label>
-                                        <span>RS {{ number_format($subtotal, 2) }}</span>
-                                    </div>
 
-                                    <hr class="divider">
-
-                                    <div class="cart-subtotal d-flex align-items-center justify-content-between">
-                                        <label class="ls-25">Shipping</label>
-                                        <span>RS {{ number_format($settings->shipping, 2) }}</span>
-                                    </div>
-
-                                    <hr class="divider mb-6">
-                                    <div class="order-total d-flex justify-content-between align-items-center">
-                                        <label>Total</label>
-                                        <span class="ls-50">RS
-                                            {{ number_format($subtotal + $settings->shipping, 2) }}</span>
-                                    </div>
-                                    <a href="{{ route('user.checkout') }}"
-                                        class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">
-                                        Proceed to checkout<i class="w-icon-long-arrow-right"></i></a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

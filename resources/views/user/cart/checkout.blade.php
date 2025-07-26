@@ -4,51 +4,59 @@
 
 @section('content')
     <main class="main checkout">
-        
+
         <!-- End of Breadcrumb -->
 
         <!-- Start of PageContent -->
         <div class="page-content">
             <div class="container">
-                <div class="login-toggle">
-                    Returning customer? <a href="#" class="show-login font-weight-bold text-uppercase text-dark">Login</a>
-                </div>
-                <form class="login-content">
-                    <p>If you have shopped with us before, please enter your details below. 
-                        If you are a new customer, please proceed to the Billing section.</p>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="form-group">
-                                <label>Username or email *</label>
-                                <input type="text" class="form-control form-control-md" name="name" required>
+                @if (!Auth::guard('web')->check())
+                    <div class="login-toggle">
+                        Returning customer? <a href="#"
+                            class="show-login font-weight-bold text-uppercase text-dark">Login</a>
+                    </div>
+                    <form class="login-content">
+                        <p>If you have shopped with us before, please enter your details below.
+                            If you are a new customer, please proceed to the Billing section.</p>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Username or email *</label>
+                                    <input type="text" class="form-control form-control-md" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label>Password *</label>
+                                    <input type="text" class="form-control form-control-md" name="password" required>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
-                            <div class="form-group">
-                                <label>Password *</label>
-                                <input type="text" class="form-control form-control-md" name="password" required>
-                            </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" class="custom-checkbox" id="remember" name="remember">
+                            <label for="remember" class="mb-0 lh-2">Remember me</label>
+                            <a href="#" class="ml-3">Lost your password?</a>
                         </div>
-                    </div>
-                    <div class="form-group checkbox">
-                        <input type="checkbox" class="custom-checkbox" id="remember" name="remember">
-                        <label for="remember" class="mb-0 lh-2">Remember me</label>
-                        <a href="#" class="ml-3">Lost your password?</a>
-                    </div>
-                    <button class="btn btn-rounded btn-login">Login</button>
-                </form>
+                        <button class="btn btn-rounded btn-login">Login</button>
+                    </form>
+                @endif
+
                 <div class="coupon-toggle">
-                    Have a coupon? <a href="#" class="show-coupon font-weight-bold text-uppercase text-dark">Enter your code</a>
+                    Have a coupon? <a href="#" class="show-coupon font-weight-bold text-uppercase text-dark">Enter
+                        your code</a>
                 </div>
                 <div class="coupon-content mb-4">
                     <p>If you have a coupon code, please apply it below.</p>
                     <div class="input-wrapper-inline">
-                        <input type="text" name="coupon_code" class="form-control form-control-md mr-1 mb-2" placeholder="Coupon code" id="coupon_code">
-                        <button type="submit" class="btn button btn-rounded btn-coupon mb-2" name="apply_coupon" value="Apply coupon">Apply Coupon</button>
+                        <input type="text" name="coupon_code" class="form-control form-control-md mr-1 mb-2"
+                            placeholder="Coupon code" id="coupon_code">
+                        <button type="submit" class="btn button btn-rounded btn-coupon mb-2" name="apply_coupon"
+                            value="Apply coupon">Apply Coupon</button>
                     </div>
                 </div>
 
-                <form action="{{ route('user.checkout.process') }}" method="POST" id="checkoutForm" class="form checkout-form">
+                <form action="{{ route('user.checkout.process') }}" method="POST" id="checkoutForm"
+                    class="form checkout-form">
                     @csrf
                     <div class="row mb-9">
                         <!-- Billing Details -->
@@ -80,17 +88,20 @@
                             @guest
                                 <!-- Account creation option for guest -->
                                 <div class="form-group checkbox-toggle pb-2">
-                                    <input type="checkbox" class="custom-checkbox" id="createAccountCheckbox" name="create_account">
+                                    <input type="checkbox" class="custom-checkbox" id="createAccountCheckbox"
+                                        name="create_account">
                                     <label for="createAccountCheckbox">Create an account?</label>
                                 </div>
                                 <div id="accountFields" class="d-none">
                                     <div class="form-group mb-3">
                                         <label>Password *</label>
-                                        <input type="password" name="password" id="password" class="form-control form-control-md" data-require-on="createAccountCheckbox">
+                                        <input type="password" name="password" id="password"
+                                            class="form-control form-control-md" data-require-on="createAccountCheckbox">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label>Confirm Password *</label>
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control form-control-md" data-require-on="createAccountCheckbox">
+                                        <input type="password" name="password_confirmation" id="password_confirmation"
+                                            class="form-control form-control-md" data-require-on="createAccountCheckbox">
                                     </div>
                                 </div>
                             @endguest
@@ -103,19 +114,23 @@
 
                             <div class="form-group mb-3">
                                 <label>Street Address *</label>
-                                <input type="text" placeholder="House number and street name" name="address" class="form-control form-control-md mb-2" required>
-                                <input type="text" placeholder="Apartment, suite, unit, etc. (optional)" name="address_2" class="form-control form-control-md">
+                                <input type="text" placeholder="House number and street name" name="address"
+                                    class="form-control form-control-md mb-2" required>
+                                <input type="text" placeholder="Apartment, suite, unit, etc. (optional)" name="address_2"
+                                    class="form-control form-control-md">
                             </div>
 
                             <div class="row gutter-sm">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
                                         <label>City *</label>
-                                        <input type="text" name="city" class="form-control form-control-md" required>
+                                        <input type="text" name="city" class="form-control form-control-md"
+                                            required>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label>Postal Code *</label>
-                                        <input type="text" name="postal_code" class="form-control form-control-md" required>
+                                        <input type="text" name="postal_code" class="form-control form-control-md"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -171,12 +186,16 @@
                                                         <i class="fas fa-times"></i>
                                                         <span class="product-quantity">{{ $item->qty }}</span>
                                                     </td>
-                                                    <td class="product-total">{{ productAmount($item->price * $item->qty) }}</td>
+                                                    <td class="product-total">
+                                                        {{ productAmount($item->price * $item->qty) }}</td>
                                                 </tr>
                                                 @if ($item->product->custom_shipping_cost)
                                                     <tr class="bb-no">
-                                                        <td class="product-name">Custom Shipping for {{ $item->product->name }}</td>
-                                                        <td class="product-total">{{ productAmount($item->product->custom_shipping_cost * $item->qty) }}</td>
+                                                        <td class="product-name">Custom Shipping for
+                                                            {{ $item->product->name }}</td>
+                                                        <td class="product-total">
+                                                            {{ productAmount($item->product->custom_shipping_cost * $item->qty) }}
+                                                        </td>
                                                     </tr>
                                                     @php $totalShipping += $item->product->custom_shipping_cost * $item->qty; @endphp
                                                 @endif
@@ -193,7 +212,7 @@
                                                 <td colspan="2" class="text-left">
                                                     <h4 class="title title-simple bb-no mb-1 pb-0 pt-3">Shipping</h4>
                                                     <ul id="shipping-method" class="mb-4">
-                                                        @if (!$allProductsHaveCustomShipping)
+                                                        {{-- @if (!$allProductsHaveCustomShipping)
                                                             <li>
                                                                 <div class="custom-radio">
                                                                     <input type="hidden" name="shipping_method" value="default"
@@ -210,21 +229,21 @@
                                                                     Standard Shipping ({{ productAmount($settings->shipping_cost ?? 0) }}) included in custom shipping costs
                                                                 </label>
                                                             </li>
-                                                        @endif
+                                                        @endif --}}
                                                     </ul>
                                                 </td>
                                             </tr>
                                             <tr class="order-total">
                                                 <th><b>Total</b></th>
                                                 <td><b id="order-total">
-                                                    @php
-                                                        $finalTotal = $subtotal + $totalShipping;
-                                                        if (!$allProductsHaveCustomShipping) {
-                                                            $finalTotal += $settings->shipping_cost ?? 0;
-                                                        }
-                                                    @endphp
-                                                    {{ productAmount($finalTotal) }}
-                                                </b></td>
+                                                        @php
+                                                            $finalTotal = $subtotal;
+                                                            // if (!$allProductsHaveCustomShipping) {
+                                                            //     $finalTotal += $settings->shipping_cost ?? 0;
+                                                            // }
+                                                        @endphp
+                                                        {{ productAmount($finalTotal) }}
+                                                    </b></td>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -236,7 +255,8 @@
                                             <div class="card">
                                                 <div class="card-header">
                                                     <label>
-                                                        <input type="radio" name="payment_method" value="cod" class="me-2" checked>
+                                                        <input type="radio" name="payment_method" value="cod"
+                                                            class="me-2" checked>
                                                         Cash on Delivery
                                                     </label>
                                                 </div>
@@ -251,7 +271,8 @@
 
                                     <!-- Submit Button -->
                                     <div class="form-group place-order pt-6">
-                                        <button type="submit" class="btn btn-dark btn-block btn-rounded">Place Order</button>
+                                        <button type="submit" class="btn btn-dark btn-block btn-rounded">Place
+                                            Order</button>
                                     </div>
                                 </div>
                             </div>
