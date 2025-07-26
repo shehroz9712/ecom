@@ -16,7 +16,7 @@ class SettingSeeder extends Seeder
             [
                 [
                     'key' => 'favicon',
-                    'value' => 'logo.png',
+                    'value' => 'favicon.png',
                     'deletable' => 0,
                     'status' => 'active',
                     'created_by' => 1,
