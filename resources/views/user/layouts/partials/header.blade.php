@@ -137,30 +137,25 @@
                             </div>
                             <nav class="main-nav">
                                 <ul class="menu active-underline">
-                                    <li class="active">
+                                    <li class="{{ request()->routeIs('user.home') ? 'active' : '' }}">
                                         <a href="{{ route('user.home') }}">Home</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('user.shop') }}"> <span class="tip tip-new">Hot</span>
-                                            Promotion </a>
-
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.shop') }}">New Arrival
+                                    <li class="{{ request()->routeIs('user.promotion') ? 'active' : '' }}">
+                                        <a href="{{ route('user.promotion') }}">
+                                            <span class="tip tip-new">Hot</span> Promotion
                                         </a>
-
                                     </li>
-                                    <li>
+                                    <li class="{{ request()->routeIs('user.new_arrival') ? 'active' : '' }}">
+                                        <a href="{{ route('user.new_arrival') }}">New Arrival</a>
+                                    </li>
+                                    <li class="{{ request()->routeIs('user.shop') ? 'active' : '' }}">
                                         <a href="{{ route('user.shop') }}">Shop</a>
-
                                     </li>
-                                    <li>
-                                        <a href="{{ route('user.shop') }}">About
-                                        </a>
-
+                                    <li class="{{ request()->routeIs('user.about') ? 'active' : '' }}">
+                                        <a href="{{ route('user.about') }}">About</a>
                                     </li>
-
                                 </ul>
+
                             </nav>
                         </div>
                         <div class="header-right">

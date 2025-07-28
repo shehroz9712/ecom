@@ -29,7 +29,7 @@ Route::name('user.')->group(function () {
 
     // Home and static pages
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/about', [HomeController::class, 'index'])->name('about');
+    Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('/contact/submit', [HomeController::class, 'contact'])->name('contact.submit');
     Route::get('/privacy', [HomeController::class, 'index'])->name('privacy');
@@ -37,6 +37,8 @@ Route::name('user.')->group(function () {
 
     // Product routes
     Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+    Route::get('/promotion', [ProductController::class, 'promotion'])->name('promotion');
+    Route::get('/newArrivals', [ProductController::class, 'new_arrival'])->name('new_arrival');
     Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('product.detail');
     Route::post('/product/variant-details', [ProductController::class, 'getVariantDetails'])
         ->name('product.getVariantDetails');

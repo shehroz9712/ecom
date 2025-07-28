@@ -145,9 +145,7 @@
                                         <option value="default"
                                             {{ request('orderby', 'default') == 'default' ? 'selected' : '' }}>Default
                                         </option>
-                                        <option value="popularity"
-                                            {{ request('orderby') == 'popularity' ? 'selected' : '' }}>Sort by popularity
-                                        </option>
+                                       
                                         <option value="rating" {{ request('orderby') == 'rating' ? 'selected' : '' }}>Sort
                                             by average rating</option>
                                         <option value="date" {{ request('orderby') == 'date' ? 'selected' : '' }}>Sort
@@ -174,16 +172,7 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="toolbox-item toolbox-layout">
-                                    <a href="{{ route('user.shop', array_merge(request()->query(), ['layout' => 'grid'])) }}"
-                                        class="icon-mode-grid btn-layout {{ request('layout', 'grid') == 'grid' ? 'active' : '' }}">
-                                        <i class="w-icon-grid"></i>
-                                    </a>
-                                    <a href="{{ route('user.shop', array_merge(request()->query(), ['layout' => 'list'])) }}"
-                                        class="icon-mode-list btn-layout {{ request('layout') == 'list' ? 'active' : '' }}">
-                                        <i class="w-icon-list"></i>
-                                    </a>
-                                </div>
+                            
                             </div>
                         </nav>
 

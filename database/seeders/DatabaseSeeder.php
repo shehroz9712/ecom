@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             StateTableSeeder::class,
             PageSeeder::class,
-            CountriesTableSeeder::class,
             // CategorySeeder::class,
             SliderSeeder::class,
             // BrandSeeder::class,

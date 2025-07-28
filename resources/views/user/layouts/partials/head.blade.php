@@ -100,5 +100,40 @@
             border-color: #9d1619 !important;
             color: white !important;
         }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: #25D366;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float img {
+            width: 40px;
+            height: 40px;
+        }
+
+        a.social-icon,
+        .social-icons-colored .social-icon {
+            background: white !important;
+            border-color: #9d1619 !important;
+            color: #9d1619 !important;
+        }
+
+        a.social-icon:hover,
+        .social-icons-colored .social-icon:hover {
+            background: #9d1619 !important;
+            border-color: #9d1619 !important;
+            color: white !important;
+        }
     </style>
 </head>

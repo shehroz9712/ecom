@@ -225,5 +225,24 @@ class ProductController extends Controller
         }
     }
 
-    public function deals() {}
+    public function promotion()
+    {
+
+        $products = Product::with(['images'])
+            ->where('is_featured', true)
+            ->active()
+            ->paginate(12);
+
+        return view('user.products.promotion', compact('products'));
+    }
+
+    public function new_arrival()
+    {
+        $products = Product::with(['images'])
+            ->orderBy('created_at', 'desc')
+            ->active()
+            ->paginate(12);
+
+        return view('user.products.shop', compact('products'));
+    }
 }

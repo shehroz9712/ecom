@@ -30,14 +30,14 @@ class StateTableSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'country_id' => 2,
+                'country_id' => 1,
                 'name' => 'KPK',
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
                 'id' => 4,
-                'country_id' => 3,
+                'country_id' => 1,
                 'name' => 'Balochistan',
                 'created_by' => 1,
                 'updated_by' => 1,

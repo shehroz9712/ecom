@@ -337,239 +337,84 @@
             <!-- End of Category Cosmetic Lifestyle -->
         </div>
 
-        <div class="container">
-
-            <div class="product-wrapper-1 appear-animate mb-5">
-                <div class="title-link-wrapper pb-1 mb-4">
-                    <h2 class="title ls-normal mb-0">Stove kettles & Pots</h2>
-                    <a href="shop-boxed-banner.html" class="font-size-normal font-weight-bold ls-25 mb-0">More
-                        Products<i class="w-icon-long-arrow-right"></i></a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-4 mb-4">
-                        <div class="banner h-100 br-sm"
-                            style="background-image: url('{{ asset('assets/user/images/demos/demo1/banners/2.jpg') }}');
-       background-color: #ebeced;">
-                            <div class="banner-content content-top">
-                                <h5 class="banner-subtitle font-weight-normal mb-2">Weekend Sale</h5>
-                                <hr class="banner-divider bg-dark mb-2">
-                                <h3 class="banner-title font-weight-bolder ls-25 text-uppercase">
-                                    New Arrivals<br> <span class="font-weight-normal text-capitalize">Collection</span>
-                                </h3>
-                                <a href="shop-banner-sidebar.html"
-                                    class="btn btn-dark btn-outline btn-rounded btn-sm">shop Now</a>
+        @foreach ($categoryProducts as $category)
+            <div class="container">
+                <div class="product-wrapper-1 appear-animate mb-8">
+                    <div class="title-link-wrapper pb-1 mb-4">
+                        <h2 class="title ls-normal mb-0">{{ $category['name'] }}</h2>
+                        <a href="{{ route('user.shop', $category['slug']) }}"
+                            class="font-size-normal font-weight-bold ls-25 mb-0">
+                            More Products<i class="w-icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-4 mb-4">
+                            <div class="banner h-100 br-sm"
+                                style="background-image: url('{{ $category['banner'] }}'); background-color: #ebeced;">
+                                <div class="banner-content content-top">
+                                    <h5 class="banner-subtitle font-weight-normal mb-2">Hot Deals</h5>
+                                    <hr class="banner-divider bg-dark mb-2">
+                                    <h3 class="banner-title font-weight-bolder ls-25 text-uppercase">
+                                        Featured<br> <span class="font-weight-normal text-capitalize">Products</span>
+                                    </h3>
+                                    <a href="{{ route('user.shop', ['category' => $category['slug']]) }}"
+                                        class="btn btn-dark btn-outline btn-rounded btn-sm">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-8">
+                            <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
+                                data-owl-options="{
+                        'nav': false,
+                        'dots': true,
+                        'margin': 20,
+                        'responsive': {
+                            '0': {'items': 2},
+                            '576': {'items': 2},
+                            '992': {'items': 3},
+                            '1200': {'items': 4}
+                        }
+                    }">
+                                @foreach ($category['products'] as $product)
+                                    @include('user.products.product-item', ['product' => $product])
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                    <!-- End of Banner -->
-                    <div class="col-lg-9 col-sm-8">
-                        <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
-                            data-owl-options="{
-                                'nav': false,
-                                'dots': true,
-                                'margin': 20,
-                                'responsive': {
-                                    '0': {
-                                        'items': 2
-                                    },
-                                    '576': {
-                                        'items': 2
-                                    },
-                                    '992': {
-                                        'items': 3
-                                    },
-                                    '1200': {
-                                        'items': 4
-                                    }
-                                }
-                            }">
-                            @foreach ($newArrivals as $product)
-                                @include('user.products.product-item', ['product' => $product])
-                            @endforeach
-                            @foreach ($newArrivals as $product)
-                                @include('user.products.product-item', ['product' => $product])
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Product Wrapper 1 -->
-        </div>
-        <div class="container">
-
-            <div class="banner banner-fashion appear-animate br-sm mb-9"
-                style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/4.jpg') }});background-color: #383839;">
-                <div class="banner-content align-items-center">
-                    <div class="content-left d-flex align-items-center mb-3">
-                        <div class="banner-price-info font-weight-bolder text-secondary text-uppercase lh-1 ls-25">
-                            25
-                            <sup class="font-weight-bold">%</sup><sub class="font-weight-bold ls-25">Off</sub>
-                        </div>
-                        <hr class="banner-divider bg-white mt-0 mb-0 mr-8">
-                    </div>
-                    <div class="content-right d-flex align-items-center flex-1 flex-wrap">
-                        <div class="banner-info mb-0 mr-auto pr-4 mb-3">
-                            <h3 class="banner-title text-white font-weight-bolder text-uppercase ls-25">For Today's
-                                Fashion</h3>
-                            <p class="text-white mb-0">Use code
-                                <span class="text-dark bg-white font-weight-bold ls-50 pl-1 pr-1 d-inline-block">Black
-                                    <strong>12345</strong></span> to get best offer.
-                            </p>
-                        </div>
-                        <a href="shop-banner-sidebar.html"
-                            class="btn btn-white btn-outline btn-rounded btn-icon-right mb-3">Shop Now<i
-                                class="w-icon-long-arrow-right"></i></a>
-                    </div>
                 </div>
 
-            </div>
-        </div>
-        <div class="container">
-            <div class="product-wrapper-1 appear-animate mb-8">
-                <div class="title-link-wrapper pb-1 mb-4">
-                    <h2 class="title ls-normal mb-0">Chafing and Buffet Dishes</h2>
-                    <a href="shop-boxed-banner.html" class="font-size-normal font-weight-bold ls-25 mb-0">More
-                        Products<i class="w-icon-long-arrow-right"></i></a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-4 mb-4">
-                        <div class="banner h-100 br-sm"
-                            style="background-image: url('{{ asset('assets/user/images/demos/demo1/banners/3.jpg') }}');
-       background-color: #ebeced;">
-                            <div class="banner-content content-top">
-                                <h5 class="banner-subtitle text-white font-weight-normal mb-2">New Collection</h5>
-                                <hr class="banner-divider bg-white mb-2">
-                                <h3 class="banner-title text-white font-weight-bolder text-uppercase ls-25">
-                                    Top Camera <br> <span class="font-weight-normal text-capitalize">Mirrorless</span>
-                                </h3>
-                                <a href="shop-banner-sidebar.html"
-                                    class="btn btn-white btn-outline btn-rounded btn-sm">shop now</a>
+                {{-- Custom Banner after each group --}}
+                <div class="banner banner-fashion appear-animate br-sm mb-9"
+                    style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/4.jpg') }});background-color: #383839;">
+                    <div class="banner-content align-items-center">
+                        <div class="content-left d-flex align-items-center mb-3">
+                            <div class="banner-price-info font-weight-bolder text-secondary text-uppercase lh-1 ls-25">
+                                25
+                                <sup class="font-weight-bold">%</sup><sub class="font-weight-bold ls-25">Off</sub>
                             </div>
+                            <hr class="banner-divider bg-white mt-0 mb-0 mr-8">
                         </div>
-                    </div>
-                    <!-- End of Banner -->
-                    <div class="col-lg-9 col-sm-8">
-                        <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
-                            data-owl-options="{
-                                'nav': false,
-                                'dots': true,
-                                'margin': 20,
-                                'responsive': {
-                                    '0': {
-                                        'items': 2
-                                    },
-                                    '576': {
-                                        'items': 2
-                                    },
-                                    '992': {
-                                        'items': 3
-                                    },
-                                    '1200': {
-                                        'items': 4
-                                    }
-                                }
-                            }">
-                            @foreach ($newArrivals as $product)
-                                @include('user.products.product-item', ['product' => $product])
-                            @endforeach
-                            @foreach ($newArrivals as $product)
-                                @include('user.products.product-item', ['product' => $product])
-                            @endforeach
+                        <div class="content-right d-flex align-items-center flex-1 flex-wrap">
+                            <div class="banner-info mb-0 mr-auto pr-4 mb-3">
+                                <h3 class="banner-title text-white font-weight-bolder text-uppercase ls-25">For Today's
+                                    Fashion</h3>
+                                <p class="text-white mb-0">Use code
+                                    <span class="text-dark bg-white font-weight-bold ls-50 pl-1 pr-1 d-inline-block">Black
+                                        <strong>12345</strong></span> to get best offer.
+                                </p>
+                            </div>
+                            <a href="{{ route('user.shop') }}"
+                                class="btn btn-white btn-outline btn-rounded btn-icon-right mb-3">Shop Now<i
+                                    class="w-icon-long-arrow-right"></i></a>
                         </div>
-                        <!-- End of Produts -->
                     </div>
                 </div>
             </div>
-            <!-- End of Product Wrapper 1 -->
-        </div>
-        <div class="container">
+        @endforeach
 
-            <div class="banner banner-fashion appear-animate br-sm mb-9"
-                style="background-image: url({{ asset('assets/user/images/demos/demo1/banners/4.jpg') }});background-color: #383839;">
-                <div class="banner-content align-items-center">
-                    <div class="content-left d-flex align-items-center mb-3">
-                        <div class="banner-price-info font-weight-bolder text-secondary text-uppercase lh-1 ls-25">
-                            25
-                            <sup class="font-weight-bold">%</sup><sub class="font-weight-bold ls-25">Off</sub>
-                        </div>
-                        <hr class="banner-divider bg-white mt-0 mb-0 mr-8">
-                    </div>
-                    <div class="content-right d-flex align-items-center flex-1 flex-wrap">
-                        <div class="banner-info mb-0 mr-auto pr-4 mb-3">
-                            <h3 class="banner-title text-white font-weight-bolder text-uppercase ls-25">For Today's
-                                Fashion</h3>
-                            <p class="text-white mb-0">Use code
-                                <span class="text-dark bg-white font-weight-bold ls-50 pl-1 pr-1 d-inline-block">Black
-                                    <strong>12345</strong></span> to get best offer.
-                            </p>
-                        </div>
-                        <a href="shop-banner-sidebar.html"
-                            class="btn btn-white btn-outline btn-rounded btn-icon-right mb-3">Shop Now<i
-                                class="w-icon-long-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- End of Banner Fashion -->
         <div class="container">
-
-            <div class="product-wrapper-1 appear-animate mb-7">
-                <div class="title-link-wrapper pb-1 mb-4">
-                    <h2 class="title ls-normal mb-0">Mugs</h2>
-                    <a href="shop-boxed-banner.html" class="font-size-normal font-weight-bold ls-25 mb-0">More
-                        Products<i class="w-icon-long-arrow-right"></i></a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-4 mb-4">
-                        <div class="banner h-100 br-sm"
-                            style="background-image: url(assets/images/demos/demo1/banners/5.jpg); 
-                            background-color: #EAEFF3;">
-                            <div class="banner-content content-top">
-                                <h5 class="banner-subtitle font-weight-normal mb-2">Deals And Promotions</h5>
-                                <hr class="banner-divider bg-dark mb-2">
-                                <h3 class="banner-title font-weight-bolder text-uppercase ls-25">
-                                    Trending <br> <span class="font-weight-normal text-capitalize">House
-                                        Utensil</span>
-                                </h3>
-                                <a href="shop-banner-sidebar.html"
-                                    class="btn btn-dark btn-outline btn-rounded btn-sm">shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Banner -->
-                    <div class="col-lg-9 col-sm-8">
-                        <div class="owl-carousel owl-theme row cols-xl-4 cols-lg-3 cols-2"
-                            data-owl-options="{
-                                'nav': false,
-                                'dots': true,
-                                'margin': 20,
-                                'responsive': {
-                                    '0': {
-                                        'items': 2
-                                    },
-                                    '576': {
-                                        'items': 2
-                                    },
-                                    '992': {
-                                        'items': 3
-                                    },
-                                    '1200': {
-                                        'items': 4
-                                    }
-                                }
-                            }">
-                            @foreach ($newArrivals as $product)
-                                @include('user.products.product-item', ['product' => $product])
-                            @endforeach
-                            @foreach ($newArrivals as $product)
-                                @include('user.products.product-item', ['product' => $product])
-                            @endforeach
-                        </div>
-                        <!-- End of Produts -->
-                    </div>
-                </div>
-            </div>
-            <!-- End of Product Wrapper 1 -->
 
             <h2 class="title title-underline mb-4 ls-normal appear-animate">Our Brands</h2>
             <div class="owl-carousel owl-theme brands-wrapper mb-9 row gutter-no cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2 appear-animate"
