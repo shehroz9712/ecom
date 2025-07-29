@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')->nullOnDelete();
+
             $table->enum('type', ['billing', 'shipping']);
             $table->string('full_name');
             $table->string('company')->nullable();
             $table->string('address_line_1');
             $table->string('address_line_2')->nullable();
-            $table->foreignId('country_id')->constrained()->onDelete('restrict');
-            $table->foreignId('state_id')->constrained()->onDelete('restrict');
-            $table->foreignId('city_id')->constrained()->onDelete('restrict');
+            $table->foreignId('country_id')->constrained()->restrictOnDelete();
+            $table->foreignId('state_id')->constrained()->restrictOnDelete();
+            $table->foreignId('city_id')->constrained()->restrictOnDelete();
             $table->string('postcode');
             $table->string('phone');
             $table->boolean('is_default')->default(false);

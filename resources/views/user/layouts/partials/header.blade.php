@@ -161,7 +161,7 @@
                         <div class="header-right">
                             <a href="{{ route('user.order.track') }}" class="d-xl-show"><i
                                     class="w-icon-map-marker mr-1"></i>Track Order</a>
-                            <a href="{{ route('user.daily.deals') }}"><i class="w-icon-sale"></i>Daily Deals</a>
+                            <a href="{{ route('user.promotion') }}"><i class="w-icon-sale"></i>Daily Deals</a>
                         </div>
                     </div>
                 </div>

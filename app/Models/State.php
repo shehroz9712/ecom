@@ -13,7 +13,7 @@ class State extends Model
 {
     use HasFactory, SoftDeletes, HasQueryFilters;
 
-    protected $guarded = [];// Replace with actual column names
+    protected $guarded = []; // Replace with actual column names
 
     public static function allowedColumns(): array
     {
@@ -59,5 +59,14 @@ class State extends Model
     public function getEditorNameAttribute()
     {
         return $this->editor?->name ?? 'N/A';
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+    public function cities()
+    {
+        return $this->hasMany(City::class);
     }
 }

@@ -13,10 +13,23 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-            $table->foreignId('cart_id')->constrained('carts')->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('carts')->onDelete('cascade');
+
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
+
+            // cart reference optional (only for trace); don't cascade
+            $table->foreignId('cart_id')->nullable()->constrained('carts')->nullOnDelete();
+
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
+            $table->integer('qty')->default(1);
+            $table->foreignId('variant_id')->nullable()->constrained('product_variants')->nullOnDelete();
+
+            $table->string('product_name')->nullable();
+            $table->string('sku')->nullable();
+            $table->json('variant_attributes')->nullable();
+
+            // unit price at the moment of purchase
             $table->decimal('price', 10, 2);
+
             $table->string('media_id')->nullable();
             $table->timestamps();
         });

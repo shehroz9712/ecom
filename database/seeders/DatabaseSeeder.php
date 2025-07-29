@@ -29,8 +29,10 @@ class DatabaseSeeder extends Seeder
             // AttributeSeeder::class,
             ProductSeeder::class,
             // ReviewSeeder::class,
-            // ReviewImageSeeder::class,
+            CitiesSeeder::class,
             VendorTableSeeder::class,
+            CouponSeeder::class,
+            CitiesSeeder::class,
         ]);
     }
 }

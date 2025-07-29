@@ -896,21 +896,21 @@ $.extend($.easing, {
                         a.removeClass("load-more-overlay loading"), a.toggleClass("w-icon-heart").toggleClass("w-icon-heart-full")
                     }, 500)
                 }),
-                    function () {
-                        var e = t(".product-popup");
-                        e.length && Wolmart.$body.on("click", ".btn-quickview", function (a) {
-                            a.preventDefault(), Wolmart.popup({
-                                items: {
-                                    src: e[0].outerHTML
-                                },
-                                callbacks: {
-                                    open: function () {
-                                        Wolmart.productSingle(t(".mfp-product .product-single")), Popup.defaults.callbacks.open()
-                                    }
-                                }
-                            }, "quickview")
-                        })
-                    }(),
+                    // function () {
+                    //     var e = t(".product-popup");
+                    //     e.length && Wolmart.$body.on("click", ".btn-quickview", function (a) {
+                    //         a.preventDefault(), Wolmart.popup({
+                    //             items: {
+                    //                 src: e[0].outerHTML
+                    //             },
+                    //             callbacks: {
+                    //                 open: function () {
+                    //                     Wolmart.productSingle(t(".mfp-product .product-single")), Popup.defaults.callbacks.open()
+                    //                 }
+                    //             }
+                    //         }, "quickview")
+                    //     })
+                    // }(),
                     function () {
                         function e() {
                             s.find(".title").after('<p class="compare-count text-center text-light mb-0">(' + a + " Products)</p>"), s.find(".compare-count").length > 1 && s.find("p:last-child").remove()

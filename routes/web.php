@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeoController;
 use App\Http\Controllers\ShopifyImportController;
 use App\Http\Controllers\User\AddressController;
 use App\Http\Controllers\User\BlogController;
@@ -40,6 +41,8 @@ Route::name('user.')->group(function () {
     Route::get('/promotion', [ProductController::class, 'promotion'])->name('promotion');
     Route::get('/newArrivals', [ProductController::class, 'new_arrival'])->name('new_arrival');
     Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('product.detail');
+    Route::get('/quick-view/{id}', [ProductController::class, 'quickView'])->name('quick.view');
+
     Route::post('/product/variant-details', [ProductController::class, 'getVariantDetails'])
         ->name('product.getVariantDetails');
     // Vendor routes
@@ -54,11 +57,13 @@ Route::name('user.')->group(function () {
     Route::put('/cart/update', [CartController::class, 'updateCart'])->name('cart.updateQty');
     Route::delete('/remove-cart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
     Route::delete('/clear-cart', [CartController::class, 'clearCart'])->name('cart.clear');
-    Route::post('/check/coupon', [CartController::class, 'removeCart'])->name('cart.coupon');
+    Route::post('/check/coupon', [CartController::class, 'applyCoupon'])->name('checkout.applyCoupon');
     // Cart management
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
-    Route::get('/checkout/process', [CartController::class, 'checkout'])->name('checkout.process');
+    Route::post('/checkout/process', [CartController::class, 'process_checkout'])->name('checkout.process');
 
+    Route::get('/geo/states', [GeoController::class, 'states'])->name('geo.states');   // ?country_id=ID
+Route::get('/geo/cities', [GeoController::class, 'cities'])->name('geo.cities');   // ?state_id=ID
 
     // Search and deals
     Route::get('/search', [HomeController::class, 'index'])->name('search');

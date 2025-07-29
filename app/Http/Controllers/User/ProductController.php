@@ -155,6 +155,22 @@ class ProductController extends Controller
         ));
     }
 
+    public function quickView($id)
+    {
+        $product = Product::with([
+            'brand',
+            'category',
+            'subCategory',
+            'subCategoryItem',
+            'images',
+            'variants.attributes.attribute',
+            'variants.attributes.attributeValue',
+            'reviews.user',
+            'reviews.images'
+        ])->findOrFail($id);
+        return view('user.products.quick_view', compact('product'));
+    }
+
     public function getVariantDetails(Request $request)
     {
         $request->validate([
