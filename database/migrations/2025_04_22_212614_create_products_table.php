@@ -28,6 +28,7 @@ return new class extends Migration {
             $table->float('rating')->default(0);
             $table->integer('review_count')->default(0);
             $table->integer('shipping')->default(0);
+            $table->decimal('weight', 10, 2);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
