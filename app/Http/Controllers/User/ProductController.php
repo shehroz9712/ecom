@@ -155,6 +155,22 @@ class ProductController extends Controller
         ));
     }
 
+    public function quickView($id)
+    {
+        $product = Product::with([
+            'brand',
+            'category',
+            'subCategory',
+            'subCategoryItem',
+            'images',
+            'variants.attributes.attribute',
+            'variants.attributes.attributeValue',
+            'reviews.user',
+            'reviews.images'
+        ])->findOrFail($id);
+        return view('user.products.quick_view', compact('product'));
+    }
+
     public function getVariantDetails(Request $request)
     {
         $request->validate([
@@ -225,5 +241,24 @@ class ProductController extends Controller
         }
     }
 
-    public function deals() {}
+    public function promotion()
+    {
+
+        $products = Product::with(['images'])
+            ->where('is_featured', true)
+            ->active()
+            ->paginate(12);
+
+        return view('user.products.promotion', compact('products'));
+    }
+
+    public function new_arrival()
+    {
+        $products = Product::with(['images'])
+            ->orderBy('created_at', 'desc')
+            ->active()
+            ->paginate(12);
+
+        return view('user.products.shop', compact('products'));
+    }
 }

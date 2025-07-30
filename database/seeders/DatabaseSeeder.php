@@ -23,15 +23,16 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             StateTableSeeder::class,
             PageSeeder::class,
-            CountriesTableSeeder::class,
             // CategorySeeder::class,
             SliderSeeder::class,
             // BrandSeeder::class,
             // AttributeSeeder::class,
             ProductSeeder::class,
             // ReviewSeeder::class,
-            // ReviewImageSeeder::class,
+            CitiesSeeder::class,
             VendorTableSeeder::class,
+            CouponSeeder::class,
+            CitiesSeeder::class,
         ]);
     }
 }

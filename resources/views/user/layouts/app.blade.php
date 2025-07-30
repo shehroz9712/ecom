@@ -444,6 +444,10 @@
         </div>
     </div>
     <!-- End of Quick view -->
+    <a href="https://wa.me/{{ $settings->whatsapp_no }}" target="_blank"
+        class="fixed bottom-5 left-5 z-50 bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition whatsapp-float">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" class="w-8 h-8" alt="WhatsApp">
+    </a>
 
     @include('user.layouts.partials.scripts')
 </body>

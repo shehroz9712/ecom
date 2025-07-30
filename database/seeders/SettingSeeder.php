@@ -154,6 +154,16 @@ class SettingSeeder extends Seeder
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                 ],
+                 [
+                    'key' => 'whatsapp_no',
+                    'value' => '03123456789',
+                    'deletable' => 0,
+                    'status' => 'active',
+                    'created_by' => 1,
+                    'updated_by' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
                 [
                     'key' => 'address',
                     'value' => 'abc road, xyz street, city',
