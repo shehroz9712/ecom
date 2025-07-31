@@ -4,77 +4,66 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>{{ $pageTitle }}</h3>
-                    {{ Breadcrumbs::render('admin.users.index') }}
-                </div>
+<div class="container-fluid py-4">
+    <div class="page-header d-flex justify-content-between align-items-center">
+        <div>
+            <h3 class="mb-0">Cities</h3>
+            {{ Breadcrumbs::render('admin.cities.index') }}
+        </div>
+        <a href="{{ route('admin.cities.create') }}" class="btn btn-primary">Add New City</a>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="basic-1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>State</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cities as $city)
+                            <tr>
+                                <td>{{ $city->id }}</td>
+                                <td>{{ $city->name }}</td>
+                                <td>{{ $city->state->name ?? '-' }}</td>
+                                <td>{!! StatusBadge($city->status) !!}</td>
+                                <td>{{ $city->created_at->format('d M Y') }}</td>
+                                <td>
+                                    <a href="{{ route('admin.cities.show', $city->id) }}" class="btn btn-sm btn-info">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                    <a href="{{ route('admin.cities.edit', $city->id) }}" class="btn btn-sm btn-warning">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+
+                                    <form action="{{ route('admin.cities.destroy', $city->id) }}"
+                                          method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Are you sure?')">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
-    <!-- Container-fluid starts-->
-    <div class="container-fluid">
-        <div class="row starter-main">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Add User</a>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="display" id="basic-1">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{!! StatusBadge($user->status) !!}</td>
-                                            <td>
-                                                @if ($user->id !== 1)
-                                                    <a href="{{ route('admin.users.edit', $user->id) }}"
-                                                        class="action-btn"><i class="fa fa-pencil-square-o"></i></a>
-
-                                                    <form id="delete-form-{{ $user->id }}"
-                                                        action="{{ route('admin.users.destroy', $user->id) }}"
-                                                        method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    </form>
-
-                                                    <a href="#" class="action-btn text-danger"
-                                                        onclick="event.preventDefault(); if(confirm('Are you sure?')) document.getElementById('delete-form-{{ $user->id }}').submit();">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                    </a>
-                                                @else
-                                                    <span class="text-muted">Restricted</span>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Container-fluid Ends-->
+</div>
 @endsection
 
 @section('js')
+<!-- Optional: If you're using DataTables or other JS libraries -->
 @endsection

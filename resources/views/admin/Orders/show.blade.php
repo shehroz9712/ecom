@@ -1,127 +1,133 @@
 @extends('admin.layouts.app')
 
-@section('css')
-@endsection
-
 @section('content')
-<div class="container-fluid">
-    <div class="page-header">
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Order #{{ $order->order_number }}</h3>
-                {{ Breadcrumbs::render('admin.orders.show', $order) }}
-            </div>
+<div class="container-fluid py-4">
+    <div class="page-header mb-4 d-flex justify-content-between align-items-center">
+        <div>
+            <h3 class="mb-0">Order Details</h3>
+            {{ Breadcrumbs::render('admin.orders.show', $order) }}
         </div>
+        <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-secondary">← Back to Orders</a>
     </div>
 
-    <!-- Order Details -->
     <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    Order Summary
-                </div>
+        <!-- Order Summary -->
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header bg-light fw-bold">Order Info</div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>Invoice:</strong> {{ $order->invoice_number ?? 'N/A' }}</p>
-                            <p><strong>Total Amount:</strong> {{ $order->currency }} {{ number_format($order->total_amount, 2) }}</p>
-                            <p><strong>Status:</strong> <span class="badge bg-info">{{ ucfirst($order->status) }}</span></p>
-                            <p><strong>Payment:</strong> {{ ucfirst($order->payment_status) }} via {{ ucfirst($order->payment_method) }}</p>
-                            <p><strong>Created At:</strong> {{ $order->created_at->format('d M Y') }}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Customer Note:</strong><br>{{ $order->customer_note ?? 'None' }}</p>
-                            <p><strong>Admin Note:</strong><br>{{ $order->admin_note ?? 'None' }}</p>
-                        </div>
-                    </div>
+                    <p><strong>Order #:</strong> {{ $order->order_number }}</p>
+                    <p><strong>Invoice #:</strong> {{ $order->invoice_number ?? 'N/A' }}</p>
+                    <p><strong>Status:</strong> {!! StatusBadge($order->status) !!}</p>
+                    <p><strong>Payment:</strong> {!! StatusBadge($order->payment_status) !!} ({{ ucfirst($order->payment_method) }})</p>
+                    <p><strong>Placed on:</strong> {{ $order->created_at->format('d M, Y h:i A') }}</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Addresses -->
-            <div class="card mt-3">
-                <div class="card-header bg-secondary text-white">
-                    Billing & Shipping Address
-                </div>
+        <!-- Customer Info -->
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header bg-light fw-bold">Customer</div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Billing Address</h5>
-                            @if($order->billingAddress)
-                                <p>{{ $order->billingAddress->full_name }}</p>
-                                <p>{{ $order->billingAddress->address_line_1 }}</p>
-                                <p>{{ $order->billingAddress->city }}, {{ $order->billingAddress->state }} {{ $order->billingAddress->postcode }}</p>
-                                <p>{{ $order->billingAddress->country }}</p>
-                                <p>Phone: {{ $order->billingAddress->phone }}</p>
-                            @else
-                                <p class="text-muted">Not available</p>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Shipping Address</h5>
-                            @if($order->shippingAddress)
-                                <p>{{ $order->shippingAddress->full_name }}</p>
-                                <p>{{ $order->shippingAddress->address_line_1 }}</p>
-                                <p>{{ $order->shippingAddress->city }}, {{ $order->shippingAddress->state }} {{ $order->shippingAddress->postcode }}</p>
-                                <p>{{ $order->shippingAddress->country }}</p>
-                                <p>Phone: {{ $order->shippingAddress->phone }}</p>
-                            @else
-                                <p class="text-muted">Not available</p>
-                            @endif
-                        </div>
-                    </div>
+                    <p><strong>Name:</strong> {{ $order->user?->name ?? 'Guest' }}</p>
+                    <p><strong>Email:</strong> {{ $order->user?->email ?? 'N/A' }}</p>
+                    <p><strong>Note:</strong> {{ $order->customer_note ?? '-' }}</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Products -->
-            <div class="card mt-3">
-                <div class="card-header bg-dark text-white">
-                    Products in Order
-                </div>
+        <!-- Address Info -->
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header bg-light fw-bold">Shipping Address</div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="table-light">
+                    @if($order->shippingAddress)
+                        <p>{{ $order->shippingAddress->full_name }}</p>
+                        <p>{{ $order->shippingAddress->address_line_1 }}</p>
+                        <p>{{ $order->shippingAddress->city?->name }}, {{ $order->shippingAddress->state?->name }}</p>
+                        <p>{{ $order->shippingAddress->country?->name }}</p>
+                        <p>{{ $order->shippingAddress->phone }}</p>
+                    @else
+                        <p class="text-muted">No shipping address</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header bg-light fw-bold">Billing Address</div>
+                <div class="card-body">
+                    @if($order->billingAddress)
+                        <p>{{ $order->billingAddress->full_name }}</p>
+                        <p>{{ $order->billingAddress->address_line_1 }}</p>
+                        <p>{{ $order->billingAddress->city?->name }}, {{ $order->billingAddress->state?->name }}</p>
+                        <p>{{ $order->billingAddress->country?->name }}</p>
+                        <p>{{ $order->billingAddress->phone }}</p>
+                    @else
+                        <p class="text-muted">No billing address</p>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <!-- Ordered Items -->
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header bg-light fw-bold">Ordered Products</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Product</th>
+                                <th>Variant</th>
+                                <th>Qty</th>
+                                <th>Unit Price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($order->details as $item)
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Variant</th>
-                                    <th>Price</th>
-                                    <th>Image</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($order->orderDetails as $detail)
-                                    <tr>
-                                        <td>{{ $detail->product->name }}</td>
-                                        <td>
-                                            @foreach ($detail->variant->variantAttributes as $attr)
-                                                <span class="badge bg-secondary">{{ $attr->attribute->name }}: {{ $attr->attributeValue->value }}</span>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->product_name }}</td>
+                                    <td>
+                                        @if($item->variant_attributes)
+                                            @foreach(json_decode($item->variant_attributes, true) as $key => $value)
+                                                <span class="badge bg-secondary">{{ $key }}: {{ $value }}</span>
                                             @endforeach
-                                        </td>
-                                        <td>{{ $order->currency }} {{ number_format($detail->price, 2) }}</td>
-                                        <td>
-                                            @if ($detail->media_id)
-                                                <img src="{{ asset('storage/' . $detail->media_id) }}" alt="Product Image" width="50">
-                                            @else
-                                                <span class="text-muted">No image</span>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                                        @else
+                                            <span class="text-muted">-</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->qty }}</td>
+                                    <td>{{ productAmount($item->price, 2, $order->currency) }}</td>
+                                    <td>{{ productAmount($item->price * $item->qty, 2, $order->currency) }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
 
-            <!-- Footer -->
-            <div class="mt-4">
-                <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary">Back to Orders</a>
+        <!-- Summary -->
+        <div class="col-lg-6 offset-lg-6">
+            <div class="card">
+                <div class="card-header bg-light fw-bold">Order Summary</div>
+                <div class="card-body">
+                    <p><strong>Subtotal:</strong> {{ productAmount($order->subtotal, 2, $order->currency) }}</p>
+                    <p><strong>Discount:</strong> -{{ productAmount($order->discount_amount, 2, $order->currency) }}</p>
+                    <p><strong>Tax:</strong> +{{ productAmount($order->tax_amount, 2, $order->currency) }}</p>
+                    <p><strong>Shipping:</strong> +{{ productAmount($order->shipping_amount, 2, $order->currency) }}</p>
+                    <p><strong>Fees:</strong> +{{ productAmount($order->fees_amount, 2, $order->currency) }}</p>
+                    <hr>
+                    <h5><strong>Total:</strong> {{ productAmount($order->total_amount, 2, $order->currency) }}</h5>
+                </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
-
-@section('js')
 @endsection
