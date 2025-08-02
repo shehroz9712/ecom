@@ -161,12 +161,11 @@ class CartController extends Controller
             return $item->price * $item->qty;
         });
 
-
         return response()->json([
             'success' => true,
             'item_subtotal' => number_format($cart->price * $cart->qty, 2),
             'subtotal' => number_format($newSubtotal, 2),
-            'total' => number_format($newSubtotal + $settings->shipping, 2),
+            'total' => number_format($newSubtotal, 2),
         ]);
     }
 
@@ -557,6 +556,7 @@ class CartController extends Controller
                     'qty'               => (int)$item->qty,
                     'variant_id'        => $item->variant_id,
                     'product_name'      => $item->product?->name,
+                    'price'      => $item->product?->sale_price ?? $item->product?->price,
                     'sku'               => $item->product?->sku ?? null,
                     'variant_attributes' => !empty($attrs) ? json_encode($attrs) : null,
                 ]);
@@ -578,11 +578,10 @@ class CartController extends Controller
         } catch (\Throwable $e) {
             DB::rollBack();
             report($e);
-            dd($e);
+            dd($e, $request->all());
             return back()->withErrors(['order' => $e])->withInput();
         }
     }
-
     protected function generateOrderNumber(): string
     {
         return 'ORD-' . now()->format('Ym') . '-' . Str::upper(Str::random(5));

@@ -147,16 +147,16 @@
                                                 <td class="order-date">{{ $order->created_at->format('F j, Y') }}</td>
                                                 <td class="order-status">
                                                     <span
-                                                        class="badge badge-{{ $order->status == 'completed' ? 'success' : 'warning' }}">
-                                                        {{ ucfirst($order->status) }}
+                                                        class="badge badge-{{ $order->status == 'completed' ? 'success' : 'danger' }}">
+                                                        {{ ucfirst($order->status == 'completed' ? 'success' : 'danger') }}
                                                     </span>
                                                 </td>
                                                 <td class="order-total">
                                                     <span
-                                                        class="order-price">{{ formatCurrency($order->total_amount) }}</span>
+                                                        class="order-price">{{ productAmount($order->total_amount) }}</span>
                                                     for
                                                     <span
-                                                        class="order-quantity">{{ $order->items->sum('quantity') }}</span>
+                                                        class="order-quantity">{{ $order->items->sum('qty') }}</span>
                                                     items
                                                 </td>
                                                 <td class="order-action">
