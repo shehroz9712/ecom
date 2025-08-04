@@ -1,114 +1,70 @@
 @extends('admin.layouts.app')
 
-@section('css')
-@endsection
-
 @section('content')
-    <div class="container-fluid">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>{{ $pageTitle }}</h3>
-                    {{ Breadcrumbs::render('admin.users.show', $user) }}
-                </div>
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Slider Detail</h3>
+        <a href="{{ route('admin.sliders.index') }}" class="btn btn-secondary">Back to List</a>
+    </div>
+
+    <div class="card p-4">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <h5>Title</h5>
+                <p>{{ $slider->title }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Subtitle</h5>
+                <p>{{ $slider->subtitle }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Button Text</h5>
+                <p>{{ $slider->button_text }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Button Link</h5>
+                <p>{{ $slider->button_link }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Background Image</h5>
+                @if($slider->bgImage)
+                    <img src="{{ asset('storage/' . $slider->bgImage->path) }}" class="img-fluid rounded" height="100">
+                @endif
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Main Image</h5>
+                @if($slider->mainImage)
+                    <img src="{{ asset('storage/' . $slider->mainImage->path) }}" class="img-fluid rounded" height="100">
+                @endif
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Background Color</h5>
+                <div style="width: 60px; height: 30px; background-color: {{ $slider->bg_color }};"></div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <h5>Status</h5>
+                <span class="badge bg-{{ $slider->status == 'active' ? 'success' : 'secondary' }}">
+                    {{ ucfirst($slider->status) }}
+                </span>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <h5>Description</h5>
+                <p>{{ $slider->description }}</p>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <h5>Animation Options</h5>
+                <pre>{{ $slider->animation_options }}</pre>
             </div>
         </div>
     </div>
-
-    <!-- User Details -->
-    <div class="container-fluid">
-        <div class="row starter-main">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        {{ $user->name }}
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <!-- User Info -->
-                            <div class="col-md-6">
-                                <p><strong>Email:</strong> {{ $user->email }}</p>
-                                <p><strong>Status:</strong> {!! StatusBadge($user->status) !!}</p>
-                                <p><strong>Created At:</strong> {{ $user->created_at->format('d M, Y') }}</p>
-                            </div>
-                            <!-- User Addresses -->
-                            <div class="col-md-6">
-                                <h5>Addresses</h5>
-                                @forelse($user->addresses as $address)
-                                    <div class="mb-2 border p-2 rounded">
-                                        <p><strong>Type:</strong> {{ ucfirst($address->type) }}</p>
-                                        <p>{{ $address->full_name }}, {{ $address->address_line_1 }}</p>
-                                        <p>{{ $address->city }}, {{ $address->state }} - {{ $address->postcode }}</p>
-                                        <p>{{ $address->country }}, Phone: {{ $address->phone }}</p>
-                                        @if ($address->is_default)
-                                            <span class="badge bg-success">Default</span>
-                                        @endif
-                                    </div>
-                                @empty
-                                    <p>No addresses available</p>
-                                @endforelse
-                            </div>
-                        </div>
-
-                        <!-- Orders -->
-                        <div class="mt-4">
-                            <h5>User Orders</h5>
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Order #</th>
-                                            <th>Invoice #</th>
-                                            <th>Total</th>
-                                            <th>Status</th>
-                                            <th>Payment</th>
-                                            <th>Date</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse($user->orders as $order)
-                                            <tr>
-                                                <td>{{ $order->order_number }}</td>
-                                                <td>{{ $order->invoice_number ?? 'N/A' }}</td>
-                                                <td>{{ $order->currency }} {{ number_format($order->total_amount, 2) }}
-                                                </td>
-                                                <td><span class="badge bg-info">{{ ucfirst($order->status) }}</span></td>
-                                                <td>{{ ucfirst($order->payment_status) }}</td>
-                                                <td>{{ $order->created_at->format('d M Y') }}</td>
-                                                <td>
-                                                    <a href="{{ route('admin.orders.show', $order->id) }}"
-                                                        class="btn btn-sm btn-primary">View</a>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <tr>
-                                                <td colspan="7" class="text-center">No orders found.</td>
-                                            </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Footer buttons -->
-                        <div class="mt-4">
-                            <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Back to List</a>
-                            <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
-
-@section('js')
+</div>
 @endsection

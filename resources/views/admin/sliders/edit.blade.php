@@ -1,133 +1,126 @@
 @extends('admin.layouts.app')
 
-@section('css')
-@endsection
-
 @section('content')
-<div class="container-fluid py-4">
-    <div class="page-header mb-4">
-        <div class="row align-items-center">
-            <div class="col-sm-6">
-                <h3 class="mb-0">{{ $pageTitle ?? 'Edit User' }}</h3>
-                {{ Breadcrumbs::render('admin.users.edit', $user) }}
+    <div class="container-fluid py-4">
+        <div class="page-header mb-4">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Edit Slider</h3>
+                    {{ Breadcrumbs::render('admin.sliders.edit', $slider) }}
+                </div>
             </div>
         </div>
-    </div>
 
-    <form action="{{ route('admin.users.update', $user->id) }}" method="POST" class="form theme-form">
-        @csrf
-        @method('PUT')
+        <form action="{{ route('admin.sliders.update', $slider->id) }}" method="POST" enctype="multipart/form-data"
+            class="card">
+            @csrf
+            @method('PUT')
 
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
+            <div class="card-body row">
 
-                    {{-- Name --}}
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name', $user->name) }}">
-                            @error('name') <small class="text-danger">{{ $message }}</small> @enderror
-                        </div>
-                    </div>
-
-                    {{-- Email --}}
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" value="{{ old('email', $user->email) }}">
-                            @error('email') <small class="text-danger">{{ $message }}</small> @enderror
-                        </div>
-                    </div>
-
-                    {{-- Status --}}
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Status</label>
-                            <select name="status" class="form-select">
-                                <option value="active" {{ old('status', $user->status) === 'active' ? 'selected' : '' }}>Active</option>
-                                <option value="inactive" {{ old('status', $user->status) === 'inactive' ? 'selected' : '' }}>Inactive</option>
-                            </select>
-                            @error('status') <small class="text-danger">{{ $message }}</small> @enderror
-                        </div>
-                    </div>
-
-                    {{-- Password (optional) --}}
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">New Password (optional)</label>
-                            <input type="password" name="password" class="form-control" placeholder="Leave blank to keep current password">
-                            @error('password') <small class="text-danger">{{ $message }}</small> @enderror
-                        </div>
-                    </div>
-
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" value="{{ old('title', $slider->title) }}" class="form-control">
+                    @error('title')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
 
-                {{-- Address Loop --}}
-                <h5 class="mt-4">Addresses</h5>
-                <div id="addresses">
-                    @foreach ($user->addresses as $index => $address)
-                        <div class="border p-3 mb-3 rounded">
-                            <input type="hidden" name="addresses[{{ $index }}][id]" value="{{ $address->id }}">
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Type</label>
-                                    <select name="addresses[{{ $index }}][type]" class="form-select">
-                                        <option value="billing" {{ $address->type == 'billing' ? 'selected' : '' }}>Billing</option>
-                                        <option value="shipping" {{ $address->type == 'shipping' ? 'selected' : '' }}>Shipping</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <label>Full Name</label>
-                                    <input type="text" name="addresses[{{ $index }}][full_name]" class="form-control" value="{{ $address->full_name }}">
-                                </div>
-                                <div class="col-md-3">
-                                    <label>Phone</label>
-                                    <input type="text" name="addresses[{{ $index }}][phone]" class="form-control" value="{{ $address->phone }}">
-                                </div>
-                                <div class="col-md-3">
-                                    <label>Company</label>
-                                    <input type="text" name="addresses[{{ $index }}][company]" class="form-control" value="{{ $address->company }}">
-                                </div>
-                                <div class="col-md-6 mt-2">
-                                    <label>Address Line 1</label>
-                                    <input type="text" name="addresses[{{ $index }}][address_line_1]" class="form-control" value="{{ $address->address_line_1 }}">
-                                </div>
-                                <div class="col-md-6 mt-2">
-                                    <label>Address Line 2</label>
-                                    <input type="text" name="addresses[{{ $index }}][address_line_2]" class="form-control" value="{{ $address->address_line_2 }}">
-                                </div>
-                                <div class="col-md-3 mt-2">
-                                    <label>City</label>
-                                    <input type="text" name="addresses[{{ $index }}][city]" class="form-control" value="{{ $address->city }}">
-                                </div>
-                                <div class="col-md-3 mt-2">
-                                    <label>State</label>
-                                    <input type="text" name="addresses[{{ $index }}][state]" class="form-control" value="{{ $address->state }}">
-                                </div>
-                                <div class="col-md-3 mt-2">
-                                    <label>Postcode</label>
-                                    <input type="text" name="addresses[{{ $index }}][postcode]" class="form-control" value="{{ $address->postcode }}">
-                                </div>
-                                <div class="col-md-3 mt-2">
-                                    <label>Country</label>
-                                    <input type="text" name="addresses[{{ $index }}][country]" class="form-control" value="{{ $address->country }}">
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Subtitle</label>
+                    <input type="text" name="subtitle" value="{{ old('subtitle', $slider->subtitle) }}"
+                        class="form-control">
+                    @error('subtitle')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Background Image</label>
+                    <input type="file" name="bg_image" class="form-control">
+                    @if ($slider->bgImage)
+                        <small class="d-block mt-1">Current: <img src="{{ asset('storage/' . $slider->bgImage->path) }}"
+                                alt="bg image" height="40"></small>
+                    @endif
+                    @error('bg_image')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Main Image</label>
+                    <input type="file" name="main_image" class="form-control">
+                    @if ($slider->mainImage)
+                        <small class="d-block mt-1">Current: <img src="{{ asset('storage/' . $slider->mainImage->path) }}"
+                                alt="main image" height="40"></small>
+                    @endif
+                    @error('main_image')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Button Text</label>
+                    <input type="text" name="button_text" value="{{ old('button_text', $slider->button_text) }}"
+                        class="form-control">
+                    @error('button_text')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Button Link</label>
+                    <input type="text" name="button_link" value="{{ old('button_link', $slider->button_link) }}"
+                        class="form-control">
+                    @error('button_link')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Background Color</label>
+                    <input type="color" name="bg_color" value="{{ old('bg_color', $slider->bg_color) }}"
+                        class="form-control form-control-color">
+                    @error('bg_color')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="description" rows="3" class="form-control">{{ old('description', $slider->description) }}</textarea>
+                    @error('description')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Animation Options</label>
+                    <textarea name="animation_options" rows="2" class="form-control">{{ old('animation_options', $slider->animation_options) }}</textarea>
+                    @error('animation_options')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-select">
+                        <option value="active" {{ old('status', $slider->status) === 'active' ? 'selected' : '' }}>Active
+                        </option>
+                        <option value="inactive" {{ old('status', $slider->status) === 'inactive' ? 'selected' : '' }}>
+                            Inactive</option>
+                    </select>
+                    @error('status')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
             </div>
 
             <div class="card-footer text-end">
-                <button type="submit" class="btn btn-primary">Update User</button>
-                <a href="{{ route('admin.users.index') }}" class="btn btn-light">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update Slider</button>
+                <a href="{{ route('admin.sliders.index') }}" class="btn btn-secondary">Cancel</a>
             </div>
-        </div>
-    </form>
-</div>
-@endsection
-
-@section('js')
+        </form>
+    </div>
 @endsection
