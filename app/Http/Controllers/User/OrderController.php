@@ -5,9 +5,20 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+
+    public function index()
+    {
+        $user = Auth::user();
+        $orders = Order::where('user_id', $user->id)->with('orderDetails')->get();
+
+        return view('user.user.orders', compact('orders'));
+    }
+
+
 
     public function orderTrack()
     {
@@ -33,5 +44,22 @@ class OrderController extends Controller
         }
 
         return view('user.order.track-order-details', compact('order'));
+    }
+
+
+    public function orderDetail($id)
+    {
+        $id = decrypt($id);
+
+        $order = Order::with(['orderDetails.product'])
+            ->where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if (!$order) {
+            abort(404);
+        }
+
+        return view('user.user.order', compact('order'));
     }
 }

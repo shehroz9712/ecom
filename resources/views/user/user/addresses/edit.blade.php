@@ -24,80 +24,94 @@
 
                             </div>
 
-                            <form action="{{ route('user.addresses.store') }}" method="post">
-
+                            <form action="{{ route('user.addresses.update', $address->id) }}" method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="row">
-
                                     <div class="col-md-6 mb-3">
                                         <label for="full_name">Full Name</label>
-                                        <input type="text" name="full_name" name="full_name" class="form-control" id="edit_full_name"
+                                        <input type="text" name="full_name"
+                                            value="{{ old('full_name', $address->full_name) }}" class="form-control"
                                             required>
                                     </div>
+
                                     <div class="col-md-6 mb-3">
                                         <label for="phone">Phone</label>
-                                        <input type="text" name="phone" class="form-control" required>
+                                        <input type="text" name="phone" value="{{ old('phone', $address->phone) }}"
+                                            class="form-control" required>
                                     </div>
+
                                     <div class="col-md-12 mb-3">
                                         <label for="address_line_1">Address Line 1</label>
-                                        <input type="text" name="address_line_1" class="form-control"
-                                            id="edit_address_line_1" required>
+                                        <input type="text" name="address_line_1"
+                                            value="{{ old('address_line_1', $address->address_line_1) }}"
+                                            class="form-control" required>
                                     </div>
 
                                     <div class="col-md-12 mb-3">
                                         <label for="address_line_2">Address Line 2</label>
-                                        <input type="text" name="address_line_2" class="form-control"
-                                            id="edit_address_line_2">
+                                        <input type="text" name="address_line_2"
+                                            value="{{ old('address_line_2', $address->address_line_2) }}"
+                                            class="form-control">
                                     </div>
+
                                     <div class="col-md-6 mb-3">
                                         <label>Country *</label>
-                                        <select name="country_id" id="country" name="country" class="form-control form-control-md"
-                                            required>
+                                        <select name="country_id" id="edit_country" class="form-control" required>
                                             <option value="">Select Country</option>
-                                            @foreach ($countries as $c)
-                                                <option value="{{ $c->id }}"
-                                                    {{ (int) old('country_id') === (int) $c->id ? 'selected' : '' }}>
-                                                    {{ $c->name }}
-                                                </option>
+                                            @foreach ($countries as $country)
+                                                <option value="{{ $country->id }}"
+                                                    {{ $address->country_id == $country->id ? 'selected' : '' }}>
+                                                    {{ $country->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label>State/Province *</label>
-                                        <select name="state_id" id="state" name="state" class="form-control form-control-md"
-                                            required>
+                                        <select name="state_id" id="edit_state" class="form-control" required>
                                             <option value="">Select State</option>
-
+                                            @foreach ($states as $state)
+                                                <option value="{{ $state->id }}"
+                                                    {{ $address->state_id == $state->id ? 'selected' : '' }}>
+                                                    {{ $state->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label>City *</label>
-                                        <select name="city_id" id="city" name="city" class="form-control form-control-md" required>
+                                        <select name="city_id" id="edit_city" class="form-control" required>
                                             <option value="">Select City</option>
-
+                                            @foreach ($cities as $city)
+                                                <option value="{{ $city->id }}"
+                                                    {{ $address->city_id == $city->id ? 'selected' : '' }}>
+                                                    {{ $city->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="postcode">Postcode</label>
-                                        <input type="text" name="postcode" class="form-control" required>
+                                        <input type="text" name="postcode"
+                                            value="{{ old('postcode', $address->postcode) }}" class="form-control"
+                                            required>
                                     </div>
 
                                     <div class="col-md-12 mb-3">
                                         <label>
-                                            <input type="checkbox" name="is_default" value="1">
+                                            <input type="checkbox" name="is_default" value="1"
+                                                {{ $address->is_default ? 'checked' : '' }}>
                                             Set as default
                                         </label>
                                     </div>
+
                                     <div class="col-md-12 mb-3">
-                                        <button class="btn btn-dark btn-rounded btn-icon-right">Create
-                                            Address<i class="w-icon-long-arrow-right"></i></button>
+                                        <button class="btn btn-primary">Update Address</button>
                                     </div>
                                 </div>
-
                             </form>
+
 
                         </div>
 

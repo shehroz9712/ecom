@@ -77,7 +77,7 @@
                                                 <td>{{ ucfirst($order->payment_status) }}</td>
                                                 <td>{{ $order->created_at->format('d M Y') }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.orders.show', $order->id) }}"
+                                                    <a href="{{ route('admin.orders.show', encrypt($order->id)) }}"
                                                         class="btn btn-sm btn-primary">View</a>
                                                 </td>
                                             </tr>

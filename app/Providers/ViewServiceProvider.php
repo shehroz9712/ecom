@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -29,18 +30,13 @@ class ViewServiceProvider extends ServiceProvider
             $userId = auth('web')->id();
             $deviceId = request()->cookie('device_id');
 
-            $carts = Cart::with(
-                'product.images',
-                'variant.attributeValues',
-                'variant.attributes.attribute',
-                'variant.attributes.attributeValue'
-            )
-                ->where('status', 'active')
-                ->where(function ($query) use ($userId, $deviceId) {
-                    $query->where('user_id', $userId);
-                    $query->orWhere('device_id', $deviceId);
-                })
-                ->get();
+            $carts = Cart::with('product')->where(function ($query) {
+                if (Auth::check()) {
+                    $query->where('user_id', Auth::id());
+                } else {
+                    $query->where('device_id', request()->cookie('device_id'));
+                }
+            })->get();
 
 
             $cartCount = $carts->sum('qty');

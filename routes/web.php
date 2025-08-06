@@ -63,7 +63,7 @@ Route::name('user.')->group(function () {
     Route::post('/checkout/process', [CartController::class, 'process_checkout'])->name('checkout.process');
 
     Route::get('/geo/states', [GeoController::class, 'states'])->name('geo.states');   // ?country_id=ID
-Route::get('/geo/cities', [GeoController::class, 'cities'])->name('geo.cities');   // ?state_id=ID
+    Route::get('/geo/cities', [GeoController::class, 'cities'])->name('geo.cities');   // ?state_id=ID
 
     // Search and deals
     Route::get('/search', [HomeController::class, 'index'])->name('search');
@@ -79,37 +79,47 @@ Route::get('/geo/cities', [GeoController::class, 'cities'])->name('geo.cities');
     // Authenticated user routes
     Route::middleware(['auth'])->group(function () {
         // Dashboard
-        Route::get('/reviews/store', [HomeController::class, 'index'])->name('reviews.store');
-        Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [ProfileController::class, 'index'])->name('dashboard');
+        Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+        Route::get('/profile/update', [ProfileController::class, 'profile'])->name('profile.update');
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+        Route::get('/order/{id}', [OrderController::class, 'orderDetail'])->name('orders.show');
+        Route::get('addresses', [AddressController::class, 'index'])->name('addresses.index');
+        Route::get('/create', [AddressController::class, 'create'])->name('addresses.create');
+        Route::get('/{address}/edit', [AddressController::class, 'edit'])->name('addresses.edit');
 
-        // Profile routes
-        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-        Route::get('/account', [ProfileController::class, 'dashboard'])->name('account');
-        Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('account.update');
-
-        // Order routes
-        Route::get('/order', [HomeController::class, 'index'])->name('order');
-        Route::get('/order/{id}', [HomeController::class, 'index'])->name('order.show');
-
-        // Wishlist
         Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
+
+        Route::post('/{address}/set-default', [AddressController::class, 'setDefault'])->name('addresses.set-default');
+
+
         Route::post('/wishlist/toggle', [ProductController::class, 'toggle'])->name('wishlist.toggle');
 
+
+        // Route::get('/reviews/store', [HomeController::class, 'index'])->name('reviews.store');
+        // // Profile routes
+        // 
+        // Route::get('/order/{id}', [OrderController::class, 'orderDetail'])->name('orders.show');
+
+        // Route::get('/account', [ProfileController::class, 'dashboard'])->name('account');
+        // Route::put('/account/update', [ProfileController::class, 'updateDetails'])->name('account.update');
+
+        // // Order routes
+        // Route::get('/order', [HomeController::class, 'index'])->name('orders');
+        Route::prefix('addresses')->group(function () {
+            Route::post('/', [AddressController::class, 'store'])->name('addresses.store');
+            Route::put('/{address}', [AddressController::class, 'update'])->name('addresses.update');
+            Route::delete('/{address}', [AddressController::class, 'destroy'])->name('addresses.destroy');
+        });
+        // // Wishlist
+        // 
+        // 
+
         // Orders
-        Route::get('/account/orders', [ProfileController::class, 'index'])->name('orders.index');
-        Route::get('/account/orders/{order}', [ProfileController::class, 'show'])->name('orders.show');
 
 
         // Address management
-        Route::prefix('addresses')->group(function () {
-            Route::get('/', [AddressController::class, 'index'])->name('addresses.index');
-            Route::get('/create', [AddressController::class, 'create'])->name('addresses.create');
-            Route::post('/', [AddressController::class, 'store'])->name('addresses.store');
-            Route::get('/{address}/edit', [AddressController::class, 'edit'])->name('addresses.edit');
-            Route::put('/{address}', [AddressController::class, 'update'])->name('addresses.update');
-            Route::delete('/{address}', [AddressController::class, 'destroy'])->name('addresses.destroy');
-            Route::post('/{address}/set-default', [AddressController::class, 'setDefault'])->name('addresses.set-default');
-        });
+
     });
     Route::get('/{slug}', [HomeController::class, 'page'])->name('page');
 });

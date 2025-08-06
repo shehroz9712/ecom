@@ -574,7 +574,7 @@ class CartController extends Controller
 
             DB::commit();
 
-            return redirect()->route('user.orders.show', $order->id)->with('success', 'Order placed successfully!');
+            return redirect()->route('user.orders.show', encrypt($order->id))->with('success', 'Order placed successfully!');
         } catch (\Throwable $e) {
             DB::rollBack();
             report($e);
