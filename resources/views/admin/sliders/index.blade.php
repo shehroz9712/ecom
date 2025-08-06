@@ -1,80 +1,61 @@
 @extends('admin.layouts.app')
 
-@section('css')
-@endsection
-
 @section('content')
-    <div class="container-fluid">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>{{ $pageTitle }}</h3>
-                    {{ Breadcrumbs::render('admin.users.index') }}
-                </div>
-            </div>
-        </div>
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Sliders</h3>
+        <a href="{{ route('admin.sliders.create') }}" class="btn btn-primary">Add New Slider</a>
     </div>
 
-    <!-- Container-fluid starts-->
-    <div class="container-fluid">
-        <div class="row starter-main">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Add User</a>
-                    </div>
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="display" id="basic-1">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{!! StatusBadge($user->status) !!}</td>
-                                            <td>
-                                                @if ($user->id !== 1)
-                                                    <a href="{{ route('admin.users.edit', $user->id) }}"
-                                                        class="action-btn"><i class="fa fa-pencil-square-o"></i></a>
-
-                                                    <form id="delete-form-{{ $user->id }}"
-                                                        action="{{ route('admin.users.destroy', $user->id) }}"
-                                                        method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    </form>
-
-                                                    <a href="#" class="action-btn text-danger"
-                                                        onclick="event.preventDefault(); if(confirm('Are you sure?')) document.getElementById('delete-form-{{ $user->id }}').submit();">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                    </a>
-                                                @else
-                                                    <span class="text-muted">Restricted</span>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table align-items-center mb-0">
+                <thead class="thead-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Main Image</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($sliders as $slider)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $slider->title }}</td>
+                            <td>
+                                @if($slider->mainImage)
+                                    <img src="{{ asset('storage/' . $slider->mainImage->path) }}" alt="" height="40">
+                                @endif
+                            </td>
+                            <td>
+                                <span class="badge bg-{{ $slider->status === 'active' ? 'success' : 'secondary' }}">
+                                    {{ ucfirst($slider->status) }}
+                                </span>
+                            </td>
+                            <td>{{ $slider->created_at->format('d M Y') }}</td>
+                            <td class="text-end">
+                                <a href="{{ route('admin.sliders.show', $slider->id) }}" class="btn btn-sm btn-info">View</a>
+                                <a href="{{ route('admin.sliders.edit', $slider->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('admin.sliders.destroy', $slider->id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Delete this slider?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="6" class="text-center">No sliders found.</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- Container-fluid Ends-->
-@endsection
-
-@section('js')
+</div>
 @endsection
