@@ -5,6 +5,9 @@ namespace App\Http\Controllers\User;
 
 
 use App\Models\Address;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,85 +15,110 @@ class AddressController extends Controller
 {
     public function index(Request $request)
     {
-        $type = $request->query('type');
-        $addresses = Auth::user()->addresses()
-            ->when($type, fn($q) => $q->where('type', $type))
+        $addresses = Address::where('user_id', Auth::id())
             ->get();
 
-        return view('user.user.addresses.index', compact('addresses', 'type'));
+        return view('user.user.addresses.index', compact('addresses'));
     }
 
     public function create(Request $request)
     {
-        $type = $request->query('type', 'billing');
-        return view('user.user.addresses.create', compact('type'));
+        $countries = Country::get();
+        return view('user.user.addresses.create', compact('countries'));
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'type' => 'required|in:billing,shipping',
+        $request->validate([
             'full_name' => 'required|string|max:255',
-            'company' => 'nullable|string|max:255',
+            'phone' => 'required|string|max:20',
             'address_line_1' => 'required|string|max:255',
             'address_line_2' => 'nullable|string|max:255',
-            'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
+            'country_id' => 'required|exists:countries,id',
+            'state_id' => 'required|exists:states,id',
+            'city_id' => 'required|exists:cities,id',
             'postcode' => 'required|string|max:20',
-            'country' => 'required|string|max:255',
-            'phone' => 'nullable|string|max:20',
-            'is_default' => 'sometimes|boolean'
+            'is_default' => 'nullable|boolean',
         ]);
 
-        // If setting as default, remove default status from other addresses of same type
         if ($request->is_default) {
-            Auth::user()->addresses()
-                ->where('type', $validated['type'])
+            // Reset default flag for this type and user
+            Address::where('user_id', Auth::id())
+                ->where('type', $request->type)
                 ->update(['is_default' => false]);
         }
 
-        Auth::user()->addresses()->create($validated);
-
-        return redirect()->route('user.profile')
-            ->with('success', 'Address added successfully');
-    }
-
-    public function edit(Address $address)
-    {
-        $this->authorize('update', $address);
-        return view('user.user.addresses.edit', compact('address'));
-    }
-
-    public function update(Request $request, Address $address)
-    {
-        $this->authorize('update', $address);
-
-        $validated = $request->validate([
-            'full_name' => 'required|string|max:255',
-            'company' => 'nullable|string|max:255',
-            'address_line_1' => 'required|string|max:255',
-            'address_line_2' => 'nullable|string|max:255',
-            'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
-            'postcode' => 'required|string|max:20',
-            'country' => 'required|string|max:255',
-            'phone' => 'nullable|string|max:20',
-            'is_default' => 'sometimes|boolean'
+        Address::create([
+            'user_id' => Auth::id(),
+            'type' => $request->type ?? 'shipping', // fallback if type is not passed
+            'full_name' => $request->full_name,
+            'phone' => $request->phone,
+            'address_line_1' => $request->address_line_1,
+            'address_line_2' => $request->address_line_2,
+            'country_id' => $request->country_id,
+            'state_id' => $request->state_id,
+            'city_id' => $request->city_id,
+            'postcode' => $request->postcode,
+            'is_default' => $request->has('is_default'),
         ]);
 
-        // If setting as default, remove default status from other addresses of same type
+        return redirect()->back()->with('success', 'Address created successfully.');
+    }
+
+
+    public function edit($id)
+    {
+        $address = Address::where('id', $id)
+            ->where('user_id', auth()->id()) // security check: only allow editing own addresses
+            ->firstOrFail();
+
+        $countries = Country::where('status', 'active')->get();
+        $states = State::where('country_id', $address->country_id)->get();
+        $cities = City::where('state_id', $address->state_id)->get();
+
+        return view('user.user.addresses.edit', compact('address', 'countries', 'states', 'cities'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'address_line_1' => 'required|string|max:255',
+            'address_line_2' => 'nullable|string|max:255',
+            'country_id' => 'required|exists:countries,id',
+            'state_id' => 'required|exists:states,id',
+            'city_id' => 'required|exists:cities,id',
+            'postcode' => 'required|string|max:20',
+            'is_default' => 'nullable|boolean',
+        ]);
+
+        $address = Address::where('id', $id)
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
+
         if ($request->is_default) {
-            Auth::user()->addresses()
+            // Reset other default addresses for the same user and type
+            Address::where('user_id', auth()->id())
                 ->where('type', $address->type)
-                ->where('id', '!=', $address->id)
                 ->update(['is_default' => false]);
         }
 
-        $address->update($validated);
+        $address->update([
+            'full_name' => $request->full_name,
+            'phone' => $request->phone,
+            'address_line_1' => $request->address_line_1,
+            'address_line_2' => $request->address_line_2,
+            'country_id' => $request->country_id,
+            'state_id' => $request->state_id,
+            'city_id' => $request->city_id,
+            'postcode' => $request->postcode,
+            'is_default' => $request->has('is_default'),
+        ]);
 
-        return redirect()->route('account.addresses')
-            ->with('success', 'Address updated successfully');
+        return redirect()->route('user.addresses.index')->with('success', 'Address updated successfully.');
     }
+
 
     public function destroy(Address $address)
     {

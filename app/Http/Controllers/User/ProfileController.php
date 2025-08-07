@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Order;
+use App\Models\Country;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,10 +18,16 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $orders = Order::where('user_id', $user->id)->get();
-        return view('user.user.profile', compact('user', 'orders'));
+        $orders = Order::where('user_id', $user->id)->with('orderDetails')->get();
+        $countries = Country::all();
+        return view('user.user.dashboard', compact('user', 'orders', 'countries'));
     }
 
+    public function profile(Request $request)
+    {
+        $user = Auth::user();
+        return view('user.user.profile', compact('user'));
+    }
     /**
      * Display the user's profile form.
      */
