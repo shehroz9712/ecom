@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +19,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.users.create');
+        $countries = Country::where('status', 'active')->get();
+        return view('admin.users.create', compact('countries'));
     }
 
 

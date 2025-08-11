@@ -81,7 +81,7 @@ Route::name('user.')->group(function () {
         // Dashboard
         Route::get('/dashboard', [ProfileController::class, 'index'])->name('dashboard');
         Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
-        Route::get('/profile/update', [ProfileController::class, 'profile'])->name('profile.update');
+        Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::get('/orders', [OrderController::class, 'index'])->name('orders');
         Route::get('/order/{id}', [OrderController::class, 'orderDetail'])->name('orders.show');
         Route::get('addresses', [AddressController::class, 'index'])->name('addresses.index');

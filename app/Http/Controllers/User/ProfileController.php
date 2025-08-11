@@ -9,6 +9,7 @@ use App\Models\Country;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -43,16 +44,31 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'email' => 'nullable|email|max:100|unique:users,email,' . $user->id,
+            'current_password' => 'nullable|required_with:new_password|string',
+            'new_password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        // Check current password if new password is being set
+        if ($request->filled('new_password')) {
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()->withErrors(['current_password' => 'Current password is incorrect.']);
+            }
+            $user->password = Hash::make($request->new_password);
         }
 
-        $request->user()->save();
+        // Update basic profile fields
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::back()->with('status', 'profile-updated');
     }
+
 
     /**
      * Delete the user's account.

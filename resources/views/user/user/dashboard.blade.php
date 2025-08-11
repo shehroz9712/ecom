@@ -17,7 +17,11 @@
                                 <a href="{{ route('logout') }}" class="text-primary"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Log out
-                                </a>)
+                                </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            )
                             </p>
 
                             <p class="mb-4">

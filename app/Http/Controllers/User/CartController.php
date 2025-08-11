@@ -52,7 +52,6 @@ class CartController extends Controller
 
         $userId = Auth::guard('web')->id();
         $deviceId = $request->cookie('device_id') ?? (string) Str::uuid();
-
         $product = Product::findOrFail($request->product_id);
         $variant = null;
         $finalPrice = $product->price;
@@ -346,7 +345,7 @@ class CartController extends Controller
             'country_id'     => ['required', 'exists:countries,id'],
             'state_id'       => ['required', 'exists:states,id'],
             'city_id'        => ['required', 'exists:cities,id'],
-            'postal_code'    => ['required', 'string', 'max:50'],
+            'postal_code'    => ['nullable', 'string', 'max:50'],
             'order_notes'    => ['nullable', 'string', 'max:500'],
             'payment_method' => ['required', Rule::in(['cod', 'bank_transfer', 'credit_card', 'paypal', 'stripe', 'other'])],
 

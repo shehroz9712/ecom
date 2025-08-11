@@ -4,12 +4,7 @@
 @include('user.layouts.partials.head')
 
 <body class="home">
-    <div id="ajax-loader"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; background:rgba(255,255,255,0.8);">
-        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
-            <img src="{{ asset('assets/uploads/logo/loader.gif') }}" alt="Loading..." width="80" height="80">
-        </div>
-    </div>
+
     <div class="page-wrapper">
         <!-- Start of Header -->
         @include('user.layouts.partials.header')
@@ -29,8 +24,7 @@
 
 
     <!-- Start of Scroll Top -->
-    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i
-            class="fas fa-chevron-up"></i></a>
+    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
     <!-- End of Scroll Top -->
 
     <!-- Start of Mobile Menu -->
@@ -448,7 +442,13 @@
         class="fixed bottom-5 left-5 z-50 bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition whatsapp-float">
         <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" class="w-8 h-8" alt="WhatsApp">
     </a>
-
+    <div id="ajax-loader"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; background:rgba(255,255,255,0.8);">
+        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
+            <img src="{{ asset('assets/uploads/logo/loader.gif') }}" alt="Loading..." width="80"
+                height="80">
+        </div>
+    </div>
     @include('user.layouts.partials.scripts')
 </body>
 

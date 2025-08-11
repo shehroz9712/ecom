@@ -37,7 +37,7 @@ class AddressController extends Controller
             'country_id' => 'required|exists:countries,id',
             'state_id' => 'required|exists:states,id',
             'city_id' => 'required|exists:cities,id',
-            'postcode' => 'required|string|max:20',
+            'postcode' => 'nullable|string|max:20',
             'is_default' => 'nullable|boolean',
         ]);
 
@@ -89,7 +89,7 @@ class AddressController extends Controller
             'country_id' => 'required|exists:countries,id',
             'state_id' => 'required|exists:states,id',
             'city_id' => 'required|exists:cities,id',
-            'postcode' => 'required|string|max:20',
+            'postcode' => 'nullable |string|max:20',
             'is_default' => 'nullable|boolean',
         ]);
 

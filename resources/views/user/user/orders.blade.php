@@ -8,7 +8,7 @@
 
                     <div class="tab-content mb-6">
                         <!-- Dashboard Tab -->
-                        <div class="tab-pane active in" id="account-dashboard">
+                        <div class="tab-pane active in" id="account-orders">
                             <div class="icon-box icon-box-side icon-box-light">
                                 <span class="icon-box-icon icon-orders">
                                     <i class="w-icon-orders"></i>
@@ -53,7 +53,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-                                        
+
                                     </tbody>
                                 </table>
                             @else
@@ -70,6 +70,5 @@
             </div>
         </div>
     </main>
-   
-@endsection
 
+@endsection

@@ -52,6 +52,34 @@
         .variant-stock.out-of-stock {
             color: #ff5252;
         }
+
+        .description-wrapper {
+            position: relative;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .collapsed {
+            max-height: 180px;
+            /* Initial visible height */
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
     </style>
 @endsection
 
@@ -271,7 +299,11 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="product-tab-description">
-                                    {!! $product->description !!}
+                                    <div id="description-box" class="description-wrapper collapsed">
+                                        {!! $product->description !!}
+                                        <div class="gradient-overlay"></div>
+                                    </div>
+                                    <span id="read-more-btn" class="btn btn-primary read-more-btn"s>Read More</span>
                                 </div>
                                 <div class="tab-pane" id="product-tab-specification">
                                     {!! $product->specification !!}
@@ -508,6 +540,33 @@
 
 
 @section('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select first variant option automatically
+            let firstVariantBtn = document.querySelector('.product-variations a');
+            if (firstVariantBtn) {
+                firstVariantBtn.classList.add('active'); // highlight kare
+                firstVariantBtn.click(); // click event trigger kare taki variant details update ho jaye
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('read-more-btn').addEventListener('click', function() {
+            const box = document.getElementById('description-box');
+            const overlay = box.querySelector('.gradient-overlay');
+
+            if (box.classList.contains('collapsed')) {
+                box.classList.remove('collapsed');
+                overlay.style.display = 'none';
+                this.textContent = 'Read Less';
+            } else {
+                box.classList.add('collapsed');
+                overlay.style.display = 'block';
+                this.textContent = 'Read More';
+            }
+        });
+    </script>
     <script>
         $(document).ready(function() {
             // Initialize Owl Carousels

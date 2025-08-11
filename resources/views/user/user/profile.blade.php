@@ -8,7 +8,7 @@
 
                     <div class="tab-content mb-6">
                         <!-- Dashboard Tab -->
-                        <div class="tab-pane active in" id="account-dashboard">
+                        <div class="tab-pane active in" id="account-details">
                             <div class="icon-box icon-box-side icon-box-light">
                                 <span class="icon-box-icon icon-account mr-2">
                                     <i class="w-icon-user"></i>
@@ -21,29 +21,12 @@
                                 method="post">
                                 @csrf
                                 @method('PUT')
-                                {{-- <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="firstname">First name *</label>
-                                            <input type="text" id="firstname" name="firstname"
-                                                value="{{ old('firstname', Auth::user()->first_name) }}"
-                                                class="form-control form-control-md">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Last name *</label>
-                                            <input type="text" id="lastname" name="lastname"
-                                                value="{{ old('lastname', Auth::user()->last_name) }}"
-                                                class="form-control form-control-md">
-                                        </div>
-                                    </div>
-                                </div> --}}
+                            
 
                                 <div class="form-group mb-3">
                                     <label for="display-name">Display name *</label>
-                                    <input type="text" id="display-name" name="display_name"
-                                        value="{{ old('display_name', Auth::user()->name) }}"
+                                    <input type="text" id="display-name" name="name"
+                                        value="{{ old('name', Auth::user()->name) }}"
                                         class="form-control form-control-md mb-0">
                                     <p>This will be how your name will be displayed in the account section and in reviews
                                     </p>

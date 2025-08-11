@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('country_id')->constrained()->restrictOnDelete();
             $table->foreignId('state_id')->constrained()->restrictOnDelete();
             $table->foreignId('city_id')->constrained()->restrictOnDelete();
-            $table->string('postcode');
+            $table->string('postcode')->nullable();
             $table->string('phone');
             $table->boolean('is_default')->default(false);
             $table->timestamps();

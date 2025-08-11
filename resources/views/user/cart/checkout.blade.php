@@ -185,7 +185,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label>Postal Code *</label>
                                     <input type="text" name="postal_code" class="form-control form-control-md"
-                                        value="{{ old('postal_code', optional($defaultAddress)->postcode) }}" required>
+                                        value="{{ old('postal_code', optional($defaultAddress)->postcode) }}">
                                 </div>
                             </div>
 
