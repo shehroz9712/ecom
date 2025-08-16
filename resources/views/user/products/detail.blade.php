@@ -154,7 +154,7 @@
                                     <div class="product-price">
                                         @if ($product->sale_price)
                                             <ins class="new-price">{{ productAmount($product->price) }}</ins>
-                                            <del class="old-price">{{ productAmount($product->price) }}</del>
+                                            <del class="old-price">{{ productAmount($product->sale_price) }}</del>
                                         @else
                                             <ins class="new-price">{{ productAmount($product->price) }}</ins>
                                         @endif
@@ -627,23 +627,29 @@
                         if (response.success) {
                             const variant = response.variant;
 
-                            // Update main price area
-                            let priceHtml = '';
+                            // Update variant details section
+                            $('.product-variant-details').show();
+
+                            // Update prices
                             if (variant.sale_price) {
-                                priceHtml += `<ins class="new-price">$${variant.price}</ins>`;
-                                priceHtml += `<del class="old-price">$${variant.sale_price}</del>`;
+                                $('.variant-price').text('{{ config('settings.currency_symbol') }}' +
+                                    variant.price);
+                                $('.variant-sale-price').text(
+                                    '{{ config('settings.currency_symbol') }}' + variant.sale_price
+                                ).show();
                             } else {
-                                priceHtml += `<ins class="new-price">$${variant.price}</ins>`;
+                                $('.variant-price').text('{{ config('settings.currency_symbol') }}' +
+                                    variant.price);
+                                $('.variant-sale-price').hide();
                             }
-                            $('.product-price .price-range, .product-price').html(priceHtml);
 
                             // Update SKU
-                            $('.product-sku span').text(variant.sku);
+                            $('.variant-sku').text(variant.sku);
 
                             // Update stock status
                             let stockText = variant.stock > 0 ? 'In Stock' : 'Out of Stock';
                             let stockClass = variant.stock > 0 ? 'in-stock' : 'out-of-stock';
-                            $('.product-stock span')
+                            $('.variant-stock')
                                 .text(stockText)
                                 .removeClass('in-stock out-of-stock')
                                 .addClass(stockClass);
@@ -655,8 +661,6 @@
                             $('.btn-cart').removeClass('disabled').prop('disabled', false);
                         } else {
                             alert(response.message);
-
-                            // Reset or hide values if not valid
                             $('.btn-cart').addClass('disabled').prop('disabled', true);
                             $('#selected_variant_id').val('');
                         }
@@ -669,11 +673,7 @@
                 });
             }
 
-            // Update add to cart to handle variants
-
-
-
-
+        
             // Quantity controls
             $(document).on('click', '.quantity-plus', function() {
                 const input = $(this).siblings('.quantity');
