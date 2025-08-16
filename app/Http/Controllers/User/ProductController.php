@@ -119,7 +119,8 @@ class ProductController extends Controller
             'variants.attributes.attributeValue',
             'reviews.user',
             'reviews.images'
-        ])->where('slug', $slug)->firstOrFail();
+        ])->where('slug', $slug)->first();
+
         // Get related products (same category)
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)

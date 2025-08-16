@@ -13,8 +13,8 @@ class UserSeeder extends Seeder
     {
         User::insert([[
             'name' => 'user',
-            'email' => 'user@example.com',
-            'password' => Hash::make('password1'),
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('12345678'),
             'email_verified_at' => now(),
             'verify_code' => Str::random(6),
             'email_verification_token' => Str::uuid(),

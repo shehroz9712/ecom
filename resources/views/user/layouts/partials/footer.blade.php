@@ -77,7 +77,7 @@
                             <li><a href="{{ route('login') }}">Sign In</a></li>
                             <li><a href="#">Help</a></li>
                             <li><a href="{{ route('user.wishlist') }}">My Wishlist</a></li>
-                            <li><a href="{{ route(name: 'user.privacy') }}">Privacy Policy</a></li>
+                            <li><a href="{{ route('user.page', ['slug' => 'privacy-policy']) }}">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,14 +89,14 @@
                             <li><a href="#">Money-back guarantee!</a></li>
                             <li><a href="#">Product Returns</a></li>
                             <li><a href="#">Support Center</a></li>
-                            <li><a href="#">Shipping</a></li>
-                            <li><a href="#">Term and Conditions</a></li>
+                            <li><a href="{{ route('user.page', ['slug' => 'return-refund-policy']) }}">Return & Refund Policy</a></li>
+                            <li><a href="{{ route('user.page', ['slug' => 'terms-and-conditions']) }}">Term and Conditions</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-      
+
         <div class="footer-bottom">
             <div class="footer-left">
                 <p class="copyright">Copyright © 2021 Wolmart Store. All Rights Reserved.</p>
@@ -111,4 +111,3 @@
         </div>
     </div>
 </footer>
-

@@ -181,7 +181,14 @@
                 const qty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
                 const variantInput = document.getElementById('selected_variant_id');
                 const variantId = variantInput ? variantInput.value : null;
-
+                let price;
+                if (variantId && $('.variant-price').length) {
+                    // Get variant price (remove currency symbol if present)
+                    price = $('.variant-price').text().replace(/[^0-9.]/g, '');
+                } else {
+                    // Get regular product price (remove currency symbol if present)
+                    price = $('.product-price .new-price').text().replace(/[^0-9.]/g, '');
+                }
                 fetch(window.routes.cartAdd, {
                         method: 'POST',
                         headers: {
@@ -191,6 +198,7 @@
                         body: JSON.stringify({
                             product_id: productId,
                             qty: qty,
+                            price: price, // Added price parameter
                             variant_id: variantId
                         })
                     })

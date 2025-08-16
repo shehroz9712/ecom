@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -109,8 +110,13 @@ class HomeController  extends Controller
     {
         return view('user.pages.about');
     }
-
-
+    public function page(Request $request, $slug)
+    {
+        // Fetch the page content based on the slug
+        $page = Page::where('slug', $slug)->first();
+        // Return the view with the page content
+        return view('user.pages.page', compact('page'));
+    }
 
     // login
 

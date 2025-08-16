@@ -47,6 +47,7 @@ class CartController extends Controller
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'qty' => 'required|integer|min:1',
+            'price' => 'required',
             'variant_id' => 'nullable|exists:product_variants,id',
         ]);
 
@@ -54,11 +55,10 @@ class CartController extends Controller
         $deviceId = $request->cookie('device_id') ?? (string) Str::uuid();
         $product = Product::findOrFail($request->product_id);
         $variant = null;
-        $finalPrice = $product->price;
+        $finalPrice = $request->price;
 
         if ($request->filled('variant_id')) {
             $variant = ProductVariant::findOrFail($request->variant_id);
-            $finalPrice = $variant->sale_price ?? $variant->price;
         }
 
         $cartItemQuery = Cart::where('product_id', $product->id)

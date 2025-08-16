@@ -27,10 +27,17 @@
 
             <div class="product-action-vertical">
                 <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"
-                    data-product-id="{{ $product->id }}"></a>
+                    data-product-id="{{ $product->id }}"
+                    @if ($product->variants->count() > 0) data-variant-id="{{ $product->variants->first()->id }}"
+                       data-price="{{ $product->variants->first()->sale_price ?? $product->variants->first()->price }}"
+                   @else
+                       data-variant-id=""
+                       data-price="{{ $product->sale_price && $product->sale_price < $product->price ? $product->sale_price : $product->price }}" @endif></a>
+
                 <a href="#"
-                    class="btn-product-icon btn-wishlist {{ $product->in_wishlist ? 'w-icon-heart-full added' : 'w-icon-heart ' }}"
-                    title="Add to wishlist" data-product-id="{{ $product->id }}"></a>
+                    class="btn-product-icon btn-wishlist {{ $product->in_wishlist ? 'w-icon-heart-full added' : 'w-icon-heart' }}"
+                    title="Add to wishlist" data-product-id="{{ $product->id }}">
+                </a>
                 <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quickview"
                     data-product-id="{{ $product->id }}"></a>
             </div>

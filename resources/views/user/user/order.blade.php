@@ -18,45 +18,41 @@
                                     <thead>
                                         <tr>
                                             <th class="text-dark">Product</th>
-                                            <th></th>
+                                            <th class="text-dark">Qty</th>
+                                            <th class="text-dark text-right">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($order->orderDetails as $item)
                                             <tr>
                                                 <td>
-                                                    <a href="#">{{ $item->product->name }}</a>&nbsp;<strong>x
-                                                        {{ $item->quantity }}</strong><br>
-                                                    Vendor : <a href="#">{{ $item->vendor->name ?? 'N/A' }}</a>
+                                                    {{ $item->product->name }}
                                                 </td>
-                                                <td>${{ number_format($item->total_price, 2) }}</td>
+                                                <td> {{ $item->qty }}</td>
+                                                <td>{{ productAmount($item->price) }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Subtotal:</th>
-                                            <td>${{ number_format($order->subtotal, 2) }}</td>
+                                            <th colspan="2">Subtotal:</th>
+                                            <td>{{ productAmount($order->subtotal) }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Shipping:</th>
-                                            <td>{{ $order->shipping_method ?? 'Flat rate' }}</td>
+                                            <th colspan="2">Shipping:</th>
+                                            <td>{{ productAmount($order->shipping_amount) ?? 'Flat rate' }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Payment method:</th>
-                                            <td>{{ $order->payment_method ?? 'N/A' }}</td>
+                                            <th colspan="2">Payment method:</th>
+                                            <td>{{ ucfirst($order->payment_method) ?? 'N/A' }}</td>
                                         </tr>
                                         <tr class="total">
-                                            <th class="border-no">Total:</th>
-                                            <td class="border-no">${{ number_format($order->total, 2) }}</td>
+                                            <th colspan="2" class="border-no">Total:</th>
+                                            <td class="border-no">{{ productAmount($order->total_amount) }}</td>
                                         </tr>
                                     </tfoot>
                                 </table>
                             </div>
-
-
-
-
 
                             <a href="{{ route('user.profile') }}"
                                 class="btn btn-dark btn-rounded btn-icon-left btn-back mt-6 mb-6">

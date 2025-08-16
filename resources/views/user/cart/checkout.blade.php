@@ -3,6 +3,7 @@
 @section('title', 'Checkout')
 
 @section('content')
+
     <main class="main checkout">
         <div class="page-content">
             <div class="container">
@@ -206,7 +207,9 @@
                                     <table class="order-table">
                                         <thead>
                                             <tr>
-                                                <th colspan="2"><b>Product</b></th>
+                                                <th><b>Product</b></th>
+                                                <th><b>Qty</b></th>
+                                                <th><b>Price</b></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -228,7 +231,11 @@
                                                         @if ($item->variant && $item->variant->attributes)
                                                             ({{ $item->variant->attributes->pluck('attributeValue.value')->join(', ') }})
                                                         @endif
-                                                        × <span class="product-quantity">{{ $item->qty }}</span>
+
+                                                    </td>
+                                                    <td>
+                                                        <span class="product-quantity">{{ $item->qty }}</span> × <span
+                                                            class="product-quantity">{{ $item->price }}</span>
                                                     </td>
                                                     <td class="product-total">{{ productAmount($line) }}</td>
                                                 </tr>
@@ -237,19 +244,19 @@
 
                                         <tfoot>
                                             <tr class="cart-subtotal bb-no">
-                                                <td><b>Subtotal</b></td>
+                                                <td colspan="2"><b>Subtotal</b></td>
                                                 <td><b id="subtotal-amount">{{ productAmount($subtotal) }}</b></td>
                                             </tr>
 
                                             {{-- hidden initially, shown after coupon applied --}}
                                             <tr id="discount-row" class="d-none">
-                                                <td><b>Discount (<span id="applied-code"></span>)</b></td>
+                                                <td colspan="2"><b>Discount (<span id="applied-code"></span>)</b></td>
                                                 <td><b id="discount-amount">-</b></td>
                                             </tr>
 
                                             {{-- Shipping --}}
                                             <tr class="shipping-row">
-                                                <td>
+                                                <td colspan="2">
                                                     <b>Shipping</b>
                                                     <div class="small text-muted" id="shipping-note"></div>
                                                 </td>
@@ -257,7 +264,7 @@
                                             </tr>
 
                                             <tr class="order-total">
-                                                <th><b>Total</b></th>
+                                                <td colspan="2"><b>Total</b></th>
                                                 <td><b id="order-total">{{ productAmount($subtotal) }}</b></td>
                                             </tr>
                                         </tfoot>
