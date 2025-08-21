@@ -37,7 +37,7 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (\Symfony\Component\HttpKernel\Exception\HttpException $e, $request) {
-            iaf ($e->getStatusCode() === 500) {
+            if ($e->getStatusCode() === 500) {
                 $page = Page::where('slug', '500')->first();
 
                 return response()->view('errors.500', compact('page'), 500);
