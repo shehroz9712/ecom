@@ -113,7 +113,7 @@ class HomeController  extends Controller
     public function page(Request $request, $slug)
     {
         // Fetch the page content based on the slug
-        $page = Page::where('slug', $slug)->first();
+        $page = Page::where('slug', $slug)->firstOrFail();
         // Return the view with the page content
         return view('user.pages.page', compact('page'));
     }

@@ -48,14 +48,13 @@
                                         <input type="checkbox" class="custom-checkbox" id="remember"
                                             {{ old('remember') ? 'checked' : '' }} name="remember">
                                         <label for="remember">Remember me</label>
-                                        <a href="#">Last your password?</a>
+                                        <a href="{{ route('password.request') }}">Last your password?</a>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Sign In</button>
                                 </form>
                             </div>
                             <div class="tab-pane" id="sign-up">
-                                <form method="POST" action="{{ route('register.store') }}"
-                                    class="theme-form login-form">
+                                <form method="POST" action="{{ route('register.store') }}" class="theme-form login-form">
                                     @csrf
                                     <!-- Personal Information -->
                                     <div class="form-group mb-2">
@@ -110,7 +109,9 @@
                                     <div class="form-check mb-3">
                                         <input class="form-check-input" type="checkbox" id="terms" required>
                                         <label class="form-check-label" for="terms">
-                                            I agree to the <a href="#">Terms and Conditions</a>
+                                            I agree to the <a
+                                                href="{{ route('user.page', ['slug' => 'terms-and-conditions']) }}">Terms
+                                                and Conditions</a>
                                         </label>
                                     </div>
 
@@ -122,12 +123,12 @@
                                 </form>
                             </div>
                         </div>
-                        <p class="text-center">Sign in with social account</p>
+                        {{-- <p class="text-center">Sign in with social account</p>
                         <div class="social-icons social-icon-border-color d-flex justify-content-center">
                             <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
                             <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
                             <a href="#" class="social-icon social-google fab fa-google"></a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -206,4 +207,14 @@
             </div>
         </div>
     </section> --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const msg = localStorage.getItem('error');
+            if (msg) {
+                toastr.error(msg);
+
+                localStorage.removeItem('error');
+            }
+        });
+    </script>
 @endsection

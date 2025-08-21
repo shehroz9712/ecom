@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use App\Http\Controllers\Api\v1\BaseController;
+use App\Models\Page;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -12,6 +13,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -26,76 +28,33 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
-    public function register()
+    public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e, $request) {
+            $page = Page::where('slug', '404')->first();
+
+            return response()->view('errors.404', compact('page'), 404);
+        });
+
+        $this->renderable(function (\Symfony\Component\HttpKernel\Exception\HttpException $e, $request) {
+            iaf ($e->getStatusCode() === 500) {
+                $page = Page::where('slug', '500')->first();
+
+                return response()->view('errors.500', compact('page'), 500);
+            }
         });
     }
 
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+            return view('error.404');
+        }
 
-        // $apiResponseObject = new BaseController();
+        if ($this->isHttpException($exception) && $exception->getStatusCode() == 500) {
+            return view('error.500');
+        }
 
-        // if ($request->expectsJson()) {
-        //     if ($exception instanceof MethodNotAllowedHttpException) {
-        //         return $apiResponseObject->respondMethodNotAllowed(
-        //             [$exception->getMessage()],
-        //             false,
-        //             'Method Not Allowed!'
-        //         );
-        //     }
-
-        //     if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
-        //         return $apiResponseObject->respondNotFound(
-        //             [$exception->getMessage()],
-        //             false,
-        //             'Not Found!'
-        //         );
-        //     }
-        //     if ($exception instanceof AuthorizationException || $exception instanceof AccessDeniedHttpException) {
-        //         return $apiResponseObject->respondForbidden(
-        //             [$exception->getMessage()],
-        //             false,
-        //             'Forbidden!'
-        //         );
-        //     }
-
-        //     if ($exception instanceof ValidationException) {
-        //         return $apiResponseObject->respondUnprocessableEntity(
-        //             $exception->errors(),
-        //             false,
-        //             'Validation Failed!'
-        //         );
-        //     }
-
-        //     if ($exception instanceof ThrottleRequestsException) {
-        //         return $apiResponseObject->respondToManyAttempt(
-        //             [$exception->getMessage()],
-        //             false,
-        //             'Too Many Requests!'
-        //         );
-        //     }
-
-        //     if ($exception instanceof AuthorizationException) {
-        //         return $apiResponseObject->respondForbidden(
-        //             ['error' => 'You do not have permission to perform this action.'],
-        //             false,
-        //             'Forbidden'
-        //         );
-        //     }
-
-        //     if ($exception instanceof AuthenticationException) {
-        //         return $apiResponseObject->respondUnauthorized(
-        //             [],
-        //             false,
-        //             'Unauthorized!'
-        //         );
-        //     }
-        // }
-
-        //dd($request->all());
         return parent::render($request, $exception);
     }
 

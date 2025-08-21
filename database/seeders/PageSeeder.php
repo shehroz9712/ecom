@@ -103,12 +103,12 @@ class PageSeeder extends Seeder
                 'updated_at'        => Carbon::now(),
             ],
             [
-    'title'             => 'Return & Refund Policy',
-    'slug'              => 'return-refund-policy',
-    'heading'           => 'Return & Refund Policy',
-    'page_image'        => NULL,
-    'short_description' => 'Our return and refund policy at Orcheee.com — how returns, exchanges, and refunds work.',
-    'long_description'  => '<h1>Return & Refund Policy</h1>
+                'title'             => 'Return & Refund Policy',
+                'slug'              => 'return-refund-policy',
+                'heading'           => 'Return & Refund Policy',
+                'page_image'        => NULL,
+                'short_description' => 'Our return and refund policy at Orcheee.com — how returns, exchanges, and refunds work.',
+                'long_description'  => '<h1>Return & Refund Policy</h1>
 <p>At Orcheee.com, customer satisfaction is our top priority. If you are not completely satisfied with your purchase, we’re here to help.</p>
 
 <h2>1. Return Eligibility</h2>
@@ -159,14 +159,14 @@ class PageSeeder extends Seeder
 <p>For return or refund-related queries, please contact:</p>
 <p>📧 Email: <a href="mailto:support@orcheee.com">support@orcheee.com</a><br>
 🌐 Website: <a href="https://www.orcheee.com">www.orcheee.com</a></p>',
-    'meta_keywords'     => 'Return, Refund, Exchange, Orcheee',
-    'meta_description'  => 'Return and Refund Policy of Orcheee.com',
-    'status'            => 'active',
-    'created_by'        => 1,
-    'sort'              => 7,
-    'created_at'        => Carbon::now(),
-    'updated_at'        => Carbon::now(),
-],
+                'meta_keywords'     => 'Return, Refund, Exchange, Orcheee',
+                'meta_description'  => 'Return and Refund Policy of Orcheee.com',
+                'status'            => 'active',
+                'created_by'        => 1,
+                'sort'              => 7,
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now(),
+            ],
 
             [
                 'title'             => 'Terms & Conditions',
@@ -280,6 +280,36 @@ class PageSeeder extends Seeder
                 'long_description'  => '<h1>New Arrival</h1><p>New arrivals content here...</p>',
                 'meta_keywords'     => 'New, Arrival, Products',
                 'meta_description'  => 'New Arrivals at Orcheee.com',
+                'status'            => 'active',
+                'created_by'        => 1,
+                'sort'              => 11,
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now(),
+            ],
+            [
+                'title'             => '500 server error',
+                'slug'              => '500',
+                'heading'           => '500 server error',
+                'page_image'        => '500.png',
+                'short_description' => 'Check out the newest products in our store.',
+                'long_description'  => '<h1>500 server error</h1><p>500 server errors content here...</p>',
+                'meta_keywords'     => 'New, Arrival, Products',
+                'meta_description'  => '500 server errors at Orcheee.com',
+                'status'            => 'active',
+                'created_by'        => 1,
+                'sort'              => 11,
+                'created_at'        => Carbon::now(),
+                'updated_at'        => Carbon::now(),
+            ],
+            [
+                'title'             => '404 Not found',
+                'slug'              => '404',
+                'heading'           => '404 Not found',
+                'page_image'        => '404.png',
+                'short_description' => 'Check out the newest products in our store.',
+                'long_description'  => '<h1>404 Not found</h1><p>404 Not founds content here...</p>',
+                'meta_keywords'     => 'New, Arrival, Products',
+                'meta_description'  => '404 Not founds at Orcheee.com',
                 'status'            => 'active',
                 'created_by'        => 1,
                 'sort'              => 11,

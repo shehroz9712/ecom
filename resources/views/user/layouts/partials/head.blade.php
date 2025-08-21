@@ -2,11 +2,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title>{{ $settings->title }}</title>
+    <title>
+        {{ $page->title ?? $settings->title }}
+    </title>
 
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="{{ $settings->description }}">
-
+    <meta name="keywords" content="{{ $page->meta_keywords ?? $settings->keywords }}">
+    <meta name="description" content="{{ $page->meta_description ?? $settings->description }}">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets/uploads/logo/' . $settings->favicon) }}">
 

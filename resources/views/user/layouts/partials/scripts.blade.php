@@ -78,14 +78,24 @@
         $('#ajax-loader').fadeOut();
     });
 </script>
-
+@php
+    $isUserAuthenticated = auth()->check();
+@endphp
 <!-- Quantity + Wishlist + Cart AJAX -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Wishlist toggle
         document.querySelectorAll('.btn-wishlist').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
+
+                var isUserAuthenticated = {{ json_encode($isUserAuthenticated) }};
+
+                if (!isUserAuthenticated) {
+                    localStorage.setItem('error',
+                        'Please login first to add items to your wishlist.');
+                    window.location.href = "{{ route('login') }}";
+                    return;
+                }
                 const productId = this.dataset.productId;
 
                 fetch(window.routes.wishlistToggle, {
@@ -98,13 +108,21 @@
                             product_id: productId
                         })
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        alert(data.message || 'Added to wishlist!');
+                    .then(async response => {
+                        const data = await response.json();
+
+                        if (response.status === 401 && data.redirect) {
+                            // User not logged in, redirect to login page
+                            window.location.href = data.redirect;
+                        } else {
+                            alert(data.message || 'Added to wishlist!');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
                     });
             });
         });
-
         // Quantity +/-
         document.querySelectorAll('.quantity-plus').forEach(button => {
             button.addEventListener('click', function() {

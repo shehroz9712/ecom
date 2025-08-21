@@ -221,6 +221,11 @@ class ProductController extends Controller
 
     public function toggle(Request $request)
     {
+        if (!auth()->guard('web')->check()) {
+            return response()->json([
+                'redirect' => route('login')
+            ], 401); // 401 Unauthorized
+        }
         $request->validate(['product_id' => 'required|exists:products,id']);
 
         $userId = auth()->id();
