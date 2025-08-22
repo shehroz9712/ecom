@@ -6,7 +6,7 @@
         {{ $page->title ?? $settings->title }}
     </title>
 
-    <meta name="keywords" content="{{ $page->meta_keywords ?? $settings->keywords }}">
+    <meta name="keywords" content="{{ $page->meta_keywords ?? $settings->keyword }}">
     <meta name="description" content="{{ $page->meta_description ?? $settings->description }}">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets/uploads/logo/' . $settings->favicon) }}">
