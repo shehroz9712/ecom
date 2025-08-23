@@ -58,31 +58,31 @@
                                             <li>
                                                 <a href="{{ route('user.shop', array_merge(request()->query(), ['min_price' => 0, 'max_price' => 100])) }}"
                                                     class="{{ request('min_price') == 0 && request('max_price') == 100 ? 'active' : '' }}">
-                                                    $0.00 - $100.00
+                                                    {{ productAmount(0) }} - {{ productAmount(100) }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('user.shop', array_merge(request()->query(), ['min_price' => 100, 'max_price' => 200])) }}"
                                                     class="{{ request('min_price') == 100 && request('max_price') == 200 ? 'active' : '' }}">
-                                                    $100.00 - $200.00
+                                                    {{ productAmount(100) }} - {{ productAmount(200) }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('user.shop', array_merge(request()->query(), ['min_price' => 200, 'max_price' => 300])) }}"
                                                     class="{{ request('min_price') == 200 && request('max_price') == 300 ? 'active' : '' }}">
-                                                    $200.00 - $300.00
+                                                    {{ productAmount(200) }} - {{ productAmount(300) }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('user.shop', array_merge(request()->query(), ['min_price' => 300, 'max_price' => 500])) }}"
                                                     class="{{ request('min_price') == 300 && request('max_price') == 500 ? 'active' : '' }}">
-                                                    $300.00 - $500.00
+                                                    {{ productAmount(300) }} - {{ productAmount(500) }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('user.shop', array_merge(request()->query(), ['min_price' => 500, 'max_price' => null])) }}"
                                                     class="{{ request('min_price') == 500 && !request('max_price') ? 'active' : '' }}">
-                                                    $500.00+
+                                                    {{ productAmount(500) }}+
                                                 </a>
                                             </li>
                                         </ul>
@@ -145,7 +145,7 @@
                                         <option value="default"
                                             {{ request('orderby', 'default') == 'default' ? 'selected' : '' }}>Default
                                         </option>
-                                       
+
                                         <option value="rating" {{ request('orderby') == 'rating' ? 'selected' : '' }}>Sort
                                             by average rating</option>
                                         <option value="date" {{ request('orderby') == 'date' ? 'selected' : '' }}>Sort
@@ -172,7 +172,7 @@
                                         </option>
                                     </select>
                                 </div>
-                            
+
                             </div>
                         </nav>
 

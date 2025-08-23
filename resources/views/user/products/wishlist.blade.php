@@ -48,7 +48,7 @@
                                         </a>
                                         <form action="{{ route('user.wishlist.toggle', $wishlist->id) }}" method="POST">
                                             @csrf
-                                            @method('DELETE')
+                                            @method('POST')
                                             <button type="submit" class="btn btn-close"><i
                                                     class="fas fa-times"></i></button>
                                         </form>
