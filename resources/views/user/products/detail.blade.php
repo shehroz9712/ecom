@@ -124,7 +124,7 @@
                                     <div class="product-bm-wrapper">
                                         @if ($product->brand)
                                             <figure class="brand">
-                                                <img src="{{ $product->brand->image_url }}"
+                                                <img src="{{ productImage($product->brand->image_url) }}"
                                                     alt="{{ $product->brand->name }}" width="102" height="48" />
                                             </figure>
                                         @endif
@@ -541,33 +541,6 @@
 
 @section('script')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Select first variant option automatically
-            let firstVariantBtn = document.querySelector('.product-variations a');
-            if (firstVariantBtn) {
-                firstVariantBtn.classList.add('active'); // highlight kare
-                firstVariantBtn.click(); // click event trigger kare taki variant details update ho jaye
-            }
-        });
-    </script>
-
-    <script>
-        document.getElementById('read-more-btn').addEventListener('click', function() {
-            const box = document.getElementById('description-box');
-            const overlay = box.querySelector('.gradient-overlay');
-
-            if (box.classList.contains('collapsed')) {
-                box.classList.remove('collapsed');
-                overlay.style.display = 'none';
-                this.textContent = 'Read Less';
-            } else {
-                box.classList.add('collapsed');
-                overlay.style.display = 'block';
-                this.textContent = 'Read More';
-            }
-        });
-    </script>
-    <script>
         $(document).ready(function() {
             // Initialize Owl Carousels
             $('[data-owl-options]').each(function() {
@@ -575,7 +548,34 @@
                 $(this).owlCarousel(options);
             });
 
+            // Auto-select first variant options on page load
+            function autoSelectFirstOptions() {
+                $('.product-variations-wrapper .product-variations').each(function() {
+                    const firstOption = $(this).find('a').first();
+                    if (firstOption.length) {
+                        firstOption.addClass('active');
+
+                        const attributeId = firstOption.data('attribute-id');
+                        const attributeValueId = firstOption.data('attribute-value-id');
+
+                        // Store in selectedAttributes
+                        selectedAttributes[attributeId] = attributeValueId;
+                    }
+                });
+
+                // If we have all required attributes, fetch variant details
+                const totalAttributes = {{ count($attributeGroups ?? []) }};
+                const selectedCount = Object.keys(selectedAttributes).length;
+
+                if (selectedCount === totalAttributes && totalAttributes > 0) {
+                    fetchVariantDetails(selectedAttributes);
+                }
+            }
+
             let selectedAttributes = {};
+
+            // Auto-select first options when page loads
+            autoSelectFirstOptions();
 
             $('.product-variations .color, .product-variations .size').on('click', function(e) {
                 e.preventDefault();
@@ -628,20 +628,25 @@
                             const variant = response.variant;
 
                             // Update variant details section
-                            $('.product-variant-details').show();
+                            // Hide main price and show variant price
 
                             // Update prices
-                            if (variant.sale_price) {
-                                $('.variant-price').text('{{ config('settings.currency_symbol') }}' +
-                                    variant.price);
-                                $('.variant-sale-price').text(
-                                    '{{ config('settings.currency_symbol') }}' + variant.sale_price
-                                ).show();
+                            if (variant.sale_price && variant.sale_price < variant.price) {
+                                console.log(variant.price + ' ' + variant.sale_price);
+
+                                // $('.product-price .new-price').text(
+                                //     '{{ productAmount('variant.price') }}');
+                                // $('.product-price .sale-price').text(
+                                //     '{{ productAmount('variant.sale_price') }}'
+                                // ).show();
                             } else {
-                                $('.variant-price').text('{{ config('settings.currency_symbol') }}' +
-                                    variant.price);
-                                $('.variant-sale-price').hide();
+
+                                // $('.product-price .new-price').text(
+                                //     '{{ productAmount('variant.price') }}');
                             }
+
+
+
 
                             // Update SKU
                             $('.variant-sku').text(variant.sku);
@@ -673,7 +678,6 @@
                 });
             }
 
-        
             // Quantity controls
             $(document).on('click', '.quantity-plus', function() {
                 const input = $(this).siblings('.quantity');
@@ -720,6 +724,22 @@
                     'linkedin-share-dialog', 'width=626,height=436');
                 return false;
             }
+
+            // Read more/less functionality
+            $('#read-more-btn').on('click', function() {
+                const box = $('#description-box');
+                const overlay = box.find('.gradient-overlay');
+
+                if (box.hasClass('collapsed')) {
+                    box.removeClass('collapsed');
+                    overlay.hide();
+                    $(this).text('Read Less');
+                } else {
+                    box.addClass('collapsed');
+                    overlay.show();
+                    $(this).text('Read More');
+                }
+            });
         });
     </script>
 @endsection

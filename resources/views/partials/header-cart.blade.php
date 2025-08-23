@@ -55,7 +55,7 @@
 
         <div class="cart-total">
             <label>Subtotal:</label>
-            <span class="price">${{ number_format($headerCartSubtotal, 2) }}</span>
+            <span class="price">{{ productAmount($headerCartSubtotal) }}</span>
         </div>
 
         <div class="cart-action">

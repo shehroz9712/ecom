@@ -47,7 +47,7 @@ class CartController extends Controller
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'qty' => 'required|integer|min:1',
-            'price' => 'required',
+            'price' => 'nullable',
             'variant_id' => 'nullable|exists:product_variants,id',
         ]);
 
@@ -55,10 +55,11 @@ class CartController extends Controller
         $deviceId = $request->cookie('device_id') ?? (string) Str::uuid();
         $product = Product::findOrFail($request->product_id);
         $variant = null;
-        $finalPrice = $request->price;
+        $finalPrice = $request->price ?? $product->price;
 
         if ($request->filled('variant_id')) {
             $variant = ProductVariant::findOrFail($request->variant_id);
+            $finalPrice = $request->price ?? $variant->sale_price ?? $variant->price;
         }
 
         $cartItemQuery = Cart::where('product_id', $product->id)
@@ -153,7 +154,7 @@ class CartController extends Controller
         $cart->qty = $request->qty;
         $cart->save();
 
-        $userId = auth()->id();
+        $userId = auth()->guard('web')->id();
         $cartItems = Cart::where('user_id', $userId)->get();
 
         $newSubtotal = $cartItems->sum(function ($item) {

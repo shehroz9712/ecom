@@ -216,22 +216,98 @@
                         body: JSON.stringify({
                             product_id: productId,
                             qty: qty,
-                            price: price, // Added price parameter
+                            price: price,
                             variant_id: variantId
                         })
                     })
                     .then(res => res.json())
                     .then(data => {
+                        // Remove loading state
+                        this.classList.remove('load-more-overlay', 'loading');
+
                         if (data.success) {
+                            // Show success feedback
+                            this.classList.add('added');
                             updateMiniCart();
+
+                            // Show minipopup using theme's template
+                            showMiniPopup({
+                                productClass: "product-cart",
+                                imageSrc: data.product?.image || this.closest(
+                                    '.product').querySelector(
+                                    '.product-media img, .product-image:first-child img'
+                                ).src,
+                                imageLink: data.product?.link || this.closest(
+                                    '.product').querySelector(
+                                    '.product-name > a').href,
+                                name: data.product?.name || this.closest('.product')
+                                    .querySelector('.product-name, .product-title')
+                                    .textContent,
+                                nameLink: data.product?.link || this.closest(
+                                    '.product').querySelector(
+                                    '.product-name > a').href,
+                                message: "<p>has been added to cart:</p>",
+                                actionTemplate: `<a href="${window.routes.cart}" class="btn btn-rounded btn-sm">View Cart</a><a href="${window.routes.checkout}" class="btn btn-dark btn-rounded btn-sm">Checkout</a>`
+                            });
                         } else {
                             alert(data.message || 'Could not add to cart.');
                         }
+                    })
+                    .catch(error => {
+                        // Remove loading state on error
+                        this.classList.remove('load-more-overlay', 'loading');
+                        console.error('Error:', error);
+                        alert('An error occurred while adding to cart.');
                     });
             });
         });
 
+        // Minipopup function using theme's exact template
+        function showMiniPopup(options) {
+            const template =
+                `<div class="minipopup-box"><div class="product product-list-sm ${options.productClass}"><figure class="product-media"><a href="${options.imageLink}"><img src="${options.imageSrc}" alt="Product" width="80" height="90" /></a></figure><div class="product-details"><h4 class="product-name"><a href="${options.nameLink}">${options.name}</a></h4>${options.message}</div></div><div class="product-action">${options.actionTemplate}</div></div>`;
+
+            // Create minipopup element
+            const minipopup = document.createElement('div');
+            minipopup.innerHTML = template;
+            const minipopupBox = minipopup.firstElementChild;
+
+            // Create minipopup area if it doesn't exist
+            let minipopupArea = document.querySelector('.minipopup-area');
+            if (!minipopupArea) {
+                minipopupArea = document.createElement('div');
+                minipopupArea.className = 'minipopup-area';
+                document.querySelector('.page-wrapper').appendChild(minipopupArea);
+            }
+
+            // Add to minipopup area
+            minipopupArea.appendChild(minipopupBox);
+
+            // Show animation
+            setTimeout(() => {
+                minipopupBox.classList.add('show');
+            }, 10);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (minipopupBox.parentNode) {
+                    minipopupBox.classList.remove('show');
+                    setTimeout(() => minipopupBox.remove(), 300);
+                }
+            }, 5000);
+
+            // Add click handlers for the buttons
+            minipopupBox.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    minipopupBox.classList.remove('show');
+                    setTimeout(() => minipopupBox.remove(), 300);
+                });
+            });
+        }
+
         // Mini Cart Refresh
+
+
         function updateMiniCart() {
             fetch(window.routes.cartMini)
                 .then(res => res.json())

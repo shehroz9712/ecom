@@ -62,7 +62,7 @@ function productAmount($amount,  $decimal = 2, $currency = null,): string
     }
 
     $position = $settings && $settings->currency_position === 'right' ? 'right' : 'left';
-
+    $amount = (float) $amount;
     $formatted = number_format($amount, $decimal);
 
     return $position === 'left'
