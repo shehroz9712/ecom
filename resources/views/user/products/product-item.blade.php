@@ -43,8 +43,8 @@
             </div>
 
             @if ($product->discount > 0)
-                <div class="product-label-group">
-                    <label class="product-label label-discount">{{ $product->discount }}% Off</label>
+                <div class="product-label-group" style="top: 0;">
+                    <label class="product-label label-new">{{ round($product->discount) }}% Off</label>
                 </div>
             @endif
         </figure>

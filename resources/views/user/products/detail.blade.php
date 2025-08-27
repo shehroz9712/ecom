@@ -350,8 +350,8 @@
                                                     <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                                         title="Add to wishlist"
                                                         data-product-id="{{ $vendorProduct->id }}"></a>
-                                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                                                        title="Quickview" data-product-id="{{ $product->id }}"></a>
+                                                    {{-- <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                                        title="Quickview" data-product-id="{{ $product->id }}"></a> --}}
                                                     <a href="#" class="btn-product-icon btn-compare w-icon-compare"
                                                         title="Add to Compare"
                                                         data-product-id="{{ $vendorProduct->id }}"></a>

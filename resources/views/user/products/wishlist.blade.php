@@ -69,9 +69,9 @@
                                 </td> --}}
                                 <td class="wishlist-action">
                                     <div class="d-lg-flex">
-                                        <a href="{{ route('user.product.detail', $wishlist->product->slug) }}"
+                                        {{-- <a href="{{ route('user.product.detail', $wishlist->product->slug) }}"
                                             class="btn btn-quickview btn-outline btn-default btn-rounded btn-sm mb-2 mb-lg-0">Quick
-                                            View</a>
+                                            View</a> --}}
                                         <form action="{{ route('user.cart.add', $wishlist->product->id) }}" method="POST">
                                             @csrf
                                             <button type="submit"
