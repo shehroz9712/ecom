@@ -31,11 +31,10 @@
                             <th class="product-name"><span>Product</span></th>
                             <th></th>
                             <th class="product-price"><span>Price</span></th>
-                            <th class="product-stock-status"><span>Stock Status</span></th>
                             <th class="wishlist-action">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="wishlist-body">
                         @forelse ($wishlists as $wishlist)
                             <tr>
                                 <td class="product-thumbnail">
@@ -52,6 +51,7 @@
                                             <input type="hidden" name="product_id" value="{{ $wishlist->product->id }}">
                                             <button type="submit" class="btn btn-close"><i
                                                     class="fas fa-times"></i></button>
+                                            <input type="hidden" name="page" value="wishlist">
                                         </form>
                                     </div>
                                 </td>
@@ -64,9 +64,9 @@
                                     <ins
                                         class="new-price">{{ productAmount($wishlist->product->sale_price ?? $wishlist->product->price) }}</ins>
                                 </td>
-                                <td class="product-stock-status">
+                                {{-- <td class="product-stock-status">
                                     <span class="wishlist-in-stock">In Stock</span>
-                                </td>
+                                </td> --}}
                                 <td class="wishlist-action">
                                     <div class="d-lg-flex">
                                         <a href="{{ route('user.product.detail', $wishlist->product->slug) }}"
@@ -95,4 +95,10 @@
         <!-- End of PageContent -->
     </main>
     <!-- End of Main -->
+@endsection
+
+@section('scripts')
+    <script>
+        // Your custom scripts here
+    </script>
 @endsection

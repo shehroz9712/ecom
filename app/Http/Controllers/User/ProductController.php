@@ -237,6 +237,9 @@ class ProductController extends Controller
 
         if ($wishlist) {
             $wishlist->delete();
+            if ($request->input('page') === 'wishlist') {
+                return redirect()->back()->with('success', 'Removed from wishlist');
+            }
             return response()->json(['message' => 'Removed from wishlist', 'status' => 'removed']);
         } else {
             Wishlist::create([

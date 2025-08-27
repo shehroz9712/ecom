@@ -99,10 +99,10 @@
                                                 @endif
                                             @endforeach
                                             <input type="number" name="min_price" class="min_price text-center"
-                                                placeholder="$min" value="{{ request('min_price') }}">
+                                                placeholder="min" value="{{ request('min_price') }}">
                                             <span class="delimiter">-</span>
                                             <input type="number" name="max_price" class="max_price text-center"
-                                                placeholder="$max" value="{{ request('max_price') }}">
+                                                placeholder="max" value="{{ request('max_price') }}">
                                             <button type="submit" class="btn btn-primary btn-rounded">Go</button>
                                         </form>
                                     </div>
@@ -113,13 +113,10 @@
                                 <div class="widget widget-collapsible">
                                     <h3 class="widget-title"><span>Brand</span></h3>
                                     <ul class="widget-body filter-items item-check mt-1">
-                                        <li><a href="#">Elegant Auto Group</a></li>
-                                        <li><a href="#">Green Grass</a></li>
-                                        <li><a href="#">Node Js</a></li>
-                                        <li><a href="#">NS8</a></li>
-                                        <li><a href="#">Red</a></li>
-                                        <li><a href="#">Skysuite Tech</a></li>
-                                        <li><a href="#">Sterling</a></li>
+                                        @foreach ($brands as $brand)
+                                            <li><a href="#">{{ $brand->name }}</a></li>
+                                        @endforeach
+
                                     </ul>
                                 </div>
 
