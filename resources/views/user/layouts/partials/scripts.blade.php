@@ -111,12 +111,8 @@
                     .then(async response => {
                         const data = await response.json();
 
-                        if (response.status === 401 && data.redirect) {
-                            // User not logged in, redirect to login page
-                            window.location.href = data.redirect;
-                        } else {
-                            alert(data.message || 'Added to wishlist!');
-                        }
+
+                        toastr.success(data.message || 'Added to wishlist!');
                     })
                     .catch(error => {
                         console.error('Error:', error);

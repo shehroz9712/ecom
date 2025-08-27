@@ -38,8 +38,8 @@
                     class="btn-product-icon btn-wishlist {{ $product->in_wishlist ? 'w-icon-heart-full added' : 'w-icon-heart' }}"
                     title="Add to wishlist" data-product-id="{{ $product->id }}">
                 </a>
-                <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quickview"
-                    data-product-id="{{ $product->id }}"></a>
+                {{-- <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quickview"
+                    data-product-id="{{ $product->id }}"></a> --}}
             </div>
 
             @if ($product->discount > 0)
