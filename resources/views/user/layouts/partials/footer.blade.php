@@ -57,13 +57,11 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="widget">
-                        <h3 class="widget-title">Company</h3>
+                        <h3 class="widget-title">Page</h3>
                         <ul class="widget-body">
                             <li><a href="{{ route('user.about') }}">About Us</a></li>
-                            <li><a href="#">Team Member</a></li>
-                            <li><a href="#">Career</a></li>
                             <li><a href="{{ route('user.contact') }}">Contact Us</a></li>
-                            <li><a href="#">Affilate</a></li>
+                            <li><a href="{{ route('user.order.track') }}">Track My Order</a></li>
                             <li><a href="#">Order History</a></li>
                         </ul>
                     </div>
@@ -72,10 +70,8 @@
                     <div class="widget">
                         <h4 class="widget-title">My Account</h4>
                         <ul class="widget-body">
-                            <li><a href="#">Track My Order</a></li>
                             <li><a href="{{ route('user.cart') }}">View Cart</a></li>
                             <li><a href="{{ route('login') }}">Sign In</a></li>
-                            <li><a href="#">Help</a></li>
                             <li><a href="{{ route('user.wishlist') }}">My Wishlist</a></li>
                             <li><a href="{{ route('user.page', ['slug' => 'privacy-policy']) }}">Privacy Policy</a></li>
                         </ul>
@@ -89,8 +85,10 @@
                             <li><a href="#">Money-back guarantee!</a></li>
                             <li><a href="#">Product Returns</a></li>
                             <li><a href="#">Support Center</a></li>
-                            <li><a href="{{ route('user.page', ['slug' => 'return-refund-policy']) }}">Return & Refund Policy</a></li>
-                            <li><a href="{{ route('user.page', ['slug' => 'terms-and-conditions']) }}">Term and Conditions</a></li>
+                            <li><a href="{{ route('user.page', ['slug' => 'return-refund-policy']) }}">Return & Refund
+                                    Policy</a></li>
+                            <li><a href="{{ route('user.page', ['slug' => 'terms-and-conditions']) }}">Term and
+                                    Conditions</a></li>
                         </ul>
                     </div>
                 </div>
