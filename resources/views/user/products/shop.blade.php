@@ -41,7 +41,7 @@
                                     <ul class="widget-body filter-items search-ul">
                                         @foreach ($categories as $cat)
                                             <li>
-                                                <a href="{{ route('user.shop', ['category' => $cat->slug]) }}"
+                                                <a href="{{ route('user.shop', array_merge(request()->query(), ['category' => $cat->slug])) }}"
                                                     class="{{ request('category') == $cat->slug ? 'active' : '' }}">
                                                     {{ $cat->name }}
                                                 </a>
@@ -66,6 +66,7 @@
                                                     class="{{ request('min_price') == 100 && request('max_price') == 200 ? 'active' : '' }}">
                                                     {{ productAmount(100) }} - {{ productAmount(200) }}
                                                 </a>
+
                                             </li>
                                             <li>
                                                 <a href="{{ route('user.shop', array_merge(request()->query(), ['min_price' => 200, 'max_price' => 300])) }}"
@@ -87,7 +88,8 @@
                                             </li>
                                         </ul>
                                         <form class="price-range" action="{{ route('user.shop') }}" method="GET">
-                                            @foreach (request()->except(['min_price', 'max_price']) as $key => $value)
+                                            {{-- Preserve all other filters except price --}}
+                                            @foreach (request()->except(['min_price', 'max_price', 'page']) as $key => $value)
                                                 @if (is_array($value))
                                                     @foreach ($value as $arrayValue)
                                                         <input type="hidden" name="{{ $key }}[]"
@@ -98,13 +100,16 @@
                                                         value="{{ $value }}">
                                                 @endif
                                             @endforeach
+
                                             <input type="number" name="min_price" class="min_price text-center"
                                                 placeholder="min" value="{{ request('min_price') }}">
                                             <span class="delimiter">-</span>
                                             <input type="number" name="max_price" class="max_price text-center"
                                                 placeholder="max" value="{{ request('max_price') }}">
+
                                             <button type="submit" class="btn btn-primary btn-rounded">Go</button>
                                         </form>
+
                                     </div>
                                 </div>
 
@@ -114,7 +119,10 @@
                                     <h3 class="widget-title"><span>Brand</span></h3>
                                     <ul class="widget-body filter-items item-check mt-1">
                                         @foreach ($brands as $brand)
-                                            <li><a href="#">{{ $brand->name }}</a></li>
+                                            <li><a href="{{ route('user.shop', array_merge(request()->query(), ['brand' => $brand->slug])) }}"
+                                                    class="{{ request('brand') == $brand->slug ? 'active' : '' }}">
+                                                    {{ $brand->name }}
+                                                </a></li>
                                         @endforeach
 
                                     </ul>

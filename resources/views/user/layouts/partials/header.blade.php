@@ -145,8 +145,9 @@
                                             <span class="tip tip-new">Hot</span> Promotion
                                         </a>
                                     </li>
-                                    <li class="{{ request()->routeIs('user.new_arrival') ? 'active' : '' }}">
-                                        <a href="{{ route('user.new_arrival') }}">New Arrival</a>
+                                    <li class="{{ request()->routeIs('user.shop?sort=new_arrival') ? 'active' : '' }}">
+                                        <a href="{{ route('user.shop', ['sort' => 'new_arrival']) }}">New Arrival</a>
+
                                     </li>
                                     <li class="{{ request()->routeIs('user.shop') ? 'active' : '' }}">
                                         <a href="{{ route('user.shop') }}">Shop</a>

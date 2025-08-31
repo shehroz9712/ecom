@@ -87,6 +87,9 @@ class ProductController extends Controller
             case 'price-high':
                 $products->orderBy('price', 'desc');
                 break;
+            case 'new_arrival':
+                $products->whereDate('created_at', '>=', now()->subDays(30)); // New arrivals in the last 30 days
+                break;
             default:
                 $products->orderBy('is_featured', 'desc')
                     ->orderBy('created_at', 'desc');
@@ -264,6 +267,7 @@ class ProductController extends Controller
     public function new_arrival()
     {
         $products = Product::with(['images'])
+            ->whereDate('created_at', '>=', now()->subDays(30)) // New arrivals in the last 30 days
             ->orderBy('created_at', 'desc')
             ->active()
             ->paginate(12);
