@@ -273,61 +273,7 @@
                     window.location.href = this.href;
                 });
             });
-
-            // Add to cart
-            $(document).on('click', '.btn-cart', function(e) {
-                e.preventDefault();
-                const productId = $(this).data('product-id');
-
-                $.ajax({
-                    url: '/cart/add',
-                    method: 'POST',
-                    data: {
-                        product_id: productId,
-                        quantity: 1,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        updateCartCount(response.cartCount);
-                        showToast('Product added to cart');
-                    }
-                });
-            });
-
-            // Quick view
-            $(document).on('click', '.btn-quickview', function(e) {
-                e.preventDefault();
-                const productId = $(this).data('product-id');
-
-                $.get('/products/quick-view/' + productId, function(response) {
-                    $('#quickViewModal .modal-body').html(response);
-                    $('#quickViewModal').modal('show');
-                });
-            });
-
-            // Wishlist
-            $(document).on('click', '.btn-wishlist', function(e) {
-                e.preventDefault();
-                const productId = $(this).data('product-id');
-
-                $.ajax({
-                    url: '/wishlist/toggle',
-                    method: 'POST',
-                    data: {
-                        product_id: productId,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        if (response.added) {
-                            showToast('Product added to wishlist');
-                        } else {
-                            showToast('Product removed from wishlist');
-                        }
-                    }
-                });
-            });
         });
-
         // Make sure these are defined globally if used elsewhere
     </script>
 @endsection

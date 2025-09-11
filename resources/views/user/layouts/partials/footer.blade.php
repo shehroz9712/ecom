@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="widget">
-                        <h3 class="widget-title">Page</h3>
+                        <h3 class="widget-title">Company</h3>
                         <ul class="widget-body">
                             <li><a href="{{ route('user.about') }}">About Us</a></li>
                             <li><a href="{{ route('user.contact') }}">Contact Us</a></li>

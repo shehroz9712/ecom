@@ -77,7 +77,7 @@ Route::name('user.')->group(function () {
     Route::post('/order/track', [OrderController::class, 'orderTrackCheck'])->name('track.order');
 
     // Authenticated user routes
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth', 'verified'])->group(function () {
         // Dashboard
         Route::get('/dashboard', [ProfileController::class, 'index'])->name('dashboard');
         Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
@@ -122,6 +122,7 @@ Route::name('user.')->group(function () {
 
     });
     Route::get('/{slug}', [HomeController::class, 'page'])->name('page');
+    Route::get('/order/{id}', [OrderController::class, 'orderDetail'])->name('orders.show');
 });
 
 // System routes (not user-facing)
