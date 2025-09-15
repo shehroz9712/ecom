@@ -153,8 +153,8 @@
 
                                     <div class="product-price">
                                         @if ($product->sale_price)
-                                            <ins class="new-price">{{ productAmount($product->price) }}</ins>
-                                            <del class="old-price">{{ productAmount($product->sale_price) }}</del>
+                                            <ins class="new-price">{{ productAmount($product->sale_price) }}</ins>
+                                            <del class="old-price">{{ productAmount($product->price) }}</del>
                                         @else
                                             <ins class="new-price">{{ productAmount($product->price) }}</ins>
                                         @endif
@@ -303,7 +303,7 @@
                                         {!! $product->description !!}
                                         <div class="gradient-overlay"></div>
                                     </div>
-                                    <span id="read-more-btn" class="btn btn-primary read-more-btn"s>Read More</span>
+                                    <span id="read-more-btn" class="btn btn-primary read-more-btn">Read More</span>
                                 </div>
                                 <div class="tab-pane" id="product-tab-specification">
                                     {!! $product->specification !!}

@@ -1,25 +1,19 @@
 "use strict";
-
 function Slider(t, e) {
     return this.init(t, e)
 }
-
 function Sidebar(t) {
     return this.init(t)
 }
-
 function QuantityInput(t) {
     return this.init(t)
 }
-
 function Popup(t, e) {
     return this.init(t, e)
 }
-
 function ProductSingle(t) {
     return this.init(t)
 }
-
 function Calendar(t, e) {
     return this.init(t, e)
 }
@@ -27,7 +21,6 @@ var cartUrl = window.routes.cart;
 var checkoutUrl = window.routes.checkout;
 var wishlistUrl = window.routes.wishlist;
 var compareUrl = window.routes.compare;
-
 var $ = jQuery.noConflict();
 $.extend($.easing, {
     def: "easeOutQuad",
@@ -173,14 +166,12 @@ $.extend($.easing, {
             function e(t, e) {
                 return this.init(t, e)
             }
-
             function a() {
                 Wolmart.$window.trigger("sticky_refresh.wolmart", {
                     index: 0,
                     offsetTop: 0
                 })
             }
-
             function i(t) {
                 t && !Wolmart.windowResized(t.timeStamp) || (Wolmart.$window.trigger("sticky_refresh_size.wolmart"), a())
             }
@@ -378,7 +369,6 @@ $.extend($.easing, {
                         }
                     }, Wolmart.parseOptions(e.attr("data-sticky-options"))))
                 });
-
                 function i() {
                     Wolmart.$(e).trigger("recalc.pin"), t(window).trigger("appear.check")
                 }
@@ -648,164 +638,6 @@ $.extend($.easing, {
         Wolmart.menu = i
     }(jQuery),
     function (t) {
-        var e = function (t) {
-            var e = this.getAttribute("class");
-            if (e.match(/row|gutter\-\w\w|cols\-\d|cols\-\w\w-\d/g) && this.setAttribute("class", e.replace(/row|gutter\-\w\w|cols\-\d|cols\-\w\w-\d/g, "").replace(/\s+/, " ")), this.classList.contains("animation-slider"))
-                for (var a = this.children, i = a.length, o = 0; o < i; ++o) a[o].setAttribute("data-index", o + 1)
-        },
-            a = function (t) {
-                var e, a = this.firstElementChild.firstElementChild.children,
-                    i = a.length;
-                for (e = 0; e < i; ++e)
-                    if (!a[e].classList.contains("active")) {
-                        var o, n = Wolmart.byClass("appear-animate", a[e]);
-                        for (o = n.length - 1; o >= 0; --o) n[o].classList.remove("appear-animate")
-                    }
-            },
-            i = function (e) {
-                t(window).trigger("appear.check");
-                var a = t(e.currentTarget),
-                    i = a.find(".owl-item.active video");
-                a.find(".owl-item:not(.active) video").each(function () {
-                    this.paused || a.trigger("play.owl.autoplay"), this.pause(), this.currentTime = 0
-                }), i.length && (!0 === a.data("owl.carousel").options.autoplay && a.trigger("stop.owl.autoplay"), i.each(function () {
-                    this.paused && this.play()
-                }))
-            },
-            o = function (e) {
-                var a = this;
-                t(e.currentTarget).find(".owl-item.active .slide-animate").each(function () {
-                    var e = t(this),
-                        i = t.extend(!0, {}, Wolmart.animationOptions, Wolmart.parseOptions(e.data("animation-options"))),
-                        o = i.duration,
-                        n = i.delay,
-                        s = i.name;
-                    setTimeout(function () {
-                        if (e.css("animation-duration", o), e.css("animation-delay", n), e.addClass(s), e.hasClass("maskLeft")) {
-                            e.css("width", "fit-content");
-                            var t = e.width();
-                            e.css("width", 0).css("transition", "width " + (o || "0.75s") + " linear " + (n || "0s")), e.css("width", t)
-                        }
-                        o = o || "0.75s";
-                        var i = Wolmart.requestTimeout(function () {
-                            e.addClass("show-content")
-                        }, n ? 1e3 * Number(n.slice(0, -1)) + 200 : 200);
-                        a.timers.push(i)
-                    }, 300)
-                })
-            },
-            n = function (e) {
-                t(e.currentTarget).find(".owl-item.active .slide-animate").each(function () {
-                    var e = t(this);
-                    e.addClass("show-content"), e.attr("style", "")
-                })
-            },
-            s = function (e) {
-                var a = t(e.currentTarget);
-                this.translateFlag = 1, this.prev = this.next, a.find(".owl-item .slide-animate").each(function () {
-                    var e = t(this),
-                        a = t.extend(!0, {}, Wolmart.animationOptions, Wolmart.parseOptions(e.data("animation-options")));
-                    e.removeClass(a.name)
-                })
-            },
-            r = function (e) {
-                var a = this,
-                    i = t(e.currentTarget);
-                if (1 == a.translateFlag) {
-                    if (a.next = i.find(".owl-item").eq(e.item.index).children().attr("data-index"), i.find(".show-content").removeClass("show-content"), a.prev != a.next) {
-                        if (i.find(".show-content").removeClass("show-content"), i.hasClass("animation-slider")) {
-                            for (var o = 0; o < a.timers.length; o++) Wolmart.deleteTimeout(a.timers[o]);
-                            a.timers = []
-                        }
-                        i.find(".owl-item.active .slide-animate").each(function () {
-                            var e = t(this),
-                                i = t.extend(!0, {}, Wolmart.animationOptions, Wolmart.parseOptions(e.data("animation-options"))),
-                                o = i.duration,
-                                n = i.delay,
-                                s = i.name;
-                            e.css("animation-duration", o), e.css("animation-delay", n), e.css("transition-property", "visibility, opacity"), e.css("transition-delay", n), e.css("transition-duration", o), e.addClass(s), o = o || "0.75s", e.addClass("show-content");
-                            var r = Wolmart.requestTimeout(function () {
-                                e.css("transition-property", ""), e.css("transition-delay", ""), e.css("transition-duration", ""), a.timers.splice(a.timers.indexOf(r), 1)
-                            }, n ? 1e3 * Number(n.slice(0, -1)) + 500 * Number(o.slice(0, -1)) : 500 * Number(o.slice(0, -1)));
-                            a.timers.push(r)
-                        })
-                    } else i.find(".owl-item").eq(e.item.index).find(".slide-animate").addClass("show-content");
-                    a.translateFlag = 0
-                }
-            };
-        Slider.defaults = {
-            responsiveClass: !0,
-            navText: ['<i class="w-icon-angle-left">', '<i class="w-icon-angle-right">'],
-            checkVisible: !1,
-            items: 1,
-            smartSpeed: navigator.userAgent.indexOf("Edge") > -1 ? 200 : 700,
-            autoplaySpeed: navigator.userAgent.indexOf("Edge") > -1 ? 200 : 1e3,
-            autoplayTimeout: 1e4
-        }, Slider.zoomImage = function () {
-            Wolmart.zoomImage(this.$element)
-        }, Slider.zoomImageRefresh = function () {
-            this.$element.find("img").each(function () {
-                var e = t(this);
-                if (t.fn.zoom) {
-                    var a = e.data("zoom");
-                    void 0 !== a ? a.refresh() : (Wolmart.zoomImageOptions.zoomContainer = e.parent(), e.zoom(Wolmart.zoomImageOptions))
-                }
-            })
-        }, Slider.presets = {
-            "intro-slider": {
-                animateIn: "fadeIn",
-                animateOut: "fadeOut"
-            },
-            "product-single-carousel": {
-                dots: !1,
-                nav: !0,
-                onInitialize: Slider.zoomImage,
-                onRefreshed: Slider.zoomImageRefresh
-            },
-            "product-gallery-carousel": {
-                dots: !1,
-                nav: !0,
-                margin: 30,
-                items: 1,
-                responsive: {
-                    576: {
-                        items: 2
-                    }
-                },
-                onInitialized: Slider.zoomImage,
-                onRefreshed: Slider.zoomImageRefresh
-            }
-        }, Slider.prototype.init = function (l, c) {
-            this.timers = [], this.translateFlag = 0, this.prev = 1, this.next = 1, Wolmart.lazyLoad(l, !0);
-            var d = l.attr("class").split(" "),
-                u = t.extend(!0, {}, Slider.presets, Slider.defaults);
-            d.forEach(function (e) {
-                var a = Slider.presets[e];
-                a && t.extend(!0, u, a)
-            });
-            if (l.find("video").each(function () {
-                this.loop = !1
-            }), t.extend(!0, u, Wolmart.parseOptions(l.attr("data-owl-options")), c), o = o.bind(this), s = s.bind(this), r = r.bind(this), l.on("initialize.owl.carousel", e).on("initialized.owl.carousel", a).on("translated.owl.carousel", i), l.hasClass("animation-slider") && l.on("initialized.owl.carousel", o).on("resized.owl.carousel", n).on("translate.owl.carousel", s).on("translated.owl.carousel", r), l.owlCarousel(u), u.dotsContainer) {
-                var p = t(u.dotsContainer);
-                p.find("a").on("click", function (e) {
-                    e.preventDefault();
-                    var a = t(this);
-                    if (!a.hasClass("active")) {
-                        var i = a.index();
-                        p.parent().find(".owl-carousel").trigger("to.owl.carousel", [i]), a.addClass("active").siblings().removeClass("active")
-                    }
-                })
-            }
-        }, Wolmart.slider = function (e, a) {
-            Wolmart.$(e).each(function () {
-                var e = t(this);
-                Wolmart.call(function () {
-                    new Slider(e, a)
-                })
-            })
-        }
-    }(jQuery),
-    function (t) {
         var e = function () {
             window.innerWidth < 992 && (this.$sidebar.find(".sidebar-content").removeAttr("style"), this.$sidebar.find(".sidebar-content").attr("style", ""), this.$sidebar.find(".toolbox").children(":not(:first-child)").removeAttr("style"))
         };
@@ -842,74 +674,79 @@ $.extend($.easing, {
     function (t) {
         var e = {
             init: function () {
-                Wolmart.call(Wolmart.ratingTooltip, 500), Wolmart.call(Wolmart.setProgressBar(".progress-bar"), 500), this.initProductType("slideup"), this.initVariation(), this.initProductsScrollLoad(".scroll-load"), Wolmart.$body.on("mousedown", ".select-menu", function (e) {
-                    var a = t(e.currentTarget),
-                        i = t(e.target),
-                        o = a.hasClass("opened");
-                    t(".select-menu").removeClass("opened"), a.is(i.parent()) ? (!o && a.addClass("opened"), e.stopPropagation()) : (i.parent().toggleClass("active"), i.parent().hasClass("active") ? (t(".selected-items").children().length < 2 && t(".selected-items").show(), t('<a href="#" class="selected-item">' + i.text().split("(")[0] + '<i class="la la-close"></i></a>').insertBefore(".selected-items .filter-clean").hide().fadeIn().data("link", i.parent())) : t(".selected-items > .selected-item").filter(function (t, e) {
-                        return e.innerText == i.text().split("(")[0]
-                    }).fadeOut(function () {
-                        t(this).remove(), t(".selected-items").children().length < 2 && t(".selected-items").hide()
-                    }))
-                }), t(".selected-items .filter-clean").on("click", function (e) {
-                    var a = t(this);
-                    a.siblings().each(function () {
-                        var e = t(this).data("link");
-                        e && e.removeClass("active")
-                    }), a.parent().fadeOut(function () {
-                        a.siblings().remove()
-                    }), e.preventDefault()
-                }), t(".filter-clean").on("click", function (e) {
-                    t(".shop-sidebar .filter-items .active").removeClass("active"), e.preventDefault()
-                }), Wolmart.$body.on("click", ".select-menu a", function (t) {
-                    t.preventDefault()
-                }), Wolmart.$body.on("click", ".selected-item i", function (e) {
-                    t(e.currentTarget).parent().fadeOut(function () {
-                        var e = t(this),
-                            a = e.data("link");
-                        a && a.toggleClass("active"), e.remove(), t(".select-items").children().length < 2 && t(".select-items").hide()
-                    }), e.preventDefault()
-                }), Wolmart.$body.on("mousedown", function (e) {
-                    t(".select-menu").removeClass("opened")
-                }), Wolmart.$body.on("click", ".filter-items a", function (e) {
-                    var a = t(this).closest(".filter-items");
-                    a.hasClass("search-ul") || a.parent().hasClass("select-menu") || (t(this).parent().toggleClass("active"), e.preventDefault())
-                }), Wolmart.$body.on("click", ".product:not(.product-select) .btn-cart, .product-popup .btn-cart, .home .product-single .btn-cart", function (e) {
-                    e.preventDefault();
-                    var a = t(this),
-                        i = a.closest(".product, .product-popup");
-                    a.hasClass("disabled") ? alert("Please select some product options before adding this product to your cart.") : (a.toggleClass("added").addClass("load-more-overlay loading"), setTimeout(function () {
-                        a.removeClass("load-more-overlay loading"), Wolmart.Minipopup.open({
-                            productClass: " product-cart",
-                            name: i.find(".product-name, .product-title").text(),
-                            nameLink: i.find(".product-name > a, .product-title > a").attr("href"),
-                            imageSrc: i.find(".product-media img, .product-image:first-child img").attr("src"),
-                            imageLink: i.find(".product-name > a").attr("href"),
-                            message: "<p>has been added to cart:</p>",
-                            actionTemplate: '<a href="' + cartUrl + '" class="btn btn-rounded btn-sm">View Cart</a><a href="' + checkoutUrl + '" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
-                        })
-                    }, 500))
-                }), Wolmart.$body.on("click", ".product:not(.product-single) .btn-wishlist", function (e) {
-                    e.preventDefault();
-                    var a = t(this);
-                    a.toggleClass("added").addClass("load-more-overlay loading"), setTimeout(function () {
-                        a.removeClass("load-more-overlay loading"), a.toggleClass("w-icon-heart").toggleClass("w-icon-heart-full")
-                    }, 500)
-                }),
+                Wolmart.call(Wolmart.ratingTooltip, 500), Wolmart.call(Wolmart.setProgressBar(".progress-bar"), 500), this.initProductType("slideup"),
+                    /* COMMENTED: initVariation - Product Variations Handling */
+                    // this.initVariation(),
+                    this.initProductsScrollLoad(".scroll-load"), Wolmart.$body.on("mousedown", ".select-menu", function (e) {
+                        var a = t(e.currentTarget),
+                            i = t(e.target),
+                            o = a.hasClass("opened");
+                        t(".select-menu").removeClass("opened"), a.is(i.parent()) ? (!o && a.addClass("opened"), e.stopPropagation()) : (i.parent().toggleClass("active"), i.parent().hasClass("active") ? (t(".selected-items").children().length < 2 && t(".selected-items").show(), t('<a href="#" class="selected-item">' + i.text().split("(")[0] + '<i class="la la-close"></i></a>').insertBefore(".selected-items .filter-clean").hide().fadeIn().data("link", i.parent())) : t(".selected-items > .selected-item").filter(function (t, e) {
+                            return e.innerText == i.text().split("(")[0]
+                        }).fadeOut(function () {
+                            t(this).remove(), t(".selected-items").children().length < 2 && t(".selected-items").hide()
+                        }))
+                    }), t(".selected-items .filter-clean").on("click", function (e) {
+                        var a = t(this);
+                        a.siblings().each(function () {
+                            var e = t(this).data("link");
+                            e && e.removeClass("active")
+                        }), a.parent().fadeOut(function () {
+                            a.siblings().remove()
+                        }), e.preventDefault()
+                    }), t(".filter-clean").on("click", function (e) {
+                        t(".shop-sidebar .filter-items .active").removeClass("active"), e.preventDefault()
+                    }), Wolmart.$body.on("click", ".select-menu a", function (t) {
+                        t.preventDefault()
+                    }), Wolmart.$body.on("click", ".selected-item i", function (e) {
+                        t(e.currentTarget).parent().fadeOut(function () {
+                            var e = t(this),
+                                a = e.data("link");
+                            a && a.toggleClass("active"), e.remove(), t(".select-items").children().length < 2 && t(".select-items").hide()
+                        }), e.preventDefault()
+                    }), Wolmart.$body.on("mousedown", function (e) {
+                        t(".select-menu").removeClass("opened")
+                    }), Wolmart.$body.on("click", ".filter-items a", function (e) {
+                        var a = t(this).closest(".filter-items");
+                        a.hasClass("search-ul") || a.parent().hasClass("select-menu") || (t(this).parent().toggleClass("active"), e.preventDefault())
+                    }), Wolmart.$body.on("click", ".product:not(.product-select) .btn-cart, .product-popup .btn-cart, .home .product-single .btn-cart", function (e) {
+                        e.preventDefault();
+                        var a = t(this),
+                            i = a.closest(".product, .product-popup");
+                        /* COMMENTED: Disabled check for product variations */
+                        // a.hasClass("disabled") ? alert("Please select some product options before adding this product to your cart.") : 
+                        (a.toggleClass("added").addClass("load-more-overlay loading"), setTimeout(function () {
+                            a.removeClass("load-more-overlay loading"), Wolmart.Minipopup.open({
+                                productClass: " product-cart",
+                                name: i.find(".product-name, .product-title").text(),
+                                nameLink: i.find(".product-name > a, .product-title > a").attr("href"),
+                                imageSrc: i.find(".product-media img, .product-image:first-child img").attr("src"),
+                                imageLink: i.find(".product-name > a").attr("href"),
+                                message: "<p>has been added to cart:</p>",
+                                actionTemplate: '<a href="' + cartUrl + '" class="btn btn-rounded btn-sm">View Cart</a><a href="' + checkoutUrl + '" class="btn btn-dark btn-rounded btn-sm">Checkout</a>'
+                            })
+                        }, 500))
+                    }), Wolmart.$body.on("click", ".product:not(.product-single) .btn-wishlist", function (e) {
+                        e.preventDefault();
+                        var a = t(this);
+                        a.toggleClass("added").addClass("load-more-overlay loading"), setTimeout(function () {
+                            a.removeClass("load-more-overlay loading"), a.toggleClass("w-icon-heart").toggleClass("w-icon-heart-full")
+                        }, 500)
+                    }),
                     // function () {
-                    //     var e = t(".product-popup");
-                    //     e.length && Wolmart.$body.on("click", ".btn-quickview", function (a) {
-                    //         a.preventDefault(), Wolmart.popup({
-                    //             items: {
-                    //                 src: e[0].outerHTML
-                    //             },
-                    //             callbacks: {
-                    //                 open: function () {
-                    //                     Wolmart.productSingle(t(".mfp-product .product-single")), Popup.defaults.callbacks.open()
-                    //                 }
-                    //             }
-                    //         }, "quickview")
-                    //     })
+                    // var e = t(".product-popup");
+                    // e.length && Wolmart.$body.on("click", ".btn-quickview", function (a) {
+                    // a.preventDefault(), Wolmart.popup({
+                    // items: {
+                    // src: e[0].outerHTML
+                    // },
+                    // callbacks: {
+                    // open: function () {
+                    // Wolmart.productSingle(t(".mfp-product .product-single")), Popup.defaults.callbacks.open()
+                    // }
+                    // }
+                    // }, "quickview")
+                    // })
                     // }(),
                     function () {
                         function e() {
@@ -917,14 +754,14 @@ $.extend($.easing, {
                         }
                         var a, i, o, n = [],
                             s = t(".page-wrapper > .compare-popup");
-                        s.length || document.body.classList.contains("docs") || (t(".page-wrapper").append('<div class="compare-popup">                    <div class="container">                        <div class="compare-title">                            <h4 class="title title-center">Compare Products</h4>                        </div>                        <ul class="compare-product-list list-style-none">                            <li></li><li></li><li></li><li></li>                        </ul>                        <a href="#" class="btn btn-clean">Clean All</a>                        <a href="' + compareUrl + '" class="btn btn-dark btn-rounded">Start Compare !</a>                    </div>                </div>                <div class="compare-popup-overlay">                </div>'), s = t(".page-wrapper > .compare-popup")), Wolmart.$body.on("click", ".product .btn-compare", function (o) {
+                        s.length || document.body.classList.contains("docs") || (t(".page-wrapper").append('<div class="compare-popup"> <div class="container"> <div class="compare-title"> <h4 class="title title-center">Compare Products</h4> </div> <ul class="compare-product-list list-style-none"> <li></li><li></li><li></li><li></li> </ul> <a href="#" class="btn btn-clean">Clean All</a> <a href="' + compareUrl + '" class="btn btn-dark btn-rounded">Start Compare !</a> </div> </div> <div class="compare-popup-overlay"> </div>'), s = t(".page-wrapper > .compare-popup")), Wolmart.$body.on("click", ".product .btn-compare", function (o) {
                             var r = t(this);
                             i = !1, r.hasClass("added") && returne(), o.preventDefault(), r.toggleClass("added").addClass("load-more-overlay loading"), setTimeout(function () {
                                 r.removeClass("load-more-overlay loading"), r.toggleClass("w-icon-compare").toggleClass("w-icon-check-solid"), r.attr("href", "' + compareUrl + '"), s.addClass("show")
                             }, 500);
                             var l = r.closest(".product").find("img").eq(0).attr("src");
                             n.length >= 4 && n.shift(), n.push(l), t(".compare-popup li").each(function (t) {
-                                n[t] && (this.innerHTML = '<a href="#"><figure><img src="' + n[t] + '"/></figure></a>                                        <a href="#" class="btn btn-remove"><i class="w-icon-times-solid"></i></a>')
+                                n[t] && (this.innerHTML = '<a href="#"><figure><img src="' + n[t] + '"/></figure></a> <a href="#" class="btn btn-remove"><i class="w-icon-times-solid"></i></a>')
                             }), a = n.length, e()
                         }).on("click", ".compare-popup .btn-remove", function (i) {
                             i.preventDefault();
@@ -956,13 +793,19 @@ $.extend($.easing, {
                     }(), Wolmart.priceSlider(".filter-price-slider")
             },
             initProductType: function (t) { },
+            /* COMMENTED: initVariation - Product Variations Handling */
+            /*
             initVariation: function (e) {
                 t(".product:not(.product-single) .product-variations > a").on("click", function (e) {
                     var a = t(this),
                         i = a.closest(".product").find(".product-media img");
-                    i.data("image-src") || i.data("image-src", i.attr("src")), a.toggleClass("active").siblings().removeClass("active"), a.hasClass("active") ? i.attr("src", a.data("src")) : (i.attr("src", i.data("image-src")), a.blur()), e.preventDefault()
+                    i.data("image-src") || i.data("image-src", i.attr("src")),
+                    a.toggleClass("active").siblings().removeClass("active"),
+                    a.hasClass("active") ? i.attr("src", a.data("src")) : (i.attr("src", i.data("image-src")), a.blur()),
+                    e.preventDefault()
                 })
             },
+            */
             initProductsScrollLoad: function (e) {
                 var a, i = Wolmart.$(e),
                     o = t(e).data("url");
@@ -1127,61 +970,94 @@ $.extend($.easing, {
             }), r.$wrapper.on("click", ".btn-wishlist", s), "complete" === Wolmart.status && (Wolmart.slider(l), Wolmart.initQtyInput(e.find(".quantity"))), r.$wrapper.find(".product-thumbs-sticky").length && (r.isStickyScrolling = !1, r.$wrapper.on("click", ".product-thumb:not(.active)", r.clickStickyThumbnail.bind(this)), window.addEventListener("scroll", r.scrollStickyThumbnail.bind(this), {
                 passive: !0
             })),
+                /* COMMENTED: Product Variations Handling in ProductSingle */
+                /*
                 function (e) {
-                    e.$selects = e.$wrapper.find(".product-variations select"), e.$items = e.$wrapper.find(".product-variations"), e.$priceWrap = e.$wrapper.find(".product-variation-price"), e.$clean = e.$wrapper.find(".product-variation-clean"), e.$btnCart = e.$wrapper.find(".btn-cart"), e.variationCheck(), e.$selects.on("change", function (t) {
+                    e.$selects = e.$wrapper.find(".product-variations select"),
+                    e.$items = e.$wrapper.find(".product-variations"),
+                    e.$priceWrap = e.$wrapper.find(".product-variation-price"),
+                    e.$clean = e.$wrapper.find(".product-variation-clean"),
+                    e.$btnCart = e.$wrapper.find(".btn-cart"),
+                    e.variationCheck(),
+                    e.$selects.on("change", function (t) {
                         e.variationCheck()
-                    }), e.$items.children("a").on("click", function (a) {
-                        t(this).toggleClass("active").siblings().removeClass("active"), a.preventDefault(), e.variationCheck(), e.$items.parent(".product-image-swatch") && e.swatchImage()
-                    }), e.$clean.on("click", function (t) {
-                        t.preventDefault(), e.variationClean(!0)
+                    }),
+                    e.$items.children("a").on("click", function (a) {
+                        t(this).toggleClass("active").siblings().removeClass("active"),
+                        a.preventDefault(),
+                        e.variationCheck(),
+                        e.$items.parent(".product-image-swatch") && e.swatchImage()
+                    }),
+                    e.$clean.on("click", function (t) {
+                        t.preventDefault(),
+                        e.variationClean(!0)
                     })
                 }(this)
+                */
         }, ProductSingle.prototype.setThumbsActive = function (t) {
-            var e = this,
-                a = e.$thumbsDots.eq(t);
-            if (e.$thumbsDots.filter(".active").removeClass("active"), a.addClass("active"), e.thumbsIsVertical) {
-                var i = parseInt(e.$thumbs.css("top")) + t * e.thumbsHeight;
-                i < 0 ? e.$thumbs.css("top", parseInt(e.$thumbs.css("top")) - i) : (i = e.$thumbs.offset().top + e.$thumbs[0].offsetHeight - a.offset().top - a[0].offsetHeight) < 0 && e.$thumbs.css("top", parseInt(e.$thumbs.css("top")) + i)
-            } else Wolmart.requestTimeout(function () {
-                e.$thumbs.data("owl.carousel") && e.$thumbs.data("owl.carousel").to(t)
-            }, 100)
-        }, ProductSingle.prototype.variationCheck = function () {
-            var e = !0;
-            this.$selects.each(function () {
-                return this.value || (e = !1)
-            }), this.$items.each(function () {
-                var a = t(this);
-                if (a.children("a:not(.size-guide)").length) return a.children(".active").length || (e = !1)
-            }), e ? this.variationMatch() : this.variationClean()
-        }, ProductSingle.prototype.variationMatch = function () {
-            this.$priceWrap.find("span").text("$" + (Math.round(50 * Math.random()) + 200) + ".00"), this.$priceWrap.slideDown(), this.$clean.slideDown(), this.$btnCart.removeClass("disabled")
-        }, ProductSingle.prototype.variationClean = function (t) {
-            t && this.$selects.val(""), t && this.$items.children(".active").removeClass("active"), this.$priceWrap.slideUp(), this.$clean.css("display", "none"), this.$btnCart.addClass("disabled")
-        }, ProductSingle.prototype.clickStickyThumbnail = function (e) {
-            var a = this,
-                i = t(e.currentTarget),
-                o = (i.parent().children(".active").index(), i.index() + 1);
-            i.addClass("active").siblings(".active").removeClass("active"), this.isStickyScrolling = !0;
-            var n = i.closest(".product-thumbs-sticky").find(".product-image-wrapper > :nth-child(" + o + ")");
-            n.length && (n = n.offset().top + 10, Wolmart.scrollTo(n, 500)), setTimeout(function () {
-                a.isStickyScrolling = !1
-            }, 300)
-        }, ProductSingle.prototype.scrollStickyThumbnail = function () {
-            var e = this;
-            this.isStickyScrolling || e.$wrapper.find(".product-image-wrapper .product-image").each(function () {
-                if (Wolmart.isOnScreen(this)) return e.$wrapper.find(".product-thumbs > :nth-child(" + (t(this).index() + 1) + ")").addClass("active").siblings().removeClass("active"), !1
-            })
-        }, ProductSingle.prototype.swatchImage = function () {
-            var t = this.$items.find(".active img").attr("src"),
-                e = this.$wrapper.find(".owl-item:first-child .product-image img"),
-                a = this.$wrapper.find(".owl-item:first-child .product-thumb img");
-            e.attr("src", t), a.attr("src", t)
-        }, Wolmart.productSingle = function (e) {
-            return Wolmart.$(e).each(function () {
-                var e = t(this);
-                e.is("body > *") || e.data("product-single", new ProductSingle(e))
-            }), null
-        }
+                var e = this,
+                    a = e.$thumbsDots.eq(t);
+                if (e.$thumbsDots.filter(".active").removeClass("active"), a.addClass("active"), e.thumbsIsVertical) {
+                    var i = parseInt(e.$thumbs.css("top")) + t * e.thumbsHeight;
+                    i < 0 ? e.$thumbs.css("top", parseInt(e.$thumbs.css("top")) - i) : (i = e.$thumbs.offset().top + e.$thumbs[0].offsetHeight - a.offset().top - a[0].offsetHeight) < 0 && e.$thumbs.css("top", parseInt(e.$thumbs.css("top")) + i)
+                } else Wolmart.requestTimeout(function () {
+                    e.$thumbs.data("owl.carousel") && e.$thumbs.data("owl.carousel").to(t)
+                }, 100)
+            },
+            /* COMMENTED: variationCheck, variationMatch, variationClean, swatchImage methods */
+            /*
+            ProductSingle.prototype.variationCheck = function () {
+                var e = !0;
+                this.$selects.each(function () {
+                    return this.value || (e = !1)
+                }),
+                this.$items.each(function () {
+                    var a = t(this);
+                    if (a.children("a:not(.size-guide)").length) return a.children(".active").length || (e = !1)
+                }),
+                e ? this.variationMatch() : this.variationClean()
+            },
+            ProductSingle.prototype.variationMatch = function () {
+                this.$priceWrap.find("span").text("$" + (Math.round(50 * Math.random()) + 200) + ".00"),
+                this.$priceWrap.slideDown(),
+                this.$clean.slideDown(),
+                this.$btnCart.removeClass("disabled")
+            },
+            ProductSingle.prototype.variationClean = function (t) {
+                t && this.$selects.val(""),
+                t && this.$items.children(".active").removeClass("active"),
+                this.$priceWrap.slideUp(),
+                this.$clean.css("display", "none"),
+                this.$btnCart.addClass("disabled")
+            },
+            ProductSingle.prototype.swatchImage = function () {
+                var t = this.$items.find(".active img").attr("src"),
+                    e = this.$wrapper.find(".owl-item:first-child .product-image img"),
+                    a = this.$wrapper.find(".owl-item:first-child .product-thumb img");
+                e.attr("src", t),
+                a.attr("src", t)
+            },
+            */
+            ProductSingle.prototype.clickStickyThumbnail = function (e) {
+                var a = this,
+                    i = t(e.currentTarget),
+                    o = (i.parent().children(".active").index(), i.index() + 1);
+                i.addClass("active").siblings(".active").removeClass("active"), this.isStickyScrolling = !0;
+                var n = i.closest(".product-thumbs-sticky").find(".product-image-wrapper > :nth-child(" + o + ")");
+                n.length && (n = n.offset().top + 10, Wolmart.scrollTo(n, 500)), setTimeout(function () {
+                    a.isStickyScrolling = !1
+                }, 300)
+            }, ProductSingle.prototype.scrollStickyThumbnail = function () {
+                var e = this;
+                this.isStickyScrolling || e.$wrapper.find(".product-image-wrapper .product-image").each(function () {
+                    if (Wolmart.isOnScreen(this)) return e.$wrapper.find(".product-thumbs > :nth-child(" + (t(this).index() + 1) + ")").addClass("active").siblings().removeClass("active"), !1
+                })
+            }, Wolmart.productSingle = function (e) {
+                return Wolmart.$(e).each(function () {
+                    var e = t(this);
+                    e.is("body > *") || e.data("product-single", new ProductSingle(e))
+                }), null
+            }
     }(jQuery),
     function (t) {
         function e(e) {
@@ -1210,7 +1086,6 @@ $.extend($.easing, {
                 }
             }
         }
-
         function a(t) {
             t.preventDefault(), Wolmart.popup({
                 items: {
@@ -1220,22 +1095,21 @@ $.extend($.easing, {
                 mainClass: "mfp-video-popup"
             }, "video")
         }
-
         function i(e) {
             var a = t(this);
             a.addClass("active").siblings().removeClass("active"), a.parent().addClass("selected"), a.closest(".rating-form").find("select").val(a.text()), e.preventDefault()
         }
-
         function o(e) {
             var a, i = t(this),
                 o = t(".main-content > .alert, .container > .alert");
-            if (i.hasClass("disabled")) alert("Please select some product options before adding this product to your cart.");
+            if (/* COMMENTED: Disabled check for product variations */
+                /* i.hasClass("disabled") */ false) alert("Please select some product options before adding this product to your cart.");
             else {
                 if (o.length) o.fadeOut(function () {
                     o.fadeIn()
                 });
                 else {
-                    var n = '<div class="alert alert-success alert-cart-product mb-2">                            <a href="' + cartUrl + '" class="btn btn-success btn-rounded">View Cart</a>                            <p class="mb-0 ls-normal">“' + (a = i.closest(".product-single").find(".product-title").text()) + '” has been added to your cart.</p>                            <a href="#" class="btn btn-link btn-close"><i class="close-icon"></i></a>                            </div>';
+                    var n = '<div class="alert alert-success alert-cart-product mb-2"> <a href="' + cartUrl + '" class="btn btn-success btn-rounded">View Cart</a> <p class="mb-0 ls-normal">“' + (a = i.closest(".product-single").find(".product-title").text()) + '” has been added to your cart.</p> <a href="#" class="btn btn-link btn-close"><i class="close-icon"></i></a> </div>';
                     i.closest(".product-single").before(n)
                 }
                 t(".product-sticky-content").trigger("recalc.pin")
@@ -1249,7 +1123,7 @@ $.extend($.easing, {
                     }
                     var i = t(e),
                         o = i.closest(".product-single"),
-                        n = '<div class="product product-list-sm mr-auto">                                        <figure class="product-media">                                        <img src="' + o.find(".product-image img").eq(0).attr("src") + '" alt="Product" width="85" height="85" />                                        </figure>                                        <div class="product-details pt-0 pl-2 pr-2">                                        <h4 class="product-name font-weight-normal mb-1">' + o.find(".product-details .product-title").text() + '</h4>                                        <div class="product-price mb-0">                                        <ins class="new-price">' + o.find(".new-price").text() + '</ins><del class="old-price">' + o.find(".old-price").text() + "</del></div>                                        </div></div>";
+                        n = '<div class="product product-list-sm mr-auto"> <figure class="product-media"> <img src="' + o.find(".product-image img").eq(0).attr("src") + '" alt="Product" width="85" height="85" /> </figure> <div class="product-details pt-0 pl-2 pr-2"> <h4 class="product-name font-weight-normal mb-1">' + o.find(".product-details .product-title").text() + '</h4> <div class="product-price mb-0"> <ins class="new-price">' + o.find(".new-price").text() + '</ins><del class="old-price">' + o.find(".old-price").text() + "</del></div> </div></div>";
                     i.find(".product-qty-form").before(n), window.addEventListener("resize", a, {
                         passive: !0
                     }), a()

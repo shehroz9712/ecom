@@ -22,7 +22,7 @@ class ProductController extends Controller
 
         // Start product query
         $products = Product::query()
-            ->with(['category', 'subCategory', 'subCategoryItem', 'brand', 'images'])
+            ->with(['category', 'subCategory', 'subCategoryItem', 'brand', 'images', 'campaigns'])
             ->active()
             ->withCount('reviews')
             ->withAvg('reviews', 'rating');
@@ -101,6 +101,8 @@ class ProductController extends Controller
 
         $products = $products->paginate($perPage)
             ->appends($request->query());
+
+
 
         return view('user.products.shop', compact(
             'products',
@@ -205,10 +207,12 @@ class ProductController extends Controller
             'success' => true,
             'variant' => [
                 'id' => $variant->id,
-                'price' => number_format($variant->price, 2),
-                'sale_price' => $variant->sale_price ? number_format($variant->sale_price, 2) : null,
+                'sku' => $variant->sku,
+                'price' => $variant->price,
+                'sale_price' => $variant->sale_price,
                 'stock' => $variant->stock,
-                'sku' => $variant->sku
+                'formatted_price' => productAmount($variant->price),
+                'formatted_sale_price' => $variant->sale_price ? productAmount($variant->sale_price) : null,
             ]
         ]);
     }

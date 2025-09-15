@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             StateTableSeeder::class,
             PageSeeder::class,
-            // CategorySeeder::class,
+            CategorySeeder::class,
             SliderSeeder::class,
             // BrandSeeder::class,
             // AttributeSeeder::class,
@@ -32,7 +32,8 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             VendorTableSeeder::class,
             CouponSeeder::class,
-            CitiesSeeder::class,
+            // CitiesSeeder::class,
+            CampaignSeeder::class,
         ]);
     }
 }

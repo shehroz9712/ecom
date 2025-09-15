@@ -23,7 +23,7 @@
 <script src="{{ asset('assets/user/vendor/skrollr/skrollr.js') }}"></script>
 
 <!-- Main JS -->
-<script src="{{ asset('assets/user/js/main.js') }}"></script>
+<script src="{{ asset('assets/user/js/main.js') }}"></script>  
 @yield('script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>

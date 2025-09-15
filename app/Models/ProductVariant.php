@@ -25,4 +25,41 @@ class ProductVariant extends Model
     {
         return $this->belongsToMany(AttributeValue::class, 'product_variant_attributes');
     }
+
+    public function getFinalPriceAttribute()
+    {
+        $price = $this->sale_price ?? $this->price;
+
+        $activeCampaign = $this->product->campaigns()
+            ->where('status', 'active')
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+        if ($activeCampaign) {
+            if ($activeCampaign->discount_type === 'percentage') {
+                return $price - ($price * $activeCampaign->discount_value / 100);
+            } else {
+                return max(0, $price - $activeCampaign->discount_value);
+            }
+        }
+
+        return $price;
+    }
+    public function getSalePriceAttribute($value)
+    {
+        return $this->getFinalPriceAttribute();
+    }
+    // 👉 Discount percentage (optional)
+    public function getDiscountAttribute()
+    {
+        $basePrice = $this->price;
+        $finalPrice = $this->final_price;
+
+        if ($finalPrice < $basePrice) {
+            return round((($basePrice - $finalPrice) / $basePrice) * 100, 2);
+        }
+
+        return 0;
+    }
 }

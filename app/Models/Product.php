@@ -15,7 +15,7 @@ class Product extends Model
 
     protected $guarded = []; // Replace with actual column names
 
-    protected $append = ['main_image'];
+    protected $append = ['main_image', 'final_price'];
     public static function allowedColumns(): array
     {
         return ['id', 'created_by', 'created_at', 'updated_by', 'updated_at'];
@@ -72,13 +72,7 @@ class Product extends Model
         return $this->sale_price ?? $this->price;
     }
 
-    public function getDiscountAttribute()
-    {
-        if ($this->sale_price) {
-            return round((($this->price - $this->sale_price) / $this->price) * 100, 2);
-        }
-        return 0;
-    }
+
     public function getRatingAttribute()
     {
         return $this->reviews()->avg('rating') ?? 0;
@@ -134,20 +128,6 @@ class Product extends Model
 
     // Accessors
 
-    public function getPriceRangeAttribute()
-    {
-        if ($this->variants->count() > 0) {
-            $minPrice = $this->variants->min('price');
-            $maxPrice = $this->variants->max('price');
-
-            if ($minPrice === $maxPrice) {
-                return formatPrice($minPrice);
-            }
-            return formatPrice($minPrice) . ' - ' . formatPrice($maxPrice);
-        }
-
-        return formatPrice($this->price);
-    }
 
     public function getInWishlistAttribute()
     {
@@ -158,5 +138,61 @@ class Product extends Model
         return Wishlist::where('user_id', Auth::id())
             ->where('product_id', $this->id)
             ->exists();
+    }
+    public function campaigns()
+    {
+        return $this->belongsToMany(Campaign::class, 'campaign_product');
+    }
+    public function getFinalPriceAttribute()
+    {
+        $price = $this->price;
+        // agar active campaign hai to uska discount apply hoga
+        $activeCampaign = $this->campaigns()
+            ->where('status', 'active')
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+
+        if ($activeCampaign) {
+            if ($activeCampaign->discount_type === 'percentage') {
+
+                return $price - ($price * $activeCampaign->discount_value / 100);
+            } else {
+                return max(0, $price - $activeCampaign->discount_value);
+            }
+        }
+
+        // agar simple sale_price di gayi hai to wo use hogi
+        return $this->sale_price ?? $price;
+    }
+    public function getSalePriceAttribute($value)
+    {
+        return $this->getFinalPriceAttribute();
+    }
+
+
+    public function getDiscountAttribute()
+    {
+        $basePrice = $this->price;
+        $finalPrice = $this->final_price;
+
+        if ($finalPrice < $basePrice) {
+            return round((($basePrice - $finalPrice) / $basePrice) * 100, 2);
+        }
+
+        return 0;
+    }
+
+
+    public function getCampaignEndDateAttribute()
+    {
+        $activeCampaign = $this->campaigns()
+            ->where('status', 'active')
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now())
+            ->first();
+
+        return $activeCampaign?->end_date;
     }
 }
