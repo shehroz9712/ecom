@@ -55,11 +55,13 @@ class CartController extends Controller
         $deviceId = $request->cookie('device_id') ?? (string) Str::uuid();
         $product = Product::findOrFail($request->product_id);
         $variant = null;
-        $finalPrice = $request->price ?? $product->price;
+        $finalPrice = 0;
 
         if ($request->filled('variant_id')) {
             $variant = ProductVariant::findOrFail($request->variant_id);
-            $finalPrice = $request->price ?? $variant->sale_price ?? $variant->price;
+            $finalPrice = $variant->sale_price ?? $variant->price;
+        } else {
+            $finalPrice = $product->sale_price ?? $product->price;
         }
 
         $cartItemQuery = Cart::where('product_id', $product->id)
@@ -77,6 +79,7 @@ class CartController extends Controller
 
         if ($cartItem) {
             $cartItem->qty += $request->qty;
+            $cartItem->price = $finalPrice; // ✅ keep price updated
             $cartItem->save();
         } else {
             $cartItem = Cart::create([
